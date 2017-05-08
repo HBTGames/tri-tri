@@ -14,6 +14,7 @@
 		04E48D291EC0704000823F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E48D271EC0704000823F45 /* LaunchScreen.storyboard */; };
 		04E48D341EC0704000823F45 /* tri_triTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E48D331EC0704000823F45 /* tri_triTests.swift */; };
 		04E48D3F1EC0704000823F45 /* tri_triUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E48D3E1EC0704000823F45 /* tri_triUITests.swift */; };
+		04E48D4F1EC075FA00823F45 /* 540654.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E48D4E1EC075FA00823F45 /* 540654.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		04E48D3A1EC0704000823F45 /* tri-triUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tri-triUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E48D3E1EC0704000823F45 /* tri_triUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tri_triUITests.swift; sourceTree = "<group>"; };
 		04E48D401EC0704000823F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E48D4E1EC075FA00823F45 /* 540654.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 540654.jpg; path = pictures/540654.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		04E48D1D1EC0704000823F45 /* tri-tri */ = {
 			isa = PBXGroup;
 			children = (
+				04E48D4E1EC075FA00823F45 /* 540654.jpg */,
 				04E48D1E1EC0704000823F45 /* AppDelegate.swift */,
 				04E48D201EC0704000823F45 /* ViewController.swift */,
 				04E48D221EC0704000823F45 /* Main.storyboard */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E48D291EC0704000823F45 /* LaunchScreen.storyboard in Resources */,
+				04E48D4F1EC075FA00823F45 /* 540654.jpg in Resources */,
 				04E48D261EC0704000823F45 /* Assets.xcassets in Resources */,
 				04E48D241EC0704000823F45 /* Main.storyboard in Resources */,
 			);
@@ -507,6 +511,7 @@
 				04E48D451EC0704000823F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04E48D461EC0704000823F45 /* Build configuration list for PBXNativeTarget "tri-triTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				04E48D481EC0704000823F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04E48D491EC0704000823F45 /* Build configuration list for PBXNativeTarget "tri-triUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				04E48D4B1EC0704000823F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
