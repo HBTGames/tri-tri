@@ -12,6 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tri_tri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -21,25 +22,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="540654" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-b2-SRf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_page_background" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-b2-SRf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_page_button" translatesAutoresizingMaskIntoConstraints="NO" id="wlh-ev-3Nf">
+                                <rect key="frame" x="119.5" y="373" width="81" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FIx-b2-SRf" secondAttribute="bottom" id="L15-yu-grv"/>
+                            <constraint firstAttribute="bottom" secondItem="FIx-b2-SRf" secondAttribute="bottom" id="AZo-Q1-rB0"/>
                             <constraint firstItem="FIx-b2-SRf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Miu-Ch-eyf"/>
                             <constraint firstItem="FIx-b2-SRf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PM2-mS-7tL"/>
                             <constraint firstAttribute="trailing" secondItem="FIx-b2-SRf" secondAttribute="trailing" id="fh0-Mw-vFB"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3.75" y="34.859154929577464"/>
         </scene>
     </scenes>
     <resources>
-        <image name="540654" width="2560" height="1440"/>
+        <image name="main_page_background" width="375" height="667"/>
+        <image name="main_page_button" width="134" height="134"/>
     </resources>
 </document>
