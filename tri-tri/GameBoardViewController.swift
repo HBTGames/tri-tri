@@ -25,22 +25,29 @@ class GameBoardViewController: UIViewController {
     
     var temp_mark_str = String()
     var temp_mark_int = 0
-    @IBAction func Mark_Mannual_Increment_Test(_ sender: Any) {
+    @IBAction func Mark_Mannual_Increment_Test(_ sender: UIButton) {
         temp_mark_str = MarkBoard.text!
         temp_mark_int = Int(temp_mark_str)!
         temp_mark_int += 1
         temp_mark_str = String(temp_mark_int)
         MarkBoard.text = temp_mark_str
-
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   }
