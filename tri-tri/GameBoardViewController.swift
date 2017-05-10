@@ -111,11 +111,23 @@ class GameBoardViewController: UIViewController {
     @IBOutlet weak var tri_5_5: UIImageView!
     @IBOutlet weak var tri_5_6: UIImageView!
    //--------------------------------------------------------------------------------------------------------------------
+ 
     
     
     
     
     
+    
+//--------------------------------------------------------------------------------------------------------------------
+//set two default grey triangle
+    
+//downwards triangle
+    let downwards_tri = UIImage(named:"grey_tir_downwards")
+    
+//upwards triangle
+    let upwards_tri = UIImage(named:"grey_tri_upwards")
+//--------------------------------------------------------------------------------------------------------------------
+
     
     
     
@@ -140,18 +152,16 @@ class GameBoardViewController: UIViewController {
         temp_mark_str = String(temp_mark_int)
         MarkBoard.text = temp_mark_str
         //a series of changing color of some triangles
-        tri_4_6.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_0,blendMode: .destinationIn)
-        tri_0_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: tri_color_1, blendMode: .destinationIn)
-        tri_1_1.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_2, blendMode: .destinationIn)
-        tri_2_3.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_3, blendMode: .destinationIn)
-        tri_4_2.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_4, blendMode: .destinationIn)
-
-    
-    
-    
-    
-    
+        tri_4_6.image = downwards_tri?.tint(color: tri_color_0,blendMode: .destinationIn)
+        tri_0_0.image = upwards_tri?.tint(color: tri_color_1, blendMode: .destinationIn)
+        tri_1_1.image = downwards_tri?.tint(color: tri_color_2, blendMode: .destinationIn)
+        tri_2_3.image = downwards_tri?.tint(color: tri_color_3, blendMode: .destinationIn)
+        tri_4_2.image = downwards_tri?.tint(color: tri_color_4, blendMode: .destinationIn)
     }
+    
+    
+    
+    
     
     
     
