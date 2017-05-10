@@ -23,7 +23,36 @@ class GameBoardViewController: UIViewController {
 
     
     
-    //----------------------------------------------------
+    
+    
+    
+    
+    //--------------------------------------------------------------------------------------------------------------------
+    //construct a list of colors that will be implemented in gameboard
+    
+    //color No.1 is mix of red and orange
+    let tri_color_0 = UIColor(red:CGFloat(222/255.0), green:CGFloat(111/255.0), blue:CGFloat(69/255.0), alpha:CGFloat(1))
+    
+    //color No.2 is dark green
+    let tri_color_1 = UIColor(red:CGFloat(83/255.0), green:CGFloat(142/255.0), blue:CGFloat(136/255.0), alpha:CGFloat(1))
+    
+    //color No.3 is mix of deep black and green
+    let tri_color_2 = UIColor(red:CGFloat(27/255.0), green:CGFloat(62/255.0), blue:CGFloat(49/255.0), alpha:CGFloat(1))
+    
+    //color No.4 is light brown
+    let tri_color_3 = UIColor(red:CGFloat(212/255.0), green:CGFloat(192/255.0), blue:CGFloat(148/255.0), alpha:CGFloat(1))
+    
+    //color No.5 is light green
+     let tri_color_4 = UIColor(red:CGFloat(111/255.0), green:CGFloat(151/255.0), blue:CGFloat(91/255.0), alpha:CGFloat(1))
+    //--------------------------------------------------------------------------------------------------------------------
+    
+    
+    
+    
+    
+    
+    
+    //--------------------------------------------------------------------------------------------------------------------
     //outlet connection variable for each triangle in gameboard
     //name follows protocol:
     //  "tri_(row)_(column)"
@@ -81,8 +110,7 @@ class GameBoardViewController: UIViewController {
     @IBOutlet weak var tri_5_4: UIImageView!
     @IBOutlet weak var tri_5_5: UIImageView!
     @IBOutlet weak var tri_5_6: UIImageView!
-  //----------------------------------------------------
-    
+   //--------------------------------------------------------------------------------------------------------------------
     
     
     
@@ -97,6 +125,10 @@ class GameBoardViewController: UIViewController {
     //outlet connection variable for MarkBoard (top left)
     @IBOutlet weak var MarkBoard: UILabel!
     
+    
+    
+    
+    
     //initialize two temporary mark value
     var temp_mark_str = String()
     var temp_mark_int = 0
@@ -107,8 +139,19 @@ class GameBoardViewController: UIViewController {
         temp_mark_int += 1
         temp_mark_str = String(temp_mark_int)
         MarkBoard.text = temp_mark_str
-        //change color of tri_4_6 
-        tri_4_6.image = UIImage(named:"grey_tir_downwards")?.tint(color: UIColor.cyan,blendMode: .destinationIn)   }
+        //a series of changing color of some triangles
+        tri_4_6.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_0,blendMode: .destinationIn)
+        tri_0_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: tri_color_1, blendMode: .destinationIn)
+        tri_1_1.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_2, blendMode: .destinationIn)
+        tri_2_3.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_3, blendMode: .destinationIn)
+        tri_4_2.image = UIImage(named:"grey_tir_downwards")?.tint(color: tri_color_4, blendMode: .destinationIn)
+
+    
+    
+    
+    
+    
+    }
     
     
     
