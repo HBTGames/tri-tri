@@ -301,7 +301,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-fj-p9q">
-                                <rect key="frame" x="29" y="40" width="93" height="54"/>
+                                <rect key="frame" x="29" y="40" width="93" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="50"/>
                                 <color key="textColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -312,6 +312,60 @@
                     </view>
                     <connections>
                         <outlet property="MarkBoard" destination="R9g-fj-p9q" id="hIa-ST-6zW"/>
+                        <outlet property="tri_0_0" destination="vYT-gE-ssB" id="nFf-1p-ykN"/>
+                        <outlet property="tri_0_1" destination="7Xk-3u-LMj" id="lu4-PD-JCd"/>
+                        <outlet property="tri_0_2" destination="dQJ-i2-xwN" id="XRx-GR-kbp"/>
+                        <outlet property="tri_0_3" destination="zER-RZ-aYF" id="3Ze-o5-y6K"/>
+                        <outlet property="tri_0_4" destination="FGR-4h-XtI" id="0fr-cp-xbn"/>
+                        <outlet property="tri_0_5" destination="dq9-8u-NWZ" id="Y7X-OB-hJ1"/>
+                        <outlet property="tri_0_6" destination="5iD-LB-Zla" id="ZW1-cr-oh5"/>
+                        <outlet property="tri_1_0" destination="ZMh-SG-pwV" id="lER-k0-j7k"/>
+                        <outlet property="tri_1_1" destination="sze-D6-ILW" id="Y2x-g6-img"/>
+                        <outlet property="tri_1_2" destination="xLY-mg-y9d" id="xs6-oi-eMa"/>
+                        <outlet property="tri_1_3" destination="Xl9-i7-7sq" id="vwx-A0-raV"/>
+                        <outlet property="tri_1_4" destination="afq-hz-XYw" id="R40-Gp-nbR"/>
+                        <outlet property="tri_1_5" destination="e5A-5i-0qP" id="C2N-0y-R8t"/>
+                        <outlet property="tri_1_6" destination="sQ2-Lh-rCv" id="ieT-X7-Was"/>
+                        <outlet property="tri_1_7" destination="KKv-zS-2N5" id="ChE-gs-hJ1"/>
+                        <outlet property="tri_1_8" destination="gSA-Mb-YZ3" id="mYI-ST-3g1"/>
+                        <outlet property="tri_2_0" destination="dPJ-8m-xTE" id="gKe-UP-DbM"/>
+                        <outlet property="tri_2_1" destination="M8u-6u-bLF" id="PMD-SG-RUN"/>
+                        <outlet property="tri_2_10" destination="ElD-I4-xkL" id="S5h-gs-mXJ"/>
+                        <outlet property="tri_2_2" destination="Jly-jo-gPZ" id="VIy-LA-boB"/>
+                        <outlet property="tri_2_3" destination="HaS-Ux-BL1" id="1N9-AN-43d"/>
+                        <outlet property="tri_2_4" destination="1md-g0-cYU" id="x3I-fn-wib"/>
+                        <outlet property="tri_2_5" destination="fFL-1v-SWg" id="ACi-VF-05V"/>
+                        <outlet property="tri_2_6" destination="Bjs-e7-bZz" id="830-ZE-rIB"/>
+                        <outlet property="tri_2_7" destination="3M2-qu-Esv" id="uuO-8C-9CB"/>
+                        <outlet property="tri_2_8" destination="RYp-uD-lG9" id="sAB-ee-IbF"/>
+                        <outlet property="tri_2_9" destination="PGo-7G-IgS" id="veY-E8-4IJ"/>
+                        <outlet property="tri_3_0" destination="s2N-j3-pVJ" id="aSZ-mO-03k"/>
+                        <outlet property="tri_3_1" destination="oq9-Gj-eW4" id="Ujn-aZ-lkg"/>
+                        <outlet property="tri_3_10" destination="Wye-LF-DCs" id="Oeg-R0-gnI"/>
+                        <outlet property="tri_3_2" destination="g9u-Nh-ZsC" id="nnZ-q4-Gn7"/>
+                        <outlet property="tri_3_3" destination="yKF-Go-YfT" id="IVQ-IW-mfx"/>
+                        <outlet property="tri_3_4" destination="kfi-2j-2Xx" id="7hb-pO-v8P"/>
+                        <outlet property="tri_3_5" destination="UKU-W6-TAk" id="05T-Hf-OK7"/>
+                        <outlet property="tri_3_6" destination="G0c-oR-i2a" id="feJ-W0-MmS"/>
+                        <outlet property="tri_3_7" destination="kbQ-Gr-Ptf" id="j3L-oi-DQv"/>
+                        <outlet property="tri_3_8" destination="oRY-9j-UlO" id="E2H-Ew-cKB"/>
+                        <outlet property="tri_3_9" destination="QkS-WB-m96" id="kkT-sd-sie"/>
+                        <outlet property="tri_4_0" destination="TNV-Wr-gzY" id="p1w-dI-FiV"/>
+                        <outlet property="tri_4_1" destination="ieX-yV-GjP" id="C45-DM-aVG"/>
+                        <outlet property="tri_4_2" destination="Ind-v6-fIB" id="c87-Mz-7U2"/>
+                        <outlet property="tri_4_3" destination="EtX-WB-RUr" id="Lpg-qF-eal"/>
+                        <outlet property="tri_4_4" destination="b7W-N9-Kp7" id="XFy-CJ-Pf6"/>
+                        <outlet property="tri_4_5" destination="XCv-l1-YY7" id="NB8-7x-QSc"/>
+                        <outlet property="tri_4_6" destination="cP0-Ct-uau" id="rC8-aj-Z9g"/>
+                        <outlet property="tri_4_7" destination="hwN-iF-G1c" id="5pQ-SI-TZo"/>
+                        <outlet property="tri_4_8" destination="WzP-CJ-dbs" id="nK9-kM-c0P"/>
+                        <outlet property="tri_5_0" destination="QWw-XX-YHs" id="2dG-Si-eFL"/>
+                        <outlet property="tri_5_1" destination="Tj4-UU-k9x" id="jfZ-WT-64d"/>
+                        <outlet property="tri_5_2" destination="p19-54-fIm" id="dZr-eR-6I6"/>
+                        <outlet property="tri_5_3" destination="vDk-mr-zbd" id="lGi-1a-h48"/>
+                        <outlet property="tri_5_4" destination="XvO-7H-PYi" id="zon-Z5-uzM"/>
+                        <outlet property="tri_5_5" destination="rj0-sI-BAz" id="Caq-MB-IAb"/>
+                        <outlet property="tri_5_6" destination="nwD-qz-W1C" id="Kqy-CH-vDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44c-a1-QJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
