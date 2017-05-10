@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="2.3999999999999999" y="34.632683658170919"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Board View Controller-->
         <scene sceneID="4ge-HZ-FD8">
             <objects>
-                <viewController id="qxD-t8-ioY" customClass="ViewController" customModule="tri_tri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qxD-t8-ioY" customClass="GameBoardViewController" customModule="tri_tri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QPr-PK-oJ5"/>
                         <viewControllerLayoutGuide type="bottom" id="I8B-Hx-ehl"/>
@@ -297,7 +297,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="test"/>
                                 <connections>
-                                    <action selector="Add_Mark_Test:" destination="qxD-t8-ioY" eventType="touchUpInside" id="CnA-tf-lSB"/>
+                                    <action selector="Mark_Mannual_Increment_Test:" destination="qxD-t8-ioY" eventType="touchUpInside" id="1SK-fG-wIv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-fj-p9q">
@@ -311,7 +311,7 @@
                         <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="MarkBoard" destination="R9g-fj-p9q" id="6C9-1e-gJs"/>
+                        <outlet property="MarkBoard" destination="R9g-fj-p9q" id="hIa-ST-6zW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44c-a1-QJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
