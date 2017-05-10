@@ -59,7 +59,7 @@
         <!--View Controller-->
         <scene sceneID="4ge-HZ-FD8">
             <objects>
-                <viewController id="qxD-t8-ioY" sceneMemberID="viewController">
+                <viewController id="qxD-t8-ioY" customClass="ViewController" customModule="tri_tri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QPr-PK-oJ5"/>
                         <viewControllerLayoutGuide type="bottom" id="I8B-Hx-ehl"/>
@@ -292,9 +292,27 @@
                                     <segue destination="129-y3-ZaN" kind="show" id="P08-06-Qm0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSR-yx-i8s">
+                                <rect key="frame" x="26" y="84" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="test"/>
+                                <connections>
+                                    <action selector="Add_Mark_Test:" destination="qxD-t8-ioY" eventType="touchUpInside" id="CnA-tf-lSB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-fj-p9q">
+                                <rect key="frame" x="29" y="40" width="93" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="50"/>
+                                <color key="textColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="MarkBoard" destination="R9g-fj-p9q" id="6C9-1e-gJs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44c-a1-QJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,7 +321,7 @@
         <!--View Controller-->
         <scene sceneID="aEs-Op-vW4">
             <objects>
-                <viewController id="129-y3-ZaN" sceneMemberID="viewController">
+                <viewController id="129-y3-ZaN" customClass="ViewController" customModule="tri_tri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gaR-4m-sfd"/>
                         <viewControllerLayoutGuide type="bottom" id="AOA-oT-s9K"/>

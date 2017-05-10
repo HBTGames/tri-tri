@@ -20,6 +20,29 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBOutlet weak var MarkBoard: UILabel!
+    
+    
+    var temp_mark_str = String()
+    var temp_mark_int = 0
+    @IBAction func Add_Mark_Test(_ sender: Any) {
+    temp_mark_str = MarkBoard.text!
+    temp_mark_int = Int(temp_mark_str)!
+    temp_mark_int += 1
+    temp_mark_str = String(temp_mark_int)
+    MarkBoard.text = temp_mark_str
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
 
