@@ -307,11 +307,17 @@
                                 <color key="textColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHP-98-sNR">
+                                <rect key="frame" x="116" y="576" width="143" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="MarkBoard" destination="R9g-fj-p9q" id="hIa-ST-6zW"/>
+                        <outlet property="drag_image" destination="SHP-98-sNR" id="29Z-qT-Q8L"/>
                         <outlet property="tri_0_0" destination="vYT-gE-ssB" id="nFf-1p-ykN"/>
                         <outlet property="tri_0_1" destination="7Xk-3u-LMj" id="lu4-PD-JCd"/>
                         <outlet property="tri_0_2" destination="dQJ-i2-xwN" id="XRx-GR-kbp"/>

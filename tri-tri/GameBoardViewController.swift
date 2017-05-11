@@ -10,18 +10,43 @@ import UIKit
 
 class GameBoardViewController: UIViewController {
 
+
+    
+//--------------------------------------------------------------------------------------------------------------------------
+//draggable element drag_image implementation
+    @IBOutlet weak var drag_image: UIImageView!
+
+    //original location of drag_image (only declaration here)
+    var drag_image_origin = CGPoint(x: 0, y: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //add UIPanGestureRecognizer
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction(_:)))
+        self.view.addGestureRecognizer(panGestureRecognizer)
+        //assign drag_image_origin located at the location on storyboard of drag image
+        drag_image_origin = drag_image.frame.origin
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    
+    //function in response to drag movement
+    func panGestureRecognizerAction(_ gesture: UIPanGestureRecognizer){
+        let transition = gesture.translation(in: drag_image)
+        drag_image.frame.origin = CGPoint(x: drag_image_origin.x+transition.x , y: drag_image_origin.y+transition.y)
+        
+        //if dragging ended, return to original location
+        if(gesture.state == .ended){
+            drag_image.frame.origin = drag_image_origin
+        }
+        
+    }
+    //--------------------------------------------------------------------------------------------------------------------
+
     
     
     
