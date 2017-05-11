@@ -13,19 +13,35 @@ class GameBoardViewController: UIViewController {
 
     
 //--------------------------------------------------------------------------------------------------------------------------
-//draggable element drag_image implementation
-    @IBOutlet weak var drag_image: UIImageView!
-
+//draggable element three drag triangles implementation
+    
+    @IBOutlet weak var green_drag_tri: UIImageView!
+    @IBOutlet weak var light_brown_drag_tri: UIImageView!
+    @IBOutlet weak var orange_drag_tri: UIImageView!
     //original location of drag_image (only declaration here)
     var drag_image_origin = CGPoint(x: 0, y: 0)
+    var green_drag_origin = CGPoint(x: 0, y:0 )
+    var orange_drag_origin = CGPoint(x: 0, y:0 )
+    var light_brown_drag_origin = CGPoint(x:0 , y:0)
+    
+    //adding one method by overriding touchesBegan function to get initial touch location
+    var initialTouchLocation: CGPoint!
+  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        initialTouchLocation = touches.first!.location(in: view)
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //add UIPanGestureRecognizer
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
-        //assign drag_image_origin located at the location on storyboard of drag image
-        drag_image_origin = drag_image.frame.origin
+        //assign original locations of three tris located at the location on storyboard of each of them
+        green_drag_origin = green_drag_tri.frame.origin
+        orange_drag_origin = orange_drag_tri.frame.origin
+        light_brown_drag_origin = light_brown_drag_tri.frame.origin
         // Do any additional setup after loading the view.
     }
     
@@ -33,21 +49,46 @@ class GameBoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+ //declare distance between pan enter point and each tri
+    var pan_distance_to_green = Double(0)
+    var pan_distance_to_orange = Double(0)
+    var pan_distance_to_brown = Double (0)
     //function in response to drag movement
     func panGestureRecognizerAction(_ gesture: UIPanGestureRecognizer){
-        let transition = gesture.translation(in: drag_image)
-        drag_image.frame.origin = CGPoint(x: drag_image_origin.x+transition.x , y: drag_image_origin.y+transition.y)
-        
-        //if dragging ended, return to original location
+        //compute distance to each tri
+        pan_distance_to_green = distance_generator(drag_location: initialTouchLocation, triangle_location: green_drag_origin)
+        pan_distance_to_orange = distance_generator(drag_location: initialTouchLocation, triangle_location: orange_drag_origin)
+        pan_distance_to_brown = distance_generator(drag_location: initialTouchLocation, triangle_location: light_brown_drag_origin)
+        //different situations (find the minimum distance and implement drag)
+        if(pan_distance_to_green <= pan_distance_to_orange && pan_distance_to_green <= pan_distance_to_brown){
+        let transition0 = gesture.translation(in: green_drag_tri)
+        green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
+        } else if(pan_distance_to_orange <= pan_distance_to_green && pan_distance_to_orange <= pan_distance_to_brown){
+        let transition1 = gesture.translation(in: orange_drag_tri)
+        orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
+        }else{
+        let transition2 = gesture.translation(in: light_brown_drag_tri)
+        light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
+        }
+        //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
-            drag_image.frame.origin = drag_image_origin
+            UIView.animate(withDuration: 0.3, animations: {
+            self.green_drag_tri.frame.origin = self.green_drag_origin
+             self.orange_drag_tri.frame.origin = self.orange_drag_origin
+            self.light_brown_drag_tri.frame.origin = self.light_brown_drag_origin
+            })
         }
         
     }
+    
+    //compute distance between two CGPoint (Square Form)
+    func distance_generator( drag_location: CGPoint, triangle_location: CGPoint) -> Double {
+        let temp_distance = (drag_location.x-triangle_location.x)*(drag_location.x-triangle_location.x)+(drag_location.y-triangle_location.y)*(drag_location.y-triangle_location.y)
+        return Double(temp_distance)
+    }
     //--------------------------------------------------------------------------------------------------------------------
 
-    
+   
     
     
     
@@ -191,3 +232,7 @@ class GameBoardViewController: UIViewController {
     
     
    }
+
+
+
+

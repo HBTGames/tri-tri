@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -307,17 +307,26 @@
                                 <color key="textColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHP-98-sNR">
-                                <rect key="frame" x="116" y="576" width="143" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="绿色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
+                                <rect key="frame" x="-3" y="512" width="131" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
+                                <rect key="frame" x="270" y="494" width="85" height="103"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="橙色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
+                                <rect key="frame" x="164" y="494" width="66" height="97"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="MarkBoard" destination="R9g-fj-p9q" id="hIa-ST-6zW"/>
-                        <outlet property="drag_image" destination="SHP-98-sNR" id="29Z-qT-Q8L"/>
+                        <outlet property="green_drag_tri" destination="gxz-1Y-RXe" id="UIE-Sq-pg7"/>
+                        <outlet property="light_brown_drag_tri" destination="YRp-Xf-A4k" id="Q8B-sM-uFu"/>
+                        <outlet property="orange_drag_tri" destination="eId-J2-6Yd" id="Bv1-4G-ukf"/>
                         <outlet property="tri_0_0" destination="vYT-gE-ssB" id="nFf-1p-ykN"/>
                         <outlet property="tri_0_1" destination="7Xk-3u-LMj" id="lu4-PD-JCd"/>
                         <outlet property="tri_0_2" destination="dQJ-i2-xwN" id="XRx-GR-kbp"/>
@@ -445,6 +454,9 @@
         <image name="main_page_background" width="375" height="667"/>
         <image name="main_page_button" width="134" height="134"/>
         <image name="pause_button" width="41" height="41"/>
+        <image name="棕色tri" width="85" height="103"/>
+        <image name="橙色tri" width="66" height="97"/>
+        <image name="绿色tri" width="131" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YbO-6y-GEL"/>
