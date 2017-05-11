@@ -138,8 +138,8 @@ class GameBoardViewController: UIViewController {
    //--------------------------------------------------------------------------------------------------------------------
  
     
-    
-    
+    //2-D array saves whether each triangle is filled or not
+    var filled: Array<Array<Bool>> = [[false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false, false,false, false],[false,false,false,false,false,false,false,false, false,false, false],[false,false,false,false,false,false,false,false, false],[false,false,false,false,false,false,false]]
     
     
     
