@@ -18,12 +18,13 @@ class GameBoardViewController: UIViewController {
     @IBOutlet weak var green_drag_tri: UIImageView!
     @IBOutlet weak var light_brown_drag_tri: UIImageView!
     @IBOutlet weak var orange_drag_tri: UIImageView!
-    //original location of drag_image (only declaration here)
-    var drag_image_origin = CGPoint(x: 0, y: 0)
+    //original location of drag_image (only declaration here
     var green_drag_origin = CGPoint(x: 0, y:0 )
     var orange_drag_origin = CGPoint(x: 0, y:0 )
     var light_brown_drag_origin = CGPoint(x:0 , y:0)
-    
+    var green_drag_tri_orig_rec = CGRect(origin:  CGPoint(x: 0, y:0 ) , size: CGSize(width: 0 , height: 0))
+    var orange_drag_tri_orig_rec = CGRect(origin:  CGPoint(x: 0, y:0 ) , size: CGSize(width: 0 , height: 0))
+    var light_brown_drag_tri_orig_rec = CGRect(origin:  CGPoint(x: 0, y:0 ) , size: CGSize(width: 0 , height: 0))
     //adding one method by overriding touchesBegan function to get initial touch location
     var initialTouchLocation: CGPoint!
   
@@ -42,6 +43,10 @@ class GameBoardViewController: UIViewController {
         green_drag_origin = green_drag_tri.frame.origin
         orange_drag_origin = orange_drag_tri.frame.origin
         light_brown_drag_origin = light_brown_drag_tri.frame.origin
+        //declare original frames of the tris
+        green_drag_tri_orig_rec = green_drag_tri.frame
+        orange_drag_tri_orig_rec = orange_drag_tri.frame
+        light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         // Do any additional setup after loading the view.
     }
     
@@ -49,24 +54,16 @@ class GameBoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- //declare distance between pan enter point and each tri
-    var pan_distance_to_green = Double(0)
-    var pan_distance_to_orange = Double(0)
-    var pan_distance_to_brown = Double (0)
     //function in response to drag movement
     func panGestureRecognizerAction(_ gesture: UIPanGestureRecognizer){
-        //compute distance to each tri
-        pan_distance_to_green = distance_generator(drag_location: initialTouchLocation, triangle_location: green_drag_origin)
-        pan_distance_to_orange = distance_generator(drag_location: initialTouchLocation, triangle_location: orange_drag_origin)
-        pan_distance_to_brown = distance_generator(drag_location: initialTouchLocation, triangle_location: light_brown_drag_origin)
-        //different situations (find the minimum distance and implement drag)
-        if(pan_distance_to_green <= pan_distance_to_orange && pan_distance_to_green <= pan_distance_to_brown){
+        //if original frame contains the initial point
+        if(green_drag_tri_orig_rec.contains(initialTouchLocation)){
         let transition0 = gesture.translation(in: green_drag_tri)
         green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
-        } else if(pan_distance_to_orange <= pan_distance_to_green && pan_distance_to_orange <= pan_distance_to_brown){
+        } else if(orange_drag_tri_orig_rec.contains(initialTouchLocation)){
         let transition1 = gesture.translation(in: orange_drag_tri)
         orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
-        }else{
+        }else if(light_brown_drag_tri_orig_rec.contains(initialTouchLocation)){
         let transition2 = gesture.translation(in: light_brown_drag_tri)
         light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
         }
@@ -81,14 +78,13 @@ class GameBoardViewController: UIViewController {
         
     }
     
-    //compute distance between two CGPoint (Square Form)
+    //compute distance between two CGPoint (Square Form) (not using rn)
     func distance_generator( drag_location: CGPoint, triangle_location: CGPoint) -> Double {
         let temp_distance = (drag_location.x-triangle_location.x)*(drag_location.x-triangle_location.x)+(drag_location.y-triangle_location.y)*(drag_location.y-triangle_location.y)
         return Double(temp_distance)
     }
     //--------------------------------------------------------------------------------------------------------------------
 
-   
     
     
     
