@@ -16,7 +16,7 @@
 		04E48D4F1EC075FA00823F45 /* 540654.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E48D4E1EC075FA00823F45 /* 540654.jpg */; };
 		5644A5F31EC428FC000066D6 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F21EC428FC000066D6 /* Base.lproj */; };
 		5644A5F61EC42905000066D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F41EC42905000066D6 /* Main.storyboard */; };
-		56BEBEA61EC3254E008BBD04 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */; };
+		56A61C841EC5D30500A29B6F /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */; };
 		56BEBEA81EC32C25008BBD04 /* UIImageTintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA71EC32C25008BBD04 /* UIImageTintExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -274,9 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E48D211EC0704000823F45 /* ViewController.swift in Sources */,
+				56A61C841EC5D30500A29B6F /* GameBoardViewController.swift in Sources */,
 				04E48D1F1EC0704000823F45 /* AppDelegate.swift in Sources */,
 				56BEBEA81EC32C25008BBD04 /* UIImageTintExtension.swift in Sources */,
-				56BEBEA61EC3254E008BBD04 /* GameBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

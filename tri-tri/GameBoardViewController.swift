@@ -11,6 +11,10 @@ import UIKit
 class GameBoardViewController: UIViewController {
 
 
+//create array to randomly generate
+
+    
+    
     
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
@@ -41,6 +45,7 @@ class GameBoardViewController: UIViewController {
         initialTouchLocation = touches.first!.location(in: view)
 
     }
+        var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -517,6 +522,24 @@ class GameBoardViewController: UIViewController {
 
         return
     }
+    
+    @IBAction func random_generator(_ sender: UIButton) {
+        var randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        print(generator_array[randomIndex])
+        green_drag_tri.image = generator_array[randomIndex]
+        green_drag_tri.sizeToFit()
+        randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        light_brown_drag_tri.image = generator_array[randomIndex]
+        light_brown_drag_tri.sizeToFit()
+        randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        orange_drag_tri.image = generator_array[randomIndex]
+        orange_drag_tri.sizeToFit()
+        
+    }
+    
+    
+    
+    
 }
 
 
