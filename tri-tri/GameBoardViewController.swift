@@ -28,6 +28,8 @@ class GameBoardViewController: UIViewController {
     //adding one method by overriding touchesBegan function to get initial touch location
     var initialTouchLocation: CGPoint!
   
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         initialTouchLocation = touches.first!.location(in: view)
@@ -48,6 +50,72 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri_orig_rec = orange_drag_tri.frame
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         // Do any additional setup after loading the view.
+        //set CGPoint value of all grey tringles
+        
+        //--------------------------------------------------------------------------------------------------------------------------
+        //ugly and long init start:
+        
+        tri_location[0][0] = tri_0_0.frame.origin
+        print(tri_location[0][0].x)
+        print(tri_location[0][0].y)
+        tri_location[0][1] = tri_0_1.frame.origin
+        print(tri_location[0][1].x)
+        print(tri_location[0][1].y)
+        tri_location[0][2] = tri_0_2.frame.origin
+        tri_location[0][3] = tri_0_3.frame.origin
+        tri_location[0][4] = tri_0_4.frame.origin
+        tri_location[0][5] = tri_0_5.frame.origin
+        tri_location[0][6] = tri_0_6.frame.origin
+        tri_location[1][0] = tri_1_0.frame.origin
+        tri_location[1][1] = tri_1_1.frame.origin
+        tri_location[1][2] = tri_1_2.frame.origin
+        tri_location[1][3] = tri_1_3.frame.origin
+        tri_location[1][4] = tri_1_4.frame.origin
+        tri_location[1][5] = tri_1_5.frame.origin
+        tri_location[1][6] = tri_1_6.frame.origin
+        tri_location[1][7] = tri_1_7.frame.origin
+        tri_location[1][8] = tri_1_8.frame.origin
+        tri_location[2][0] = tri_2_0.frame.origin
+        tri_location[2][1] = tri_2_1.frame.origin
+        tri_location[2][2] = tri_2_2.frame.origin
+        tri_location[2][3] = tri_2_3.frame.origin
+        tri_location[2][4] = tri_2_4.frame.origin
+        tri_location[2][5] = tri_2_5.frame.origin
+        tri_location[2][6] = tri_2_6.frame.origin
+        tri_location[2][7] = tri_2_7.frame.origin
+        tri_location[2][8] = tri_2_8.frame.origin
+        tri_location[2][9] = tri_2_9.frame.origin
+        tri_location[2][10] = tri_2_10.frame.origin
+        tri_location[3][0] = tri_3_0.frame.origin
+        tri_location[3][1] = tri_3_1.frame.origin
+        tri_location[3][2] = tri_3_2.frame.origin
+        tri_location[3][3] = tri_3_3.frame.origin
+        tri_location[3][4] = tri_3_4.frame.origin
+        tri_location[3][5] = tri_3_5.frame.origin
+        tri_location[3][6] = tri_3_6.frame.origin
+        tri_location[3][7] = tri_3_7.frame.origin
+        tri_location[3][8] = tri_3_8.frame.origin
+        tri_location[3][9] = tri_3_9.frame.origin
+        tri_location[3][10] = tri_3_10.frame.origin
+        tri_location[4][0] = tri_4_0.frame.origin
+        tri_location[4][1] = tri_4_1.frame.origin
+        tri_location[4][2] = tri_4_2.frame.origin
+        tri_location[4][3] = tri_4_3.frame.origin
+        tri_location[4][4] = tri_4_4.frame.origin
+        tri_location[4][5] = tri_4_5.frame.origin
+        tri_location[4][6] = tri_4_6.frame.origin
+        tri_location[4][7] = tri_4_7.frame.origin
+        tri_location[4][8] = tri_4_8.frame.origin
+        tri_location[5][0] = tri_5_0.frame.origin
+        tri_location[5][1] = tri_5_1.frame.origin
+        tri_location[5][2] = tri_5_2.frame.origin
+        tri_location[5][3] = tri_5_3.frame.origin
+        tri_location[5][4] = tri_5_4.frame.origin
+        tri_location[5][5] = tri_5_5.frame.origin
+        tri_location[5][6] = tri_5_6.frame.origin
+        
+        //-----------------------------------------------------------------------------------------------
+        //ugly and long init finished XD
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,11 +137,17 @@ class GameBoardViewController: UIViewController {
         }
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
-            UIView.animate(withDuration: 0.3, animations: {
-            self.green_drag_tri.frame.origin = self.green_drag_origin
-             self.orange_drag_tri.frame.origin = self.orange_drag_origin
-            self.light_brown_drag_tri.frame.origin = self.light_brown_drag_origin
-            })
+            if (false){ //if the triangles are fit
+                
+            } else {
+                UIView.animate(withDuration: 0.3, animations: {
+                self.green_drag_tri.frame.origin = self.green_drag_origin
+                self.orange_drag_tri.frame.origin = self.orange_drag_origin
+                self.light_brown_drag_tri.frame.origin = self.light_brown_drag_origin
+                })
+            }
+            
+
         }
         
     }
@@ -178,6 +252,15 @@ class GameBoardViewController: UIViewController {
     //2-D array saves whether each triangle is filled or not
     var filled: Array<Array<Bool>> = [[false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false, false,false, false],[false,false,false,false,false,false,false,false, false,false, false],[false,false,false,false,false,false,false,false, false],[false,false,false,false,false,false,false]]
     
+
+    //2-D array saves corresponding location
+    var tri_location: Array<Array<CGPoint>> = [
+        [CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 )],
+        [CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 )],
+        [CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 )],
+        [CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 )],
+        [CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 )],
+        [CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 ),CGPoint(x: 0, y:0 )]]
     
     
 //--------------------------------------------------------------------------------------------------------------------
