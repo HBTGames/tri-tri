@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameBoardViewController: UIViewController {
 
 
-//create array to randomly generate
 
-    
-    
+
     
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
@@ -45,7 +44,17 @@ class GameBoardViewController: UIViewController {
         initialTouchLocation = touches.first!.location(in: view)
 
     }
+    
+    
+    //--------------------------------------------------------------------------------------------------------------------------
+    //initialize an array for random generator
         var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!]
+    
+    //--------------------------------------------------------------------------------------------------------------------------
+    
+    
+    //declare an audio player
+    var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,6 +164,20 @@ class GameBoardViewController: UIViewController {
         
         //-----------------------------------------------------------------------------------------------
         //ugly and long init finished XD
+        
+        //audio intialize
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background music", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print("error")
+        }
+        
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -356,6 +379,7 @@ class GameBoardViewController: UIViewController {
         temp_mark_int += 1
         temp_mark_str = String(temp_mark_int)
         MarkBoard.text = temp_mark_str
+        audioPlayer.play()
     }
     
     
