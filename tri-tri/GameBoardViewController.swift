@@ -18,6 +18,9 @@ class GameBoardViewController: UIViewController {
     @IBOutlet weak var green_drag_tri: UIImageView!
     @IBOutlet weak var light_brown_drag_tri: UIImageView!
     @IBOutlet weak var orange_drag_tri: UIImageView!
+    var exist1 = true
+    var exist2 = true
+    var exist3 = true
     //original location of drag_image (only declaration here
     var green_drag_origin = CGPoint(x: 0, y:0 )
     var orange_drag_origin = CGPoint(x: 0, y:0 )
@@ -28,7 +31,10 @@ class GameBoardViewController: UIViewController {
     //adding one method by overriding touchesBegan function to get initial touch location
     var initialTouchLocation: CGPoint!
   
-    
+    //shape index refers to different shape type (FOR NOW)
+    var Shape_Index_1 = 0   //0 green
+    var Shape_Index_2 = 1   //1 orange
+    var Shape_Index_3 = 2   //2 LIGHT BROWN
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -59,14 +65,14 @@ class GameBoardViewController: UIViewController {
         print(tri_location[0][0].x)
         print(tri_location[0][0].y)
         tri_location[0][1] = tri_0_1.frame.origin
-        print(tri_location[0][1].x)
-        print(tri_location[0][1].y)
         tri_location[0][2] = tri_0_2.frame.origin
         tri_location[0][3] = tri_0_3.frame.origin
         tri_location[0][4] = tri_0_4.frame.origin
         tri_location[0][5] = tri_0_5.frame.origin
         tri_location[0][6] = tri_0_6.frame.origin
         tri_location[1][0] = tri_1_0.frame.origin
+        print(tri_location[1][0].x)
+        print(tri_location[1][0].y)
         tri_location[1][1] = tri_1_1.frame.origin
         tri_location[1][2] = tri_1_2.frame.origin
         tri_location[1][3] = tri_1_3.frame.origin
@@ -76,17 +82,41 @@ class GameBoardViewController: UIViewController {
         tri_location[1][7] = tri_1_7.frame.origin
         tri_location[1][8] = tri_1_8.frame.origin
         tri_location[2][0] = tri_2_0.frame.origin
+        print(tri_location[2][0].x)
+        print(tri_location[2][0].y)
         tri_location[2][1] = tri_2_1.frame.origin
+        print(tri_location[2][1].x)
+        print(tri_location[2][1].y)
         tri_location[2][2] = tri_2_2.frame.origin
+        print(tri_location[2][2].x)
+        print(tri_location[2][2].y)
         tri_location[2][3] = tri_2_3.frame.origin
+        print(tri_location[2][3].x)
+        print(tri_location[2][3].y)
         tri_location[2][4] = tri_2_4.frame.origin
+        print(tri_location[2][4].x)
+        print(tri_location[2][4].y)
         tri_location[2][5] = tri_2_5.frame.origin
+        print(tri_location[2][5].x)
+        print(tri_location[2][5].y)
         tri_location[2][6] = tri_2_6.frame.origin
+        print(tri_location[2][6].x)
+        print(tri_location[2][6].y)
         tri_location[2][7] = tri_2_7.frame.origin
+        print(tri_location[2][7].x)
+        print(tri_location[2][7].y)
         tri_location[2][8] = tri_2_8.frame.origin
+        print(tri_location[2][8].x)
+        print(tri_location[2][8].y)
         tri_location[2][9] = tri_2_9.frame.origin
+        print(tri_location[2][9].x)
+        print(tri_location[2][9].y)
         tri_location[2][10] = tri_2_10.frame.origin
+        print(tri_location[2][10].x)
+        print(tri_location[2][10].y)
         tri_location[3][0] = tri_3_0.frame.origin
+        print(tri_location[3][0].x)
+        print(tri_location[3][0].y)
         tri_location[3][1] = tri_3_1.frame.origin
         tri_location[3][2] = tri_3_2.frame.origin
         tri_location[3][3] = tri_3_3.frame.origin
@@ -98,6 +128,8 @@ class GameBoardViewController: UIViewController {
         tri_location[3][9] = tri_3_9.frame.origin
         tri_location[3][10] = tri_3_10.frame.origin
         tri_location[4][0] = tri_4_0.frame.origin
+        print(tri_location[4][0].x)
+        print(tri_location[4][0].y)
         tri_location[4][1] = tri_4_1.frame.origin
         tri_location[4][2] = tri_4_2.frame.origin
         tri_location[4][3] = tri_4_3.frame.origin
@@ -107,6 +139,8 @@ class GameBoardViewController: UIViewController {
         tri_location[4][7] = tri_4_7.frame.origin
         tri_location[4][8] = tri_4_8.frame.origin
         tri_location[5][0] = tri_5_0.frame.origin
+        print(tri_location[5][0].x)
+        print(tri_location[5][0].y)
         tri_location[5][1] = tri_5_1.frame.origin
         tri_location[5][2] = tri_5_2.frame.origin
         tri_location[5][3] = tri_5_3.frame.origin
@@ -124,20 +158,38 @@ class GameBoardViewController: UIViewController {
     }
     //function in response to drag movement
     func panGestureRecognizerAction(_ gesture: UIPanGestureRecognizer){
+        var actual_type_index = 0
+        var actual_location = CGPoint(x:0, y:0)
         //if original frame contains the initial point
         if(green_drag_tri_orig_rec.contains(initialTouchLocation)){
-        let transition0 = gesture.translation(in: green_drag_tri)
-        green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
+            if (exist1 == false){
+                return
+            }
+            let transition0 = gesture.translation(in: green_drag_tri)
+            green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
+            actual_type_index = 0
+            actual_location = green_drag_tri.frame.origin
         } else if(orange_drag_tri_orig_rec.contains(initialTouchLocation)){
-        let transition1 = gesture.translation(in: orange_drag_tri)
-        orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
+            if (exist2 == false){
+                return
+            }
+            let transition1 = gesture.translation(in: orange_drag_tri)
+            orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
+            actual_type_index = 1
+            actual_location = orange_drag_tri.frame.origin
         }else if(light_brown_drag_tri_orig_rec.contains(initialTouchLocation)){
-        let transition2 = gesture.translation(in: light_brown_drag_tri)
-        light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
+            if (exist3 == false){
+                return
+            }
+            let transition2 = gesture.translation(in: light_brown_drag_tri)
+            light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
+            actual_type_index = 2
+            actual_location = light_brown_drag_tri.frame.origin
         }
+        
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
-            if (false){ //if the triangles are fit
+            if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){ //if the triangles are fit
                 
             } else {
                 UIView.animate(withDuration: 0.3, animations: {
@@ -166,20 +218,23 @@ class GameBoardViewController: UIViewController {
     //--------------------------------------------------------------------------------------------------------------------
     //construct a list of colors that will be implemented in gameboard
     
-    //color No.1 is mix of red and orange
-    let tri_color_0 = UIColor(red:CGFloat(222/255.0), green:CGFloat(111/255.0), blue:CGFloat(69/255.0), alpha:CGFloat(1))
+    //color No.0 is green color of the first shape
+    let tri_color_0 = UIColor(red:CGFloat(113/255.0), green:CGFloat(148/255.0), blue:CGFloat(92/255.0), alpha:CGFloat(1))
     
-    //color No.2 is dark green
+    //color No.1 is dark green
     let tri_color_1 = UIColor(red:CGFloat(83/255.0), green:CGFloat(142/255.0), blue:CGFloat(136/255.0), alpha:CGFloat(1))
     
-    //color No.3 is mix of deep black and green
+    //color No.2 is mix of deep black and green
     let tri_color_2 = UIColor(red:CGFloat(27/255.0), green:CGFloat(62/255.0), blue:CGFloat(49/255.0), alpha:CGFloat(1))
     
-    //color No.4 is light brown
+    //color No.3 is light brown
     let tri_color_3 = UIColor(red:CGFloat(212/255.0), green:CGFloat(192/255.0), blue:CGFloat(148/255.0), alpha:CGFloat(1))
     
-    //color No.5 is light green
+    //color No.4 is light green
      let tri_color_4 = UIColor(red:CGFloat(111/255.0), green:CGFloat(151/255.0), blue:CGFloat(91/255.0), alpha:CGFloat(1))
+    
+    //color No.5 is trans
+    let tri_color_5 = UIColor(red:CGFloat(111/255.0), green:CGFloat(151/255.0), blue:CGFloat(91/255.0), alpha:CGFloat(0))
     //--------------------------------------------------------------------------------------------------------------------
     
     
@@ -296,21 +351,173 @@ class GameBoardViewController: UIViewController {
         temp_mark_int += 1
         temp_mark_str = String(temp_mark_int)
         MarkBoard.text = temp_mark_str
-        //a series of changing color of some triangles
-        tri_4_6.image = downwards_tri?.tint(color: tri_color_0,blendMode: .destinationIn)
-        tri_0_0.image = upwards_tri?.tint(color: tri_color_1, blendMode: .destinationIn)
-        tri_1_1.image = downwards_tri?.tint(color: tri_color_2, blendMode: .destinationIn)
-        tri_2_3.image = downwards_tri?.tint(color: tri_color_3, blendMode: .destinationIn)
-        tri_4_2.image = downwards_tri?.tint(color: tri_color_4, blendMode: .destinationIn)
     }
     
     
     
+    func Shape_fitting(Shape_Type: Int, position: CGPoint) -> Bool {
+        if (Shape_Type == 0){
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (j%2 == 1){
+                        if (position.x + 25 <= triangle_location.x + 3 && position.x + 25 >= triangle_location.x - 3 &&
+                            position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
+                            if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
+                                green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                Change_Corresponding_Color(x:i, y:j, color: tri_color_0)
+                                Change_Corresponding_Color(x:i, y:j-1, color: tri_color_0)
+                                Change_Corresponding_Color(x:i, y:j+1, color: tri_color_0)
+                                filled[i][j] = true
+                                filled[i][j-1] = true
+                                filled[i][j+1] = true
+                               
+                                exist1 = false
+                                return true
+                            }
+                            return false
+                        }
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+        } else if (Shape_Type == 1){
+            return false
+        } else {    //Shape_Type == 2
+            return false
+        }
+        return false
+    }
     
-    
-    
-    
-   }
+    func Change_Corresponding_Color(x:Int, y:Int, color: UIColor) -> (){
+        //row NO 0
+        if (x == 0 && y == 0){
+            tri_0_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 0 && y == 1) {
+            tri_0_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 0 && y == 2){
+            tri_0_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 0 && y == 3) {
+            tri_0_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 0 && y == 4){
+            tri_0_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 0 && y == 5) {
+            tri_0_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 0 && y == 6){
+            tri_0_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }
+        //row NO 1
+        else if (x == 1 && y == 0){
+            tri_1_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 1 && y == 1) {
+            tri_1_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 1 && y == 2){
+            tri_1_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 1 && y == 3) {
+            tri_1_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 1 && y == 4){
+            tri_1_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 1 && y == 5) {
+            tri_1_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 1 && y == 6){
+            tri_1_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 1 && y == 7) {
+            tri_1_7.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 1 && y == 8){
+            tri_1_8.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }
+        //row NO 2
+        else if(x == 2 && y == 0) {
+            tri_2_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 1) {
+            tri_2_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 2) {
+            tri_2_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 3) {
+            tri_2_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 4) {
+            tri_2_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 5) {
+            tri_2_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 6) {
+            tri_2_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 7) {
+            tri_2_7.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 8) {
+            tri_2_8.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 9) {
+            tri_2_9.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 2 && y == 10) {
+            tri_2_10.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }
+        //row NO 3
+        else if(x == 3 && y == 0) {
+            tri_3_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 1) {
+            tri_3_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 2) {
+            tri_3_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 3) {
+            tri_3_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 4) {
+            tri_3_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 5) {
+            tri_3_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 6) {
+            tri_3_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 7) {
+            tri_3_7.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 8) {
+            tri_3_8.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 9) {
+            tri_3_9.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 3 && y == 10) {
+            tri_3_10.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }
+        //row NO 4
+        else if (x == 4 && y == 0){
+            tri_4_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 4 && y == 1) {
+            tri_4_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 4 && y == 2){
+            tri_4_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 4 && y == 3) {
+            tri_4_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 4 && y == 4){
+            tri_4_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 4 && y == 5) {
+            tri_4_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 4 && y == 6){
+            tri_4_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 4 && y == 7) {
+            tri_4_7.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 4 && y == 8){
+            tri_4_8.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }
+        //row NO 5
+        else if (x == 5 && y == 0){
+            tri_5_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 5 && y == 1) {
+            tri_5_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 5 && y == 2){
+            tri_5_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 5 && y == 3) {
+            tri_5_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 5 && y == 4){
+            tri_5_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if(x == 5 && y == 5) {
+            tri_5_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+        }else if (x == 5 && y == 6){
+            tri_5_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+        }
+
+
+        return
+    }
+}
 
 
 

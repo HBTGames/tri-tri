@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -307,16 +307,16 @@
                                 <color key="textColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="绿色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
-                                <rect key="frame" x="-3" y="512" width="131" height="66"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="270" y="494" width="85" height="103"/>
+                                <rect key="frame" x="262" y="499" width="75" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="橙色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
-                                <rect key="frame" x="164" y="494" width="66" height="97"/>
+                                <rect key="frame" x="164" y="499" width="50" height="87"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="绿色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
+                                <rect key="frame" x="38" y="520" width="100" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
