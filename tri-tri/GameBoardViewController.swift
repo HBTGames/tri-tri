@@ -271,7 +271,7 @@ class GameBoardViewController: UIViewController {
     let tri_color_1 = UIColor(red:CGFloat(223/255.0), green:CGFloat(110/255.0), blue:CGFloat(67/255.0), alpha:CGFloat(1))
     
     //color No.2 is mix of deep black and green
-    let tri_color_2 = UIColor(red:CGFloat(27/255.0), green:CGFloat(62/255.0), blue:CGFloat(49/255.0), alpha:CGFloat(1))
+    let tri_color_2 = UIColor(red:CGFloat(213/255.0), green:CGFloat(193/255.0), blue:CGFloat(151/255.0), alpha:CGFloat(1))
     
     //color No.3 is light brown
     let tri_color_3 = UIColor(red:CGFloat(212/255.0), green:CGFloat(192/255.0), blue:CGFloat(148/255.0), alpha:CGFloat(1))
@@ -522,7 +522,7 @@ class GameBoardViewController: UIViewController {
                 }
                 i += 1
             }
-        } else {    //Shape_Type == 2
+        } else if (Shape_Type == 2) {    //Shape_Type == 2
             var i = 0
             for triangles_location in tri_location{
                 var j = 0
@@ -531,14 +531,15 @@ class GameBoardViewController: UIViewController {
                     if (i == 1 || i == 2){//upper half row 1 2
                         if (j%2 == 0 && j != tri_location[i].count - 1){//only upward
                             if (position.x <= triangle_location.x + 5 && position.x >= triangle_location.x - 5 &&
-                                position.y - 44 <= triangle_location.y + 5 && position.y - 44 >= triangle_location.y - 5){//check location
+                                position.y + 44 <= triangle_location.y + 5 && position.y + 44 >= triangle_location.y - 5){//check location
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j]){//check available
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     Change_Corresponding_Color(x:i, y:j, color: tri_color_2)
-                                    Change_Corresponding_Color(x:i+1, y:j+1, color: tri_color_2)
-                                    filled[i+1][j+1] = true
+                                    Change_Corresponding_Color(x:i, y:j+1, color: tri_color_2)
+                                    Change_Corresponding_Color(x:i-1, y:j, color: tri_color_2)
                                     filled[i][j] = true
-                                    
+                                    filled[i][j+1] = true
+                                    filled[i-1][j] = true
                                     
                                     return true
                                 }
@@ -546,17 +547,18 @@ class GameBoardViewController: UIViewController {
                             }
                         }
                         
-                    }else if (i == 3){//upper half row 2
-                        if (j%2 == 0){//only upward
+                    }else if (i == 3){//lower half row 3
+                        if (j%2 == 1){//only upward
                             if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
-                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){//check location
-                                if (!filled[i][j] && !filled[i+1][j]){//check available
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
-                                    Change_Corresponding_Color(x:i+1, y:j, color: tri_color_1)
+                                position.y + 44 <= triangle_location.y + 3 && position.y + 44 >= triangle_location.y - 3){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+1]){//check available
+                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_2)
+                                    Change_Corresponding_Color(x:i, y:j+1, color: tri_color_2)
+                                    Change_Corresponding_Color(x:i-1, y:j+1, color: tri_color_2)
                                     filled[i][j] = true
-                                    filled[i+1][j] = true
-                                    
+                                    filled[i][j+1] = true
+                                    filled[i-1][j+1] = true
                                     
                                     return true
                                 }
@@ -568,14 +570,16 @@ class GameBoardViewController: UIViewController {
                     else if (i == 4 || i == 5){
                         if (j%2 == 1){//lower half
                             if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
-                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
-                                if (!filled[i][j] && !filled[i+1][j-1]){
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                position.y + 44 <= triangle_location.y + 3 && position.y+44 >= triangle_location.y - 3){
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+2]){
+                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     
-                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
-                                    Change_Corresponding_Color(x:i+1, y:j-1, color: tri_color_1)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_2)
+                                    Change_Corresponding_Color(x:i, y:j+1, color: tri_color_2)
+                                    Change_Corresponding_Color(x:i-1, y:j+2, color: tri_color_2)
                                     filled[i][j] = true
-                                    filled[i+1][j-1] = true
+                                    filled[i][j+1] = true
+                                    filled[i-1][j+2] = true
                                     
                                     
                                     return true
