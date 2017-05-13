@@ -218,7 +218,7 @@ class GameBoardViewController: UIViewController {
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){ //if the triangles are fit
-                
+                exist1 = false  //later change to
             } else {
                 UIView.animate(withDuration: 0.3, animations: {
                 self.green_drag_tri.frame.origin = self.green_drag_origin
@@ -397,14 +397,14 @@ class GameBoardViewController: UIViewController {
                             position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
                             if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
                                 green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                //Change_Corresponding_Color(x:i, y:j, color: tri_color_0)
+                                Change_Corresponding_Color(x:i, y:j, color: tri_color_0)
                                 Change_Corresponding_Color(x:i, y:j-1, color: tri_color_0)
                                 Change_Corresponding_Color(x:i, y:j+1, color: tri_color_0)
                                 filled[i][j] = true
                                 filled[i][j-1] = true
                                 filled[i][j+1] = true
                                
-                                exist1 = false
+                                
                                 return true
                             }
                             return false
@@ -417,9 +417,10 @@ class GameBoardViewController: UIViewController {
                                 position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
                                     green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    //Change_Corresponding_Color(x:i, y:j, color: tri_color_0)
+                                    
                                     Change_Corresponding_Color(x:i, y:j-1, color: tri_color_0)
                                     Change_Corresponding_Color(x:i, y:j+1, color: tri_color_0)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_0)
                                     filled[i][j] = true
                                     filled[i][j-1] = true
                                     filled[i][j+1] = true
@@ -447,123 +448,177 @@ class GameBoardViewController: UIViewController {
     func Change_Corresponding_Color(x:Int, y:Int, color: UIColor) -> (){
         //row NO 0
         if (x == 0 && y == 0){
-            tri_0_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_0.image = tri_0_0.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_0.tintColor = color
         }else if(x == 0 && y == 1) {
-            tri_0_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_1.image = tri_0_1.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_1.tintColor = color
         }else if (x == 0 && y == 2){
-            tri_0_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_2.image = tri_0_2.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_2.tintColor = color
         }else if(x == 0 && y == 3) {
-            tri_0_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_3.image = tri_0_3.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_3.tintColor = color
         }else if (x == 0 && y == 4){
-            tri_0_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_4.image = tri_0_4.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_4.tintColor = color
         }else if(x == 0 && y == 5) {
-            tri_0_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_5.image = tri_0_5.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_5.tintColor = color
         }else if (x == 0 && y == 6){
-            tri_0_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_0_6.image = tri_0_6.image!.withRenderingMode(.alwaysTemplate)
+            tri_0_6.tintColor = color
         }
         //row NO 1
         else if (x == 1 && y == 0){
-            tri_1_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_0.image = tri_1_0.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_0.tintColor = color
         }else if(x == 1 && y == 1) {
-            tri_1_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_1.image = tri_1_1.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_1.tintColor = color
         }else if (x == 1 && y == 2){
-            tri_1_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_2.image = tri_1_2.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_2.tintColor = color
         }else if(x == 1 && y == 3) {
-            tri_1_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_3.image = tri_1_3.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_3.tintColor = color
         }else if (x == 1 && y == 4){
-            tri_1_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_4.image = tri_1_4.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_4.tintColor = color
         }else if(x == 1 && y == 5) {
-            tri_1_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_5.image = tri_1_5.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_5.tintColor = color
         }else if (x == 1 && y == 6){
-            tri_1_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_6.image = tri_1_6.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_6.tintColor = color
         }else if(x == 1 && y == 7) {
-            tri_1_7.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_7.image = tri_1_7.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_7.tintColor = color
         }else if (x == 1 && y == 8){
-            tri_1_8.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_1_8.image = tri_1_8.image!.withRenderingMode(.alwaysTemplate)
+            tri_1_8.tintColor = color
         }
         //row NO 2
         else if(x == 2 && y == 0) {
-            tri_2_0.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_0.image = tri_2_0.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_0.tintColor = color
         }else if(x == 2 && y == 1) {
-            tri_2_1.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_1.image = tri_2_1.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_1.tintColor = color
         }else if(x == 2 && y == 2) {
-            tri_2_2.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_2.image = tri_2_2.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_2.tintColor = color
         }else if(x == 2 && y == 3) {
-            tri_2_3.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_3.image = tri_2_3.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_3.tintColor = color
         }else if(x == 2 && y == 4) {
-            tri_2_4.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_4.image = tri_2_4.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_4.tintColor = color
         }else if(x == 2 && y == 5) {
-            tri_2_5.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_5.image = tri_2_5.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_5.tintColor = color
         }else if(x == 2 && y == 6) {
-            tri_2_6.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_6.image = tri_2_6.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_6.tintColor = color
         }else if(x == 2 && y == 7) {
-            tri_2_7.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_7.image = tri_2_7.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_7.tintColor = color
         }else if(x == 2 && y == 8) {
-            tri_2_8.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_8.image = tri_2_8.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_8.tintColor = color
         }else if(x == 2 && y == 9) {
-            tri_2_9.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_9.image = tri_2_9.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_9.tintColor = color
         }else if(x == 2 && y == 10) {
-            tri_2_10.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_2_10.image = tri_2_10.image!.withRenderingMode(.alwaysTemplate)
+            tri_2_10.tintColor = color
         }
         //row NO 3
         else if(x == 3 && y == 0) {
-            tri_3_0.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_0.image = tri_3_0.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_0.tintColor = color
         }else if(x == 3 && y == 1) {
-            tri_3_1.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_1.image = tri_3_1.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_1.tintColor = color
         }else if(x == 3 && y == 2) {
-            tri_3_2.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_2.image = tri_3_2.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_2.tintColor = color
         }else if(x == 3 && y == 3) {
-            tri_3_3.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_3.image = tri_3_3.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_3.tintColor = color
         }else if(x == 3 && y == 4) {
-            tri_3_4.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_4.image = tri_3_4.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_4.tintColor = color
         }else if(x == 3 && y == 5) {
-            tri_3_5.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_5.image = tri_3_5.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_5.tintColor = color
         }else if(x == 3 && y == 6) {
-            tri_3_6.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_6.image = tri_3_6.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_6.tintColor = color
         }else if(x == 3 && y == 7) {
-            tri_3_7.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_7.image = tri_3_7.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_7.tintColor = color
         }else if(x == 3 && y == 8) {
-            tri_3_8.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_8.image = tri_3_8.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_8.tintColor = color
         }else if(x == 3 && y == 9) {
-            tri_3_9.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_9.image = tri_3_9.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_9.tintColor = color
         }else if(x == 3 && y == 10) {
-            tri_3_10.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_3_10.image = tri_3_10.image!.withRenderingMode(.alwaysTemplate)
+            tri_3_10.tintColor = color
         }
         //row NO 4
         else if (x == 4 && y == 0){
-            tri_4_0.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_0.image = tri_4_0.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_0.tintColor = color
         }else if(x == 4 && y == 1) {
-            tri_4_1.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_1.image = tri_4_1.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_1.tintColor = color
         }else if (x == 4 && y == 2){
-            tri_4_2.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_2.image = tri_4_2.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_2.tintColor = color
         }else if(x == 4 && y == 3) {
-            tri_4_3.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_3.image = tri_4_3.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_3.tintColor = color
         }else if (x == 4 && y == 4){
-            tri_4_4.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_4.image = tri_4_4.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_4.tintColor = color
         }else if(x == 4 && y == 5) {
-            tri_4_5.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_5.image = tri_4_5.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_5.tintColor = color
         }else if (x == 4 && y == 6){
-            tri_4_6.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_6.image = tri_4_6.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_6.tintColor = color
         }else if(x == 4 && y == 7) {
-            tri_4_7.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_7.image = tri_4_7.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_7.tintColor = color
         }else if (x == 4 && y == 8){
-            tri_4_8.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_4_8.image = tri_4_8.image!.withRenderingMode(.alwaysTemplate)
+            tri_4_8.tintColor = color
         }
         //row NO 5
         else if (x == 5 && y == 0){
-            tri_5_0.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_0.image = tri_5_0.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_0.tintColor = color
         }else if(x == 5 && y == 1) {
-            tri_5_1.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_1.image = tri_5_1.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_1.tintColor = color
         }else if (x == 5 && y == 2){
-            tri_5_2.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_2.image = tri_5_2.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_2.tintColor = color
         }else if(x == 5 && y == 3) {
-            tri_5_3.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_3.image = tri_5_3.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_3.tintColor = color
         }else if (x == 5 && y == 4){
-            tri_5_4.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_4.image = tri_5_4.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_4.tintColor = color
         }else if(x == 5 && y == 5) {
-            tri_5_5.image = UIImage(named:"grey_tri_upwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_5.image = tri_5_5.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_5.tintColor = color
         }else if (x == 5 && y == 6){
-            tri_5_6.image = UIImage(named:"grey_tri_downwards")?.tint(color: color, blendMode: .destinationIn)
+            tri_5_6.image = tri_5_6.image!.withRenderingMode(.alwaysTemplate)
+            tri_5_6.tintColor = color
         }
 
 
