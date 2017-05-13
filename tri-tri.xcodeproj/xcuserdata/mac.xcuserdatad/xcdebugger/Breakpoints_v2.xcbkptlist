@@ -31,8 +31,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "413"
             endingLineNumber = "413"
-            landmarkName = "Shape_fitting(Shape_Type:position:)"
-            landmarkType = "7">
+            landmarkName = "GameBoardViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "606"
             endingLineNumber = "606"
-            landmarkName = "Change_Corresponding_Color(x:y:color:)"
+            landmarkName = "Shape_fitting(Shape_Type:position:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
