@@ -11,9 +11,14 @@ import AVFoundation
 
 class GameBoardViewController: UIViewController {
 
-
-
-
+//create an array to store shape_index for each UIImageView
+// each int inside array reprensents shape index
+//every shape is the same name as they are in Assets.xcassets file
+//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri
+    
+    var shape_type_index : Array<Int> = [0 , 0, 0]
+//
+    
     
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
@@ -42,20 +47,21 @@ class GameBoardViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         initialTouchLocation = touches.first!.location(in: view)
+        print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
 
     }
     
     
     //--------------------------------------------------------------------------------------------------------------------------
     //initialize an array for random generator
-        var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!]
+        var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!]
     
     //--------------------------------------------------------------------------------------------------------------------------
     
     
     //declare an audio player
     var audioPlayer = AVAudioPlayer()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //add UIPanGestureRecognizer
@@ -173,7 +179,12 @@ class GameBoardViewController: UIViewController {
         catch{
             print("error")
         }
-        
+        //
+        //
+        print("origin x is\(green_drag_tri.frame.origin.x), origin y is \(green_drag_tri.frame.origin.y)")
+        //
+        //initialize shape array
+        shape_type_index = [0 , 1 , 2]
         
         
         
@@ -627,19 +638,58 @@ class GameBoardViewController: UIViewController {
     
     @IBAction func random_generator(_ sender: UIButton) {
         var randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
-        print(generator_array[randomIndex])
         green_drag_tri.image = generator_array[randomIndex]
         green_drag_tri.sizeToFit()
-        randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
-        light_brown_drag_tri.image = generator_array[randomIndex]
-        light_brown_drag_tri.sizeToFit()
+        green_drag_tri_orig_rec = green_drag_tri.frame
+        shape_type_index[0] = randomIndex
+        print("position 0 shape index : \(shape_type_index[0])")
+        print("new origin x is\(green_drag_tri.frame.origin.x), new origin y is \(green_drag_tri.frame.origin.y)")
+        print("upperleft coordiante is (x: \(green_drag_tri.frame.origin.x - green_drag_tri.frame.width/2)) ")
+       // force_recenter_drag_tris( tri: green_drag_tri,tri_img: generator_array[randomIndex] )
+    
+        
         randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
         orange_drag_tri.image = generator_array[randomIndex]
         orange_drag_tri.sizeToFit()
+        orange_drag_tri_orig_rec = orange_drag_tri.frame
+        shape_type_index[1] = randomIndex
+        print("position 1 shape index : \(shape_type_index[1])")
+
+        //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
+
+        randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        light_brown_drag_tri.image = generator_array[randomIndex]
+        light_brown_drag_tri.sizeToFit()
+        light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
+        force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+        shape_type_index[2] = randomIndex
+        print("position 2 shape index : \(shape_type_index[2])")
+
         
     }
     
     
+    func force_recenter_drag_tris ( tri: UIImageView, tri_img: UIImage!) -> Void{
+        switch tri_img {
+        case UIImage(named:"绿色tri.png")!:
+            if(tri == green_drag_tri){
+                tri.frame.origin = green_drag_origin
+            }else if(tri == orange_drag_tri){
+                tri.frame.origin = CGPoint(x:orange_drag_origin.x-CGFloat(30), y:orange_drag_origin.y + CGFloat(17))
+            }else if(tri == light_brown_drag_tri){
+                tri.frame.origin = CGPoint(x:light_brown_drag_origin.x, y:light_brown_drag_origin.y + CGFloat(10))
+            }
+       // case UIImage(nm)
+        default:
+            if(tri == green_drag_tri){
+            tri.frame.origin = green_drag_origin
+            }else if(tri == orange_drag_tri){
+                tri.frame.origin = orange_drag_origin
+            }else if(tri == light_brown_drag_tri){
+                tri.frame.origin = light_brown_drag_origin
+            }
+        }
+    }
     
     
 }

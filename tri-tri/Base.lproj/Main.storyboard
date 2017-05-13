@@ -308,15 +308,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="262" y="499" width="75" height="87"/>
+                                <rect key="frame" x="280" y="508" width="75" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="橙色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
-                                <rect key="frame" x="164" y="499" width="50" height="87"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="绿色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
-                                <rect key="frame" x="38" y="520" width="100" height="44"/>
+                                <rect key="frame" x="163" y="508" width="50" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxd-vF-KH0">
@@ -327,6 +323,10 @@
                                     <action selector="random_generator:" destination="qxD-t8-ioY" eventType="touchUpInside" id="wgT-Bd-Sjq"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="绿色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
+                                <rect key="frame" x="29" y="508" width="100" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -462,9 +462,9 @@
         <image name="main_page_background" width="375" height="667"/>
         <image name="main_page_button" width="134" height="134"/>
         <image name="pause_button" width="41" height="41"/>
-        <image name="棕色tri" width="85" height="103"/>
-        <image name="橙色tri" width="66" height="97"/>
-        <image name="绿色tri" width="131" height="66"/>
+        <image name="棕色tri" width="93" height="81"/>
+        <image name="橙色tri" width="93" height="81"/>
+        <image name="绿色tri" width="93" height="81"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YbO-6y-GEL"/>
