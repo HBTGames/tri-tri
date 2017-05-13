@@ -78,7 +78,7 @@ class GameBoardViewController: UIViewController {
         // Do any additional setup after loading the view.
         //set CGPoint value of all grey tringles
         
-        //--------------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------------------------
         //ugly and long init start:
         
         tri_location[0][0] = tri_0_0.frame.origin
@@ -229,7 +229,14 @@ class GameBoardViewController: UIViewController {
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){ //if the triangles are fit
-                exist1 = false  //later change to
+                if (actual_type_index == 0){
+                    exist1 = false  //later change to
+                }else if (actual_type_index == 1){
+                    exist2 = false
+                }else if (actual_type_index == 2){
+                    exist3 = false
+                }
+                
             } else {
                 UIView.animate(withDuration: 0.3, animations: {
                 self.green_drag_tri.frame.origin = self.green_drag_origin
@@ -261,7 +268,7 @@ class GameBoardViewController: UIViewController {
     let tri_color_0 = UIColor(red:CGFloat(113/255.0), green:CGFloat(148/255.0), blue:CGFloat(92/255.0), alpha:CGFloat(1))
     
     //color No.1 is dark green
-    let tri_color_1 = UIColor(red:CGFloat(83/255.0), green:CGFloat(142/255.0), blue:CGFloat(136/255.0), alpha:CGFloat(1))
+    let tri_color_1 = UIColor(red:CGFloat(223/255.0), green:CGFloat(110/255.0), blue:CGFloat(67/255.0), alpha:CGFloat(1))
     
     //color No.2 is mix of deep black and green
     let tri_color_2 = UIColor(red:CGFloat(27/255.0), green:CGFloat(62/255.0), blue:CGFloat(49/255.0), alpha:CGFloat(1))
@@ -402,11 +409,11 @@ class GameBoardViewController: UIViewController {
                 var j = 0
                 
                 for triangle_location in triangles_location{
-                    if (i == 0 || i == 1 || i == 2){
-                    if (j%2 == 1){
+                    if (i == 0 || i == 1 || i == 2){//upper half
+                    if (j%2 == 1){//only downward
                         if (position.x + 25 <= triangle_location.x + 3 && position.x + 25 >= triangle_location.x - 3 &&
-                            position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
-                            if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
+                            position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){//check location
+                            if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){//check available
                                 green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                 Change_Corresponding_Color(x:i, y:j, color: tri_color_0)
                                 Change_Corresponding_Color(x:i, y:j-1, color: tri_color_0)
@@ -423,7 +430,7 @@ class GameBoardViewController: UIViewController {
                     }
                         
                     } else if (i == 3 || i == 4 || i == 5){
-                        if (j%2 == 0 && j != 0 && j != tri_location[i].count - 1){
+                        if (j%2 == 0 && j != 0 && j != tri_location[i].count - 1){//lower half&&not edge
                             if (position.x + 25 <= triangle_location.x + 3 && position.x + 25 >= triangle_location.x - 3 &&
                                 position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
@@ -436,7 +443,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j-1] = true
                                     filled[i][j+1] = true
                                     
-                                    exist1 = false
+                                   
                                     return true
                                 }
                                 return false
@@ -449,9 +456,140 @@ class GameBoardViewController: UIViewController {
                 i += 1
             }
         } else if (Shape_Type == 1){
-            return false
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0 || i == 1){//upper half row 0 1
+                        if (j%2 == 0){//only upward
+                            if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
+                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){//check location
+                                if (!filled[i][j] && !filled[i+1][j+1]){//check available
+                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
+                                    Change_Corresponding_Color(x:i+1, y:j+1, color: tri_color_1)
+                                    filled[i+1][j+1] = true
+                                    filled[i][j] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 2){//upper half row 2
+                        if (j%2 == 0){//only upward
+                            if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
+                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){//check location
+                                if (!filled[i][j] && !filled[i+1][j]){//check available
+                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
+                                    Change_Corresponding_Color(x:i+1, y:j, color: tri_color_1)
+                                    filled[i][j] = true
+                                    filled[i+1][j] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 3 || i == 4){
+                        if (j%2 == 1){//lower half
+                            if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
+                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
+                                if (!filled[i][j] && !filled[i+1][j-1]){
+                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
+                                    Change_Corresponding_Color(x:i+1, y:j-1, color: tri_color_1)
+                                    filled[i][j] = true
+                                    filled[i+1][j-1] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
         } else {    //Shape_Type == 2
-            return false
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 1 || i == 2){//upper half row 1 2
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only upward
+                            if (position.x <= triangle_location.x + 5 && position.x >= triangle_location.x - 5 &&
+                                position.y - 44 <= triangle_location.y + 5 && position.y - 44 >= triangle_location.y - 5){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j]){//check available
+                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_2)
+                                    Change_Corresponding_Color(x:i+1, y:j+1, color: tri_color_2)
+                                    filled[i+1][j+1] = true
+                                    filled[i][j] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3){//upper half row 2
+                        if (j%2 == 0){//only upward
+                            if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
+                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){//check location
+                                if (!filled[i][j] && !filled[i+1][j]){//check available
+                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
+                                    Change_Corresponding_Color(x:i+1, y:j, color: tri_color_1)
+                                    filled[i][j] = true
+                                    filled[i+1][j] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 4 || i == 5){
+                        if (j%2 == 1){//lower half
+                            if (position.x <= triangle_location.x + 3 && position.x >= triangle_location.x - 3 &&
+                                position.y <= triangle_location.y + 3 && position.y >= triangle_location.y - 3){
+                                if (!filled[i][j] && !filled[i+1][j-1]){
+                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    
+                                    Change_Corresponding_Color(x:i, y:j, color: tri_color_1)
+                                    Change_Corresponding_Color(x:i+1, y:j-1, color: tri_color_1)
+                                    filled[i][j] = true
+                                    filled[i+1][j-1] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+
         }
         return false
     }
@@ -665,7 +803,9 @@ class GameBoardViewController: UIViewController {
         shape_type_index[2] = randomIndex
         print("position 2 shape index : \(shape_type_index[2])")
 
-        
+        exist1 = true
+        exist2 = true
+        exist3 = true
     }
     
     
