@@ -31,6 +31,8 @@ class GameBoardViewController: UIViewController {
     @IBOutlet weak var green_drag_tri: UIImageView!
     @IBOutlet weak var light_brown_drag_tri: UIImageView!
     @IBOutlet weak var orange_drag_tri: UIImageView!
+    //the index of position which is being dragged
+    var position_in_use: Int = 3
     //0 for green_drag_tri 1 for orange_drag_tri 2 for light_brown_tri
     var previous_drag_fit_UIImage_index : Int = 3
     var exist1 = true
@@ -211,6 +213,7 @@ class GameBoardViewController: UIViewController {
             if (exist1 == false){
                 return
             }
+            position_in_use = 0
             //alternative_drag_tri = green_drag_tri
             let transition0 = gesture.translation(in: green_drag_tri)
             green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
@@ -220,6 +223,7 @@ class GameBoardViewController: UIViewController {
             if (exist2 == false){
                 return
             }
+            position_in_use = 1
             //alternative_drag_tri = orange_drag_tri
             let transition1 = gesture.translation(in: orange_drag_tri)
             orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
@@ -229,6 +233,7 @@ class GameBoardViewController: UIViewController {
             if (exist3 == false){
                 return
             }
+            position_in_use = 2
             //alternative_drag_tri = *light_brown_drag_tri
             let transition2 = gesture.translation(in: light_brown_drag_tri)
             light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
@@ -242,26 +247,28 @@ class GameBoardViewController: UIViewController {
             
         } else if (!Shape_fitting_When_Dragging(Shape_Type: actual_type_index, position: actual_location)){
            Restore_Grey_Tris()
-            if(actual_type_index == 0){
+            if(position_in_use == 0){
                 green_drag_tri.image = generator_array [actual_type_index]
             }
-            else if(actual_type_index == 1){
+            else if(position_in_use == 1){
                 orange_drag_tri.image = generator_array [actual_type_index]
-        }else if(actual_type_index == 2){
+        }else if(position_in_use == 2){
                  light_brown_drag_tri.image = generator_array [actual_type_index]
         }
         }
         
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
-            if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){ //if the triangles are fit
-                if (actual_type_index == 0){
+            if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
+                //if the triangles are fit
+                if (position_in_use == 0){
                     exist1 = false  //later change to
-                }else if (actual_type_index == 1){
+                }else if (position_in_use == 1){
                     exist2 = false
-                }else if (actual_type_index == 2){
+                }else if (position_in_use == 2){
                     exist3 = false
                 }
+                position_in_use = 3
                 green_drag_tri.frame.origin = green_drag_origin
                 orange_drag_tri.frame.origin = orange_drag_origin
                 light_brown_drag_tri.frame.origin = light_brown_drag_origin
@@ -269,6 +276,7 @@ class GameBoardViewController: UIViewController {
                     auto_random_generator()
                 }
             } else {
+                position_in_use = 3
                 UIView.animate(withDuration: 0.3, animations: {
                 self.green_drag_tri.frame.origin = self.green_drag_origin
                 self.orange_drag_tri.frame.origin = self.orange_drag_origin
@@ -451,6 +459,19 @@ class GameBoardViewController: UIViewController {
     }
     
     
+    func auto_make_transparent() -> Void {
+        
+        if(position_in_use == 0){
+            green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+        }else if(position_in_use == 1){
+           orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+        }else if(position_in_use == 2){
+             light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+        }
+
+    }
+    
+    
     
     func Shape_fitting(Shape_Type: Int, position: CGPoint) -> Bool {
         if (Shape_Type == 0){
@@ -464,7 +485,9 @@ class GameBoardViewController: UIViewController {
                         if (position.x + 25 <= triangle_location.x + 12 && position.x + 25 >= triangle_location.x - 12 &&
                             position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){//check location
                             if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){//check available
-                                green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                
+                                //green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                auto_make_transparent()
                                 Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
                                 Change_Corresponding_Color_With_Image(x:i, y:j-1, image: super_light_green_up)
                                 Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
@@ -484,8 +507,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x + 25 <= triangle_location.x + 12 && position.x + 25 >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
-                                    green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    
+                                    //green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
                                     Change_Corresponding_Color_With_Image(x:i, y:j-1, image: super_light_green_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
@@ -516,7 +539,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i+1][j+1]){//check available
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
                                     Change_Corresponding_Color_With_Image(x:i+1, y:j+1, image: orange_down)
                                     filled[i+1][j+1] = true
@@ -534,7 +558,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i+1][j]){//check available
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
                                     Change_Corresponding_Color_With_Image(x:i+1, y:j, image: orange_down)
                                     filled[i][j] = true
@@ -554,8 +579,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){
                                 if (!filled[i][j] && !filled[i+1][j-1]){
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    
+                                    //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
                                     Change_Corresponding_Color_With_Image(x:i+1, y:j-1, image: orange_down)
                                     filled[i][j] = true
@@ -585,7 +610,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y + 44 <= triangle_location.y + 12 && position.y + 44 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j]){//check available
-                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                   //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j, image: light_brown_up)
@@ -605,7 +631,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y + 44 <= triangle_location.y + 12 && position.y + 44 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+1]){//check available
-                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                   // light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: light_brown_up)
@@ -625,8 +652,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y + 44 <= triangle_location.y + 12 && position.y+44 >= triangle_location.y - 12){
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+2]){
-                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: light_brown_up)
@@ -664,7 +691,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x + 25 <= triangle_location.x + 12 && position.x + 25 >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){//check available
-                                    green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
                                     Change_Corresponding_Color_With_Image(x:i, y:j-1, image: super_light_green_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
@@ -680,8 +708,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x + 25 <= triangle_location.x + 12 && position.x + 25 >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
-                                    green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    
+                                    //green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
                                     Change_Corresponding_Color_With_Image(x:i, y:j-1, image: super_light_green_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
@@ -708,7 +736,9 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i+1][j+1]){//check available
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
                                     Change_Corresponding_Color_With_Image(x:i+1, y:j+1, image: orange_down)
                            
@@ -724,7 +754,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i+1][j]){//check available
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
                                     Change_Corresponding_Color_With_Image(x:i+1, y:j, image: orange_down)
                               
@@ -740,7 +771,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y <= triangle_location.y + 12 && position.y >= triangle_location.y - 12){
                                 if (!filled[i][j] && !filled[i+1][j-1]){
-                                    orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
                                     Change_Corresponding_Color_With_Image(x:i+1, y:j-1, image: orange_down)
                                  
@@ -766,7 +798,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y + 44 <= triangle_location.y + 12 && position.y + 44 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j]){//check available
-                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j, image: light_brown_up)
@@ -782,7 +815,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y + 44 <= triangle_location.y + 12 && position.y + 44 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+1]){//check available
-                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: light_brown_up)
@@ -799,8 +833,8 @@ class GameBoardViewController: UIViewController {
                             if (position.x <= triangle_location.x + 12 && position.x >= triangle_location.x - 12 &&
                                 position.y + 44 <= triangle_location.y + 12 && position.y+44 >= triangle_location.y - 12){
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+2]){
-                                    light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
-                                    
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: light_brown_up)
