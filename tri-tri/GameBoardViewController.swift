@@ -19,10 +19,7 @@ class GameBoardViewController: UIViewController {
     var shape_type_index : Array<Int> = [0 , 0, 0]
 //
     
-//boolean value to determine green_drag_tri, orange_drag_tri and light_brown_tri whether already fit in
-    var green_fit_in = false
-    var orange_fit_in = false
-    var light_brown_fit_in = false
+
     
     
 //--------------------------------------------------------------------------------------------------------------------------
@@ -262,7 +259,7 @@ class GameBoardViewController: UIViewController {
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
                 //if the triangles are fit
                 if (position_in_use == 0){
-                    exist1 = false  //later change to
+                    exist1 = false
                 }else if (position_in_use == 1){
                     exist2 = false
                 }else if (position_in_use == 2){
@@ -303,19 +300,19 @@ class GameBoardViewController: UIViewController {
     //--------------------------------------------------------------------------------------------------------------------
     //construct a list of colors that will be implemented in gameboard
     
-    //color No.0 is green color of the first shape
+    //color No.0 is 绿色tri (st 0)
     let tri_color_0 = UIColor(red:CGFloat(113/255.0), green:CGFloat(148/255.0), blue:CGFloat(92/255.0), alpha:CGFloat(1))
     
-    //color No.1 is dark green
+    //color No.1 is 橙色tri (st 1)
     let tri_color_1 = UIColor(red:CGFloat(223/255.0), green:CGFloat(110/255.0), blue:CGFloat(67/255.0), alpha:CGFloat(1))
     
-    //color No.2 is mix of deep black and green
+    //color No.2 is 棕色tri (st 2 3 4)
     let tri_color_2 = UIColor(red:CGFloat(213/255.0), green:CGFloat(193/255.0), blue:CGFloat(151/255.0), alpha:CGFloat(1))
     
-    //color No.3 is light brown
-    let tri_color_3 = UIColor(red:CGFloat(212/255.0), green:CGFloat(192/255.0), blue:CGFloat(148/255.0), alpha:CGFloat(1))
+    //color No.3 is dark green (st 5)
+    let tri_color_3 = UIColor(red:CGFloat(27/255.0), green:CGFloat(58/255.0), blue:CGFloat(49/255.0), alpha:CGFloat(1))
     
-    //color No.4 is light green
+    //color No.4 is not yet used
      let tri_color_4 = UIColor(red:CGFloat(111/255.0), green:CGFloat(151/255.0), blue:CGFloat(91/255.0), alpha:CGFloat(1))
     
     //color No.5 is trans
@@ -495,7 +492,7 @@ class GameBoardViewController: UIViewController {
                                 filled[i][j-1] = true
                                 filled[i][j+1] = true
                                
-                                green_fit_in = true
+                                
                                 return true
                             }
                             return false
@@ -516,7 +513,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j-1] = true
                                     filled[i][j+1] = true
                                     
-                                   green_fit_in = true
+                                   
                                     return true
                                 }
                                 return false
@@ -546,7 +543,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i+1][j+1] = true
                                     filled[i][j] = true
                                     
-                                    orange_fit_in = true
+                                    
                                     return true
                                 }
                                 return false
@@ -565,7 +562,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j] = true
                                     filled[i+1][j] = true
                                     
-                                    orange_fit_in = true
+                                
 
                                     return true
                                 }
@@ -586,7 +583,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j] = true
                                     filled[i+1][j-1] = true
                                     
-                                    orange_fit_in = true
+                                 
 
                                     return true
                                 }
@@ -619,7 +616,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j] = true
                                     filled[i][j+1] = true
                                     filled[i-1][j] = true
-                                    light_brown_fit_in = true
+                                   
                                     return true
                                 }
                                 return false
@@ -639,7 +636,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j] = true
                                     filled[i][j+1] = true
                                     filled[i-1][j+1] = true
-                                    light_brown_fit_in = true
+                                   
                                     return true
                                 }
                                 return false
@@ -660,7 +657,7 @@ class GameBoardViewController: UIViewController {
                                     filled[i][j] = true
                                     filled[i][j+1] = true
                                     filled[i-1][j+2] = true
-                                    light_brown_fit_in = true
+                              
                                     
                                     return true
                                 }
@@ -674,6 +671,59 @@ class GameBoardViewController: UIViewController {
                 i += 1
             }
 
+        }
+        else if (Shape_Type == 3) {    //Shape_Type == 3
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0||i == 1 || i == 2){//upper half row 1 2
+                        if (j%2 == 0 && j != tri_location[i].count - 1 && j != 0){//only upward
+                            if (position.x + 31.5 <= triangle_location.x + 12 && position.x + 31.5 >= triangle_location.x - 12 &&
+                                position.y + 33.5 <= triangle_location.y + 12 && position.y + 33.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i][j-1] = true
+                                 
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3 || i == 4 || i == 5){//lower half
+                        if (j%2 == 1){//only upward
+                            if (position.x + 31.5 <= triangle_location.x + 12 && position.x + 31.5 >= triangle_location.x - 12 &&
+                                position.y + 33.5 <= triangle_location.y + 12 && position.y + 33.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1]){//check available
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i][j-1] = true
+                            
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
         }
         return false
     }
@@ -839,6 +889,54 @@ class GameBoardViewController: UIViewController {
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: light_brown_up)
                                   
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+        else if (Shape_Type == 3) {    //Shape_Type == 3
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0||i == 1 || i == 2){//upper half row 1 2
+                        if (j%2 == 0 && j != tri_location[i].count - 1 && j != 0){//only upward
+                            if (position.x + 31.5 <= triangle_location.x + 12 && position.x + 31.5 >= triangle_location.x - 12 &&
+                                position.y + 33.5 <= triangle_location.y + 12 && position.y + 33.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3 || i == 4 || i == 5){//lower half
+                        if (j%2 == 1){//only upward
+                            if (position.x + 31.5 <= triangle_location.x + 12 && position.x + 31.5 >= triangle_location.x - 12 &&
+                                position.y + 33.5 <= triangle_location.y + 12 && position.y + 33.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1]){//check available
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    
                                     
                                     return true
                                 }
@@ -1397,10 +1495,10 @@ class GameBoardViewController: UIViewController {
     }
     
     func Eligible_to_Generate () -> Bool {
-        if(green_fit_in && orange_fit_in && light_brown_fit_in){
-            green_fit_in = false
-            orange_fit_in = false
-            light_brown_fit_in = false
+        if(!exist1 && !exist2 && !exist3){
+            exist1 = true
+            exist2 = true
+            exist3 = true
             return true
         }else{
             return false
