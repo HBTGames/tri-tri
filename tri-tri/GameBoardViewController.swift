@@ -2056,13 +2056,23 @@ class GameBoardViewController: UIViewController {
             var i = 0
             for tri_row in filled{
             var j = 0
-            for _ in tri_row{
+            for tri_location in tri_row{
                 bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
+                print("whether green tri available: \(bool_any_green_tri)")
                 bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
+                print("whether orange tri available: \(bool_any_orange_tri)")
                 bool_any_light_brown_tri = Find_Any_Available_Light_Brown_Tri(row: i, column: j)
+                print("whether light_brown tri available: \(bool_any_light_brown_tri)")
                 bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
+                print("whether brown left tri available: \(bool_any_brown_left_tri)")
                 bool_any_brown_downwards_tri = Find_Any_Available_Brown_Downwards_Tri(row: i, column: j)
-                bool_any_dark_green_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
+                print("whether brown downwards tri available: \(bool_any_brown_downwards_tri)")
+                bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
+                 print("whether dark green tri available: \(bool_any_dark_green_tri)")
+                if(bool_any_dark_green_tri){
+                 print("dark green available at \(i) , \(j)")
+                }
+                if(exist1){
                 if(shape_type_index[0] == 0){
                     bool_pos0_shape_available = bool_any_green_tri
                 }else if(shape_type_index[0] == 1){
@@ -2076,7 +2086,11 @@ class GameBoardViewController: UIViewController {
                 }else if(shape_type_index[0] == 5){
                     bool_pos0_shape_available = bool_any_dark_green_tri
                 }
-                
+                }else{
+                    bool_pos0_shape_available = false
+                }
+                print("po0 bool: \(bool_pos0_shape_available)")
+                if(exist2){
                 if(shape_type_index[1] == 0){
                     bool_pos1_shape_available = bool_any_green_tri
                 }else if(shape_type_index[1] == 1){
@@ -2090,7 +2104,11 @@ class GameBoardViewController: UIViewController {
                 }else if(shape_type_index[1] == 5){
                     bool_pos1_shape_available = bool_any_dark_green_tri
                 }
-                
+                }else{
+                    bool_pos1_shape_available = false
+                }
+                print("po1 bool: \(bool_pos1_shape_available)")
+                if(exist3){
                 if(shape_type_index[2] == 0){
                     bool_pos2_shape_available = bool_any_green_tri
                 }else if(shape_type_index[2] == 1){
@@ -2104,17 +2122,26 @@ class GameBoardViewController: UIViewController {
                 }else if(shape_type_index[2] == 5){
                     bool_pos2_shape_available = bool_any_dark_green_tri
                 }
+                }else{
+                    bool_pos2_shape_available = false
+                }
+                
+                print("po2 bool: \(bool_pos2_shape_available)")
                 if(bool_pos0_shape_available || bool_pos1_shape_available || bool_pos2_shape_available){
                     return false
                 }
-                i += 1
-                }
                 j += 1
+                }
+                i += 1
                    }
             return true
 
         }
-        
+    
+
+    
+    
+    
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Find_Any_Available_Green_Tri(row: Int, column: Int) -> Bool {
         //upper row
@@ -2402,17 +2429,22 @@ class GameBoardViewController: UIViewController {
         if(row == 0){
             //upwards tri
             if(column%2 == 0){
+                
               //left to right
                 if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+2] && !filled[row+1][column+1] && !filled[row+1][column+2] && !filled[row+1][column+3]){
                     return true
                 }
               //right to left
-                if(column != 0 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column] && !filled[row+1][column-1] && !filled[row+1][column-1]){
+                if(column != 0 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column] && !filled[row+1][column-1] && !filled[row+1][column+1]){
                     return true
                 }
                 //center not possible
+               
             }
             //downwards tri not possible
+            else{
+                return false
+            }
         }
         else if(row == 1){
          //upwards tri
