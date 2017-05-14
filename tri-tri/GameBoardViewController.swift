@@ -425,7 +425,11 @@ class GameBoardViewController: UIViewController {
     
     let light_brown_down = UIImage(named:"light_brown_down")
     
+//dark green elements
     
+    let dark_green_up = UIImage(named:"green_up")
+    
+    let dark_green_down = UIImage(named:"green_down")
     
 //--------------------------------------------------------------------------------------------------------------------
 
@@ -725,6 +729,145 @@ class GameBoardViewController: UIViewController {
             }
             
         }
+        else if (Shape_Type == 4) {    //Shape_Type == 4
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0||i == 1 || i == 2){//upper half
+                        if (j%2 == 1){//only downward
+                            if (position.x + 15.5 <= triangle_location.x + 12 && position.x + 15.5 >= triangle_location.x - 12 &&
+                                position.y + 32.5 <= triangle_location.y + 12 && position.y + 32.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_up)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3 || i == 4 || i == 5){//lower half
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only downward
+                            if (position.x + 15.5 <= triangle_location.x + 12 && position.x + 15.5 >= triangle_location.x - 12 &&
+                                position.y + 32.5 <= triangle_location.y + 12 && position.y + 32.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_up)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+        else if (Shape_Type == 5) {    //Shape_Type == 5
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 1 || i == 2){//upper half row 1 2
+                        if (j%2 == 0 && j != 0 && j != tri_location[i].count - 1){//only upward
+                            if (position.x + 21 <= triangle_location.x + 12 && position.x + 21 >= triangle_location.x - 12 &&
+                                position.y + 38.5 <= triangle_location.y + 12 && position.y + 38.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j] && !filled[i-1][j-2]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j-2, image: dark_green_up)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i][j-1] = true
+                                    filled[i-1][j] = true
+                                    filled[i-1][j-2] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3){//lower half row 3
+                        if (j%2 == 1){//only upward
+                            if (position.x + 21 <= triangle_location.x + 12 && position.x + 21 >= triangle_location.x - 12 &&
+                                position.y + 38.5 <= triangle_location.y + 12 && position.y + 38.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j-1] && !filled[i-1][j+1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j-1, image: dark_green_up)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i][j-1] = true
+                                    filled[i-1][j-1] = true
+                                    filled[i-1][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 4 || i == 5){//lower half row 4 5
+                        if (j%2 == 1){//only upward
+                            if (position.x + 21 <= triangle_location.x + 12 && position.x + 21 >= triangle_location.x - 12 &&
+                                position.y + 38.5 <= triangle_location.y + 12 && position.y + 38.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j] && !filled[i-1][j+2]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: dark_green_up)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i][j-1] = true
+                                    filled[i-1][j] = true
+                                    filled[i-1][j+2] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+
         return false
     }
     
@@ -937,6 +1080,125 @@ class GameBoardViewController: UIViewController {
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
                                     Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
                                     
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+        else if (Shape_Type == 4) {    //Shape_Type == 4
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0||i == 1 || i == 2){//upper half
+                        if (j%2 == 1){//only upward
+                            if (position.x + 15.5 <= triangle_location.x + 12 && position.x + 15.5 >= triangle_location.x - 12 &&
+                                position.y + 32.5 <= triangle_location.y + 12 && position.y + 32.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_up)
+                                    
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3 || i == 4 || i == 5){//lower half
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only downward
+                            if (position.x + 15.5 <= triangle_location.x + 12 && position.x + 15.5 >= triangle_location.x - 12 &&
+                                position.y + 32.5 <= triangle_location.y + 12 && position.y + 32.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_up)
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+        else if (Shape_Type == 5) {    //Shape_Type == 5
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 1 || i == 2){//upper half row 1 2
+                        if (j%2 == 0 && j != 0 && j != tri_location[i].count - 1){//only upward
+                            if (position.x + 21 <= triangle_location.x + 12 && position.x + 21 >= triangle_location.x - 12 &&
+                                position.y + 38.5 <= triangle_location.y + 12 && position.y + 38.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j] && !filled[i-1][j-2]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j-2, image: dark_green_up)
+                                    
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3){//lower half row 3
+                        if (j%2 == 1){//only upward
+                            if (position.x + 21 <= triangle_location.x + 12 && position.x + 21 >= triangle_location.x - 12 &&
+                                position.y + 38.5 <= triangle_location.y + 12 && position.y + 38.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j-1] && !filled[i-1][j+1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j-1, image: dark_green_up)
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 4 || i == 5){//lower half row 4 5
+                        if (j%2 == 1){//only upward
+                            if (position.x + 21 <= triangle_location.x + 12 && position.x + 21 >= triangle_location.x - 12 &&
+                                position.y + 38.5 <= triangle_location.y + 12 && position.y + 38.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j] && !filled[i-1][j+2]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: dark_green_up)
                                     
                                     return true
                                 }
