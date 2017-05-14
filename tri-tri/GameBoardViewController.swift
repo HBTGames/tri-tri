@@ -258,6 +258,8 @@ class GameBoardViewController: UIViewController {
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
+                Check_and_Erase()
+                Restore_Grey_Tris()
                 //if the triangles are fit
                 if (position_in_use == 0){
                     exist1 = false
@@ -1809,69 +1811,224 @@ class GameBoardViewController: UIViewController {
         //situation one - row
         //eliminate first row
         if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
-            print("row zero is filled")
+            filled[0][0] = false
+            filled[0][1] = false
+            filled[0][2] = false
+            filled[0][3] = false
+            filled[0][4] = false
+            filled[0][5] = false
+            filled[0][6] = false
         }
         //eliminate second row
         if(filled[1][0]&&filled[1][1]&&filled[1][2]&&filled[1][3]&&filled[1][4]&&filled[1][5]&&filled[1][6]&&filled[1][7]&&filled[1][8]){
-            print("row one is filled")
+            filled[1][0] = false
+            filled[1][1] = false
+            filled[1][2] = false
+            filled[1][3] = false
+            filled[1][4] = false
+            filled[1][5] = false
+            filled[1][6] = false
+            filled[1][7] = false
+            filled[1][8] = false
         }
         //eliminate third row
         if(filled[2][0]&&filled[2][1]&&filled[2][2]&&filled[2][3]&&filled[2][4]&&filled[2][5]&&filled[2][6]&&filled[2][7]&&filled[2][8]&&filled[2][9]&&filled[2][10]){
-            print("row two is filled")
+            filled[2][0] = false
+            filled[2][1] = false
+            filled[2][2] = false
+            filled[2][3] = false
+            filled[2][4] = false
+            filled[2][5] = false
+            filled[2][6] = false
+            filled[2][7] = false
+            filled[2][8] = false
+            filled[2][9] = false
+            filled[2][10] = false
         }
         //eliminate fourth row
         if(filled[3][0]&&filled[3][1]&&filled[3][2]&&filled[3][3]&&filled[3][4]&&filled[3][5]&&filled[3][6]&&filled[3][7]&&filled[3][8]&&filled[3][9]&&filled[3][10]){
-            print("row three is filled")
+            filled[3][0] = false
+            filled[3][1] = false
+            filled[3][2] = false
+            filled[3][3] = false
+            filled[3][4] = false
+            filled[3][5] = false
+            filled[3][6] = false
+            filled[3][7] = false
+            filled[3][8] = false
+            filled[3][9] = false
+            filled[3][10] = false
         }
         //eliminate fifth row
         if(filled[4][0]&&filled[4][1]&&filled[4][2]&&filled[4][3]&&filled[4][4]&&filled[4][5]&&filled[4][6]&&filled[4][7]&&filled[4][8]){
-            print("row four is filled")
+            filled[4][0] = false
+            filled[4][1] = false
+            filled[4][2] = false
+            filled[4][3] = false
+            filled[4][4] = false
+            filled[4][5] = false
+            filled[4][6] = false
+            filled[4][7] = false
+            filled[4][8] = false
         }
         ////eliminate sixth row
         if(filled[5][0]&&filled[5][1]&&filled[5][2]&&filled[5][3]&&filled[5][4]&&filled[5][5]&&filled[5][6]){
-            print("row five is filled")
+            filled[5][0] = false
+            filled[5][1] = false
+            filled[5][2] = false
+            filled[5][3] = false
+            filled[5][4] = false
+            filled[5][5] = false
+            filled[5][6] = false
         }
         
         
         //situation two - 右下斜
         if(filled[2][0]&&filled[3][0]&&filled[3][1]&&filled[4][0]&&filled[4][1]&&filled[5][0]&&filled[5][1]){
+            filled[2][0] = false
+            filled[3][0] = false
+            filled[3][1] = false
+            filled[4][0] = false
+            filled[4][1] = false
+            filled[5][0] = false
+            filled[5][1] = false
             
         }
         if(filled[1][0]&&filled[2][1]&&filled[2][2]&&filled[3][2]&&filled[3][3]&&filled[4][2]&&filled[4][3]&&filled[5][2]&&filled[5][3]){
+            filled[1][0] = false
+            filled[2][1] = false
+            filled[2][2] = false
+            filled[3][2] = false
+            filled[3][3] = false
+            filled[4][2] = false
+            filled[4][3] = false
+            filled[5][2] = false
+            filled[5][3] = false
+            
+            
+            
+            
+            
             
         }
         if(filled[0][0]&&filled[1][1]&&filled[1][2]&&filled[2][3]&&filled[2][4]&&filled[3][4]&&filled[3][5]&&filled[4][4]&&filled[4][5]&&filled[5][4]&&filled[5][5]){
+            filled[0][0] = false
+            filled[1][1] = false
+            filled[1][2] = false
+            filled[2][3] = false
+            filled[2][4] = false
+            filled[3][4] = false
+            filled[3][5] = false
+            filled[4][4] = false
+            filled[4][5] = false
+            filled[5][4] = false
+            filled[5][5] = false
             
         }
         if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
             
-        }
-        if(filled[0][3]&&filled[0][4]&&filled[1][5]&&filled[1][6]&&filled[2][7]&&filled[2][8]&&filled[3][8]&&filled[3][9]){
+            filled[0][1] = false
+            filled[0][2] = false
+            filled[1][3] = false
+            filled[1][4] = false
+            filled[2][5] = false
+            filled[2][6] = false
+            filled[3][6] = false
+            filled[3][7] = false
+            filled[4][6] = false
+            filled[4][7] = false
+            filled[5][6] = false
             
+        }
+        if(filled[0][3]&&filled[0][4]&&filled[1][5]&&filled[1][6]&&filled[2][7]&&filled[2][8]&&filled[3][8]&&filled[3][9]&&filled[4][8]){
+            
+            filled[0][3] = false
+            filled[0][4] = false
+            filled[1][5] = false
+            filled[1][6] = false
+            filled[2][7] = false
+            filled[2][8] = false
+            filled[3][8] = false
+            filled[3][9] = false
+            filled[4][8] = false
         }
         if(filled[0][5]&&filled[0][6]&&filled[1][7]&&filled[1][8]&&filled[2][9]&&filled[2][10]&&filled[3][10]){
-            
+            filled[0][5] = false
+            filled[0][6] = false
+            filled[1][7] = false
+            filled[1][8] = false
+            filled[2][9] = false
+            filled[2][10] = false
+            filled[3][10] = false
         }
         
         
         //situation three - 左下斜
         if(filled[0][0]&&filled[0][1]&&filled[1][0]&&filled[1][1]&&filled[2][0]&&filled[2][1]&&filled[3][0]){
-            
+            filled[0][0] = false
+            filled[0][1] = false
+            filled[1][0] = false
+            filled[1][1] = false
+            filled[2][0] = false
+            filled[2][1] = false
+            filled[3][0] = false
         }
         if(filled[0][2]&&filled[0][3]&&filled[1][2]&&filled[1][3]&&filled[2][2]&&filled[2][3]&&filled[3][1]&&filled[3][2]&&filled[4][0]){
-            
+            filled[0][2] = false
+            filled[0][3] = false
+            filled[1][2] = false
+            filled[1][3] = false
+            filled[2][2] = false
+            filled[2][3] = false
+            filled[3][1] = false
+            filled[3][2] = false
+            filled[4][0] = false
         }
         if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
-            
+            filled[0][4] = false
+            filled[0][5] = false
+            filled[1][4] = false
+            filled[1][5] = false
+            filled[2][4] = false
+            filled[2][5] = false
+            filled[3][3] = false
+            filled[3][4] = false
+            filled[4][1] = false
+            filled[4][2] = false
+            filled[5][0] = false
         }
         if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
-            
+            filled[0][6] = false
+            filled[1][6] = false
+            filled[1][7] = false
+            filled[2][6] = false
+            filled[2][7] = false
+            filled[3][5] = false
+            filled[3][6] = false
+            filled[4][3] = false
+            filled[4][4] = false
+            filled[5][1] = false
+            filled[5][2] = false
         }
         if(filled[1][8]&&filled[2][8]&&filled[2][9]&&filled[3][7]&&filled[3][8]&&filled[4][5]&&filled[4][6]&&filled[5][3]&&filled[5][4]){
-            
+            filled[1][8] = false
+            filled[2][8] = false
+            filled[2][9] = false
+            filled[3][7] = false
+            filled[3][8] = false
+            filled[4][5] = false
+            filled[4][6] = false
+            filled[5][3] = false
+            filled[5][4] = false
         }
         if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
-            
+            filled[2][10] = false
+            filled[3][9] = false
+            filled[3][10] = false
+            filled[4][7] = false
+            filled[4][8] = false
+            filled[5][5] = false
+            filled[5][6] = false
         }
     }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
