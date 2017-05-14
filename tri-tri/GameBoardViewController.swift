@@ -1867,9 +1867,154 @@ class GameBoardViewController: UIViewController {
         if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
             
         }
+    }
+    
+    var bool_any_green_tri = true
+    var bool_any_orange_tri = true
+    var bool_any_light_brown_tri = true
+    
+     //the function to check for gameover (if gameover return true, else return false)
+        func Check_for_Gameover () -> Bool {
+            var i = 0
+            for tri_row in filled{
+            var j = 0
+            for _ in tri_row{
+                if(!filled[i][j]){
+                bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
+                bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
+                    
+                    
+                    
+                }
+                i += 1
+                }
+                j += 1
+                   }
+            return false
+
+        }
+        
+    
+    func Find_Any_Available_Green_Tri(row: Int, column: Int) -> Bool {
+        //upper row
+        if(row == 0 || row == 1 || row == 2){
+            //upwards tri (pos0 or pos2)
+            if(column % 2 == 0){
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2]){
+                    return true
+                }
+                if(column != 0 && !filled[row][column-2] && !filled[row][column-1] && !filled[row][column]){
+                    return true
+                }
+            }
+                //downwards tri (pos1)
+                else{
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row][column+1]){
+                    return true
+                }
+                
+                }
+            
+            
+
+        }
+        else if(row == 3 || row == 4 || row == 5    ){
+            //upwards tri (pos0 and pos2)
+            if(column % 2 != 0){
+                if(column != 1 && !filled[row][column-2] && !filled[row][column-1] && !filled[row][column]){
+                    return true
+                }
+                else if(column != filled[row].count-2 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2]){
+                    return true
+                }
+            }
+            
+            
+            
+        }
+        
+        return false
         
         
     }
+        
+    func Find_Any_Available_Orange_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0 || row == 1){
+            //upwards tri
+            if(column % 2 == 0){
+                if(!filled[row][column] && !filled[row+1][column+1]){
+                    return true
+                }
+            }
+                    //downwards tri
+            else{
+                if(row == 1 && !filled[row][column] && !filled[row-1][column-1]){
+                    return true
+                }
+                }
+            
+        }
+        
+        else if(row == 2){
+            //upwards tri
+            if(column%2 == 0){
+                if(!filled[row][column] && !filled[row+1][column]){
+                    return true
+                }
+            }
+            //downwards tri
+            else{
+                if(!filled[row][column] && !filled[row-1][column-1]){
+                    return true
+                }
+                
+            }
+        }
+        else if(row == 3){
+            //downwards tri
+            if(column%2 == 0){
+                if(!filled[row][column] && !filled[row-1][column]){
+                    return true
+                }
+            }
+            //upwards tri
+            else{
+                if(!filled[row][column] && !filled[row+1][column-1]){
+                    return true
+                }
+                
+            }
+        }
+        else if(row == 4 || row == 5){
+         //downwards tri
+            if(column%2 == 0){
+            if(!filled[row][column] && !filled[row-1][column+1]){
+                        return true
+                    }
+                }
+        //upwards tri
+            else{
+                if(row == 4 && !filled[row][column] && !filled[row+1][column-1]){
+                    return true
+                }
+                
+                
+            }
+        }
+        
+        return false
+    }
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
     
 
     
