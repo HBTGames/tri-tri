@@ -14,6 +14,7 @@
 		04E48D341EC0704000823F45 /* tri_triTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E48D331EC0704000823F45 /* tri_triTests.swift */; };
 		04E48D3F1EC0704000823F45 /* tri_triUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E48D3E1EC0704000823F45 /* tri_triUITests.swift */; };
 		04E48D4F1EC075FA00823F45 /* 540654.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04E48D4E1EC075FA00823F45 /* 540654.jpg */; };
+		563230E81EC8A9F600EA49D9 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563230E71EC8A9F600EA49D9 /* GameOverViewController.swift */; };
 		5644A5F31EC428FC000066D6 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F21EC428FC000066D6 /* Base.lproj */; };
 		5644A5F61EC42905000066D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F41EC42905000066D6 /* Main.storyboard */; };
 		56A61C841EC5D30500A29B6F /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */; };
@@ -52,6 +53,7 @@
 		04E48D3E1EC0704000823F45 /* tri_triUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tri_triUITests.swift; sourceTree = "<group>"; };
 		04E48D401EC0704000823F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E48D4E1EC075FA00823F45 /* 540654.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 540654.jpg; path = pictures/540654.jpg; sourceTree = "<group>"; };
+		563230E71EC8A9F600EA49D9 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		5644A5F21EC428FC000066D6 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		5644A5F51EC42905000066D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56A61C8A1EC5DA2400A29B6F /* background music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "background music.mp3"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				5644A5F21EC428FC000066D6 /* Base.lproj */,
 				04E48D2A1EC0704000823F45 /* Info.plist */,
 				56BEBEA71EC32C25008BBD04 /* UIImageTintExtension.swift */,
+				563230E71EC8A9F600EA49D9 /* GameOverViewController.swift */,
 			);
 			path = "tri-tri";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				56A61C841EC5D30500A29B6F /* GameBoardViewController.swift in Sources */,
 				04E48D1F1EC0704000823F45 /* AppDelegate.swift in Sources */,
 				56BEBEA81EC32C25008BBD04 /* UIImageTintExtension.swift in Sources */,
+				563230E81EC8A9F600EA49D9 /* GameOverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

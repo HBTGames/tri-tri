@@ -258,9 +258,6 @@ class GameBoardViewController: UIViewController {
     
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
-            if(Check_for_Gameover()){
-                print("Game Over!")
-            }
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
                 Check_and_Erase()
                 Restore_Grey_Tris()
@@ -281,10 +278,11 @@ class GameBoardViewController: UIViewController {
                     auto_random_generator()
                 }
                 if(Check_for_Gameover()){
-                    print("haaaaaaaaaaaaaaaaa")
-                    let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
-                    subView.backgroundColor = UIColor.yellow
-                    self.view.addSubview(subView)
+                    //print("haaaaaaaaaaaaaaaaa")
+                    //let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
+                   // subView.backgroundColor = UIColor.yellow
+                   // self.view.addSubview(subView)
+                    Jump_to_Game_Over ()
                 }
 
                 
@@ -2107,7 +2105,7 @@ class GameBoardViewController: UIViewController {
                 }else{
                     bool_pos1_shape_available = false
                 }
-                print("po1 bool: \(bool_pos1_shape_available)")
+                
                 if(exist3){
                 if(shape_type_index[2] == 0){
                     bool_pos2_shape_available = bool_any_green_tri
@@ -2587,8 +2585,11 @@ class GameBoardViewController: UIViewController {
     return false
     }
     
-    
-    
+    func Jump_to_Game_Over () -> Void {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
+       self.present(nextViewController, animated: true, completion: nil)
+    }
 
     
 }
