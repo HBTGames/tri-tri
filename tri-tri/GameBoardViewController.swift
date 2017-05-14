@@ -273,7 +273,10 @@ class GameBoardViewController: UIViewController {
                 orange_drag_tri.frame.origin = orange_drag_origin
                 light_brown_drag_tri.frame.origin = light_brown_drag_origin
                 if(Check_for_Gameover()){
-                    print("Game Over!")
+                    print("haaaaaaaaaaaaaaaaa")
+                    let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
+                    subView.backgroundColor = UIColor.yellow
+                    self.view.addSubview(subView)
                 }
                 if(Eligible_to_Generate()){
                     auto_random_generator()
