@@ -255,8 +255,12 @@ class GameBoardViewController: UIViewController {
         }
         }
         
+    
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
+            if(Check_for_Gameover()){
+                print("Game Over!")
+            }
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
                 Check_and_Erase()
                 Restore_Grey_Tris()
@@ -272,15 +276,18 @@ class GameBoardViewController: UIViewController {
                 green_drag_tri.frame.origin = green_drag_origin
                 orange_drag_tri.frame.origin = orange_drag_origin
                 light_brown_drag_tri.frame.origin = light_brown_drag_origin
+
+                if(Eligible_to_Generate()){
+                    auto_random_generator()
+                }
                 if(Check_for_Gameover()){
                     print("haaaaaaaaaaaaaaaaa")
                     let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
                     subView.backgroundColor = UIColor.yellow
                     self.view.addSubview(subView)
                 }
-                if(Eligible_to_Generate()){
-                    auto_random_generator()
-                }
+
+                
             } else {
                 position_in_use = 3
                 UIView.animate(withDuration: 0.3, animations: {
@@ -2041,7 +2048,9 @@ class GameBoardViewController: UIViewController {
     var bool_any_brown_left_tri = true
     var bool_any_brown_downwards_tri = true
     var bool_any_dark_green_tri = true
-    
+    var bool_pos0_shape_available = true
+    var bool_pos1_shape_available = true
+    var bool_pos2_shape_available = true
      //the function to check for gameover (if gameover return true, else return false)
         func Check_for_Gameover () -> Bool {
             var i = 0
@@ -2049,13 +2058,53 @@ class GameBoardViewController: UIViewController {
             var j = 0
             for _ in tri_row{
                 bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
-                print("bool_any_green_tri: \(bool_any_green_tri) ")
                 bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
                 bool_any_light_brown_tri = Find_Any_Available_Light_Brown_Tri(row: i, column: j)
                 bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
                 bool_any_brown_downwards_tri = Find_Any_Available_Brown_Downwards_Tri(row: i, column: j)
-                bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
-                if(bool_any_dark_green_tri || bool_any_light_brown_tri || bool_any_green_tri || bool_any_orange_tri || bool_any_brown_left_tri || bool_any_brown_downwards_tri){
+                bool_any_dark_green_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
+                if(shape_type_index[0] == 0){
+                    bool_pos0_shape_available = bool_any_green_tri
+                }else if(shape_type_index[0] == 1){
+                    bool_pos0_shape_available = bool_any_orange_tri
+                }else if(shape_type_index[0] == 2){
+                    bool_pos0_shape_available = bool_any_light_brown_tri
+                }else if(shape_type_index[0] == 3){
+                    bool_pos0_shape_available =  bool_any_brown_downwards_tri
+                }else if(shape_type_index[0] == 4){
+                    bool_pos0_shape_available = bool_any_brown_left_tri
+                }else if(shape_type_index[0] == 5){
+                    bool_pos0_shape_available = bool_any_dark_green_tri
+                }
+                
+                if(shape_type_index[1] == 0){
+                    bool_pos1_shape_available = bool_any_green_tri
+                }else if(shape_type_index[1] == 1){
+                    bool_pos1_shape_available = bool_any_orange_tri
+                }else if(shape_type_index[1] == 2){
+                    bool_pos1_shape_available = bool_any_light_brown_tri
+                }else if(shape_type_index[1] == 3){
+                    bool_pos1_shape_available =  bool_any_brown_downwards_tri
+                }else if(shape_type_index[1] == 4){
+                    bool_pos1_shape_available = bool_any_brown_left_tri
+                }else if(shape_type_index[1] == 5){
+                    bool_pos1_shape_available = bool_any_dark_green_tri
+                }
+                
+                if(shape_type_index[2] == 0){
+                    bool_pos2_shape_available = bool_any_green_tri
+                }else if(shape_type_index[2] == 1){
+                    bool_pos2_shape_available = bool_any_orange_tri
+                }else if(shape_type_index[2] == 2){
+                    bool_pos2_shape_available = bool_any_light_brown_tri
+                }else if(shape_type_index[2] == 3){
+                    bool_pos2_shape_available =  bool_any_brown_downwards_tri
+                }else if(shape_type_index[2] == 4){
+                    bool_pos2_shape_available = bool_any_brown_left_tri
+                }else if(shape_type_index[2] == 5){
+                    bool_pos2_shape_available = bool_any_dark_green_tri
+                }
+                if(bool_pos0_shape_available || bool_pos1_shape_available || bool_pos2_shape_available){
                     return false
                 }
                 i += 1
