@@ -211,11 +211,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "516379252.51256"
+            timestampString = "516444431.078658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "644"
-            endingLineNumber = "644"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
             landmarkName = "Shape_fitting(Shape_Type:position:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -227,11 +227,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "516379252.51256"
+            timestampString = "516444431.078658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "639"
-            endingLineNumber = "639"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
             landmarkName = "Shape_fitting(Shape_Type:position:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -243,12 +243,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "516379252.51256"
+            timestampString = "516444431.078658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "877"
-            endingLineNumber = "877"
-            landmarkName = "Change_Corresponding_Color(x:y:color:)"
+            startingLineNumber = "881"
+            endingLineNumber = "881"
+            landmarkName = "Shape_fitting_When_Dragging(Shape_Type:position:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -259,11 +259,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "516379252.51256"
+            timestampString = "516444431.078658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "panGestureRecognizerAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -275,12 +275,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "516379252.51256"
+            timestampString = "516444431.078658"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1102"
-            endingLineNumber = "1102"
-            landmarkName = "Restore_Grey_Tris()"
+            startingLineNumber = "1106"
+            endingLineNumber = "1106"
+            landmarkName = "Shape_fitting_When_Dragging(Shape_Type:position:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

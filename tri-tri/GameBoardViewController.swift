@@ -53,7 +53,7 @@ class GameBoardViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         initialTouchLocation = touches.first!.location(in: view)
-        print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
+        //print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
 
     }
     
@@ -88,8 +88,8 @@ class GameBoardViewController: UIViewController {
         //ugly and long init start:
         
         tri_location[0][0] = tri_0_0.frame.origin
-        print(tri_location[0][0].x)
-        print(tri_location[0][0].y)
+        //print(tri_location[0][0].x)
+        //print(tri_location[0][0].y)
         tri_location[0][1] = tri_0_1.frame.origin
         tri_location[0][2] = tri_0_2.frame.origin
         tri_location[0][3] = tri_0_3.frame.origin
@@ -97,8 +97,8 @@ class GameBoardViewController: UIViewController {
         tri_location[0][5] = tri_0_5.frame.origin
         tri_location[0][6] = tri_0_6.frame.origin
         tri_location[1][0] = tri_1_0.frame.origin
-        print(tri_location[1][0].x)
-        print(tri_location[1][0].y)
+        //print(tri_location[1][0].x)
+       // print(tri_location[1][0].y)
         tri_location[1][1] = tri_1_1.frame.origin
         tri_location[1][2] = tri_1_2.frame.origin
         tri_location[1][3] = tri_1_3.frame.origin
@@ -108,41 +108,41 @@ class GameBoardViewController: UIViewController {
         tri_location[1][7] = tri_1_7.frame.origin
         tri_location[1][8] = tri_1_8.frame.origin
         tri_location[2][0] = tri_2_0.frame.origin
-        print(tri_location[2][0].x)
-        print(tri_location[2][0].y)
+        //print(tri_location[2][0].x)
+       // print(tri_location[2][0].y)
         tri_location[2][1] = tri_2_1.frame.origin
-        print(tri_location[2][1].x)
-        print(tri_location[2][1].y)
+        //print(tri_location[2][1].x)
+        //print(tri_location[2][1].y)
         tri_location[2][2] = tri_2_2.frame.origin
-        print(tri_location[2][2].x)
-        print(tri_location[2][2].y)
+       // print(tri_location[2][2].x)
+       // print(tri_location[2][2].y)
         tri_location[2][3] = tri_2_3.frame.origin
-        print(tri_location[2][3].x)
-        print(tri_location[2][3].y)
+        //print(tri_location[2][3].x)
+        //print(tri_location[2][3].y)
         tri_location[2][4] = tri_2_4.frame.origin
-        print(tri_location[2][4].x)
-        print(tri_location[2][4].y)
+       // print(tri_location[2][4].x)
+       // print(tri_location[2][4].y)
         tri_location[2][5] = tri_2_5.frame.origin
-        print(tri_location[2][5].x)
-        print(tri_location[2][5].y)
+        //print(tri_location[2][5].x)
+       // print(tri_location[2][5].y)
         tri_location[2][6] = tri_2_6.frame.origin
-        print(tri_location[2][6].x)
-        print(tri_location[2][6].y)
+       // print(tri_location[2][6].x)
+       // print(tri_location[2][6].y)
         tri_location[2][7] = tri_2_7.frame.origin
-        print(tri_location[2][7].x)
-        print(tri_location[2][7].y)
+       // print(tri_location[2][7].x)
+       // print(tri_location[2][7].y)
         tri_location[2][8] = tri_2_8.frame.origin
-        print(tri_location[2][8].x)
-        print(tri_location[2][8].y)
+        //print(tri_location[2][8].x)
+        //print(tri_location[2][8].y)
         tri_location[2][9] = tri_2_9.frame.origin
-        print(tri_location[2][9].x)
-        print(tri_location[2][9].y)
+        //print(tri_location[2][9].x)
+        //print(tri_location[2][9].y)
         tri_location[2][10] = tri_2_10.frame.origin
-        print(tri_location[2][10].x)
-        print(tri_location[2][10].y)
+        //print(tri_location[2][10].x)
+        //print(tri_location[2][10].y)
         tri_location[3][0] = tri_3_0.frame.origin
-        print(tri_location[3][0].x)
-        print(tri_location[3][0].y)
+        //print(tri_location[3][0].x)
+        //print(tri_location[3][0].y)
         tri_location[3][1] = tri_3_1.frame.origin
         tri_location[3][2] = tri_3_2.frame.origin
         tri_location[3][3] = tri_3_3.frame.origin
@@ -154,8 +154,8 @@ class GameBoardViewController: UIViewController {
         tri_location[3][9] = tri_3_9.frame.origin
         tri_location[3][10] = tri_3_10.frame.origin
         tri_location[4][0] = tri_4_0.frame.origin
-        print(tri_location[4][0].x)
-        print(tri_location[4][0].y)
+        //print(tri_location[4][0].x)
+        //print(tri_location[4][0].y)
         tri_location[4][1] = tri_4_1.frame.origin
         tri_location[4][2] = tri_4_2.frame.origin
         tri_location[4][3] = tri_4_3.frame.origin
@@ -165,8 +165,8 @@ class GameBoardViewController: UIViewController {
         tri_location[4][7] = tri_4_7.frame.origin
         tri_location[4][8] = tri_4_8.frame.origin
         tri_location[5][0] = tri_5_0.frame.origin
-        print(tri_location[5][0].x)
-        print(tri_location[5][0].y)
+        //print(tri_location[5][0].x)
+        //print(tri_location[5][0].y)
         tri_location[5][1] = tri_5_1.frame.origin
         tri_location[5][2] = tri_5_2.frame.origin
         tri_location[5][3] = tri_5_3.frame.origin
@@ -186,8 +186,9 @@ class GameBoardViewController: UIViewController {
             print("error")
         }
         //
+        
         //
-        print("origin x is\(green_drag_tri.frame.origin.x), origin y is \(green_drag_tri.frame.origin.y)")
+        //print("origin x is\(green_drag_tri.frame.origin.x), origin y is \(green_drag_tri.frame.origin.y)")
         //
         //initialize shape array
         shape_type_index = [0 , 1 , 2]
@@ -269,6 +270,9 @@ class GameBoardViewController: UIViewController {
                 green_drag_tri.frame.origin = green_drag_origin
                 orange_drag_tri.frame.origin = orange_drag_origin
                 light_brown_drag_tri.frame.origin = light_brown_drag_origin
+                if(Check_for_Gameover()){
+                    print("Game Over!")
+                }
                 if(Eligible_to_Generate()){
                     auto_random_generator()
                 }
@@ -1405,9 +1409,9 @@ class GameBoardViewController: UIViewController {
         green_drag_tri.sizeToFit()
         green_drag_tri_orig_rec = green_drag_tri.frame
         shape_type_index[0] = randomIndex
-        print("position 0 shape index : \(shape_type_index[0])")
-        print("new origin x is\(green_drag_tri.frame.origin.x), new origin y is \(green_drag_tri.frame.origin.y)")
-        print("upperleft coordiante is (x: \(green_drag_tri.frame.origin.x - green_drag_tri.frame.width/2)) ")
+        //print("position 0 shape index : \(shape_type_index[0])")
+        //print("new origin x is\(green_drag_tri.frame.origin.x), new origin y is \(green_drag_tri.frame.origin.y)")
+        //print("upperleft coordiante is (x: \(green_drag_tri.frame.origin.x - green_drag_tri.frame.width/2)) ")
        // force_recenter_drag_tris( tri: green_drag_tri,tri_img: generator_array[randomIndex] )
     
         
@@ -1416,7 +1420,7 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri.sizeToFit()
         orange_drag_tri_orig_rec = orange_drag_tri.frame
         shape_type_index[1] = randomIndex
-        print("position 1 shape index : \(shape_type_index[1])")
+        //print("position 1 shape index : \(shape_type_index[1])")
 
         //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
 
@@ -1426,7 +1430,7 @@ class GameBoardViewController: UIViewController {
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
         shape_type_index[2] = randomIndex
-        print("position 2 shape index : \(shape_type_index[2])")
+        //print("position 2 shape index : \(shape_type_index[2])")
 
         exist1 = true
         exist2 = true
@@ -1451,6 +1455,8 @@ class GameBoardViewController: UIViewController {
             }else if(tri == orange_drag_tri){
                 tri.frame.origin = orange_drag_origin
             }else if(tri == light_brown_drag_tri){
+          
+                
                 tri.frame.origin = light_brown_drag_origin
             }
         }
@@ -1868,10 +1874,13 @@ class GameBoardViewController: UIViewController {
             
         }
     }
-    
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////
     var bool_any_green_tri = true
     var bool_any_orange_tri = true
     var bool_any_light_brown_tri = true
+    var bool_any_brown_left_tri = true
+    var bool_any_brown_downwards_tri = true
+    var bool_any_dark_green_tri = true
     
      //the function to check for gameover (if gameover return true, else return false)
         func Check_for_Gameover () -> Bool {
@@ -1879,22 +1888,25 @@ class GameBoardViewController: UIViewController {
             for tri_row in filled{
             var j = 0
             for _ in tri_row{
-                if(!filled[i][j]){
                 bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
+                print("bool_any_green_tri: \(bool_any_green_tri) ")
                 bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
-                    
-                    
-                    
+                bool_any_light_brown_tri = Find_Any_Available_Light_Brown_Tri(row: i, column: j)
+                bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
+                bool_any_brown_downwards_tri = Find_Any_Available_Brown_Downwards_Tri(row: i, column: j)
+                bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
+                if(bool_any_dark_green_tri || bool_any_light_brown_tri || bool_any_green_tri || bool_any_orange_tri || bool_any_brown_left_tri || bool_any_brown_downwards_tri){
+                    return false
                 }
                 i += 1
                 }
                 j += 1
                    }
-            return false
+            return true
 
         }
         
-    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Find_Any_Available_Green_Tri(row: Int, column: Int) -> Bool {
         //upper row
         if(row == 0 || row == 1 || row == 2){
@@ -1937,7 +1949,7 @@ class GameBoardViewController: UIViewController {
         
         
     }
-        
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Find_Any_Available_Orange_Tri (row: Int, column:Int) -> Bool{
         if(row == 0 || row == 1){
             //upwards tri
@@ -2005,14 +2017,334 @@ class GameBoardViewController: UIViewController {
         return false
     }
         
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func Find_Any_Available_Light_Brown_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0){
+            //upwards tri
+            if(column%2 == 0 && !filled[row][column] && !filled[row+1][column] && !filled[row+1][column+1]){
+                return true
+            }
+        }
+        else if(row == 1){
+            //upwards tri
+            if(column%2 == 0){
+                if(!filled[row][column] && !filled[row+1][column] && !filled[row+1][column+1]){
+                    return true
+                }
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row-1][column]){
+                    return true
+                }
+            }
+            //downwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row-1][column-1]){
+                    return true
+                }
+            }
+        }
+        else if(row == 2){
+            //upwards tri
+            if(column%2 == 0){
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row-1][column]){
+                    return true
+                }
+                if(column != 0 && !filled[row][column] && !filled[row+1][column] && !filled[row+1][column-1]){
+                    return true
+                }
+            }
+            //downwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row-1][column-1]){
+                    return true
+                }
+            }
+        }
         
+        else if(row == 3){
+            //downwards tri
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row-1][column]){
+                    return true
+                }
+            }
+            //upwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column+1] && !filled[row-1][column+1]){
+                    return true
+                }
+                if(column != 1 && !filled[row][column] && !filled[row+1][column-1] && !filled[row+1][column-2]){
+                    return true
+                }
+            }
+        }
+        else if(row == 4){
+            //downwards tri
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row-1][column+1]){
+                    return true
+            }
+        }
+                //upwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column+1] && !filled[row-1][column+2]){
+                    return true
+                }
+                if(column != 1 && !filled[row][column] && !filled[row+1][column-1] && !filled[row+1][column-2]){
+                    return true
+                }
+            }
+        }
+        else if(row == 5 ){
+            //downwards tri
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row-1][column+1]){
+                    return true
+                }
+            }
+            //upwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column+1] && !filled[row-1][column+2]){
+                    return true
+                }
+            }
+        }
+    
+    return false
+    }
         
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    func Find_Any_Available_Brown_Left_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0 || row == 1 || row == 2){
+            //upwards tri
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1]){
+                    return true
+                }
+            }
+                //downwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column+1]){
+                    return true
+                }
+            }
+        }
+        else if(row == 3 || row == 4 || row == 5){
+            //downwards tri
+            if(column%2 == 0){
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1]){
+                    return true
+                }
+            }
+            //upwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column-1]){
+                    return true
+                    }
+            }
+        }
         
+        return false
+    }
     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    
-    
-    
+    func Find_Any_Available_Brown_Downwards_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0 || row == 1 || row == 2){
+            //upwards tri
+            if(column%2 == 0){
+                if(column != 0 && column != filled[row].count-1 && !filled[row][column] && !filled[row][column-1] && !filled[row][column+1]){
+                    return true
+                }
+            }
+            //downwards tri
+            else{
+                if(column != 1 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2]){
+                    return true
+                }
+                if(column != filled[row].count-2 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2]){
+                    return true
+                }
+            }
+        }
+        else if(row == 3 || row == 4 || row == 5){
+        //downwards tri
+            if(column%2 == 0){
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && filled[row][column+2]){
+                    return true
+                }
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2]){
+                    return true
+                }
+            }
+            //upwards tri
+            else{
+                if(!filled[row][column-1] && !filled[row][column] && !filled[row][column+1]){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func Find_Any_Dark_Green_Tri (row: Int, column:Int) -> Bool{
+        
+        if(row == 0){
+            //upwards tri
+            if(column%2 == 0){
+              //left to right
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+2] && !filled[row+1][column+1] && !filled[row+1][column+2] && !filled[row+1][column+3]){
+                    return true
+                }
+              //right to left
+                if(column != 0 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column] && !filled[row+1][column-1] && !filled[row+1][column-1]){
+                    return true
+                }
+                //center not possible
+            }
+            //downwards tri not possible
+        }
+        else if(row == 1){
+         //upwards tri
+            if(column%2 == 0){
+                //left to right
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+2] && !filled[row+1][column+1] && !filled[row+1][column+2] && !filled[row+1][column+3]){
+                    return true
+                }
+                //right to left
+                if(column != 0 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column] && !filled[row+1][column-1] && !filled[row+1][column+1]){
+                    return true
+                }
+                //as center
+                if(column != 0 && column != filled[row].count-1 && !filled[row][column] && !filled[row][column-1] && !filled[row][column+1] && !filled[row-1][column-2] && !filled[row-1][column]){
+                    return true
+                }
+            }
+            //downwards tri
+            else{
+                //bottom left to right
+                if(column != filled[row].count-2 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2] && !filled[row-1][column-1] && !filled[row-1][column+1]){
+                    return true
+                }
+                //bottom right to left
+                if(column != 1 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2] && !filled[row-1][column-1] && !filled[row-1][column-3]){
+                    return true
+                }
+            }
+        }
+        
+        else if(row == 2){
+        //upwards tri
+            if(column%2 == 0){
+                //left to right
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+2] && !filled[row+1][column] && !filled[row+1][column+1] && !filled[row+1][column+2] ){
+                    return true
+                }
+                //right to left
+                if(column != 0 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column] && !filled[row+1][column-1] && !filled[row+1][column-2]){
+                    return true
+                }
+                //as center 
+                if(column != 0 && column != filled[row].count-1 && !filled[row][column] && !filled[row][column-1] && !filled[row][column+1] && !filled[row-1][column-2] && !filled[row-1][column]){
+                    return true
+                }
+            }
+            //downwards tri
+            else{
+                //bottom left to right
+                if(column != filled[row].count-2 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2]  && !filled[row-1][column-1] && !filled[row-1][column+1]){
+                    return true
+                }
+                //bottom right to left
+                if(column != 1 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2] && !filled[row-1][column-1] && !filled[row-1][column-3]){
+                    return true
+                }
+
+            }
+        }
+        else if(row == 3){
+            //downwards tri
+            if(column%2 == 0){
+                //bottom left to right
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2] && !filled[row-1][column] && !filled[row-1][column+2]){
+                    return true
+                }
+                //bottom right to left
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2] && !filled[row-1][column] && !filled[row-1][column-2]){
+                    return true
+                }
+            }
+            //upwards tri
+            else{
+             //left to right
+                if(column != filled[row].count-2 && !filled[row][column] && !filled[row][column+2] && !filled[row+1][column-1] && !filled[row+1][column] && !filled[row+1][column+1]){
+                    return true
+                }
+                //right to left
+                if(column != 1 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column-1] && !filled[row+1][column-2] && !filled[row+1][column-3]){
+                    return true
+                }
+                //as center
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row][column+1] && !filled[row-1][column-1] && !filled[row-1][column+1]){
+                    return true
+                }
+            }
+        }
+        else if(row == 4){
+        //downwards tri
+        if(column%2 == 0){
+        //bottom left to right
+            if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2] && !filled[row-1][column+1] && !filled[row-1][column+3]){
+                return true
+            }
+        //bottom right to left
+            if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2] && !filled[row-1][column-1] && !filled[row-1][column+1]){
+                return true
+            }
+        }
+        //upwards tri
+        else{
+            //left to right 
+            if(column != filled[row].count-2 && !filled[row][column] && !filled[row][column+2] && !filled[row+1][column-1] && !filled[row+1][column] && !filled[row+1][column+1]){
+                return true
+            }
+            //right to left
+            if(column != 1 && !filled[row][column] && !filled[row][column-2] && !filled[row+1][column-1] && !filled[row+1][column-2] && !filled[row+1][column-3]){
+                return true
+            }
+            //as center
+            if(!filled[row][column] && !filled[row][column-1] && !filled[row][column+1] && !filled[row-1][column] && !filled[row-1][column+2]){
+                return true
+            }
+        
+        }
+        }
+        else if(row == 5){
+        //downwards tri
+            if(column%2 == 0){
+                //bottom left to right
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2] && !filled[row-1][column+1] && !filled[row-1][column+3]){
+                    return true
+                }
+                //bottom right to left
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2] && !filled[row-1][column-1] && !filled[row-1][column+1]){
+                    return true
+                }
+   
+            }
+            //upwards tri
+            else{
+            //left to right & right to left not possible
+            //as center
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row][column+1] && !filled[row-1][column] && !filled[row-1][column+2]){
+                    return true
+                }
+                
+            }
+        }
+    return false
+    }
     
     
     
