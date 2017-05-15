@@ -2245,9 +2245,12 @@ class GameBoardViewController: UIViewController {
     var bool_any_brown_downwards_tri = true
     var bool_any_dark_green_tri = true
     var bool_any_pink_right_tri = true
+    var bool_any_purple_upwards_tri = true
+    var bool_any_purple_downwards_tri = true
     var bool_pos0_shape_available = true
     var bool_pos1_shape_available = true
     var bool_pos2_shape_available = true
+    
      //the function to check for gameover (if gameover return true, else return false)
         func Check_for_Gameover () -> Bool {
             var i = 0
@@ -2267,6 +2270,8 @@ class GameBoardViewController: UIViewController {
                 bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
                  print("whether dark green tri available: \(bool_any_dark_green_tri)")
                 bool_any_pink_right_tri = Find_Any_Pink_Right_Tri(row: i, column: j)
+                bool_any_purple_upwards_tri = Find_Any_Purple_Upwards_Tri(row: i, column: j)
+                bool_any_purple_downwards_tri = Find_Any_Purple_Downwards_Tri(row: i, column: j)
                 if(bool_any_dark_green_tri){
                  print("dark green available at \(i) , \(j)")
                 }
@@ -2285,7 +2290,12 @@ class GameBoardViewController: UIViewController {
                     bool_pos0_shape_available = bool_any_dark_green_tri
                 }else if(shape_type_index[0] == 6){
                     bool_pos0_shape_available = bool_any_pink_right_tri
-                    }
+                }else if(shape_type_index[0] == 7){
+                    bool_pos0_shape_available = bool_any_purple_upwards_tri
+                }else if(shape_type_index[0] == 8){
+                    bool_pos0_shape_available = bool_any_purple_downwards_tri
+                }
+                
                 }else{
                     bool_pos0_shape_available = false
                 }
@@ -2305,6 +2315,10 @@ class GameBoardViewController: UIViewController {
                     bool_pos1_shape_available = bool_any_dark_green_tri
                 }else if(shape_type_index[1] == 6){
                     bool_pos1_shape_available = bool_any_pink_right_tri
+                }else if(shape_type_index[1] == 7){
+                    bool_pos1_shape_available = bool_any_purple_upwards_tri
+                }else if(shape_type_index[1] == 8){
+                    bool_pos1_shape_available = bool_any_purple_downwards_tri
                 }
                 }else{
                     bool_pos1_shape_available = false
@@ -2325,6 +2339,10 @@ class GameBoardViewController: UIViewController {
                     bool_pos2_shape_available = bool_any_dark_green_tri
                 }else if(shape_type_index[2] == 6){
                     bool_pos2_shape_available = bool_any_pink_right_tri
+                }else if(shape_type_index[2] == 7){
+                    bool_pos2_shape_available = bool_any_purple_upwards_tri
+                }else if(shape_type_index[2] == 8){
+                    bool_pos2_shape_available = bool_any_purple_downwards_tri
                 }
                 }else{
                     bool_pos2_shape_available = false
@@ -2825,12 +2843,38 @@ class GameBoardViewController: UIViewController {
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Find_Any_Purple_Upwards_Tri (row: Int, column:Int) -> Bool{
-        
+        if(row == 0 || row == 1 || row == 2){
+            //upwards tri
+            if(column%2 == 0 && !filled[row][column]){
+                return true
+            }
+        }else if(row == 3 || row == 4 || row == 5){
+            //upwards tri
+            if(column%2 != 0 && !filled[row][column]){
+                return true
+            }
+        }
         
         
         return false
     }
     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func Find_Any_Purple_Downwards_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0 || row == 1 || row == 2){
+            //downwards
+            if(column%2 != 0 && !filled[row][column]){
+                return true
+            }
+            
+        }else if(row == 3 || row == 4 || row == 5 ){
+            if(column%2 == 0 && !filled[row][column]){
+                return true
+            }
+        }
+        
+     return false
+    }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     func Jump_to_Game_Over () -> Void {
