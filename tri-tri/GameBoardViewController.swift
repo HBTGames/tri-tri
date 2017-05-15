@@ -451,6 +451,12 @@ class GameBoardViewController: UIViewController {
     
     let pink_down = UIImage(named:"pink_downwards")
     
+//purple elements
+    
+    let pur_up = UIImage(named:"purple_upwards")
+    
+    let pur_down = UIImage(named:"purple_downwards")
+    
 //--------------------------------------------------------------------------------------------------------------------
 
     
@@ -937,6 +943,96 @@ class GameBoardViewController: UIViewController {
             
         }
 
+//        else if (Shape_Type == 7) {    //Shape_Type == 7 purple single up
+//            var i = 0
+//            for triangles_location in tri_location{
+//                var j = 0
+//                
+//                for triangle_location in triangles_location{
+//                    if (i == 0||i == 1 || i == 2){//upper half
+//                        if (j%2 == 0){//only upward
+//                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+//                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+//                                if (!filled[i][j]){//check available
+//                                    
+//                                    auto_make_transparent()
+//                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_up)
+//                                    
+//                                    filled[i][j] = true
+//                                    
+//                                    return true
+//                                }
+//                                return false
+//                            }
+//                        }
+//                        
+//                    }else if (i == 3 || i == 4 || i == 5){//lower half
+//                        if (j%2 == 1){//only upward
+//                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+//                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+//                                if (!filled[i][j]){//check available
+//                                    auto_make_transparent()
+//                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_down)
+//                                    filled[i][j] = true
+//                                    
+//                                    return true
+//                                }
+//                                return false
+//                            }
+//                        }
+//                        
+//                    }
+//                    j += 1
+//                }
+//                i += 1
+//            }
+//            
+//        }
+//        else if (Shape_Type == 8) {    //Shape_Type == 8 purple single down
+//            var i = 0
+//            for triangles_location in tri_location{
+//                var j = 0
+//                
+//                for triangle_location in triangles_location{
+//                    if (i == 0||i == 1 || i == 2){//upper half
+//                        if (j%2 == 1){//only downward
+//                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+//                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+//                                if (!filled[i][j]){//check available
+//                                    
+//                                    auto_make_transparent()
+//                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_down)
+//                                    
+//                                    filled[i][j] = true
+//                                    
+//                                    return true
+//                                }
+//                                return false
+//                            }
+//                        }
+//                        
+//                    }else if (i == 3 || i == 4 || i == 5){//lower half
+//                        if (j%2 == 0){//only downward
+//                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+//                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+//                                if (!filled[i][j]){//check available
+//                                    auto_make_transparent()
+//                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_down)
+//                                    filled[i][j] = true
+//                                    
+//                                    return true
+//                                }
+//                                return false
+//                            }
+//                        }
+//                        
+//                    }
+//                    j += 1
+//                }
+//                i += 1
+//            }
+//            
+//        }
 
         return false
     }
