@@ -2098,7 +2098,8 @@ class GameBoardViewController: UIViewController {
     
     //auto generate three tris when previous are all fit in
       func auto_random_generator() -> Void {
-        var randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        var randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
         green_drag_tri.image = generator_array[randomIndex]
         green_drag_tri.sizeToFit()
         green_drag_tri_orig_rec = green_drag_tri.frame
@@ -2106,7 +2107,8 @@ class GameBoardViewController: UIViewController {
         // force_recenter_drag_tris( tri: green_drag_tri,tri_img: generator_array[randomIndex] )
         
         
-        randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
         orange_drag_tri.image = generator_array[randomIndex]
         orange_drag_tri.sizeToFit()
         orange_drag_tri_orig_rec = orange_drag_tri.frame
@@ -2114,7 +2116,8 @@ class GameBoardViewController: UIViewController {
         
         //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
         
-        randomIndex = Int(arc4random_uniform(UInt32(generator_array.count)))
+        randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
         light_brown_drag_tri.image = generator_array[randomIndex]
         light_brown_drag_tri.sizeToFit()
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
@@ -3002,6 +3005,7 @@ class GameBoardViewController: UIViewController {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var score = 0
     func modify_counter(before: Array<Array<Bool>>, after: Array<Array<Bool>>) -> Void{
         var current_str = MarkBoard.text!
         var current_int = Int(current_str)!
@@ -3018,6 +3022,7 @@ class GameBoardViewController: UIViewController {
             }
             i+=1
         }
+        score = current_int
         current_str = String(current_int)
         MarkBoard.text = current_str
         if(current_int > HighestScore){
@@ -3031,10 +3036,41 @@ class GameBoardViewController: UIViewController {
     }
     
 
-    
-    
-    
+func randomNumber(probabilities: [Double]) -> Int {
+            
+            // Sum of all probabilities (so that we don't have to require that the sum is 1.0):
+            let sum = probabilities.reduce(0, +)
+            // Random number in the range 0.0 <= rnd < sum :
+            let rnd = sum * Double(arc4random_uniform(UInt32.max)) / Double(UInt32.max)
+            // Find the first interval of accumulated probabilities into which `rnd` falls:
+            var accum = 0.0
+            for (i, p) in probabilities.enumerated() {
+                accum += p
+                if rnd < accum {
+                    return i
+                }
+            }
+            // This point might be reached due to floating point inaccuracies:
+            return (probabilities.count - 1)
 }
+    
+    func randomShape_for_Difficulty_Level () -> Int{
+        if(score <= 50){
+        // 0: 1/10 1: 1/10 2:1/10 3:1/10 4:1/8 5:1/20 6:1/8 7:3/20 8:3/20
+          return randomNumber(probabilities: [0.1, 0.1 , 0.11 , 0.11, 0.135, 0.01, 0.135, 0.16, 0.16])
+        }
+        else if(score > 50 && score <= 200){
+          return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.125, 0.1, 0.125, 0.125, 0.125])
+        }else if(score > 200 && score <= 300){
+           return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.15, 0.1, 0.125, 0.125])
+        }else if(score > 300 && score <= 400){
+            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.2, 0.1, 0.1, 0.1])
+        }else{
+            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.075, 0.3, 0.075, 0.075, 0.075])
+        }
+        
+    }
+   }
 
 
 
