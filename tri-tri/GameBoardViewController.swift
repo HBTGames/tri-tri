@@ -193,7 +193,7 @@ class GameBoardViewController: UIViewController {
         //initialize shape array
         shape_type_index = [0 , 1 , 2]
         
-        
+        audioPlayer.play()
         
         
     }
@@ -485,7 +485,7 @@ class GameBoardViewController: UIViewController {
         temp_mark_int += 1
         temp_mark_str = String(temp_mark_int)
         MarkBoard.text = temp_mark_str
-        audioPlayer.play()
+        
     }
     
     
