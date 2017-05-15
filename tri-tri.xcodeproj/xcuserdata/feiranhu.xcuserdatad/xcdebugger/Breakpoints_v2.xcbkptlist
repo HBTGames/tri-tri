@@ -296,7 +296,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2436"
             endingLineNumber = "2436"
-            landmarkName = "Find_Any_Dark_Green_Tri(row:column:)"
+            landmarkName = "Find_Any_Available_Orange_Tri(row:column:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -312,7 +312,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2631"
             endingLineNumber = "2631"
-            landmarkName = "Jump_to_Game_Over()"
+            landmarkName = "Find_Any_Dark_Green_Tri(row:column:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -328,8 +328,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2629"
             endingLineNumber = "2629"
-            landmarkName = "Jump_to_Game_Over()"
-            landmarkType = "7">
+            landmarkName = "GameBoardViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -14,7 +14,7 @@ class GameBoardViewController: UIViewController {
 //create an array to store shape_index for each UIImageView
 // each int inside array reprensents shape index
 //every shape is the same name as they are in Assets.xcassets file
-//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction
+//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction 7 purple upwards  8 purple downwards
     
     var shape_type_index : Array<Int> = [0 , 0, 0]
 //
@@ -60,7 +60,7 @@ class GameBoardViewController: UIViewController {
     
     //--------------------------------------------------------------------------------------------------------------------------
     //initialize an array for random generator
-    var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!]
+    var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!,UIImage(named:"purple_upwards_as_shape.png")!,UIImage(named:"purple_downwards_as_shape")!]
     
     //--------------------------------------------------------------------------------------------------------------------------
     
@@ -2790,7 +2790,7 @@ class GameBoardViewController: UIViewController {
         }
     return false
     }
-    
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Find_Any_Pink_Right_Tri (row: Int, column:Int) -> Bool{
         if(row == 0 || row == 1 || row == 3){
             //upwards tri
@@ -2822,6 +2822,16 @@ class GameBoardViewController: UIViewController {
         return false
         
     }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func Find_Any_Purple_Upwards_Tri (row: Int, column:Int) -> Bool{
+        
+        
+        
+        return false
+    }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     func Jump_to_Game_Over () -> Void {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
