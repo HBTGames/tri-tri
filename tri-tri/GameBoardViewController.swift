@@ -259,7 +259,10 @@ class GameBoardViewController: UIViewController {
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
+                let cond_before_erase = filled
                 Check_and_Erase()
+                let cond_after_erase = filled
+                modify_counter(before: cond_before_erase, after: cond_after_erase)
                 Restore_Grey_Tris()
                 //if the triangles are fit
                 if (position_in_use == 0){
@@ -2966,6 +2969,26 @@ class GameBoardViewController: UIViewController {
        self.present(nextViewController, animated: true, completion: nil)
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func modify_counter(before: Array<Array<Bool>>, after: Array<Array<Bool>>) -> Void{
+        var current_str = MarkBoard.text!
+        var current_int = Int(current_str)!
+        var i = 0
+        for eachRow in before{
+            var j = 0
+            for _ in eachRow{
+                if before[i][j] != after[i][j]{
+                    
+                    
+                    current_int += 1
+                }
+                j+=1
+            }
+            i+=1
+        }
+        current_str = String(current_int)
+        MarkBoard.text = current_str
+    }
     
 }
 
