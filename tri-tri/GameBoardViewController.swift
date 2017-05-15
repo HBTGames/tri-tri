@@ -87,6 +87,8 @@ class GameBoardViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     var timer = Timer()
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //add UIPanGestureRecognizer
@@ -103,6 +105,12 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri_orig_rec = orange_drag_tri.frame
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         // Do any additional setup after loading the view.
+        //generate first group
+        if(score == 0){
+            auto_random_generator()
+        }
+        //
+        
         var HighScoreDefault = UserDefaults.standard
         if(HighScoreDefault.value(forKey: "tritri_HighestScore") != nil ){
         HighestScore = HighScoreDefault.value(forKey: "tritri_HighestScore") as! NSInteger
@@ -222,7 +230,7 @@ class GameBoardViewController: UIViewController {
         //print("origin x is\(green_drag_tri.frame.origin.x), origin y is \(green_drag_tri.frame.origin.y)")
         //
         //initialize shape array
-        shape_type_index = [0 , 1 , 2]
+        //shape_type_index = [0 , 1 , 2]
         
         audioPlayer.play()
         self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
@@ -299,6 +307,8 @@ class GameBoardViewController: UIViewController {
                 do{
                     fit_in_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Fit_In", ofType: "aif")!))
                     fit_in_player.prepareToPlay()
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+                    try AVAudioSession.sharedInstance().setActive(false)
                 }
                 catch{
                     //print("error")

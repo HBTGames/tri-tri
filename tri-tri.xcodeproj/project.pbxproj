@@ -240,6 +240,11 @@
 					04E48D1A1EC0704000823F45 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					04E48D2E1EC0704000823F45 = {
 						CreatedOnToolsVersion = 8.3.2;

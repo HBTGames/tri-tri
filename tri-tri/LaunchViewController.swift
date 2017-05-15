@@ -33,9 +33,9 @@ class LaunchViewController: UIViewController {
     }
     
     private func loadVideo() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-        } catch { }
+        //do {
+        //    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        //} catch { }
         
         let videoPath = NSURL(fileURLWithPath:Bundle.main.path(forResource: "anim", ofType:"mp4")!)
         player  = AVPlayer(url: videoPath as URL)
