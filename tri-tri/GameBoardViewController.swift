@@ -76,7 +76,7 @@ class GameBoardViewController: UIViewController {
     @IBOutlet weak var HightestScoreBoard: UITextField!
     @IBAction func Default_Highest_Score(_ sender: Any) {
         var HighScoreDefault = UserDefaults.standard
-        HighScoreDefault.set(0, forKey: "HighestScore")
+        HighScoreDefault.set(0, forKey: "tritri_HighestScore")
         HighScoreDefault.synchronize()
     
     }
@@ -102,11 +102,11 @@ class GameBoardViewController: UIViewController {
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         // Do any additional setup after loading the view.
         var HighScoreDefault = UserDefaults.standard
-        if(HighScoreDefault.value(forKey: "HighestScore") != nil ){
-        HighestScore = HighScoreDefault.value(forKey: "HighestScore") as! NSInteger
+        if(HighScoreDefault.value(forKey: "tritri_HighestScore") != nil ){
+        HighestScore = HighScoreDefault.value(forKey: "tritri_HighestScore") as! NSInteger
         print("Highest Score is \(HighestScore)")
         }else{
-         HighScoreDefault.set(0, forKey: "HighestScore")
+         HighScoreDefault.set(0, forKey: "tritri_HighestScore")
          HighestScore = 0
         }
         HightestScoreBoard.text = String(HighestScore)
@@ -3029,7 +3029,7 @@ class GameBoardViewController: UIViewController {
         if(current_int > HighestScore){
             HighestScore = current_int
             var HighScoreDefault = UserDefaults.standard
-            HighScoreDefault.set(HighestScore, forKey: "HighestScore")
+            HighScoreDefault.set(HighestScore, forKey: "tritri_HighestScore")
             HighScoreDefault.synchronize()
             
         }
