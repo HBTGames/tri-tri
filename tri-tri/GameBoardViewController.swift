@@ -321,16 +321,36 @@ class GameBoardViewController: UIViewController {
                 green_drag_tri.frame.origin = green_drag_origin
                 orange_drag_tri.frame.origin = orange_drag_origin
                 light_brown_drag_tri.frame.origin = light_brown_drag_origin
+               
 
+                //
                 if(Eligible_to_Generate()){
                     auto_random_generator()
+                    
+                    
+                if(Check_for_Gameover()){
+                    let delayInSeconds = 1.0
+                    //wait for 2 seconds to game over
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
+                        
+                        // here code perfomed with delay  
+                        self.Jump_to_Game_Over ()
+                        
+                    }
+
+                    
+                    }
+
                 }
+                else{
+                    
                 if(Check_for_Gameover()){
                     //print("haaaaaaaaaaaaaaaaa")
                     //let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
                    // subView.backgroundColor = UIColor.yellow
                    // self.view.addSubview(subView)
                     Jump_to_Game_Over ()
+                }
                 }
 
                 
