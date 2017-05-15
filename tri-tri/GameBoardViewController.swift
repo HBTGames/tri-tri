@@ -2982,6 +2982,9 @@ class GameBoardViewController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
        self.present(nextViewController, animated: true, completion: nil)
+        self.audioPlayer.stop()
+        self.timer.invalidate()
+        
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
