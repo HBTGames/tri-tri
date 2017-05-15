@@ -264,8 +264,10 @@ class GameBoardViewController: UIViewController {
     
         //if dragging ended, return to original location (with animiation)
         if(gesture.state == .ended){
+            let cond_before_insert = filled
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
                 let cond_before_erase = filled
+                modify_counter(before: cond_before_insert, after: cond_before_erase)
                 Check_and_Erase()
                 let cond_after_erase = filled
                 modify_counter(before: cond_before_erase, after: cond_after_erase)
