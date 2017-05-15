@@ -83,6 +83,7 @@ class GameBoardViewController: UIViewController {
     
     
     //declare an audio player
+    var fit_in_player = AVAudioPlayer()
     var audioPlayer = AVAudioPlayer()
     var timer = Timer()
 
@@ -212,7 +213,7 @@ class GameBoardViewController: UIViewController {
             audioPlayer.prepareToPlay()
         }
         catch{
-            print("error")
+            //print("error")
         }
         //
         
@@ -293,6 +294,15 @@ class GameBoardViewController: UIViewController {
         if(gesture.state == .ended){
             let cond_before_insert = filled
             if (Shape_fitting(Shape_Type: actual_type_index, position: actual_location)){
+                //play fit in sound effect
+                do{
+                    fit_in_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Fit_In", ofType: "aif")!))
+                    fit_in_player.prepareToPlay()
+                }
+                catch{
+                    //print("error")
+                }
+                fit_in_player.play()
                 let cond_before_erase = filled
                 modify_counter(before: cond_before_insert, after: cond_before_erase)
                 Check_and_Erase()
@@ -506,23 +516,7 @@ class GameBoardViewController: UIViewController {
     //outlet connection variable for MarkBoard (top left)
     @IBOutlet weak var MarkBoard: UILabel!
     
-    
-    
-    
-    
-    //initialize two temporary mark value
-    var temp_mark_str = String()
-    var temp_mark_int = 0
-    //implement the function to increment 1 whenever press "test" button
-    @IBAction func Mark_Mannual_Increment_Test(_ sender: UIButton) {
-        temp_mark_str = MarkBoard.text!
-        temp_mark_int = Int(temp_mark_str)!
-        temp_mark_int += 1
-        temp_mark_str = String(temp_mark_int)
-        MarkBoard.text = temp_mark_str
-        
-    }
-    
+
     
     func auto_make_transparent() -> Void {
         

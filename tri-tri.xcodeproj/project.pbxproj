@@ -19,6 +19,7 @@
 		5644A5F61EC42905000066D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F41EC42905000066D6 /* Main.storyboard */; };
 		564542CF1EC9591A00BFBD0C /* anim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 564542CE1EC958AA00BFBD0C /* anim.mp4 */; };
 		564542D11EC95C2300BFBD0C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564542D01EC95C2300BFBD0C /* MenuViewController.swift */; };
+		564542D31EC9A17100BFBD0C /* Fit_In.aif in Resources */ = {isa = PBXBuildFile; fileRef = 564542D21EC9A0E900BFBD0C /* Fit_In.aif */; };
 		566A590A1EC942DD0056D665 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566A59091EC942DD0056D665 /* LaunchViewController.swift */; };
 		56A61C841EC5D30500A29B6F /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */; };
 		56A61C8B1EC5DA2400A29B6F /* background music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56A61C8A1EC5DA2400A29B6F /* background music.mp3 */; };
@@ -61,6 +62,7 @@
 		5644A5F51EC42905000066D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		564542CE1EC958AA00BFBD0C /* anim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = anim.mp4; sourceTree = "<group>"; };
 		564542D01EC95C2300BFBD0C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		564542D21EC9A0E900BFBD0C /* Fit_In.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fit_In.aif; sourceTree = "<group>"; };
 		566A59091EC942DD0056D665 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		56A61C8A1EC5DA2400A29B6F /* background music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "background music.mp3"; sourceTree = "<group>"; };
 		56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		56A61C851EC5D68100A29B6F /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				564542D21EC9A0E900BFBD0C /* Fit_In.aif */,
 				56A61C8A1EC5DA2400A29B6F /* background music.mp3 */,
 			);
 			name = Music;
@@ -275,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564542D31EC9A17100BFBD0C /* Fit_In.aif in Resources */,
 				564542CF1EC9591A00BFBD0C /* anim.mp4 in Resources */,
 				04E48D291EC0704000823F45 /* LaunchScreen.storyboard in Resources */,
 				5644A5F61EC42905000066D6 /* Main.storyboard in Resources */,
