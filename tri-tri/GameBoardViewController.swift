@@ -69,6 +69,7 @@ class GameBoardViewController: UIViewController {
     
     //declare an audio player
     var audioPlayer = AVAudioPlayer()
+    var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,6 +197,9 @@ class GameBoardViewController: UIViewController {
         shape_type_index = [0 , 1 , 2]
         
         audioPlayer.play()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
+            self.audioPlayer.play()
+        })
         
         
     }
