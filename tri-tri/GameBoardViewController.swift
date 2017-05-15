@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import AVKit
-
+import UserNotifications
 class GameBoardViewController: UIViewController {
 
 //create an array to store shape_index for each UIImageView
@@ -88,9 +88,10 @@ class GameBoardViewController: UIViewController {
     var timer = Timer()
 
     override func viewDidLoad() {
-      
         super.viewDidLoad()
         //add UIPanGestureRecognizer
+      
+        ////
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
         //assign original locations of three tris located at the location on storyboard of each of them

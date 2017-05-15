@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {
+            (granted,erro) in
+        })
         return true
     }
 
@@ -27,6 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        //add notification
+        let notification_content = UNMutableNotificationContent()
+        notification_content.title = NSString.localizedUserNotificationString(forKey: "Time is now!", arguments: nil)
+        notification_content.body = NSString.localizedUserNotificationString(forKey: "客官可别忘了俺", arguments: nil)
+        notification_content.sound = UNNotificationSound.default()
+        notification_content.badge = 1
+        //deliver the notification
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "FiveSeconds", content: notification_content, trigger: trigger)
+        //schedule notification
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -35,10 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        application.applicationIconBadgeNumber = 0
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
     }
 
 
