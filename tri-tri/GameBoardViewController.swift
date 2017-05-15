@@ -14,7 +14,7 @@ class GameBoardViewController: UIViewController {
 //create an array to store shape_index for each UIImageView
 // each int inside array reprensents shape index
 //every shape is the same name as they are in Assets.xcassets file
-//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri
+//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction
     
     var shape_type_index : Array<Int> = [0 , 0, 0]
 //
@@ -60,7 +60,7 @@ class GameBoardViewController: UIViewController {
     
     //--------------------------------------------------------------------------------------------------------------------------
     //initialize an array for random generator
-        var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!]
+    var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!]
     
     //--------------------------------------------------------------------------------------------------------------------------
     
@@ -2046,6 +2046,7 @@ class GameBoardViewController: UIViewController {
     var bool_any_brown_left_tri = true
     var bool_any_brown_downwards_tri = true
     var bool_any_dark_green_tri = true
+    var bool_any_pink_right_tri = true
     var bool_pos0_shape_available = true
     var bool_pos1_shape_available = true
     var bool_pos2_shape_available = true
@@ -2067,6 +2068,7 @@ class GameBoardViewController: UIViewController {
                 print("whether brown downwards tri available: \(bool_any_brown_downwards_tri)")
                 bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
                  print("whether dark green tri available: \(bool_any_dark_green_tri)")
+                bool_any_pink_right_tri = Find_Any_Pink_Right_Tri(row: i, column: j)
                 if(bool_any_dark_green_tri){
                  print("dark green available at \(i) , \(j)")
                 }
@@ -2083,7 +2085,9 @@ class GameBoardViewController: UIViewController {
                     bool_pos0_shape_available = bool_any_brown_left_tri
                 }else if(shape_type_index[0] == 5){
                     bool_pos0_shape_available = bool_any_dark_green_tri
-                }
+                }else if(shape_type_index[0] == 6){
+                    bool_pos0_shape_available = bool_any_pink_right_tri
+                    }
                 }else{
                     bool_pos0_shape_available = false
                 }
@@ -2101,6 +2105,8 @@ class GameBoardViewController: UIViewController {
                     bool_pos1_shape_available = bool_any_brown_left_tri
                 }else if(shape_type_index[1] == 5){
                     bool_pos1_shape_available = bool_any_dark_green_tri
+                }else if(shape_type_index[1] == 6){
+                    bool_pos1_shape_available = bool_any_pink_right_tri
                 }
                 }else{
                     bool_pos1_shape_available = false
@@ -2119,6 +2125,8 @@ class GameBoardViewController: UIViewController {
                     bool_pos2_shape_available = bool_any_brown_left_tri
                 }else if(shape_type_index[2] == 5){
                     bool_pos2_shape_available = bool_any_dark_green_tri
+                }else if(shape_type_index[2] == 6){
+                    bool_pos2_shape_available = bool_any_pink_right_tri
                 }
                 }else{
                     bool_pos2_shape_available = false
@@ -2583,6 +2591,38 @@ class GameBoardViewController: UIViewController {
             }
         }
     return false
+    }
+    
+    func Find_Any_Pink_Right_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0 || row == 1 || row == 3){
+            //upwards tri
+            if(column%2 == 0){
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] ){
+                    return true
+                }
+            }//downwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column-1]){
+                    return true
+                }
+            }
+        }else if( row == 4 || row == 5 || row == 6 ){
+         //downwards tri
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1]){
+              return true
+            }
+            }
+         //upwards tri
+            else{
+                if(!filled[row][column] && !filled[row][column+1]){
+                    return true
+                }
+            }
+        }
+        
+        return false
+        
     }
     
     func Jump_to_Game_Over () -> Void {
