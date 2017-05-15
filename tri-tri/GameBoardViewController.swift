@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AVKit
 
 class GameBoardViewController: UIViewController {
 
@@ -20,8 +21,9 @@ class GameBoardViewController: UIViewController {
 //
     
 
+    var player = AVPlayer()
     
-    
+
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
     
