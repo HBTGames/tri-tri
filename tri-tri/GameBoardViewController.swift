@@ -23,6 +23,8 @@ class GameBoardViewController: UIViewController {
 
     var player = AVPlayer()
     
+    //record highest score
+    var HighestScore = 0
 
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
@@ -61,6 +63,7 @@ class GameBoardViewController: UIViewController {
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
         self.audioPlayer.stop()
         self.timer.invalidate()
+        HightestScoreBoard.text = "0"
   
     }
     
@@ -70,6 +73,13 @@ class GameBoardViewController: UIViewController {
     var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!,UIImage(named:"purple_upwards_as_shape.png")!,UIImage(named:"purple_downwards_as_shape")!]
     
     //--------------------------------------------------------------------------------------------------------------------------
+    @IBOutlet weak var HightestScoreBoard: UITextField!
+    @IBAction func Default_Highest_Score(_ sender: Any) {
+        var HighScoreDefault = UserDefaults.standard
+        HighScoreDefault.set(0, forKey: "HighestScore")
+        HighScoreDefault.synchronize()
+    
+    }
     
     
     //declare an audio player
@@ -91,6 +101,16 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri_orig_rec = orange_drag_tri.frame
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         // Do any additional setup after loading the view.
+        var HighScoreDefault = UserDefaults.standard
+        if(HighScoreDefault.value(forKey: "HighestScore") != nil ){
+        HighestScore = HighScoreDefault.value(forKey: "HighestScore") as! NSInteger
+        print("Highest Score is \(HighestScore)")
+        }else{
+         HighScoreDefault.set(0, forKey: "HighestScore")
+         HighestScore = 0
+        }
+        HightestScoreBoard.text = String(HighestScore)
+        
         //set CGPoint value of all grey tringles
         
         //---------------------------------------------------------------------------------------------------------------------
@@ -3006,9 +3026,22 @@ class GameBoardViewController: UIViewController {
         }
         current_str = String(current_int)
         MarkBoard.text = current_str
+        if(current_int > HighestScore){
+            HighestScore = current_int
+            var HighScoreDefault = UserDefaults.standard
+            HighScoreDefault.set(HighestScore, forKey: "HighestScore")
+            HighScoreDefault.synchronize()
+            
+        }
+        
     }
     
+
+    
+    
+    
 }
+
 
 
 
