@@ -345,6 +345,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pause_button"/>
                                 <connections>
+                                    <action selector="stop_music_when_pause:" destination="qxD-t8-ioY" eventType="touchUpInside" id="gVv-FO-08y"/>
                                     <segue destination="129-y3-ZaN" kind="show" id="P08-06-Qm0"/>
                                 </connections>
                             </button>

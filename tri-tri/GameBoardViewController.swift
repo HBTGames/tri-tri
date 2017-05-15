@@ -58,6 +58,11 @@ class GameBoardViewController: UIViewController {
         //print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
 
     }
+    @IBAction func stop_music_when_pause(_ sender: UIButton) {
+        self.audioPlayer.stop()
+        self.timer.invalidate()
+  
+    }
     
     
     //--------------------------------------------------------------------------------------------------------------------------
@@ -72,6 +77,7 @@ class GameBoardViewController: UIViewController {
     var timer = Timer()
 
     override func viewDidLoad() {
+      
         super.viewDidLoad()
         //add UIPanGestureRecognizer
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction(_:)))
@@ -198,8 +204,9 @@ class GameBoardViewController: UIViewController {
         
         audioPlayer.play()
         self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
-            self.audioPlayer.play()
-        })
+                        self.audioPlayer.play()
+        }
+        )
         
         
     }
