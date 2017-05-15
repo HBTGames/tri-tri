@@ -445,6 +445,12 @@ class GameBoardViewController: UIViewController {
     
     let dark_green_down = UIImage(named:"green_down")
     
+//pink elements
+    
+    let pink_up = UIImage(named:"pink_upwards")
+    
+    let pink_down = UIImage(named:"pink_downwards")
+    
 //--------------------------------------------------------------------------------------------------------------------
 
     
@@ -881,6 +887,56 @@ class GameBoardViewController: UIViewController {
             }
             
         }
+        else if (Shape_Type == 6) {    //Shape_Type == 6 pink right direction
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0||i == 1 || i == 2){//upper half
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only upward not last one
+                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pink_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: pink_down)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3 || i == 4 || i == 5){//lower half
+                        if (j%2 == 1){//only upward
+                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pink_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: pink_down)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+
 
         return false
     }
@@ -1227,6 +1283,52 @@ class GameBoardViewController: UIViewController {
             }
             
         }
+        else if (Shape_Type == 6) {    //Shape_Type == 6 pink right direction
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0||i == 1 || i == 2){//upper half
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only upward not last one
+                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pink_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: pink_down)
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3 || i == 4 || i == 5){//lower half
+                        if (j%2 == 1){//only upward
+                            if (position.x + 9 <= triangle_location.x + 12 && position.x + 9 >= triangle_location.x - 12 &&
+                                position.y + 19.5 <= triangle_location.y + 12 && position.y + 19.5 >= triangle_location.y - 12){//check location
+                                if (!filled[i][j] && !filled[i][j+1]){//check available
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pink_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: pink_down)
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+
         return false
     }
 
@@ -2055,7 +2157,7 @@ class GameBoardViewController: UIViewController {
             var i = 0
             for tri_row in filled{
             var j = 0
-            for tri_location in tri_row{
+            for _ in tri_row{
                 bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
                 print("whether green tri available: \(bool_any_green_tri)")
                 bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
