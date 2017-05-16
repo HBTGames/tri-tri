@@ -54,9 +54,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tri-Tri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrB-ul-NYG">
-                                <rect key="frame" x="88" y="191" width="199" height="70"/>
+                                <rect key="frame" x="78" y="181" width="218" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="58"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="69"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -340,6 +340,218 @@
                                 <rect key="frame" x="239" y="390" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="xNY-Aq-UaX">
+                                <rect key="frame" x="113" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="oLJ-AF-fNV">
+                                <rect key="frame" x="88" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="ZhV-6R-bfB">
+                                <rect key="frame" x="139" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="A7x-Ha-Ujg">
+                                <rect key="frame" x="164" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="sLu-Xq-C6Z">
+                                <rect key="frame" x="189" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="LEM-J7-oGZ">
+                                <rect key="frame" x="214" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="Yb7-ll-mFI">
+                                <rect key="frame" x="239" y="183" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="JnQ-lg-URx">
+                                <rect key="frame" x="88" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="3EO-rE-lEg">
+                                <rect key="frame" x="62" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="WbX-29-EDz">
+                                <rect key="frame" x="113" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="ELe-CA-9m7">
+                                <rect key="frame" x="139" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="NWO-Jw-TIU">
+                                <rect key="frame" x="164" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="Foo-vv-WLq">
+                                <rect key="frame" x="189" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="5zN-Xa-dkf">
+                                <rect key="frame" x="214" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="EtO-vg-YPU">
+                                <rect key="frame" x="239" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="Hyb-ZE-zUV">
+                                <rect key="frame" x="263" y="224" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="TUn-PZ-KeY">
+                                <rect key="frame" x="37" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="iol-Zs-qmi">
+                                <rect key="frame" x="62" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="RME-qP-jaD">
+                                <rect key="frame" x="88" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="g43-w7-Sep">
+                                <rect key="frame" x="113" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-uT-XTg">
+                                <rect key="frame" x="139" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="thp-0o-J8d">
+                                <rect key="frame" x="189" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="I1I-YV-uJO">
+                                <rect key="frame" x="239" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="9FO-74-hD5">
+                                <rect key="frame" x="214" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="lfp-fz-60y">
+                                <rect key="frame" x="263" y="267" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="sjD-7S-ALp">
+                                <rect key="frame" x="287" y="266" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="c1t-t2-u0P">
+                                <rect key="frame" x="37" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="zhk-At-sbY">
+                                <rect key="frame" x="62" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="kH3-5k-I6y">
+                                <rect key="frame" x="88" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="w8l-Kb-aRQ">
+                                <rect key="frame" x="113" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="qsZ-La-p2G">
+                                <rect key="frame" x="139" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="xLe-ID-Sny">
+                                <rect key="frame" x="164" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="no3-3C-ogc">
+                                <rect key="frame" x="189" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="nZ3-4F-P4g">
+                                <rect key="frame" x="214" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="v9m-r2-uGt">
+                                <rect key="frame" x="239" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="NMt-fg-ydx">
+                                <rect key="frame" x="263" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="0LP-uJ-t6C">
+                                <rect key="frame" x="287" y="307" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="dIF-Q9-bIA">
+                                <rect key="frame" x="88" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="1hx-0h-XJ9">
+                                <rect key="frame" x="62" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="n6g-b1-qna">
+                                <rect key="frame" x="139" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="iVW-8Y-4MB">
+                                <rect key="frame" x="113" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="srC-J8-d9b">
+                                <rect key="frame" x="164" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-dV-99H">
+                                <rect key="frame" x="189" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="ygd-va-KF8">
+                                <rect key="frame" x="214" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="oYp-Ma-39B">
+                                <rect key="frame" x="239" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="fR5-OM-IMa">
+                                <rect key="frame" x="263" y="349" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="1si-wV-qyr">
+                                <rect key="frame" x="88" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="Ogm-6q-dpZ">
+                                <rect key="frame" x="113" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="Xq7-vb-AeG">
+                                <rect key="frame" x="139" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="7zY-oP-7UZ">
+                                <rect key="frame" x="164" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="GbU-lZ-2xu">
+                                <rect key="frame" x="189" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-jy-Xnz">
+                                <rect key="frame" x="214" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="MG4-lq-nuJ">
+                                <rect key="frame" x="239" y="390" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0H-mS-pgO">
                                 <rect key="frame" x="269" y="45" width="106" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -387,6 +599,10 @@
                                 <rect key="frame" x="139" y="39" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="8ge-wk-X7a">
+                                <rect key="frame" x="164" y="267" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -396,60 +612,60 @@
                         <outlet property="green_drag_tri" destination="gxz-1Y-RXe" id="UIE-Sq-pg7"/>
                         <outlet property="light_brown_drag_tri" destination="YRp-Xf-A4k" id="Q8B-sM-uFu"/>
                         <outlet property="orange_drag_tri" destination="eId-J2-6Yd" id="Bv1-4G-ukf"/>
-                        <outlet property="tri_0_0" destination="vYT-gE-ssB" id="nFf-1p-ykN"/>
-                        <outlet property="tri_0_1" destination="7Xk-3u-LMj" id="lu4-PD-JCd"/>
-                        <outlet property="tri_0_2" destination="dQJ-i2-xwN" id="XRx-GR-kbp"/>
-                        <outlet property="tri_0_3" destination="zER-RZ-aYF" id="3Ze-o5-y6K"/>
-                        <outlet property="tri_0_4" destination="FGR-4h-XtI" id="0fr-cp-xbn"/>
-                        <outlet property="tri_0_5" destination="dq9-8u-NWZ" id="Y7X-OB-hJ1"/>
-                        <outlet property="tri_0_6" destination="5iD-LB-Zla" id="ZW1-cr-oh5"/>
-                        <outlet property="tri_1_0" destination="ZMh-SG-pwV" id="lER-k0-j7k"/>
-                        <outlet property="tri_1_1" destination="sze-D6-ILW" id="Y2x-g6-img"/>
-                        <outlet property="tri_1_2" destination="xLY-mg-y9d" id="xs6-oi-eMa"/>
-                        <outlet property="tri_1_3" destination="Xl9-i7-7sq" id="vwx-A0-raV"/>
-                        <outlet property="tri_1_4" destination="afq-hz-XYw" id="R40-Gp-nbR"/>
-                        <outlet property="tri_1_5" destination="e5A-5i-0qP" id="C2N-0y-R8t"/>
-                        <outlet property="tri_1_6" destination="sQ2-Lh-rCv" id="ieT-X7-Was"/>
-                        <outlet property="tri_1_7" destination="KKv-zS-2N5" id="ChE-gs-hJ1"/>
-                        <outlet property="tri_1_8" destination="gSA-Mb-YZ3" id="mYI-ST-3g1"/>
-                        <outlet property="tri_2_0" destination="dPJ-8m-xTE" id="gKe-UP-DbM"/>
-                        <outlet property="tri_2_1" destination="M8u-6u-bLF" id="PMD-SG-RUN"/>
-                        <outlet property="tri_2_10" destination="ElD-I4-xkL" id="S5h-gs-mXJ"/>
-                        <outlet property="tri_2_2" destination="Jly-jo-gPZ" id="VIy-LA-boB"/>
-                        <outlet property="tri_2_3" destination="HaS-Ux-BL1" id="1N9-AN-43d"/>
-                        <outlet property="tri_2_4" destination="1md-g0-cYU" id="x3I-fn-wib"/>
-                        <outlet property="tri_2_5" destination="fFL-1v-SWg" id="ACi-VF-05V"/>
-                        <outlet property="tri_2_6" destination="Bjs-e7-bZz" id="830-ZE-rIB"/>
-                        <outlet property="tri_2_7" destination="3M2-qu-Esv" id="uuO-8C-9CB"/>
-                        <outlet property="tri_2_8" destination="RYp-uD-lG9" id="sAB-ee-IbF"/>
-                        <outlet property="tri_2_9" destination="PGo-7G-IgS" id="veY-E8-4IJ"/>
-                        <outlet property="tri_3_0" destination="s2N-j3-pVJ" id="aSZ-mO-03k"/>
-                        <outlet property="tri_3_1" destination="oq9-Gj-eW4" id="Ujn-aZ-lkg"/>
-                        <outlet property="tri_3_10" destination="Wye-LF-DCs" id="Oeg-R0-gnI"/>
-                        <outlet property="tri_3_2" destination="g9u-Nh-ZsC" id="nnZ-q4-Gn7"/>
-                        <outlet property="tri_3_3" destination="yKF-Go-YfT" id="IVQ-IW-mfx"/>
-                        <outlet property="tri_3_4" destination="kfi-2j-2Xx" id="7hb-pO-v8P"/>
-                        <outlet property="tri_3_5" destination="UKU-W6-TAk" id="05T-Hf-OK7"/>
-                        <outlet property="tri_3_6" destination="G0c-oR-i2a" id="feJ-W0-MmS"/>
-                        <outlet property="tri_3_7" destination="kbQ-Gr-Ptf" id="j3L-oi-DQv"/>
-                        <outlet property="tri_3_8" destination="oRY-9j-UlO" id="E2H-Ew-cKB"/>
-                        <outlet property="tri_3_9" destination="QkS-WB-m96" id="kkT-sd-sie"/>
-                        <outlet property="tri_4_0" destination="TNV-Wr-gzY" id="p1w-dI-FiV"/>
-                        <outlet property="tri_4_1" destination="ieX-yV-GjP" id="C45-DM-aVG"/>
-                        <outlet property="tri_4_2" destination="Ind-v6-fIB" id="c87-Mz-7U2"/>
-                        <outlet property="tri_4_3" destination="EtX-WB-RUr" id="Lpg-qF-eal"/>
-                        <outlet property="tri_4_4" destination="b7W-N9-Kp7" id="XFy-CJ-Pf6"/>
-                        <outlet property="tri_4_5" destination="XCv-l1-YY7" id="NB8-7x-QSc"/>
-                        <outlet property="tri_4_6" destination="cP0-Ct-uau" id="rC8-aj-Z9g"/>
-                        <outlet property="tri_4_7" destination="hwN-iF-G1c" id="5pQ-SI-TZo"/>
-                        <outlet property="tri_4_8" destination="WzP-CJ-dbs" id="nK9-kM-c0P"/>
-                        <outlet property="tri_5_0" destination="QWw-XX-YHs" id="2dG-Si-eFL"/>
-                        <outlet property="tri_5_1" destination="Tj4-UU-k9x" id="jfZ-WT-64d"/>
-                        <outlet property="tri_5_2" destination="p19-54-fIm" id="dZr-eR-6I6"/>
-                        <outlet property="tri_5_3" destination="vDk-mr-zbd" id="lGi-1a-h48"/>
-                        <outlet property="tri_5_4" destination="XvO-7H-PYi" id="zon-Z5-uzM"/>
-                        <outlet property="tri_5_5" destination="rj0-sI-BAz" id="Caq-MB-IAb"/>
-                        <outlet property="tri_5_6" destination="nwD-qz-W1C" id="Kqy-CH-vDh"/>
+                        <outlet property="tri_0_0" destination="oLJ-AF-fNV" id="Cdz-uw-kuB"/>
+                        <outlet property="tri_0_1" destination="xNY-Aq-UaX" id="0A4-qp-toR"/>
+                        <outlet property="tri_0_2" destination="ZhV-6R-bfB" id="G5o-IJ-le4"/>
+                        <outlet property="tri_0_3" destination="A7x-Ha-Ujg" id="ugI-qC-Rsk"/>
+                        <outlet property="tri_0_4" destination="sLu-Xq-C6Z" id="2Ew-gs-60S"/>
+                        <outlet property="tri_0_5" destination="LEM-J7-oGZ" id="Q9g-vz-L41"/>
+                        <outlet property="tri_0_6" destination="Yb7-ll-mFI" id="716-9J-OCh"/>
+                        <outlet property="tri_1_0" destination="3EO-rE-lEg" id="Fy8-Q9-MP8"/>
+                        <outlet property="tri_1_1" destination="JnQ-lg-URx" id="hs5-7q-aA5"/>
+                        <outlet property="tri_1_2" destination="WbX-29-EDz" id="9Yo-zg-692"/>
+                        <outlet property="tri_1_3" destination="ELe-CA-9m7" id="C2E-cl-xc4"/>
+                        <outlet property="tri_1_4" destination="NWO-Jw-TIU" id="KEP-yu-4Hh"/>
+                        <outlet property="tri_1_5" destination="Foo-vv-WLq" id="mvh-yx-OGW"/>
+                        <outlet property="tri_1_6" destination="5zN-Xa-dkf" id="0yS-ya-JS3"/>
+                        <outlet property="tri_1_7" destination="EtO-vg-YPU" id="iI5-jp-2nt"/>
+                        <outlet property="tri_1_8" destination="Hyb-ZE-zUV" id="Gns-LU-i7a"/>
+                        <outlet property="tri_2_0" destination="TUn-PZ-KeY" id="JXR-WA-Ple"/>
+                        <outlet property="tri_2_1" destination="iol-Zs-qmi" id="MNo-jp-QqX"/>
+                        <outlet property="tri_2_10" destination="sjD-7S-ALp" id="wPR-mB-QCq"/>
+                        <outlet property="tri_2_2" destination="RME-qP-jaD" id="HDe-sP-vPy"/>
+                        <outlet property="tri_2_3" destination="g43-w7-Sep" id="0tx-0h-K6L"/>
+                        <outlet property="tri_2_4" destination="Mtl-uT-XTg" id="Maa-xW-tkF"/>
+                        <outlet property="tri_2_5" destination="8ge-wk-X7a" id="FoP-Lh-ggH"/>
+                        <outlet property="tri_2_6" destination="thp-0o-J8d" id="wmz-p7-VHt"/>
+                        <outlet property="tri_2_7" destination="9FO-74-hD5" id="CBQ-jW-6Zl"/>
+                        <outlet property="tri_2_8" destination="I1I-YV-uJO" id="X6V-2r-H54"/>
+                        <outlet property="tri_2_9" destination="lfp-fz-60y" id="ohR-O1-H7P"/>
+                        <outlet property="tri_3_0" destination="c1t-t2-u0P" id="VTr-1j-Tnk"/>
+                        <outlet property="tri_3_1" destination="zhk-At-sbY" id="AUh-8Y-YUo"/>
+                        <outlet property="tri_3_10" destination="0LP-uJ-t6C" id="2MQ-Kz-osR"/>
+                        <outlet property="tri_3_2" destination="kH3-5k-I6y" id="YHn-ps-VvB"/>
+                        <outlet property="tri_3_3" destination="w8l-Kb-aRQ" id="7WX-oW-8Ka"/>
+                        <outlet property="tri_3_4" destination="qsZ-La-p2G" id="ieG-U7-3ch"/>
+                        <outlet property="tri_3_5" destination="xLe-ID-Sny" id="igl-Rs-1IR"/>
+                        <outlet property="tri_3_6" destination="no3-3C-ogc" id="sPk-Se-z8N"/>
+                        <outlet property="tri_3_7" destination="nZ3-4F-P4g" id="OVB-oi-xfu"/>
+                        <outlet property="tri_3_8" destination="v9m-r2-uGt" id="Y4Q-Bq-m6R"/>
+                        <outlet property="tri_3_9" destination="NMt-fg-ydx" id="FSh-pL-9yp"/>
+                        <outlet property="tri_4_0" destination="1hx-0h-XJ9" id="yDX-BB-7M1"/>
+                        <outlet property="tri_4_1" destination="dIF-Q9-bIA" id="pj1-Fn-xhn"/>
+                        <outlet property="tri_4_2" destination="iVW-8Y-4MB" id="ClX-kg-oAy"/>
+                        <outlet property="tri_4_3" destination="n6g-b1-qna" id="N5F-zf-BHj"/>
+                        <outlet property="tri_4_4" destination="srC-J8-d9b" id="EXn-QO-oDa"/>
+                        <outlet property="tri_4_5" destination="aYb-dV-99H" id="6sY-3d-FVd"/>
+                        <outlet property="tri_4_6" destination="ygd-va-KF8" id="AcF-ex-oUv"/>
+                        <outlet property="tri_4_7" destination="oYp-Ma-39B" id="4j7-xR-fEz"/>
+                        <outlet property="tri_4_8" destination="fR5-OM-IMa" id="Quj-E9-ev6"/>
+                        <outlet property="tri_5_0" destination="1si-wV-qyr" id="Kp1-l1-00H"/>
+                        <outlet property="tri_5_1" destination="Ogm-6q-dpZ" id="dIc-0X-UaZ"/>
+                        <outlet property="tri_5_2" destination="Xq7-vb-AeG" id="iOW-es-fz8"/>
+                        <outlet property="tri_5_3" destination="7zY-oP-7UZ" id="UgN-g6-f6n"/>
+                        <outlet property="tri_5_4" destination="GbU-lZ-2xu" id="o3z-na-D41"/>
+                        <outlet property="tri_5_5" destination="qBa-jy-Xnz" id="dJG-pp-qqo"/>
+                        <outlet property="tri_5_6" destination="MG4-lq-nuJ" id="JnB-No-DoU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44c-a1-QJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,8 +745,8 @@
         <image name="绿色tri" width="93" height="81"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D6n-kY-TEV"/>
         <segue reference="S5F-ry-3uu"/>
+        <segue reference="fvB-1l-EwG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
