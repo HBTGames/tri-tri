@@ -234,13 +234,23 @@ class GameBoardViewController: UIViewController {
         
         audioPlayer.play()
         self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
-                        self.audioPlayer.play()
-        }
-        )
+                        self.audioPlayer.play()   } )
         
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(GameBoardViewController.background_music_pause) , name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(GameBoardViewController.background_music_continue), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
     }
     
+    func background_music_pause () {
+        audioPlayer.pause()
+        timer.invalidate()
+    }
+    
+    func background_music_continue() {
+        audioPlayer.play()
+        timer.fire()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
