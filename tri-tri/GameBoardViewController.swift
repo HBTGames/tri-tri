@@ -4560,6 +4560,17 @@ class GameBoardViewController: UIViewController {
         score = current_int
         current_str = String(current_int)
         MarkBoard.text = current_str
+        //add animation
+
+            UIView.animate(withDuration: 0.2, animations: {
+            self.MarkBoard.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            }, completion: {
+                (finished) -> Void in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.MarkBoard.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: nil)
+            })
+        
         if(current_int > HighestScore){
             HighestScore = current_int
             var HighScoreDefault = UserDefaults.standard
