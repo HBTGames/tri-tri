@@ -424,6 +424,10 @@
                                 <rect key="frame" x="139" y="266" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="8ge-wk-X7a">
+                                <rect key="frame" x="164" y="267" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="thp-0o-J8d">
                                 <rect key="frame" x="189" y="266" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -597,10 +601,6 @@
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-Ne-g4D">
                                 <rect key="frame" x="139" y="39" width="56" height="56"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="8ge-wk-X7a">
-                                <rect key="frame" x="164" y="267" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
