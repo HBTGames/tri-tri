@@ -73,7 +73,8 @@ class GameBoardViewController: UIViewController {
     var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!,UIImage(named:"purple_upwards_as_shape.png")!,UIImage(named:"purple_downwards_as_shape")!]
     
     //--------------------------------------------------------------------------------------------------------------------------
-    @IBOutlet weak var HightestScoreBoard: UITextField!
+    @IBOutlet weak var HightestScoreBoard: UILabel!
+   // @IBOutlet weak var HightestScoreBoard: UITextField!
     @IBAction func Default_Highest_Score(_ sender: Any) {
         var HighScoreDefault = UserDefaults.standard
         HighScoreDefault.set(0, forKey: "tritri_HighestScore")
