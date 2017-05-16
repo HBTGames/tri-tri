@@ -262,17 +262,23 @@ class GameBoardViewController: UIViewController {
         paused = true
         let continue_button = UIButton(frame: CGRect(x: 87.5, y: 283.5, width: 200, height: 170))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
+        
         let home_button = UIButton(frame: CGRect(x: 137.5, y: 190, width: 100, height: 85))
         home_button.setBackgroundImage(home_pic, for: .normal)
+        
         let like_button = UIButton(frame: CGRect(x: 52, y: 333.5, width: 100, height: 85))
         like_button.setBackgroundImage(like_pic, for: .normal)
+        
         let restart_button = UIButton(frame: CGRect(x: 222.5, y: 333.5, width: 100, height: 85))
         restart_button.setBackgroundImage(restart_pic, for: .normal)
+        
         
         self.view.addSubview(continue_button)
         self.view.addSubview(home_button)
         self.view.addSubview(like_button)
         self.view.addSubview(restart_button)
+        
+        
     }
     
     //function in response to drag movement

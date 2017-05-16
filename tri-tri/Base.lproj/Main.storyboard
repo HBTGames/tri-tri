@@ -745,11 +745,9 @@
         <image name="绿色tri" width="93" height="81"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
+
         <segue reference="ovT-IZ-cCz"/>
-=======
-        <segue reference="S5F-ry-3uu"/>
->>>>>>> origin/master
+
         <segue reference="fvB-1l-EwG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
