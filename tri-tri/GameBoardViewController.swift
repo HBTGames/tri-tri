@@ -75,12 +75,7 @@ class GameBoardViewController: UIViewController {
     //--------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var HightestScoreBoard: UILabel!
    // @IBOutlet weak var HightestScoreBoard: UITextField!
-    @IBAction func Default_Highest_Score(_ sender: Any) {
-        var HighScoreDefault = UserDefaults.standard
-        HighScoreDefault.set(0, forKey: "tritri_HighestScore")
-        HighScoreDefault.synchronize()
-    
-    }
+
     
     
     //declare an audio player
@@ -219,7 +214,7 @@ class GameBoardViewController: UIViewController {
         
         //audio intialize
         do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background music", ofType: "mp3")!))
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background_music_tony", ofType: "m4a")!))
             audioPlayer.prepareToPlay()
         }
         catch{
@@ -1800,7 +1795,7 @@ class GameBoardViewController: UIViewController {
         light_brown_drag_tri.image = generator_array[randomIndex]
         light_brown_drag_tri.sizeToFit()
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
-        force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+        //force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
         shape_type_index[2] = randomIndex
         //print("position 2 shape index : \(shape_type_index[2])")
 
