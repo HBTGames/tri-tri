@@ -2903,9 +2903,61 @@ class GameBoardViewController: UIViewController {
             filled[4][1] = false
             filled[5][0] = false
             filled[5][1] = false
-            Restore_Grey_Tris()
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                 self.tri_2_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 2, j: 0)
+                 self.tri_2_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                  self.tri_3_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 3, j: 0)
+                    self.tri_3_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                      self.tri_3_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 3, j: 1)
+                        self.tri_3_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_4_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 4, j: 0)
+                            self.tri_4_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_4_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 4, j: 1)
+                                self.tri_4_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_5_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 5, j: 0)
+                                    self.tri_5_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_5_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 5, j: 1)
+                                       self.tri_5_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    })
+                                })
+                            })
+  
+                        })
+                    })
+                })
+            })
             
         }
+        
+        
         if(filled[1][0]&&filled[2][1]&&filled[2][2]&&filled[3][2]&&filled[3][3]&&filled[4][2]&&filled[4][3]&&filled[5][2]&&filled[5][3]){
             filled[1][0] = false
             filled[2][1] = false
@@ -2916,7 +2968,77 @@ class GameBoardViewController: UIViewController {
             filled[4][3] = false
             filled[5][2] = false
             filled[5][3] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_1_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 1, j: 0)
+                self.tri_1_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_2_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 2, j: 1)
+                    self.tri_2_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_2_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 2, j: 2)
+                        self.tri_2_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_3_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 3, j: 2)
+                            self.tri_3_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_3_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 3, j: 3)
+                                self.tri_3_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_4_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 4, j: 2)
+                                    self.tri_4_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_4_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 4, j: 3)
+                                        self.tri_4_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_5_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 5, j: 2)
+                                            self.tri_5_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_5_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 5, j: 3)
+                                                self.tri_5_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            })
+                                        })
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+
+            
             
             
             
@@ -2935,8 +3057,98 @@ class GameBoardViewController: UIViewController {
             filled[4][5] = false
             filled[5][4] = false
             filled[5][5] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 0)
+                self.tri_0_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_1_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 1, j: 1)
+                    self.tri_1_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 2)
+                        self.tri_1_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_2_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 2, j: 3)
+                            self.tri_2_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 4)
+                                self.tri_2_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_3_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 3, j: 4)
+                                    self.tri_3_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 5)
+                                        self.tri_3_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_4_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 4, j: 4)
+                                            self.tri_4_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_4_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 4, j: 5)
+                                                self.tri_4_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                UIView.animate(withDuration: 0.1, animations: {
+                                                    self.tri_5_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                }, completion: {
+                                                    (finished) -> Void in
+                                                    self.Restore_A_Grey_Tri(i: 5, j: 4)
+                                                    self.tri_5_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    UIView.animate(withDuration: 0.1, animations: {
+                                                        self.tri_5_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                    }, completion: {
+                                                        (finished) -> Void in
+                                                        self.Restore_A_Grey_Tri(i: 5, j: 5)
+                                                        self.tri_5_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    })
+                                                })
+                                            })
+                                        })
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+            
+            
+            
+            
         }
+        
+        
+        
+        
         if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
             
             filled[0][1] = false
@@ -2950,8 +3162,93 @@ class GameBoardViewController: UIViewController {
             filled[4][6] = false
             filled[4][7] = false
             filled[5][6] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 1)
+                self.tri_0_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_0_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 0, j: 2)
+                    self.tri_0_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 3)
+                        self.tri_1_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_1_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 1, j: 4)
+                            self.tri_1_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 5)
+                                self.tri_2_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_2_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 2, j: 6)
+                                    self.tri_2_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 6)
+                                        self.tri_3_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_3_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 3, j: 7)
+                                            self.tri_3_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_4_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 4, j: 6)
+                                                self.tri_4_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                UIView.animate(withDuration: 0.1, animations: {
+                                                    self.tri_4_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                }, completion: {
+                                                    (finished) -> Void in
+                                                    self.Restore_A_Grey_Tri(i: 4, j: 7)
+                                                    self.tri_4_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    UIView.animate(withDuration: 0.1, animations: {
+                                                        self.tri_5_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                    }, completion: {
+                                                        (finished) -> Void in
+                                                        self.Restore_A_Grey_Tri(i: 5, j: 6)
+                                                        self.tri_5_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    })
+                                                })
+                                            })
+                                        })
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+            
         }
+        
+        
         if(filled[0][3]&&filled[0][4]&&filled[1][5]&&filled[1][6]&&filled[2][7]&&filled[2][8]&&filled[3][8]&&filled[3][9]&&filled[4][8]){
             
             filled[0][3] = false
@@ -2963,7 +3260,76 @@ class GameBoardViewController: UIViewController {
             filled[3][8] = false
             filled[3][9] = false
             filled[4][8] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 3)
+                self.tri_0_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_0_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 0, j: 4)
+                    self.tri_0_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 5)
+                        self.tri_1_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_1_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 1, j: 6)
+                            self.tri_1_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 7)
+                                self.tri_2_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_2_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 2, j: 8)
+                                    self.tri_2_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 8)
+                                        self.tri_3_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_3_9.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 3, j: 9)
+                                            self.tri_3_9.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_4_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 4, j: 8)
+                                                self.tri_4_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            })
+                                        })
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+
         }
         if(filled[0][5]&&filled[0][6]&&filled[1][7]&&filled[1][8]&&filled[2][9]&&filled[2][10]&&filled[3][10]){
             filled[0][5] = false
@@ -2973,7 +3339,62 @@ class GameBoardViewController: UIViewController {
             filled[2][9] = false
             filled[2][10] = false
             filled[3][10] = false
-         Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 5)
+                self.tri_0_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_0_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 0, j: 6)
+                    self.tri_0_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 7)
+                        self.tri_1_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_1_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 1, j: 8)
+                            self.tri_1_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_9.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 9)
+                                self.tri_2_9.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_2_10.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 2, j: 10)
+                                    self.tri_2_10.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_10.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 10)
+                                        self.tri_3_10.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+
         }
         
         
@@ -2986,8 +3407,65 @@ class GameBoardViewController: UIViewController {
             filled[2][0] = false
             filled[2][1] = false
             filled[3][0] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 0)
+                self.tri_0_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_0_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 0, j: 1)
+                    self.tri_0_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 0)
+                        self.tri_1_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_1_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 1, j: 1)
+                            self.tri_1_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 0)
+                                self.tri_2_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_2_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 2, j: 1)
+                                    self.tri_2_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 0)
+                                        self.tri_3_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+
         }
+        
+        
         if(filled[0][2]&&filled[0][3]&&filled[1][2]&&filled[1][3]&&filled[2][2]&&filled[2][3]&&filled[3][1]&&filled[3][2]&&filled[4][0]){
             filled[0][2] = false
             filled[0][3] = false
@@ -2998,8 +3476,79 @@ class GameBoardViewController: UIViewController {
             filled[3][1] = false
             filled[3][2] = false
             filled[4][0] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 2)
+                self.tri_0_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_0_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 0, j: 3)
+                    self.tri_0_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 2)
+                        self.tri_1_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_1_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 1, j: 3)
+                            self.tri_1_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 2)
+                                self.tri_2_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_2_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 2, j: 3)
+                                    self.tri_2_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 1)
+                                        self.tri_3_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_3_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 3, j: 2)
+                                                self.tri_3_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_4_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+    
+                                                }, completion: {
+                                                (finished) -> Void in
+                                                    self.Restore_A_Grey_Tri(i: 4, j: 0)
+                                                    self.tri_4_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                })
+                                            
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+            
+
         }
+        
         if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
             filled[0][4] = false
             filled[0][5] = false
@@ -3012,7 +3561,89 @@ class GameBoardViewController: UIViewController {
             filled[4][1] = false
             filled[4][2] = false
             filled[5][0] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 4)
+                self.tri_0_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_0_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 0, j: 5)
+                    self.tri_0_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 4)
+                        self.tri_1_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_1_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 1, j: 5)
+                            self.tri_1_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 4)
+                                self.tri_2_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_2_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 2, j: 5)
+                                    self.tri_2_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 3)
+                                        self.tri_3_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_3_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 3, j: 4)
+                                            self.tri_3_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_4_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 4, j: 1)
+                                                self.tri_4_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                UIView.animate(withDuration: 0.1, animations: {
+                                                    self.tri_4_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                }, completion: {
+                                                    (finished) -> Void in
+                                                    self.Restore_A_Grey_Tri(i: 4, j: 2)
+                                                    self.tri_4_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    UIView.animate(withDuration: 0.1, animations: {
+                                                        self.tri_5_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                    }, completion: {
+                                                        (finished) -> Void in
+                                                        self.Restore_A_Grey_Tri(i: 5, j: 0)
+                                                        self.tri_5_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    })
+                                                })
+                                            })
+                                        })
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+
         }
         if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
             filled[0][6] = false
@@ -3026,8 +3657,93 @@ class GameBoardViewController: UIViewController {
             filled[4][4] = false
             filled[5][1] = false
             filled[5][2] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_0_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 0, j: 6)
+                self.tri_0_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_1_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 1, j: 6)
+                    self.tri_1_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_1_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 1, j: 7)
+                        self.tri_1_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_2_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 2, j: 6)
+                            self.tri_2_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_2_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 2, j: 7)
+                                self.tri_2_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_3_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 3, j: 5)
+                                    self.tri_3_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_3_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 3, j: 6)
+                                        self.tri_3_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_4_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 4, j: 3)
+                                            self.tri_4_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_4_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 4, j: 4)
+                                                self.tri_4_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                UIView.animate(withDuration: 0.1, animations: {
+                                                    self.tri_5_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                }, completion: {
+                                                    (finished) -> Void in
+                                                    self.Restore_A_Grey_Tri(i: 5, j: 1)
+                                                    self.tri_5_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    UIView.animate(withDuration: 0.1, animations: {
+                                                        self.tri_5_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                    }, completion: {
+                                                        (finished) -> Void in
+                                                        self.Restore_A_Grey_Tri(i: 5, j: 2)
+                                                        self.tri_5_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                                    })
+                                                })
+                                            })
+                                        })
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
+
         }
+        
+        
+        
         if(filled[1][8]&&filled[2][8]&&filled[2][9]&&filled[3][7]&&filled[3][8]&&filled[4][5]&&filled[4][6]&&filled[5][3]&&filled[5][4]){
             filled[1][8] = false
             filled[2][8] = false
@@ -3038,8 +3754,78 @@ class GameBoardViewController: UIViewController {
             filled[4][6] = false
             filled[5][3] = false
             filled[5][4] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_1_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 1, j: 8)
+                self.tri_1_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_2_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 2, j: 8)
+                    self.tri_2_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_2_9.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 2, j: 9)
+                        self.tri_2_9.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_3_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 3, j: 7)
+                            self.tri_3_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_3_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 3, j: 8)
+                                self.tri_3_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_4_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 4, j: 5)
+                                    self.tri_4_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_4_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 4, j: 6)
+                                        self.tri_4_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        UIView.animate(withDuration: 0.1, animations: {
+                                            self.tri_5_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                        }, completion: {
+                                            (finished) -> Void in
+                                            self.Restore_A_Grey_Tri(i: 5, j: 3)
+                                            self.tri_5_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            UIView.animate(withDuration: 0.1, animations: {
+                                                self.tri_5_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                
+                                            }, completion: {
+                                                (finished) -> Void in
+                                                self.Restore_A_Grey_Tri(i: 5, j: 4)
+                                                self.tri_5_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                            })
+                                            
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
         }
+        
+        
         if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
             filled[2][10] = false
             filled[3][9] = false
@@ -3048,7 +3834,60 @@ class GameBoardViewController: UIViewController {
             filled[4][8] = false
             filled[5][5] = false
             filled[5][6] = false
-             Restore_Grey_Tris()
+            //animation
+            UIView.animate(withDuration: 0.1, animations: {
+                self.tri_2_10.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+            }, completion: {
+                (finished) -> Void in
+                self.Restore_A_Grey_Tri(i: 2, j: 10)
+                self.tri_2_10.transform = CGAffineTransform(scaleX: 1, y: 1)
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.tri_3_9.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                }, completion: {
+                    (finished) -> Void in
+                    self.Restore_A_Grey_Tri(i: 3, j: 9)
+                    self.tri_3_9.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.tri_3_10.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    }, completion: {
+                        (finished) -> Void in
+                        self.Restore_A_Grey_Tri(i: 3, j: 10)
+                        self.tri_3_10.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.tri_4_7.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                        }, completion: {
+                            (finished) -> Void in
+                            self.Restore_A_Grey_Tri(i: 4, j: 7)
+                            self.tri_4_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            UIView.animate(withDuration: 0.1, animations: {
+                                self.tri_4_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            }, completion: {
+                                (finished) -> Void in
+                                self.Restore_A_Grey_Tri(i: 4, j: 8)
+                                self.tri_4_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                
+                                UIView.animate(withDuration: 0.1, animations: {
+                                    self.tri_5_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                }, completion: {
+                                    (finished) -> Void in
+                                    self.Restore_A_Grey_Tri(i: 5, j: 5)
+                                    self.tri_5_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    UIView.animate(withDuration: 0.1, animations: {
+                                        self.tri_5_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    }, completion: {
+                                        (finished) -> Void in
+                                        self.Restore_A_Grey_Tri(i: 5, j: 6)
+                                        self.tri_5_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        
+                                    })
+                                })
+                            })
+                        })
+                    })
+                    
+                    
+                })
+            })
         }
     }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
