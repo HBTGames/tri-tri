@@ -32,6 +32,15 @@ class LaunchViewController: UIViewController {
         self.present(nextViewController, animated: true, completion: nil)
     }
     
+    func pauseVideo() {
+        player.pause()
+    }
+    
+    func continueVideo () {
+    player.play()
+    NotificationCenter.default.addObserver(self, selector: #selector(LaunchViewController.finishvedio), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
     private func loadVideo() {
         //do {
         //    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
@@ -44,8 +53,15 @@ class LaunchViewController: UIViewController {
         self.view.layer.addSublayer(playerLayer)
         player.seek(to: kCMTimeZero)
         player.play()
+    NotificationCenter.default.addObserver(self, selector: #selector(LaunchViewController.pauseVideo), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+     NotificationCenter.default.addObserver(self, selector: #selector(LaunchViewController.continueVideo), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(LaunchViewController.finishvedio), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+
+    
+    
+    
     }
+        
     /*
     // MARK: - Navigation
 
