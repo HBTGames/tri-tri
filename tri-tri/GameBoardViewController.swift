@@ -18,8 +18,8 @@ class GameBoardViewController: UIViewController {
 //shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction 7 purple upwards  8 purple downwards
     
     var shape_type_index : Array<Int> = [0 , 0, 0]
-//
-    
+    //indicate pause
+    var paused = false
 
     var player = AVPlayer()
     
@@ -251,8 +251,35 @@ class GameBoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func pause_button(_ sender: UIButton) {
+        let pause_screen: UIView = UIView(frame: CGRect(origin: CGPoint(x: 0, y:0),size: CGSize(width: 400, height: 700)))
+        pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0.8))
+        pause_screen.tag = 100
+        super.view.isUserInteractionEnabled = false
+        self.view.isUserInteractionEnabled = true
+        self.view.addSubview(pause_screen)
+        paused = true
+        let continue_button = UIButton(frame: CGRect(x: 87.5, y: 283.5, width: 200, height: 170))
+        continue_button.setBackgroundImage(continue_pic, for: .normal)
+        let home_button = UIButton(frame: CGRect(x: 137.5, y: 190, width: 100, height: 85))
+        home_button.setBackgroundImage(home_pic, for: .normal)
+        let like_button = UIButton(frame: CGRect(x: 52, y: 333.5, width: 100, height: 85))
+        like_button.setBackgroundImage(like_pic, for: .normal)
+        let restart_button = UIButton(frame: CGRect(x: 222.5, y: 333.5, width: 100, height: 85))
+        restart_button.setBackgroundImage(restart_pic, for: .normal)
+        
+        self.view.addSubview(continue_button)
+        self.view.addSubview(home_button)
+        self.view.addSubview(like_button)
+        self.view.addSubview(restart_button)
+    }
+    
     //function in response to drag movement
     func panGestureRecognizerAction(_ gesture: UIPanGestureRecognizer){
+        if !paused{
+            
+        
         var actual_type_index = 0
         var actual_location = CGPoint(x:0, y:0)
         //if original frame contains the initial point
@@ -391,7 +418,7 @@ class GameBoardViewController: UIViewController {
             
 
         }
-        
+        }
     }
     
     //compute distance between two CGPoint (Square Form) (not using rn)
@@ -400,8 +427,12 @@ class GameBoardViewController: UIViewController {
         return Double(temp_distance)
     }
     //--------------------------------------------------------------------------------------------------------------------
-
+    //pause button activate
     
+    @IBAction func pauseButton(_ sender: UIButton) {
+        
+        
+    }
     
     
     
@@ -425,6 +456,8 @@ class GameBoardViewController: UIViewController {
     
     //color No.5 is trans
     let tri_color_5 = UIColor(red:CGFloat(111/255.0), green:CGFloat(151/255.0), blue:CGFloat(91/255.0), alpha:CGFloat(0))
+    
+    
     //--------------------------------------------------------------------------------------------------------------------
     
     
@@ -550,6 +583,16 @@ class GameBoardViewController: UIViewController {
     let pur_up = UIImage(named:"purple_upwards")
     
     let pur_down = UIImage(named:"purple_downwards")
+    
+//pause icons
+    
+    let home_pic = UIImage(named:"home.pic")
+    
+    let restart_pic = UIImage(named:"restart.pic")
+    
+    let like_pic = UIImage(named:"like.pic")
+    
+    let continue_pic = UIImage(named:"continue.pic")
     
 //--------------------------------------------------------------------------------------------------------------------
 

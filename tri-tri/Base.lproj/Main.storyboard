@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ehd-xk-nWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ehd-xk-nWf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -129,7 +129,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="vYT-gE-ssB">
-                                <rect key="frame" x="88" y="183" width="50" height="44"/>
+                                <rect key="frame" x="87" y="183" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="dQJ-i2-xwN">
@@ -345,8 +345,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pause_button"/>
                                 <connections>
+                                    <action selector="pause_button:" destination="qxD-t8-ioY" eventType="touchUpInside" id="vh9-tL-yZ7"/>
                                     <action selector="stop_music_when_pause:" destination="qxD-t8-ioY" eventType="touchUpInside" id="gVv-FO-08y"/>
-                                    <segue destination="129-y3-ZaN" kind="show" id="P08-06-Qm0"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
@@ -370,7 +370,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIJ-Xa-Clo">
-                                <rect key="frame" x="197" y="7" width="151" height="121"/>
+                                <rect key="frame" x="197" y="7" width="92" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="50"/>
                                 <color key="textColor" red="0.1764705882352941" green="0.23529411764705882" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -529,8 +529,8 @@
         <image name="绿色tri" width="93" height="81"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D6n-kY-TEV"/>
-        <segue reference="S5F-ry-3uu"/>
+        <segue reference="ovT-IZ-cCz"/>
+        <segue reference="fvB-1l-EwG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
