@@ -350,11 +350,11 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="273" y="508" width="75" height="87"/>
+                                <rect key="frame" x="269" y="506" width="75" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="橙色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
-                                <rect key="frame" x="163" y="508" width="50" height="87"/>
+                                <rect key="frame" x="153" y="508" width="50" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxd-vF-KH0">

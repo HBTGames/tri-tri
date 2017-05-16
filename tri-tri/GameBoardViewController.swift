@@ -340,7 +340,7 @@ class GameBoardViewController: UIViewController {
                     
                     
                 if(Check_for_Gameover()){
-                    let delayInSeconds = 1.0
+                    let delayInSeconds = 2.0
                     //wait for 2 seconds to game over
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
                         
@@ -356,11 +356,18 @@ class GameBoardViewController: UIViewController {
                 else{
                     
                 if(Check_for_Gameover()){
+                    let delayInSeconds = 2.0
+                    //wait for 2 seconds to game over
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
+                        
+                        // here code perfomed with delay
+                        self.Jump_to_Game_Over ()
+                    }
                     //print("haaaaaaaaaaaaaaaaa")
                     //let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
                    // subView.backgroundColor = UIColor.yellow
                    // self.view.addSubview(subView)
-                    Jump_to_Game_Over ()
+                
                 }
                 }
 
