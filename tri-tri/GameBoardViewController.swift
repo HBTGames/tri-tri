@@ -2462,20 +2462,14 @@ class GameBoardViewController: UIViewController {
     //auto generate three tris when previous are all fit in
       func auto_random_generator() -> Void {
         Check_for_Placable_Shape_And_Generate()
-     /**   var position_index = 0
+       var position_index = 0
         var end_loop = false
         var random_shape_index = 0
-        var times = 0
-        var whatever = false
-        while(!end_loop || !whatever){
+        while(!end_loop){
             position_index = Int(arc4random_uniform(UInt32(3)))
             random_shape_index = randomShape_for_Difficulty_Level ()
             if(shape_placable_array[random_shape_index]){
                 end_loop = true
-            }
-            times += 1
-            if(times >= 50){
-             whatever = true
             }
         }
         
@@ -2551,9 +2545,9 @@ class GameBoardViewController: UIViewController {
             orange_drag_tri_orig_rec = orange_drag_tri.frame
             shape_type_index[1] = randomIndex
 
-        }**/
+        }
 
-        var randomIndex = randomShape_for_Difficulty_Level ()
+        else{ randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
         green_drag_tri.image = generator_array[randomIndex]
         green_drag_tri.sizeToFit()
@@ -2578,7 +2572,7 @@ class GameBoardViewController: UIViewController {
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
         shape_type_index[2] = randomIndex
-       // }
+        }
         exist1 = true
         exist2 = true
         exist3 = true
@@ -5143,19 +5137,21 @@ class GameBoardViewController: UIViewController {
 
                 }
                // print("whether light_brown tri available: \(bool_any_light_brown_tri)")
-                bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
-                if(bool_any_brown_left_tri){
-                    brown_left_result = true
-                    shape_placable_array[3] = true
-
-                }
+                
                 //print("whether brown left tri available: \(bool_any_brown_left_tri)")
                 bool_any_brown_downwards_tri = Find_Any_Available_Brown_Downwards_Tri(row: i, column: j)
                 if(bool_any_brown_downwards_tri){
                     brown_downwards_result = true
+                    shape_placable_array[3] = true
+                    
+                }
+                bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
+                if(bool_any_brown_left_tri){
+                    brown_left_result = true
                     shape_placable_array[4] = true
 
                 }
+
                 //print("whether brown downwards tri available: \(bool_any_brown_downwards_tri)")
                 bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
                 if(bool_any_dark_green_tri){
@@ -5182,9 +5178,12 @@ class GameBoardViewController: UIViewController {
                     shape_placable_array[8] = true
 
                 }
+                j += 1
                 
     }
+                i += 1
         }
+
     }
     
     
