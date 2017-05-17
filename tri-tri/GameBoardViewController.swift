@@ -13,6 +13,9 @@ import UserNotifications
 class GameBoardViewController: UIViewController {
 
 //create an array to store shape_index for each UIImageView
+    @IBAction func test_gameover(_ sender: Any) {
+        Jump_to_Game_Over()
+    }
 // each int inside array reprensents shape index
 //every shape is the same name as they are in Assets.xcassets file
 //shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction 7 purple upwards  8 purple downwards
@@ -702,13 +705,13 @@ class GameBoardViewController: UIViewController {
     
 //pause icons
     
-    let home_pic = UIImage(named:"home.pic")
+    let home_pic = UIImage(named:"home")
     
-    let restart_pic = UIImage(named:"restart.pic")
+    let restart_pic = UIImage(named:"restart")
     
-    let like_pic = UIImage(named:"like.pic")
+    let like_pic = UIImage(named:"like")
     
-    let continue_pic = UIImage(named:"continue.pic")
+    let continue_pic = UIImage(named:"continue")
     
 //--------------------------------------------------------------------------------------------------------------------
 
@@ -4644,9 +4647,18 @@ class GameBoardViewController: UIViewController {
     func Jump_to_Game_Over () -> Void {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
-       self.present(nextViewController, animated: true, completion: nil)
+        nextViewController.final_score = MarkBoard.text!
+        
+        if (Int(MarkBoard.text!)! == HighestScore){
+            nextViewController.is_high_score = true
+        } else {
+            nextViewController.is_high_score = false
+        }
+        self.present(nextViewController, animated: true, completion: nil)
         self.audioPlayer.stop()
         self.timer.invalidate()
+        
+        
         
     }
 
