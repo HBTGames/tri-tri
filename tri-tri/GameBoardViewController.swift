@@ -492,37 +492,19 @@ class GameBoardViewController: UIViewController {
                 if(Eligible_to_Generate()){
                     auto_random_generator()
                     
-                    
-                if(Check_for_Gameover()){
-                    let delayInSeconds = 2.0
-                    //wait for 2 seconds to game over
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
-                        
-                        // here code perfomed with delay  
-                        self.Jump_to_Game_Over ()
-                        
-                    }
-
-                    
-                    }
 
                 }
-                else{
                     
                 if(Check_for_Gameover()){
-                    let delayInSeconds = 2.0
-                    //wait for 2 seconds to game over
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
-                        
-                        // here code perfomed with delay
-                        self.Jump_to_Game_Over ()
-                    }
+            // here code perfomed with delay
+                self.Jump_to_Game_Over ()
+    
                     //print("haaaaaaaaaaaaaaaaa")
                     //let subView = UIView.init(frame: CGRect(origin: CGPoint(x: 0, y:0 ), size: CGSize(width: 200, height: 100)))
                    // subView.backgroundColor = UIColor.yellow
                    // self.view.addSubview(subView)
                 
-                }
+            
                 }
 
                 
@@ -2480,7 +2462,92 @@ class GameBoardViewController: UIViewController {
     
     //auto generate three tris when previous are all fit in
       func auto_random_generator() -> Void {
-        var randomIndex = randomShape_for_Difficulty_Level ()
+        Check_for_Placable_Shape_And_Generate()
+        var position_index = 0
+        var end_loop = false
+        var random_shape_index = 0
+        while(!end_loop){
+            position_index = Int(arc4random_uniform(UInt32(3)))
+            random_shape_index = randomShape_for_Difficulty_Level ()
+            if(shape_placable_array[random_shape_index]){
+                end_loop = true
+            }
+        }
+        
+        var randomIndex = 0
+        if(position_index == 0){
+            green_drag_tri.image = generator_array[random_shape_index]
+            green_drag_tri.sizeToFit()
+            green_drag_tri_orig_rec = green_drag_tri.frame
+            shape_type_index[0] = random_shape_index
+            
+            randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
+            orange_drag_tri.image = generator_array[randomIndex]
+            orange_drag_tri.sizeToFit()
+            orange_drag_tri_orig_rec = orange_drag_tri.frame
+            shape_type_index[1] = randomIndex
+            
+            //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
+            
+            randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
+            light_brown_drag_tri.image = generator_array[randomIndex]
+            light_brown_drag_tri.sizeToFit()
+            light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
+            force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+            shape_type_index[2] = randomIndex
+            
+            
+
+            
+        }
+        else if(position_index == 1){
+            orange_drag_tri.image = generator_array[random_shape_index]
+            orange_drag_tri.sizeToFit()
+            orange_drag_tri_orig_rec = orange_drag_tri.frame
+            shape_type_index[1] = random_shape_index
+            
+            randomIndex = randomShape_for_Difficulty_Level ()
+            green_drag_tri.image = generator_array[randomIndex]
+            green_drag_tri.sizeToFit()
+            green_drag_tri_orig_rec = green_drag_tri.frame
+            shape_type_index[0] = randomIndex
+            
+            randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
+            light_brown_drag_tri.image = generator_array[randomIndex]
+            light_brown_drag_tri.sizeToFit()
+            light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
+            //force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+            shape_type_index[2] = randomIndex
+            
+        }
+        
+        else if(position_index == 2){
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
+            light_brown_drag_tri.image = generator_array[random_shape_index]
+            light_brown_drag_tri.sizeToFit()
+            //force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+            shape_type_index[2] = random_shape_index
+            
+             randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
+            green_drag_tri.image = generator_array[randomIndex]
+            green_drag_tri.sizeToFit()
+            green_drag_tri_orig_rec = green_drag_tri.frame
+            shape_type_index[0] = randomIndex
+            
+            
+            randomIndex = randomShape_for_Difficulty_Level ()
+            //Int(arc4random_uniform(UInt32(generator_array.count)))
+            orange_drag_tri.image = generator_array[randomIndex]
+            orange_drag_tri.sizeToFit()
+            orange_drag_tri_orig_rec = orange_drag_tri.frame
+            shape_type_index[1] = randomIndex
+
+        } else{
+        randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
         green_drag_tri.image = generator_array[randomIndex]
         green_drag_tri.sizeToFit()
@@ -2505,7 +2572,7 @@ class GameBoardViewController: UIViewController {
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
         shape_type_index[2] = randomIndex
-        
+        }
         exist1 = true
         exist2 = true
         exist3 = true
@@ -5019,6 +5086,101 @@ class GameBoardViewController: UIViewController {
     var bool_pos0_shape_available = true
     var bool_pos1_shape_available = true
     var bool_pos2_shape_available = true
+    var green_result = false
+    var orange_result = false
+    var light_brown_result = false
+    var brown_left_result = false
+    var brown_downwards_result = false
+    var dark_green_result  = false
+    var pink_right_result = false
+    var purple_upwards_result = false
+    var purple_downwards_result = false
+    var shape_placable_array : Array<Bool> = [false, false, false, false, false,false,false,false,false]
+    
+    //the funciton to find available space and autogenerate
+    func Check_for_Placable_Shape_And_Generate () -> Void {
+         green_result = false
+         orange_result = false
+         light_brown_result = false
+         brown_left_result = false
+         brown_downwards_result = false
+         dark_green_result  = false
+         pink_right_result = false
+         purple_upwards_result = false
+         purple_downwards_result = false
+        var k = 0
+        for result in shape_placable_array{
+            shape_placable_array[k] = false
+            k += 1
+        }
+        var i = 0
+        for tri_row in filled{
+            var j = 0
+            for _ in tri_row{
+                bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
+                if(bool_any_green_tri){
+                    green_result = true
+                    shape_placable_array[0] = true
+                }
+                //print("whether green tri available: \(bool_any_green_tri)")
+                bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
+                if(bool_any_orange_tri){
+                    orange_result = true
+                    shape_placable_array[1] = true
+
+                }
+               // print("whether orange tri available: \(bool_any_orange_tri)")
+                bool_any_light_brown_tri = Find_Any_Available_Light_Brown_Tri(row: i, column: j)
+                if(bool_any_light_brown_tri){
+                    light_brown_result = true
+                    shape_placable_array[2] = true
+
+                }
+               // print("whether light_brown tri available: \(bool_any_light_brown_tri)")
+                bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
+                if(bool_any_brown_left_tri){
+                    brown_left_result = true
+                    shape_placable_array[3] = true
+
+                }
+                //print("whether brown left tri available: \(bool_any_brown_left_tri)")
+                bool_any_brown_downwards_tri = Find_Any_Available_Brown_Downwards_Tri(row: i, column: j)
+                if(bool_any_brown_downwards_tri){
+                    brown_downwards_result = true
+                    shape_placable_array[4] = true
+
+                }
+                //print("whether brown downwards tri available: \(bool_any_brown_downwards_tri)")
+                bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
+                if(bool_any_dark_green_tri){
+                dark_green_result = true
+                    shape_placable_array[5] = true
+
+                }
+               // print("whether dark green tri available: \(bool_any_dark_green_tri)")
+                bool_any_pink_right_tri = Find_Any_Pink_Right_Tri(row: i, column: j)
+                if(bool_any_pink_right_tri){
+                    pink_right_result = true
+                    shape_placable_array[6] = true
+
+                }
+                bool_any_purple_upwards_tri = Find_Any_Purple_Upwards_Tri(row: i, column: j)
+                if(bool_any_purple_upwards_tri){
+                    purple_upwards_result = true
+                    shape_placable_array[7] = true
+
+                }
+                bool_any_purple_downwards_tri = Find_Any_Purple_Downwards_Tri(row: i, column: j)
+                if(bool_any_brown_downwards_tri){
+                    purple_downwards_result = true
+                    shape_placable_array[8] = true
+
+                }
+                
+    }
+        }
+    }
+    
     
      //the function to check for gameover (if gameover return true, else return false)
         func Check_for_Gameover () -> Bool {
