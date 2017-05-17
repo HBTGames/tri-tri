@@ -40,9 +40,9 @@ class GameOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         score_board.text = final_score
-        if is_high_score{
+        if !is_high_score{
             High_score_marker.text = "High Score!"
-            High_score_marker.startBlink()
+            //High_score_marker.startBlink()
         }
         // Do any additional setup after loading the view.
     }

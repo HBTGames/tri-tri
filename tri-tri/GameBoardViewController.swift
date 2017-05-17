@@ -5131,9 +5131,9 @@ class GameBoardViewController: UIViewController {
         nextViewController.final_score = MarkBoard.text!
         
         if (Int(MarkBoard.text!)! == HighestScore){
-            nextViewController.is_high_score = true
-        } else {
             nextViewController.is_high_score = false
+        } else {
+            nextViewController.is_high_score = true
         }
         self.present(nextViewController, animated: true, completion: nil)
         self.audioPlayer.stop()
