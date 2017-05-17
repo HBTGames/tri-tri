@@ -5559,7 +5559,7 @@ class GameBoardViewController: UIViewController {
         else if(row == 3 || row == 4 || row == 5){
         //downwards tri
             if(column%2 == 0){
-                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && filled[row][column+2]){
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row][column+2]){
                     return true
                 }
                 if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row][column-2]){
