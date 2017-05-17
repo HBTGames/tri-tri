@@ -4712,7 +4712,7 @@ class GameBoardViewController: UIViewController {
                                             self.Restore_A_Grey_Tri(i: 5, j: 3)
                                             self.tri_5_3.transform = CGAffineTransform(scaleX: 1, y: 1)
                                             UIView.animate(withDuration: 0.1, animations: {
-                                                self.tri_5_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                                self.tri_5_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
                                                 
                                             }, completion: {
                                                 (finished) -> Void in
