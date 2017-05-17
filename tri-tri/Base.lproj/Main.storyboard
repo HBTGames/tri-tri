@@ -149,7 +149,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="M4A-pz-h2w">
-                                <rect key="frame" x="87" y="225" width="50" height="44"/>
+                                <rect key="frame" x="87" y="226" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="esk-Qf-SPK">
@@ -369,11 +369,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="JnQ-lg-URx">
-                                <rect key="frame" x="87" y="225" width="50" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="3EO-rE-lEg">
-                                <rect key="frame" x="61" y="226" width="50" height="44"/>
+                                <rect key="frame" x="87" y="226" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="WbX-29-EDz">
@@ -601,6 +597,10 @@
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="trophy_new" translatesAutoresizingMaskIntoConstraints="NO" id="P0M-hw-129">
                                 <rect key="frame" x="139" y="52" width="43" height="31"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="3EO-rE-lEg">
+                                <rect key="frame" x="61" y="226" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
