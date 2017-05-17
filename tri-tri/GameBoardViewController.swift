@@ -299,6 +299,7 @@ class GameBoardViewController: UIViewController {
             restart_button.removeFromSuperview()
             pause_screen.removeFromSuperview()
             self.paused = false
+            self.audioPlayer.play()
         })
         
         like_button.whenButtonIsClicked(action:{
