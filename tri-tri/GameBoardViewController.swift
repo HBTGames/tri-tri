@@ -26,6 +26,19 @@ class GameBoardViewController: UIViewController {
     //record highest score
     var HighestScore = 0
 
+    
+    class MyButton: UIButton {
+        var action: (()->())?
+        
+        func whenButtonIsClicked(action: @escaping ()->()) {
+            self.action = action
+            self.addTarget(self, action: #selector(MyButton.clicked), for: .touchUpInside)
+        }
+        
+        func clicked() {
+            action?()
+        }
+    }
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
     
@@ -260,34 +273,56 @@ class GameBoardViewController: UIViewController {
         self.view.isUserInteractionEnabled = true
         self.view.addSubview(pause_screen)
         paused = true
-        let continue_button = UIButton(frame: CGRect(x: 87.5, y: 283.5, width: 200, height: 170))
+        let continue_button = MyButton(frame: CGRect(x: 87.5, y: 283.5, width: 200, height: 170))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
         continue_button.tag = 50
         
-        let home_button = UIButton(frame: CGRect(x: 137.5, y: 190, width: 100, height: 85))
+        let home_button = MyButton(frame: CGRect(x: 137.5, y: 190, width: 100, height: 85))
         home_button.setBackgroundImage(home_pic, for: .normal)
         home_button.tag = 51
         
-        let like_button = UIButton(frame: CGRect(x: 52, y: 333.5, width: 100, height: 85))
+        let like_button = MyButton(frame: CGRect(x: 52, y: 333.5, width: 100, height: 85))
         like_button.setBackgroundImage(like_pic, for: .normal)
         like_button.tag = 52
         
-        let restart_button = UIButton(frame: CGRect(x: 222.5, y: 333.5, width: 100, height: 85))
+        let restart_button = MyButton(frame: CGRect(x: 222.5, y: 333.5, width: 100, height: 85))
         restart_button.setBackgroundImage(restart_pic, for: .normal)
         restart_button.tag = 53
         
         
         
+        continue_button.whenButtonIsClicked(action:{
+            pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
+            continue_button.removeFromSuperview()
+            home_button.removeFromSuperview()
+            like_button.removeFromSuperview()
+            restart_button.removeFromSuperview()
+            pause_screen.removeFromSuperview()
+            self.paused = false
+        })
+        
+        like_button.whenButtonIsClicked(action:{
+            print ("Thank U 4 like us!!!")
+        })
+        
+        restart_button.whenButtonIsClicked(action:{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
+            self.present(nextViewController, animated: true, completion: nil)
+            self.timer.invalidate()
+
+        })
+        
+        home_button.whenButtonIsClicked(action:{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            self.present(nextViewController, animated: true, completion: nil)
+            self.timer.invalidate()
+        })
         
         
         
         
-        
-        
-        continue_button.addTarget(self, action: "continue_but", for: .touchUpInside)
-        home_button.addTarget(self, action: "home_but", for: .touchUpInside)
-        like_button.addTarget(self, action: "like_but", for: .touchUpInside)
-        restart_button.addTarget(self, action: "restart_but", for: .touchUpInside)
         
         self.view.addSubview(continue_button)
         self.view.addSubview(home_button)
