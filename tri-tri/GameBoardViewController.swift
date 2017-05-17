@@ -214,7 +214,7 @@ class GameBoardViewController: UIViewController {
         
         //audio intialize
         do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background_music_tony", ofType: "m4a")!))
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background music", ofType: "mp3")!))
             audioPlayer.prepareToPlay()
         }
         catch{
