@@ -79,7 +79,6 @@ class GameBoardViewController: UIViewController {
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
         self.audioPlayer.stop()
         self.timer.invalidate()
-        HightestScoreBoard.text = "0"
   
     }
     
