@@ -2462,7 +2462,7 @@ class GameBoardViewController: UIViewController {
     //auto generate three tris when previous are all fit in
       func auto_random_generator() -> Void {
         Check_for_Placable_Shape_And_Generate()
-        var position_index = 0
+     /**   var position_index = 0
         var end_loop = false
         var random_shape_index = 0
         var times = 0
@@ -2551,8 +2551,9 @@ class GameBoardViewController: UIViewController {
             orange_drag_tri_orig_rec = orange_drag_tri.frame
             shape_type_index[1] = randomIndex
 
-        } else if(whatever){
-        randomIndex = randomShape_for_Difficulty_Level ()
+        }**/
+
+        var randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
         green_drag_tri.image = generator_array[randomIndex]
         green_drag_tri.sizeToFit()
@@ -2577,7 +2578,7 @@ class GameBoardViewController: UIViewController {
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
         shape_type_index[2] = randomIndex
-        }
+       // }
         exist1 = true
         exist2 = true
         exist3 = true
