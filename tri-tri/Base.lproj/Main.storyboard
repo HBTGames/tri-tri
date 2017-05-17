@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ehd-xk-nWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ehd-xk-nWf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -138,7 +138,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99693375829999997" green="0.9655516744" blue="0.91102832560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.99215686274509807" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="gameover">
                             <bool key="isElement" value="YES"/>
                         </accessibility>
@@ -597,7 +597,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0H-mS-pgO">
-                                <rect key="frame" x="269" y="45" width="106" height="44"/>
+                                <rect key="frame" x="269" y="39" width="106" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pause_button"/>
                                 <connections>
@@ -631,16 +631,12 @@
                                 <rect key="frame" x="139" y="52" width="43" height="31"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="269" y="506" width="75" height="87"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
+                                <rect key="frame" x="152" y="516" width="77" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="橙色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
-                                <rect key="frame" x="153" y="508" width="50" height="87"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="绿色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
-                                <rect key="frame" x="29" y="508" width="100" height="44"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
+                                <rect key="frame" x="29" y="516" width="73" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZK-LB-QaZ">
@@ -651,8 +647,12 @@
                                     <action selector="test_gameover:" destination="qxD-t8-ioY" eventType="touchUpInside" id="uof-9i-aad"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
+                                <rect key="frame" x="263" y="515" width="75" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99693375825881958" green="0.96555167436599731" blue="0.91102832555770874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.99215686274509807" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="HightestScoreBoard" destination="XIJ-Xa-Clo" id="8Iq-Zy-CDC"/>
@@ -718,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44c-a1-QJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2" y="733"/>
+            <point key="canvasLocation" x="0.80000000000000004" y="732.68365817091455"/>
         </scene>
     </scenes>
     <resources>
@@ -729,12 +729,10 @@
         <image name="link" width="198" height="172"/>
         <image name="main_page_background" width="375" height="667"/>
         <image name="main_page_button" width="134" height="134"/>
-        <image name="pause_button" width="41" height="41"/>
+        <image name="pause_button" width="47" height="47"/>
         <image name="restart_big" width="350" height="304"/>
         <image name="trophy_new" width="43" height="31"/>
         <image name="棕色tri" width="93" height="81"/>
-        <image name="橙色tri" width="93" height="81"/>
-        <image name="绿色tri" width="93" height="81"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jOH-pV-lXR"/>

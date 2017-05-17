@@ -2465,11 +2465,17 @@ class GameBoardViewController: UIViewController {
         var position_index = 0
         var end_loop = false
         var random_shape_index = 0
-        while(!end_loop){
+        var times = 0
+        var whatever = false
+        while(!end_loop || !whatever){
             position_index = Int(arc4random_uniform(UInt32(3)))
             random_shape_index = randomShape_for_Difficulty_Level ()
             if(shape_placable_array[random_shape_index]){
                 end_loop = true
+            }
+            times += 1
+            if(times >= 50){
+             whatever = true
             }
         }
         
@@ -2545,7 +2551,7 @@ class GameBoardViewController: UIViewController {
             orange_drag_tri_orig_rec = orange_drag_tri.frame
             shape_type_index[1] = randomIndex
 
-        } else{
+        } else if(whatever){
         randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
         green_drag_tri.image = generator_array[randomIndex]
