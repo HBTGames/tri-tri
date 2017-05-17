@@ -2512,19 +2512,305 @@ class GameBoardViewController: UIViewController {
     }
     
     
-    func Check_and_Erase() -> Void {
+    func Check_and_Erase_Create_Array() -> Array<(row: Int, column: Int)> {
+        var eliminate_array = [(row: Int, column: Int)]()
+
+        if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
+            eliminate_array.append((row: 0, column: 0))
+            eliminate_array.append((row: 0, column: 1))
+            eliminate_array.append((row: 0, column: 2))
+            eliminate_array.append((row: 0, column: 3))
+            eliminate_array.append((row: 0, column: 4))
+            eliminate_array.append((row: 0, column: 5))
+            eliminate_array.append((row: 0, column: 6))
+        }
+          if(filled[1][0]&&filled[1][1]&&filled[1][2]&&filled[1][3]&&filled[1][4]&&filled[1][5]&&filled[1][6]&&filled[1][7]&&filled[1][8]){
+            eliminate_array.append((row: 1, column: 0))
+            eliminate_array.append((row: 1, column: 1))
+            eliminate_array.append((row: 1, column: 2))
+            eliminate_array.append((row: 1, column: 3))
+            eliminate_array.append((row: 1, column: 4))
+            eliminate_array.append((row: 1, column: 5))
+            eliminate_array.append((row: 1, column: 6))
+            eliminate_array.append((row: 1, column: 7))
+            eliminate_array.append((row: 1, column: 8))
+        }
         
+        if(filled[2][0]&&filled[2][1]&&filled[2][2]&&filled[2][3]&&filled[2][4]&&filled[2][5]&&filled[2][6]&&filled[2][7]&&filled[2][8]&&filled[2][9]&&filled[2][10]){
+            eliminate_array.append((row: 2, column: 0))
+            eliminate_array.append((row: 2, column: 1))
+            eliminate_array.append((row: 2, column: 2))
+            eliminate_array.append((row: 2, column: 3))
+            eliminate_array.append((row: 2, column: 4))
+            eliminate_array.append((row: 2, column: 5))
+            eliminate_array.append((row: 2, column: 6))
+            eliminate_array.append((row: 2, column: 7))
+            eliminate_array.append((row: 2, column: 8))
+            eliminate_array.append((row: 2, column: 9))
+            eliminate_array.append((row: 2, column: 10))
+        }
+        
+       if(filled[3][0]&&filled[3][1]&&filled[3][2]&&filled[3][3]&&filled[3][4]&&filled[3][5]&&filled[3][6]&&filled[3][7]&&filled[3][8]&&filled[3][9]&&filled[3][10]){
+        eliminate_array.append((row: 3, column: 0))
+        eliminate_array.append((row: 3, column: 1))
+        eliminate_array.append((row: 3, column: 2))
+        eliminate_array.append((row: 3, column: 3))
+        eliminate_array.append((row: 3, column: 4))
+        eliminate_array.append((row: 3, column: 5))
+        eliminate_array.append((row: 3, column: 6))
+        eliminate_array.append((row: 3, column: 7))
+        eliminate_array.append((row: 3, column: 8))
+        eliminate_array.append((row: 3, column: 9))
+        eliminate_array.append((row: 3, column: 10))
+        }
+
+        //eliminate fifth row
+        if(filled[4][0]&&filled[4][1]&&filled[4][2]&&filled[4][3]&&filled[4][4]&&filled[4][5]&&filled[4][6]&&filled[4][7]&&filled[4][8]){
+            
+            eliminate_array.append((row: 4, column: 0))
+            eliminate_array.append((row: 4, column: 1))
+            eliminate_array.append((row: 4, column: 2))
+            eliminate_array.append((row: 4, column: 3))
+            eliminate_array.append((row: 4, column: 4))
+            eliminate_array.append((row: 4, column: 5))
+            eliminate_array.append((row: 4, column: 6))
+            eliminate_array.append((row: 4, column: 7))
+            eliminate_array.append((row: 4, column: 8))
+
+            
+        }
+        ////eliminate sixth row
+        if(filled[5][0]&&filled[5][1]&&filled[5][2]&&filled[5][3]&&filled[5][4]&&filled[5][5]&&filled[5][6]){
+
+            eliminate_array.append((row: 5, column: 0))
+            eliminate_array.append((row: 5, column: 1))
+            eliminate_array.append((row: 5, column: 2))
+            eliminate_array.append((row: 5, column: 3))
+            eliminate_array.append((row: 5, column: 4))
+            eliminate_array.append((row: 5, column: 5))
+            eliminate_array.append((row: 5, column: 6))
+            
+            
+        }
+        
+        
+        //situation two - 右下斜
+        if(filled[2][0]&&filled[3][0]&&filled[3][1]&&filled[4][0]&&filled[4][1]&&filled[5][0]&&filled[5][1]){
+
+            eliminate_array.append((row: 2, column: 0))
+            eliminate_array.append((row: 3, column: 0))
+            eliminate_array.append((row: 3, column: 1))
+            eliminate_array.append((row: 4, column: 0))
+            eliminate_array.append((row: 4, column: 1))
+            eliminate_array.append((row: 5, column: 0))
+            eliminate_array.append((row: 5, column: 1))
+
+            
+        }
+        
+        
+        if(filled[1][0]&&filled[2][1]&&filled[2][2]&&filled[3][2]&&filled[3][3]&&filled[4][2]&&filled[4][3]&&filled[5][2]&&filled[5][3]){
+            eliminate_array.append((row: 1, column: 0))
+            eliminate_array.append((row: 2, column: 1))
+            eliminate_array.append((row: 2, column: 2))
+            eliminate_array.append((row: 3, column: 2))
+            eliminate_array.append((row: 3, column: 3))
+            eliminate_array.append((row: 4, column: 2))
+            eliminate_array.append((row: 4, column: 3))
+            eliminate_array.append((row: 5, column: 2))
+            eliminate_array.append((row: 5, column: 3))
+            
+        }
+        if(filled[0][0]&&filled[1][1]&&filled[1][2]&&filled[2][3]&&filled[2][4]&&filled[3][4]&&filled[3][5]&&filled[4][4]&&filled[4][5]&&filled[5][4]&&filled[5][5]){
+            eliminate_array.append((row: 0, column: 0))
+            eliminate_array.append((row: 1, column: 1))
+            eliminate_array.append((row: 1, column: 2))
+            eliminate_array.append((row: 2, column: 3))
+            eliminate_array.append((row: 2, column: 4))
+            eliminate_array.append((row: 3, column: 4))
+            eliminate_array.append((row: 3, column: 5))
+            eliminate_array.append((row: 4, column: 4))
+            eliminate_array.append((row: 4, column: 5))
+            eliminate_array.append((row: 5, column: 4))
+            eliminate_array.append((row: 5, column: 5))
+            
+        }
+        
+        
+        
+        
+        if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
+            eliminate_array.append((row: 0, column: 1))
+            eliminate_array.append((row: 0, column: 2))
+            eliminate_array.append((row: 1, column: 3))
+            eliminate_array.append((row: 1, column: 4))
+            eliminate_array.append((row: 2, column: 5))
+            eliminate_array.append((row: 2, column: 6))
+            eliminate_array.append((row: 3, column: 6))
+            eliminate_array.append((row: 3, column: 7))
+            eliminate_array.append((row: 4, column: 6))
+            eliminate_array.append((row: 4, column: 7))
+            eliminate_array.append((row: 5, column: 6))
+            
+        }
+        
+        
+        if(filled[0][3]&&filled[0][4]&&filled[1][5]&&filled[1][6]&&filled[2][7]&&filled[2][8]&&filled[3][8]&&filled[3][9]&&filled[4][8]){
+          
+            eliminate_array.append((row: 0, column: 3))
+            eliminate_array.append((row: 0, column: 4))
+            eliminate_array.append((row: 1, column: 5))
+            eliminate_array.append((row: 1, column: 6))
+            eliminate_array.append((row: 2, column: 7))
+            eliminate_array.append((row: 2, column: 8))
+            eliminate_array.append((row: 3, column: 8))
+            eliminate_array.append((row: 3, column: 9))
+            eliminate_array.append((row: 4, column: 8))
+
+        
+        }
+        if(filled[0][5]&&filled[0][6]&&filled[1][7]&&filled[1][8]&&filled[2][9]&&filled[2][10]&&filled[3][10]){
+
+            eliminate_array.append((row: 0, column: 5))
+            eliminate_array.append((row: 0, column: 6))
+            eliminate_array.append((row: 1, column: 7))
+            eliminate_array.append((row: 1, column: 8))
+            eliminate_array.append((row: 2, column: 9))
+            eliminate_array.append((row: 2, column: 10))
+            eliminate_array.append((row: 3, column: 10))
+
+            
+            
+        }
+        
+        
+        //situation three - 左下斜
+        if(filled[0][0]&&filled[0][1]&&filled[1][0]&&filled[1][1]&&filled[2][0]&&filled[2][1]&&filled[3][0]){
+            eliminate_array.append((row: 0, column: 0))
+            eliminate_array.append((row: 0, column: 1))
+            eliminate_array.append((row: 1, column: 0))
+            eliminate_array.append((row: 1, column: 1))
+            eliminate_array.append((row: 2, column: 0))
+            eliminate_array.append((row: 2, column: 1))
+            eliminate_array.append((row: 3, column: 0))
+        
+            
+            
+        }
+        
+        
+        if(filled[0][2]&&filled[0][3]&&filled[1][2]&&filled[1][3]&&filled[2][2]&&filled[2][3]&&filled[3][1]&&filled[3][2]&&filled[4][0]){
+            eliminate_array.append((row: 0, column: 2))
+            eliminate_array.append((row: 0, column: 3))
+            eliminate_array.append((row: 1, column: 2))
+            eliminate_array.append((row: 1, column: 3))
+            eliminate_array.append((row: 2, column: 2))
+            eliminate_array.append((row: 2, column: 3))
+            eliminate_array.append((row: 3, column: 1))
+            eliminate_array.append((row: 3, column: 2))
+            eliminate_array.append((row: 4, column: 0))
+
+            
+            
+        }
+        
+        if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
+            eliminate_array.append((row: 0, column: 4))
+            eliminate_array.append((row: 0, column: 5))
+            eliminate_array.append((row: 1, column: 4))
+            eliminate_array.append((row: 1, column: 5))
+            eliminate_array.append((row: 2, column: 4))
+            eliminate_array.append((row: 2, column: 5))
+            eliminate_array.append((row: 3, column: 3))
+            eliminate_array.append((row: 3, column: 4))
+            eliminate_array.append((row: 4, column: 1))
+            eliminate_array.append((row: 4, column: 2))
+            eliminate_array.append((row: 5, column: 0))
+
+        }
+        if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
+            
+            eliminate_array.append((row: 0, column: 6))
+            eliminate_array.append((row: 1, column: 6))
+            eliminate_array.append((row: 1, column: 7))
+            eliminate_array.append((row: 2, column: 6))
+            eliminate_array.append((row: 2, column: 7))
+            eliminate_array.append((row: 3, column: 5))
+            eliminate_array.append((row: 3, column: 6))
+            eliminate_array.append((row: 4, column: 3))
+            eliminate_array.append((row: 4, column: 4))
+            eliminate_array.append((row: 5, column: 1))
+            eliminate_array.append((row: 5, column: 2))
+
+            
+        }
+        
+        
+        
+        if(filled[1][8]&&filled[2][8]&&filled[2][9]&&filled[3][7]&&filled[3][8]&&filled[4][5]&&filled[4][6]&&filled[5][3]&&filled[5][4]){
+            eliminate_array.append((row: 1, column: 8))
+            eliminate_array.append((row: 2, column: 8))
+            eliminate_array.append((row: 2, column: 9))
+            eliminate_array.append((row: 3, column: 7))
+            eliminate_array.append((row: 3, column: 8))
+            eliminate_array.append((row: 4, column: 5))
+            eliminate_array.append((row: 4, column: 6))
+            eliminate_array.append((row: 5, column: 3))
+            eliminate_array.append((row: 5, column: 4))
+        }
+        
+        
+        if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
+            eliminate_array.append((row: 2, column: 10))
+            eliminate_array.append((row: 3, column: 9))
+            eliminate_array.append((row: 3, column: 10))
+            eliminate_array.append((row: 4, column: 7))
+            eliminate_array.append((row: 4, column: 8))
+            eliminate_array.append((row: 5, column: 5))
+            eliminate_array.append((row: 5, column: 6))
+
+        }
+  
+       
+        //get the duplicate array
+
+        let sorted_array = eliminate_array.sorted(by: {$0.row < $1.row && $0.column < $1.column})
+        
+        var previous_element : (row: Int , column: Int) = (row: -1, column: -1)
+        var i = 0
+        var duplicates_array = [(row: Int, column: Int)]()
+        for pair in eliminate_array{
+            let current_element = eliminate_array[i]
+            if(current_element.column == previous_element.column && current_element.row == previous_element.row){
+            duplicates_array.append(previous_element)
+            } else{
+                previous_element = current_element
+            }
+            i += 1
+        }
+        
+        
+        return duplicates_array
+        }
+    
+    var duplicates_array = [(row: Int, column: Int)]()
+    func Check_Element_In_Duplicate_Array(row: Int, column: Int) -> Bool{
+        for every_element in duplicates_array{
+            if(every_element.column == column && every_element.row == row){
+                return true
+            }
+        }
+     return false
+    }
+
+    
+    func Check_and_Erase() -> Void {
+      duplicates_array = Check_and_Erase_Create_Array()
         //situation one - row
         //eliminate first row
         if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
-            filled[0][0] = false
-            filled[0][1] = false
-            filled[0][2] = false
-            filled[0][3] = false
-            filled[0][4] = false
-            filled[0][5] = false
-            filled[0][6] = false
-            
+
+
             UIView.animate(withDuration: 0.1, animations: {
                self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
             }, completion: {
@@ -2579,19 +2865,13 @@ class GameBoardViewController: UIViewController {
  
                 })
         })
+            
         }
         
         //eliminate second row
         if(filled[1][0]&&filled[1][1]&&filled[1][2]&&filled[1][3]&&filled[1][4]&&filled[1][5]&&filled[1][6]&&filled[1][7]&&filled[1][8]){
-            filled[1][0] = false
-            filled[1][1] = false
-            filled[1][2] = false
-            filled[1][3] = false
-            filled[1][4] = false
-            filled[1][5] = false
-            filled[1][6] = false
-            filled[1][7] = false
-            filled[1][8] = false
+ 
+
             
             //animation
             UIView.animate(withDuration: 0.1, animations: {
@@ -2665,17 +2945,11 @@ class GameBoardViewController: UIViewController {
         }
         //eliminate third row
         if(filled[2][0]&&filled[2][1]&&filled[2][2]&&filled[2][3]&&filled[2][4]&&filled[2][5]&&filled[2][6]&&filled[2][7]&&filled[2][8]&&filled[2][9]&&filled[2][10]){
-            filled[2][0] = false
-            filled[2][1] = false
-            filled[2][2] = false
-            filled[2][3] = false
-            filled[2][4] = false
-            filled[2][5] = false
-            filled[2][6] = false
-            filled[2][7] = false
-            filled[2][8] = false
-            filled[2][9] = false
-            filled[2][10] = false
+
+
+            
+            
+            
             
             //animation
             UIView.animate(withDuration: 0.1, animations: {
@@ -2761,19 +3035,11 @@ class GameBoardViewController: UIViewController {
             })
 
         }
+        
         //eliminate fourth row
         if(filled[3][0]&&filled[3][1]&&filled[3][2]&&filled[3][3]&&filled[3][4]&&filled[3][5]&&filled[3][6]&&filled[3][7]&&filled[3][8]&&filled[3][9]&&filled[3][10]){
-            filled[3][0] = false
-            filled[3][1] = false
-            filled[3][2] = false
-            filled[3][3] = false
-            filled[3][4] = false
-            filled[3][5] = false
-            filled[3][6] = false
-            filled[3][7] = false
-            filled[3][8] = false
-            filled[3][9] = false
-            filled[3][10] = false
+
+    
             
             //animation
             UIView.animate(withDuration: 0.1, animations: {
@@ -2861,15 +3127,10 @@ class GameBoardViewController: UIViewController {
         }
         //eliminate fifth row
         if(filled[4][0]&&filled[4][1]&&filled[4][2]&&filled[4][3]&&filled[4][4]&&filled[4][5]&&filled[4][6]&&filled[4][7]&&filled[4][8]){
-            filled[4][0] = false
-            filled[4][1] = false
-            filled[4][2] = false
-            filled[4][3] = false
-            filled[4][4] = false
-            filled[4][5] = false
-            filled[4][6] = false
-            filled[4][7] = false
-            filled[4][8] = false
+
+            
+
+
             
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_4_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -2942,13 +3203,9 @@ class GameBoardViewController: UIViewController {
         }
         ////eliminate sixth row
         if(filled[5][0]&&filled[5][1]&&filled[5][2]&&filled[5][3]&&filled[5][4]&&filled[5][5]&&filled[5][6]){
-            filled[5][0] = false
-            filled[5][1] = false
-            filled[5][2] = false
-            filled[5][3] = false
-            filled[5][4] = false
-            filled[5][5] = false
-            filled[5][6] = false
+
+ 
+
             
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_5_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3010,13 +3267,8 @@ class GameBoardViewController: UIViewController {
         
         //situation two - 右下斜
         if(filled[2][0]&&filled[3][0]&&filled[3][1]&&filled[4][0]&&filled[4][1]&&filled[5][0]&&filled[5][1]){
-            filled[2][0] = false
-            filled[3][0] = false
-            filled[3][1] = false
-            filled[4][0] = false
-            filled[4][1] = false
-            filled[5][0] = false
-            filled[5][1] = false
+
+
             
             UIView.animate(withDuration: 0.1, animations: {
                  self.tri_2_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3073,15 +3325,9 @@ class GameBoardViewController: UIViewController {
         
         
         if(filled[1][0]&&filled[2][1]&&filled[2][2]&&filled[3][2]&&filled[3][3]&&filled[4][2]&&filled[4][3]&&filled[5][2]&&filled[5][3]){
-            filled[1][0] = false
-            filled[2][1] = false
-            filled[2][2] = false
-            filled[3][2] = false
-            filled[3][3] = false
-            filled[4][2] = false
-            filled[4][3] = false
-            filled[5][2] = false
-            filled[5][3] = false
+
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_1_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3160,17 +3406,7 @@ class GameBoardViewController: UIViewController {
             
         }
         if(filled[0][0]&&filled[1][1]&&filled[1][2]&&filled[2][3]&&filled[2][4]&&filled[3][4]&&filled[3][5]&&filled[4][4]&&filled[4][5]&&filled[5][4]&&filled[5][5]){
-            filled[0][0] = false
-            filled[1][1] = false
-            filled[1][2] = false
-            filled[2][3] = false
-            filled[2][4] = false
-            filled[3][4] = false
-            filled[3][5] = false
-            filled[4][4] = false
-            filled[4][5] = false
-            filled[5][4] = false
-            filled[5][5] = false
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3264,18 +3500,9 @@ class GameBoardViewController: UIViewController {
         
         
         if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
+
             
-            filled[0][1] = false
-            filled[0][2] = false
-            filled[1][3] = false
-            filled[1][4] = false
-            filled[2][5] = false
-            filled[2][6] = false
-            filled[3][6] = false
-            filled[3][7] = false
-            filled[4][6] = false
-            filled[4][7] = false
-            filled[5][6] = false
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3365,15 +3592,10 @@ class GameBoardViewController: UIViewController {
         
         if(filled[0][3]&&filled[0][4]&&filled[1][5]&&filled[1][6]&&filled[2][7]&&filled[2][8]&&filled[3][8]&&filled[3][9]&&filled[4][8]){
             
-            filled[0][3] = false
-            filled[0][4] = false
-            filled[1][5] = false
-            filled[1][6] = false
-            filled[2][7] = false
-            filled[2][8] = false
-            filled[3][8] = false
-            filled[3][9] = false
-            filled[4][8] = false
+
+
+
+            
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3446,13 +3668,9 @@ class GameBoardViewController: UIViewController {
 
         }
         if(filled[0][5]&&filled[0][6]&&filled[1][7]&&filled[1][8]&&filled[2][9]&&filled[2][10]&&filled[3][10]){
-            filled[0][5] = false
-            filled[0][6] = false
-            filled[1][7] = false
-            filled[1][8] = false
-            filled[2][9] = false
-            filled[2][10] = false
-            filled[3][10] = false
+
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3514,13 +3732,9 @@ class GameBoardViewController: UIViewController {
         
         //situation three - 左下斜
         if(filled[0][0]&&filled[0][1]&&filled[1][0]&&filled[1][1]&&filled[2][0]&&filled[2][1]&&filled[3][0]){
-            filled[0][0] = false
-            filled[0][1] = false
-            filled[1][0] = false
-            filled[1][1] = false
-            filled[2][0] = false
-            filled[2][1] = false
-            filled[3][0] = false
+
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3581,15 +3795,8 @@ class GameBoardViewController: UIViewController {
         
         
         if(filled[0][2]&&filled[0][3]&&filled[1][2]&&filled[1][3]&&filled[2][2]&&filled[2][3]&&filled[3][1]&&filled[3][2]&&filled[4][0]){
-            filled[0][2] = false
-            filled[0][3] = false
-            filled[1][2] = false
-            filled[1][3] = false
-            filled[2][2] = false
-            filled[2][3] = false
-            filled[3][1] = false
-            filled[3][2] = false
-            filled[4][0] = false
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3664,17 +3871,9 @@ class GameBoardViewController: UIViewController {
         }
         
         if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
-            filled[0][4] = false
-            filled[0][5] = false
-            filled[1][4] = false
-            filled[1][5] = false
-            filled[2][4] = false
-            filled[2][5] = false
-            filled[3][3] = false
-            filled[3][4] = false
-            filled[4][1] = false
-            filled[4][2] = false
-            filled[5][0] = false
+
+
+        
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3760,17 +3959,8 @@ class GameBoardViewController: UIViewController {
 
         }
         if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
-            filled[0][6] = false
-            filled[1][6] = false
-            filled[1][7] = false
-            filled[2][6] = false
-            filled[2][7] = false
-            filled[3][5] = false
-            filled[3][6] = false
-            filled[4][3] = false
-            filled[4][4] = false
-            filled[5][1] = false
-            filled[5][2] = false
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3854,6 +4044,7 @@ class GameBoardViewController: UIViewController {
                 })
             })
 
+
         }
         
         
@@ -3868,6 +4059,8 @@ class GameBoardViewController: UIViewController {
             filled[4][6] = false
             filled[5][3] = false
             filled[5][4] = false
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_1_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -3948,6 +4141,8 @@ class GameBoardViewController: UIViewController {
             filled[4][8] = false
             filled[5][5] = false
             filled[5][6] = false
+
+
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_2_10.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -4003,7 +4198,293 @@ class GameBoardViewController: UIViewController {
                 })
             })
         }
+        Check_And_Erase_Fix_Filled()
+
     }
+    
+    
+    func Check_And_Erase_Fix_Filled() -> Void {
+        if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
+            
+            filled[0][0] = false
+            filled[0][1] = false
+            filled[0][2] = false
+            filled[0][3] = false
+            filled[0][4] = false
+            filled[0][5] = false
+            filled[0][6] = false
+        }
+        
+        //eliminate second row
+        if(filled[1][0]&&filled[1][1]&&filled[1][2]&&filled[1][3]&&filled[1][4]&&filled[1][5]&&filled[1][6]&&filled[1][7]&&filled[1][8]){
+            filled[1][0] = false
+            filled[1][1] = false
+            filled[1][2] = false
+            filled[1][3] = false
+            filled[1][4] = false
+            filled[1][5] = false
+            filled[1][6] = false
+            filled[1][7] = false
+            filled[1][8] = false
+
+            
+        }
+        //eliminate third row
+        if(filled[2][0]&&filled[2][1]&&filled[2][2]&&filled[2][3]&&filled[2][4]&&filled[2][5]&&filled[2][6]&&filled[2][7]&&filled[2][8]&&filled[2][9]&&filled[2][10]){
+            filled[2][0] = false
+            filled[2][1] = false
+            filled[2][2] = false
+            filled[2][3] = false
+            filled[2][4] = false
+            filled[2][5] = false
+            filled[2][6] = false
+            filled[2][7] = false
+            filled[2][8] = false
+            filled[2][9] = false
+            filled[2][10] = false
+
+        }
+        
+        //eliminate fourth row
+        if(filled[3][0]&&filled[3][1]&&filled[3][2]&&filled[3][3]&&filled[3][4]&&filled[3][5]&&filled[3][6]&&filled[3][7]&&filled[3][8]&&filled[3][9]&&filled[3][10]){
+            filled[3][0] = false
+            filled[3][1] = false
+            filled[3][2] = false
+            filled[3][3] = false
+            filled[3][4] = false
+            filled[3][5] = false
+            filled[3][6] = false
+            filled[3][7] = false
+            filled[3][8] = false
+            filled[3][9] = false
+            filled[3][10] = false
+            
+
+            
+        }
+        //eliminate fifth row
+        if(filled[4][0]&&filled[4][1]&&filled[4][2]&&filled[4][3]&&filled[4][4]&&filled[4][5]&&filled[4][6]&&filled[4][7]&&filled[4][8]){
+            filled[4][0] = false
+            filled[4][1] = false
+            filled[4][2] = false
+            filled[4][3] = false
+            filled[4][4] = false
+            filled[4][5] = false
+            filled[4][6] = false
+            filled[4][7] = false
+            filled[4][8] = false
+            
+   
+        }
+        ////eliminate sixth row
+        if(filled[5][0]&&filled[5][1]&&filled[5][2]&&filled[5][3]&&filled[5][4]&&filled[5][5]&&filled[5][6]){
+            filled[5][0] = false
+            filled[5][1] = false
+            filled[5][2] = false
+            filled[5][3] = false
+            filled[5][4] = false
+            filled[5][5] = false
+            filled[5][6] = false
+            
+
+            
+        }
+        
+        
+        //situation two - 右下斜
+        if(filled[2][0]&&filled[3][0]&&filled[3][1]&&filled[4][0]&&filled[4][1]&&filled[5][0]&&filled[5][1]){
+            filled[2][0] = false
+            filled[3][0] = false
+            filled[3][1] = false
+            filled[4][0] = false
+            filled[4][1] = false
+            filled[5][0] = false
+            filled[5][1] = false
+            
+
+            
+        }
+        
+        
+        if(filled[1][0]&&filled[2][1]&&filled[2][2]&&filled[3][2]&&filled[3][3]&&filled[4][2]&&filled[4][3]&&filled[5][2]&&filled[5][3]){
+            filled[1][0] = false
+            filled[2][1] = false
+            filled[2][2] = false
+            filled[3][2] = false
+            filled[3][3] = false
+            filled[4][2] = false
+            filled[4][3] = false
+            filled[5][2] = false
+            filled[5][3] = false
+            
+            
+            
+            
+            
+        }
+        if(filled[0][0]&&filled[1][1]&&filled[1][2]&&filled[2][3]&&filled[2][4]&&filled[3][4]&&filled[3][5]&&filled[4][4]&&filled[4][5]&&filled[5][4]&&filled[5][5]){
+            filled[0][0] = false
+            filled[1][1] = false
+            filled[1][2] = false
+            filled[2][3] = false
+            filled[2][4] = false
+            filled[3][4] = false
+            filled[3][5] = false
+            filled[4][4] = false
+            filled[4][5] = false
+            filled[5][4] = false
+            filled[5][5] = false
+
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
+            
+            filled[0][1] = false
+            filled[0][2] = false
+            filled[1][3] = false
+            filled[1][4] = false
+            filled[2][5] = false
+            filled[2][6] = false
+            filled[3][6] = false
+            filled[3][7] = false
+            filled[4][6] = false
+            filled[4][7] = false
+            filled[5][6] = false
+            
+
+            
+            
+        }
+        
+        
+        if(filled[0][3]&&filled[0][4]&&filled[1][5]&&filled[1][6]&&filled[2][7]&&filled[2][8]&&filled[3][8]&&filled[3][9]&&filled[4][8]){
+            
+            filled[0][3] = false
+            filled[0][4] = false
+            filled[1][5] = false
+            filled[1][6] = false
+            filled[2][7] = false
+            filled[2][8] = false
+            filled[3][8] = false
+            filled[3][9] = false
+            filled[4][8] = false
+            
+
+            
+        }
+        if(filled[0][5]&&filled[0][6]&&filled[1][7]&&filled[1][8]&&filled[2][9]&&filled[2][10]&&filled[3][10]){
+            filled[0][5] = false
+            filled[0][6] = false
+            filled[1][7] = false
+            filled[1][8] = false
+            filled[2][9] = false
+            filled[2][10] = false
+            filled[3][10] = false
+
+            
+            
+        }
+        
+        
+        //situation three - 左下斜
+        if(filled[0][0]&&filled[0][1]&&filled[1][0]&&filled[1][1]&&filled[2][0]&&filled[2][1]&&filled[3][0]){
+            filled[0][0] = false
+            filled[0][1] = false
+            filled[1][0] = false
+            filled[1][1] = false
+            filled[2][0] = false
+            filled[2][1] = false
+            filled[3][0] = false
+
+            
+            
+        }
+        
+        
+        if(filled[0][2]&&filled[0][3]&&filled[1][2]&&filled[1][3]&&filled[2][2]&&filled[2][3]&&filled[3][1]&&filled[3][2]&&filled[4][0]){
+            filled[0][2] = false
+            filled[0][3] = false
+            filled[1][2] = false
+            filled[1][3] = false
+            filled[2][2] = false
+            filled[2][3] = false
+            filled[3][1] = false
+            filled[3][2] = false
+            filled[4][0] = false
+
+            
+            
+        }
+        
+        if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
+            filled[0][4] = false
+            filled[0][5] = false
+            filled[1][4] = false
+            filled[1][5] = false
+            filled[2][4] = false
+            filled[2][5] = false
+            filled[3][3] = false
+            filled[3][4] = false
+            filled[4][1] = false
+            filled[4][2] = false
+            filled[5][0] = false
+            
+
+            
+        }
+        if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
+            filled[0][6] = false
+            filled[1][6] = false
+            filled[1][7] = false
+            filled[2][6] = false
+            filled[2][7] = false
+            filled[3][5] = false
+            filled[3][6] = false
+            filled[4][3] = false
+            filled[4][4] = false
+            filled[5][1] = false
+            filled[5][2] = false
+
+            
+        }
+        
+        
+        
+        if(filled[1][8]&&filled[2][8]&&filled[2][9]&&filled[3][7]&&filled[3][8]&&filled[4][5]&&filled[4][6]&&filled[5][3]&&filled[5][4]){
+            filled[1][8] = false
+            filled[2][8] = false
+            filled[2][9] = false
+            filled[3][7] = false
+            filled[3][8] = false
+            filled[4][5] = false
+            filled[4][6] = false
+            filled[5][3] = false
+            filled[5][4] = false
+
+        }
+        
+        
+        if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
+            filled[2][10] = false
+            filled[3][9] = false
+            filled[3][10] = false
+            filled[4][7] = false
+            filled[4][8] = false
+            filled[5][5] = false
+            filled[5][6] = false
+        }
+
+        
+    }
+    
+    
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     var bool_any_green_tri = true
     var bool_any_orange_tri = true
@@ -4739,7 +5220,9 @@ func randomNumber(probabilities: [Double]) -> Int {
         }
         
     }
+    
    }
+
 
 
 
