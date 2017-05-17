@@ -262,24 +262,99 @@ class GameBoardViewController: UIViewController {
         paused = true
         let continue_button = UIButton(frame: CGRect(x: 87.5, y: 283.5, width: 200, height: 170))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
+        continue_button.tag = 50
         
         let home_button = UIButton(frame: CGRect(x: 137.5, y: 190, width: 100, height: 85))
         home_button.setBackgroundImage(home_pic, for: .normal)
+        home_button.tag = 51
         
         let like_button = UIButton(frame: CGRect(x: 52, y: 333.5, width: 100, height: 85))
         like_button.setBackgroundImage(like_pic, for: .normal)
+        like_button.tag = 52
         
         let restart_button = UIButton(frame: CGRect(x: 222.5, y: 333.5, width: 100, height: 85))
         restart_button.setBackgroundImage(restart_pic, for: .normal)
+        restart_button.tag = 53
         
+        
+        
+        
+        
+        
+        
+        
+        
+        continue_button.addTarget(self, action: "continue_but", for: .touchUpInside)
+        home_button.addTarget(self, action: "home_but", for: .touchUpInside)
+        like_button.addTarget(self, action: "like_but", for: .touchUpInside)
+        restart_button.addTarget(self, action: "restart_but", for: .touchUpInside)
         
         self.view.addSubview(continue_button)
         self.view.addSubview(home_button)
         self.view.addSubview(like_button)
         self.view.addSubview(restart_button)
         
+        func continue_but(sender: UIButton!){
+            pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
+            continue_button.removeFromSuperview()
+            home_button.removeFromSuperview()
+            like_button.removeFromSuperview()
+            restart_button.removeFromSuperview()
+            paused = false
+        }
+        func home_but(sender: UIButton!){
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            self.present(nextViewController, animated: true, completion: nil)
+            self.timer.invalidate()
+        }
+        func like_but(sender: UIButton!){
+            print ("Thank U 4 like us!!!")
+        }
+        func restart_but(sender: UIButton!){
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
+            self.present(nextViewController, animated: true, completion: nil)
+            self.timer.invalidate()
+        }
+
+        
+        
+        func buttonAction(sender: UIButton!) {
+            print("Button tapped")
+            switch (sender.tag){
+            case 50: //continue
+                pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
+                continue_button.removeFromSuperview()
+                home_button.removeFromSuperview()
+                like_button.removeFromSuperview()
+                restart_button.removeFromSuperview()
+                break
+            case 51:
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+                self.present(nextViewController, animated: true, completion: nil)
+                self.timer.invalidate()
+                break
+            case 52:
+                break
+                
+            case 53:
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
+                self.present(nextViewController, animated: true, completion: nil)
+                self.timer.invalidate()
+                break
+            default:
+                let haha = 1
+                break
+                
+            }
+        }
+
         
     }
+    
     
     //function in response to drag movement
     func panGestureRecognizerAction(_ gesture: UIPanGestureRecognizer){
