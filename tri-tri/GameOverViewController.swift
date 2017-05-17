@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 
 extension UILabel {
@@ -31,6 +32,57 @@ class GameOverViewController: UIViewController {
 
     @IBOutlet weak var score_board: UILabel!
     
+    @IBAction func Share_Button_Action(_ sender: UIButton) {
+     let alert = UIAlertController(title: "Share", message: "Share Your Record!", preferredStyle: .actionSheet)
+        //first action
+        let action_one = UIAlertAction(title: "Share on Facebook", style: .default) { (action) in
+            //check whether user has facebook
+            if (SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)){
+                let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
+                post.setInitialText("I have played tri-tri !")
+                post.add(UIImage(named: "share_pic"))
+                self.present(post, animated: true, completion: nil)
+            }else{
+            self.showAlert(service: "Facebook")
+            }
+        }
+        
+        //second action
+        let action_two = UIAlertAction(title: "Share on Twitter", style: .default) { (action) in
+            //check whether user has facebook
+            if (SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)){
+                let post = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
+                post.setInitialText("I have played tri-tri !")
+                post.add(UIImage(named: "share_pic"))
+                self.present(post, animated: true, completion: nil)
+            }else{
+                self.showAlert(service: "Twitter")
+            }
+        }
+        
+        //third action
+        let action_three = UIAlertAction(title: "Share on Weibo", style: .default) { (action) in
+            //check whether user has facebook
+            if (SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTencentWeibo)){
+                let post = SLComposeViewController(forServiceType: SLServiceTypeTencentWeibo)!
+                post.setInitialText("I have played tri-tri !")
+                post.add(UIImage(named: "share_pic"))
+                self.present(post, animated: true, completion: nil)
+            }else{
+                self.showAlert(service: "Weibo")
+            }
+        }
+        
+        
+        //add action to action sheet
+        alert.addAction(action_one)
+        alert.addAction(action_two)
+        alert.addAction(action_three)
+        
+        //present alert 
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
     //two vars value passed from game board
     var final_score = String()
@@ -41,7 +93,7 @@ class GameOverViewController: UIViewController {
         super.viewDidLoad()
         score_board.text = final_score
         if !is_high_score{
-            High_score_marker.text = "High Score!"
+            High_score_marker.text = "New Record!"
             //High_score_marker.startBlink()
         }
         // Do any additional setup after loading the view.
@@ -52,6 +104,12 @@ class GameOverViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func showAlert(service: String){
+        let alert = UIAlertController(title: "Error", message: "You are not connected to \(service)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
