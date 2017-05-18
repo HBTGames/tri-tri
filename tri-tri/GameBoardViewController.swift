@@ -123,6 +123,7 @@ class GameBoardViewController: UIViewController {
         //
         
         var HighScoreDefault = UserDefaults.standard
+        
         if(HighScoreDefault.value(forKey: "tritri_HighestScore") != nil ){
         HighestScore = HighScoreDefault.value(forKey: "tritri_HighestScore") as! NSInteger
         print("Highest Score is \(HighestScore)")
@@ -131,6 +132,16 @@ class GameBoardViewController: UIViewController {
          HighestScore = 0
         }
         HightestScoreBoard.text = String(HighestScore)
+        
+        //---------------------------------------------------------------------------
+        //var to decide night mode\
+        //0: day mode
+        //1: night mode
+        var ThemeMode = UserDefaults.standard
+        
+        if (ThemeMode.value(forKey: "tri_tri_Theme") == nil){
+            ThemeMode.set(0, forKey: "tri_tri_Theme")
+        }
         
         //set CGPoint value of all grey tringles
         
@@ -291,7 +302,10 @@ class GameBoardViewController: UIViewController {
         restart_button.setBackgroundImage(restart_pic, for: .normal)
         restart_button.tag = 53
         
-        
+        let change_theme_button = MyButton(frame: CGRect(x: 222.5, y: 570, width: 100, height: 30))
+        change_theme_button.setTitle("change theme", for: .normal)
+        change_theme_button.setTitleColor(.red, for: .normal)
+        change_theme_button.tag = 54
         
         continue_button.whenButtonIsClicked(action:{
             pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
@@ -299,6 +313,7 @@ class GameBoardViewController: UIViewController {
             home_button.removeFromSuperview()
             like_button.removeFromSuperview()
             restart_button.removeFromSuperview()
+            change_theme_button.removeFromSuperview()
             pause_screen.removeFromSuperview()
             self.paused = false
             self.audioPlayer.play()
@@ -323,14 +338,34 @@ class GameBoardViewController: UIViewController {
             self.timer.invalidate()
         })
         
-        
-        
-        
+        change_theme_button.whenButtonIsClicked(action:{
+            var ThemeMode = UserDefaults.standard
+            if (ThemeMode.value(forKey: "tri_tri_theme") == nil){
+                ThemeMode.set(1, forKey: "tri_tri_Theme")
+                self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
+                ThemeMode.synchronize()
+            }
+            
+            else{
+                var current_mode = ThemeMode.value(forKey: "tri_tri_theme") as! NSInteger
+                if (current_mode == 0){
+                    ThemeMode.set(1, forKey: "tri_tri_Theme")
+                    self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
+                    ThemeMode.synchronize()
+                }else {
+                    ThemeMode.set(0, forKey: "tri_tri_Theme")
+                    self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
+                    ThemeMode.synchronize()
+                }
+            }
+        })
+
         
         self.view.addSubview(continue_button)
         self.view.addSubview(home_button)
         self.view.addSubview(like_button)
         self.view.addSubview(restart_button)
+        self.view.addSubview(change_theme_button)
         
         func continue_but(sender: UIButton!){
             pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
