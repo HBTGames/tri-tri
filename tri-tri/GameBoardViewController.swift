@@ -239,9 +239,41 @@ class GameBoardViewController: UIViewController {
         tri_3_9.frame.origin.x = tri_3_8.frame.origin.x + 26
         tri_3_10.frame.origin.y = tri_2_5.frame.origin.y + 43
         tri_3_10.frame.origin.x = tri_3_9.frame.origin.x + 26
- 
-    
-        
+        //fifth row
+        tri_4_4.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_4.frame.origin.x = tri_3_5.frame.origin.x
+        tri_4_3.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_3.frame.origin.x = tri_4_4.frame.origin.x - 26
+        tri_4_2.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_2.frame.origin.x = tri_4_3.frame.origin.x - 26
+        tri_4_1.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_1.frame.origin.x = tri_4_2.frame.origin.x - 26
+        tri_4_0.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_0.frame.origin.x = tri_4_1.frame.origin.x - 26
+        tri_4_5.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_5.frame.origin.x = tri_4_4.frame.origin.x + 26
+        tri_4_6.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_6.frame.origin.x = tri_4_5.frame.origin.x + 26
+        tri_4_7.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_7.frame.origin.x = tri_4_6.frame.origin.x + 26
+        tri_4_8.frame.origin.y = tri_3_5.frame.origin.y + 43
+        tri_4_8.frame.origin.x = tri_4_7.frame.origin.x + 26
+        //sixth row
+        tri_5_3.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_3.frame.origin.x = tri_4_4.frame.origin.x
+        tri_5_2.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_2.frame.origin.x = tri_5_3.frame.origin.x - 26
+        tri_5_1.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_1.frame.origin.x = tri_5_2.frame.origin.x - 26
+        tri_5_0.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_0.frame.origin.x = tri_5_1.frame.origin.x - 26
+        tri_5_4.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_4.frame.origin.x = tri_5_3.frame.origin.x + 26
+        tri_5_5.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_5.frame.origin.x = tri_5_4.frame.origin.x + 26
+        tri_5_6.frame.origin.y = tri_4_4.frame.origin.y + 43
+        tri_5_6.frame.origin.x = tri_5_5.frame.origin.x + 26
+
         
         //set CGPoint value of all grey tringles
         
