@@ -28,7 +28,9 @@ class GameBoardViewController: UIViewController {
     
     //record highest score
     var HighestScore = 0
-
+    
+    //record theme type for now
+    var ThemeType = 0
     
     class MyButton: UIButton {
         var action: (()->())?
@@ -153,10 +155,12 @@ class GameBoardViewController: UIViewController {
         //var to decide night mode\
         //0: day mode
         //1: night mode
-        var ThemeMode = UserDefaults.standard
         
-        if (ThemeMode.value(forKey: "tri_tri_Theme") == nil){
-            ThemeMode.set(0, forKey: "tri_tri_Theme")
+        //change bg color
+        if ThemeType == 0{
+            self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
+        } else if ThemeType == 1{
+            self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
         }
         //update tris origin
         //first row
@@ -274,6 +278,8 @@ class GameBoardViewController: UIViewController {
         tri_5_6.frame.origin.y = tri_4_4.frame.origin.y + 43
         tri_5_6.frame.origin.x = tri_5_5.frame.origin.x + 26
 
+        
+        
         
         //set CGPoint value of all grey tringles
         
@@ -483,27 +489,18 @@ class GameBoardViewController: UIViewController {
         })
         
         change_theme_button.whenButtonIsClicked(action:{
-            var ThemeMode = UserDefaults.standard
-            if (ThemeMode.value(forKey: "tri_tri_theme") == nil){
-                ThemeMode.set(1, forKey: "tri_tri_Theme")
-                self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
-                ThemeMode.synchronize()
-            }
+        
             
-            else{
-                var current_mode = ThemeMode.value(forKey: "tri_tri_theme") as! NSInteger
-                if (current_mode == 0){
-                    ThemeMode.set(1, forKey: "tri_tri_Theme")
+                if (self.ThemeType == 0){
+                    self.ThemeType = 1
                     self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
-                    ThemeMode.synchronize()
                 }else {
-                    ThemeMode.set(0, forKey: "tri_tri_Theme")
+                    self.ThemeType = 0
                     self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
-                    ThemeMode.synchronize()
                 }
-            }
+            
         })
-
+        
         
         self.view.addSubview(continue_button)
         self.view.addSubview(home_button)
