@@ -122,13 +122,13 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri.frame.origin = orange_drag_origin
         
         green_drag_origin.y = screen_height - (68 + green_drag_tri.frame.height)
-        green_drag_origin.x =  (orange_drag_origin.x) - 19 - green_drag_tri.frame.width
+        green_drag_origin.x = 50 - (green_drag_tri.frame.width/2)
         green_drag_tri.frame.origin = green_drag_origin
 
         
         
         light_brown_drag_origin.y = screen_height - (68 + light_brown_drag_tri.frame.height)
-        light_brown_drag_origin.x = orange_drag_origin.x + orange_drag_tri.frame.width + 12.5
+        light_brown_drag_origin.x = screen_width - 50 - (light_brown_drag_tri.frame.width/2)
         light_brown_drag_tri.frame.origin = light_brown_drag_origin
         //declare original frames of the tris
         green_drag_tri_orig_rec = green_drag_tri.frame
@@ -441,6 +441,7 @@ class GameBoardViewController: UIViewController {
         return CGFloat(new_y)
     }
     
+
     @IBAction func pause_button(_ sender: UIButton) {
         let pause_screen: UIView = UIView(frame: CGRect(origin: CGPoint(x: 0, y:0),size: CGSize(width: screen_width, height: screen_height)))
         pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0.8))
@@ -449,23 +450,23 @@ class GameBoardViewController: UIViewController {
         self.view.isUserInteractionEnabled = true
         self.view.addSubview(pause_screen)
         paused = true
-        let continue_button = MyButton(frame: CGRect(x: pause_screen_x_transform(87.5), y: pause_screen_y_transform(283.5), width: 200, height: 170))
+        let continue_button = MyButton(frame: CGRect(x: pause_screen_x_transform(87.5), y: pause_screen_y_transform(283.5), width: pause_screen_x_transform(200), height: pause_screen_y_transform(170)))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
         continue_button.tag = 50
         
-        let home_button = MyButton(frame: CGRect(x: pause_screen_x_transform(137.5), y: pause_screen_y_transform(190), width: 100, height: 85))
+        let home_button = MyButton(frame: CGRect(x: pause_screen_x_transform(137.5), y: pause_screen_y_transform(190), width: pause_screen_x_transform(100), height: pause_screen_y_transform(85)))
         home_button.setBackgroundImage(home_pic, for: .normal)
         home_button.tag = 51
         
-        let like_button = MyButton(frame: CGRect(x: pause_screen_x_transform(52), y: pause_screen_y_transform(333.5), width: 100, height: 85))
+        let like_button = MyButton(frame: CGRect(x: pause_screen_x_transform(52), y: pause_screen_y_transform(333.5), width: pause_screen_x_transform(100), height: pause_screen_y_transform(85)))
         like_button.setBackgroundImage(like_pic, for: .normal)
         like_button.tag = 52
         
-        let restart_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(333.5), width: 100, height: 85))
+        let restart_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(333.5), width: pause_screen_x_transform(100), height: pause_screen_y_transform(85)))
         restart_button.setBackgroundImage(restart_pic, for: .normal)
         restart_button.tag = 53
         
-        let change_theme_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(570), width: 100, height: 30))
+        let change_theme_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(570), width: pause_screen_x_transform(100), height: pause_screen_y_transform(30)))
         change_theme_button.setTitle("day/night", for: .normal)
         change_theme_button.setTitleColor(.red, for: .normal)
         change_theme_button.tag = 54
@@ -1687,7 +1688,7 @@ class GameBoardViewController: UIViewController {
                                     
                                     auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
                                     
                                     
                                     
@@ -1704,7 +1705,7 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     auto_make_transparent()
                                     Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
                                     
                                     return true
                                 }

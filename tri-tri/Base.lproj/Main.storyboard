@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1009,7 +1010,7 @@
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
-                                <rect key="frame" x="29" y="518" width="93" height="81"/>
+                                <rect key="frame" x="19.5" y="518" width="93" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="NxT-Te-F78"/>
                                 </constraints>
@@ -1026,7 +1027,7 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="246.5" y="518" width="93" height="81"/>
+                                <rect key="frame" x="262.5" y="518" width="93" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="Hg6-9j-zwO"/>
                                 </constraints>
@@ -1095,6 +1096,7 @@
                             <constraint firstItem="g43-w7-Sep" firstAttribute="centerX" secondItem="RME-qP-jaD" secondAttribute="centerX" constant="26" id="7ti-XV-Kve"/>
                             <constraint firstItem="SJu-LI-qzx" firstAttribute="top" secondItem="ELe-CA-9m7" secondAttribute="bottom" constant="-1" id="8QN-DY-Ylh"/>
                             <constraint firstItem="0pd-e9-rMu" firstAttribute="leading" secondItem="GbU-lZ-2xu" secondAttribute="trailing" constant="-23" id="8YU-ie-xle"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YRp-Xf-A4k" secondAttribute="centerX" constant="50" id="8Zw-m0-k1e"/>
                             <constraint firstItem="iVW-8Y-4MB" firstAttribute="leading" secondItem="Pqn-Yw-WhQ" secondAttribute="trailing" constant="-24" id="8ve-uw-Jhq"/>
                             <constraint firstItem="P0M-hw-129" firstAttribute="top" secondItem="gNR-HH-lwS" secondAttribute="bottom" constant="6" id="97J-bv-asd"/>
                             <constraint firstItem="xNY-Aq-UaX" firstAttribute="centerX" secondItem="oLJ-AF-fNV" secondAttribute="centerX" constant="26" id="9K5-yK-VO4"/>
@@ -1107,6 +1109,7 @@
                             <constraint firstItem="I8B-Hx-ehl" firstAttribute="top" secondItem="IGw-YF-gxf" secondAttribute="bottom" constant="422" id="BOI-pZ-jMV"/>
                             <constraint firstItem="c8H-HS-weF" firstAttribute="centerY" secondItem="3EO-rE-lEg" secondAttribute="centerY" constant="43" id="BZL-fj-IQX"/>
                             <constraint firstItem="Xq7-vb-AeG" firstAttribute="centerX" secondItem="Ogm-6q-dpZ" secondAttribute="centerX" constant="26" id="Bhe-dC-DM5"/>
+                            <constraint firstItem="gxz-1Y-RXe" firstAttribute="centerX" secondItem="p5C-ee-UVz" secondAttribute="leadingMargin" constant="50" id="BoF-mt-rNt"/>
                             <constraint firstItem="yZK-LB-QaZ" firstAttribute="top" secondItem="R9g-fj-p9q" secondAttribute="bottom" constant="-35" id="C4O-FM-En3"/>
                             <constraint firstItem="TUn-PZ-KeY" firstAttribute="centerY" secondItem="3EO-rE-lEg" secondAttribute="centerY" constant="43" id="CUH-xs-xVX"/>
                             <constraint firstItem="GbU-lZ-2xu" firstAttribute="centerY" secondItem="aYb-dV-99H" secondAttribute="centerY" constant="43" id="CaW-bf-zp2"/>
@@ -1180,7 +1183,6 @@
                             <constraint firstItem="P0M-hw-129" firstAttribute="leading" secondItem="p5C-ee-UVz" secondAttribute="leading" constant="123" id="Ue3-d8-zf3"/>
                             <constraint firstItem="gGa-Et-7sI" firstAttribute="top" secondItem="oLJ-AF-fNV" secondAttribute="bottom" constant="-1" id="Uu9-h3-P36"/>
                             <constraint firstItem="Xq7-vb-AeG" firstAttribute="centerX" secondItem="lKM-Zo-fbC" secondAttribute="centerX" constant="26" id="VEF-uO-X9p"/>
-                            <constraint firstItem="YRp-Xf-A4k" firstAttribute="leading" secondItem="eId-J2-6Yd" secondAttribute="trailing" constant="12.5" id="VHl-Rc-Xdn"/>
                             <constraint firstItem="n6g-b1-qna" firstAttribute="centerY" secondItem="qsZ-La-p2G" secondAttribute="centerY" constant="43" id="VUe-tB-LnI"/>
                             <constraint firstItem="ZhV-6R-bfB" firstAttribute="centerX" secondItem="xNY-Aq-UaX" secondAttribute="centerX" constant="26" id="VnM-sd-MYz"/>
                             <constraint firstItem="wn6-BU-e3g" firstAttribute="top" secondItem="w8l-Kb-aRQ" secondAttribute="bottom" constant="-1" id="W1u-Jw-0CY"/>
@@ -1228,7 +1230,6 @@
                             <constraint firstItem="oUK-Du-QmX" firstAttribute="top" secondItem="xNY-Aq-UaX" secondAttribute="bottom" constant="-1" id="jOg-S3-kz2"/>
                             <constraint firstItem="ygd-va-KF8" firstAttribute="centerY" secondItem="nZ3-4F-P4g" secondAttribute="centerY" constant="43" id="je5-eY-pAV"/>
                             <constraint firstItem="V8V-tT-dlb" firstAttribute="leading" secondItem="xLe-ID-Sny" secondAttribute="trailing" constant="-23" id="jh8-rE-Zl2"/>
-                            <constraint firstItem="eId-J2-6Yd" firstAttribute="leading" secondItem="gxz-1Y-RXe" secondAttribute="trailing" constant="19" id="kJ9-0D-30r"/>
                             <constraint firstItem="f4m-zA-kZa" firstAttribute="leading" secondItem="srC-J8-d9b" secondAttribute="trailing" constant="-23" id="kV8-Vm-2ao"/>
                             <constraint firstItem="JnQ-lg-URx" firstAttribute="centerX" secondItem="3EO-rE-lEg" secondAttribute="centerX" constant="26" id="klf-aa-nsK"/>
                             <constraint firstItem="0LP-uJ-t6C" firstAttribute="centerX" secondItem="NMt-fg-ydx" secondAttribute="centerX" constant="26" id="lmI-om-EPn"/>
