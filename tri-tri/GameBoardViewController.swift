@@ -12,6 +12,12 @@ import AVKit
 import UserNotifications
 class GameBoardViewController: UIViewController {
 
+ //constraints
+
+    
+    
+    
+    
 //create an array to store shape_index for each UIImageView
     @IBAction func test_gameover(_ sender: Any) {
         Jump_to_Game_Over()
@@ -73,7 +79,7 @@ class GameBoardViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         initialTouchLocation = touches.first!.location(in: view)
-        //print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
+        print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
 
     }
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
@@ -97,22 +103,38 @@ class GameBoardViewController: UIViewController {
     var fit_in_player = AVAudioPlayer()
     var audioPlayer = AVAudioPlayer()
     var timer = Timer()
-
-
+   // screen width
+    var screen_width : CGFloat = 0
+    var screen_height : CGFloat = 0
+    
     
     override func viewDidLoad() {
+        //let screen_Rect = UIScreen.main.bounds
         super.viewDidLoad()
         //add UIPanGestureRecognizer
-      
         ////
+        screen_width = view.frame.width
+        screen_height = view.frame.height
+        print("screen width: \(screen_width), screen height: \(screen_height)")
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
         //assign original locations of three tris located at the location on storyboard of each of them
-        green_drag_origin = green_drag_tri.frame.origin
-        orange_drag_origin = orange_drag_tri.frame.origin
-        light_brown_drag_origin = light_brown_drag_tri.frame.origin
+        orange_drag_origin.y = screen_height - (68 + orange_drag_tri.frame.height)
+        orange_drag_origin.x = (screen_width/2) -  (orange_drag_tri.frame.width/2)    //34
+        orange_drag_tri.frame.origin = orange_drag_origin
+        
+        green_drag_origin.y = screen_height - (68 + green_drag_tri.frame.height)
+        green_drag_origin.x =  (orange_drag_origin.x) - 19 - green_drag_tri.frame.width
+        green_drag_tri.frame.origin = green_drag_origin
+
+        
+        
+        light_brown_drag_origin.y = screen_height - (68 + light_brown_drag_tri.frame.height)
+        light_brown_drag_origin.x = orange_drag_origin.x + orange_drag_tri.frame.width + 12.5
+        light_brown_drag_tri.frame.origin = light_brown_drag_origin
         //declare original frames of the tris
         green_drag_tri_orig_rec = green_drag_tri.frame
+        print("green origin x: \(green_drag_origin.x), y: \(green_drag_origin.y)")
         orange_drag_tri_orig_rec = orange_drag_tri.frame
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
         // Do any additional setup after loading the view.
@@ -5944,10 +5966,9 @@ func randomNumber(probabilities: [Double]) -> Int {
         
     }
     
+  
+    
    }
-
-
-
 
 
 
