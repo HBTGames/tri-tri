@@ -1686,8 +1686,8 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_down)
                                     
                                     
                                     
@@ -1703,8 +1703,8 @@ class GameBoardViewController: UIViewController {
                                 position.y + 32.5 <= triangle_location.y + 12 && position.y + 32.5 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_down)
                                     
                                     return true
                                 }
