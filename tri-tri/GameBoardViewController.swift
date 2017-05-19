@@ -12,12 +12,6 @@ import AVKit
 import UserNotifications
 class GameBoardViewController: UIViewController {
 
- //constraints
-
-    
-    
-    
-    
 //create an array to store shape_index for each UIImageView
     @IBAction func test_gameover(_ sender: Any) {
         Jump_to_Game_Over()
@@ -164,6 +158,27 @@ class GameBoardViewController: UIViewController {
         if (ThemeMode.value(forKey: "tri_tri_Theme") == nil){
             ThemeMode.set(0, forKey: "tri_tri_Theme")
         }
+        //update tris origin
+        //first row
+        tri_0_3.frame.origin.x = (screen_width/2) - (tri_0_3.frame.width/2)
+        tri_0_3.frame.origin.y = screen_height - 447 - tri_0_3.frame.height
+        tri_0_2.frame.origin.y = tri_0_3.frame.origin.y
+        tri_0_2.frame.origin.x = tri_0_3.frame.origin.x - 27
+        tri_0_1.frame.origin.x = tri_0_3.frame.origin.y
+        tri_0_1.frame.origin.y = tri_0_2.frame.origin.x - 26
+        tri_0_0.frame.origin.y = tri_0_3.frame.origin.y
+        tri_0_0.frame.origin.x = tri_0_1.frame.origin.x - 26
+        tri_0_4.frame.origin.y = tri_0_3.frame.origin.y
+        tri_0_4.frame.origin.x = tri_0_3.frame.origin.x + 26
+        tri_0_5.frame.origin.y = tri_0_3.frame.origin.y
+        tri_0_5.frame.origin.x = tri_0_4.frame.origin.x + 26
+        tri_0_6.frame.origin.y = tri_0_3.frame.origin.y
+        tri_0_6.frame.origin.x = tri_0_5.frame.origin.x + 26
+        //second row
+        
+        
+        
+        
         
         //set CGPoint value of all grey tringles
         
@@ -5965,6 +5980,20 @@ func randomNumber(probabilities: [Double]) -> Int {
         }
         
     }
+    
+    func coordiante_transform (point_in_ip7: CGPoint) -> CGPoint {
+    //ip7: width 375 height:667
+    let x_proportion_const = Double(point_in_ip7.x)/Double(375)
+    let y_proportion_const = Double(point_in_ip7.y)/Double(667)
+    let new_CGPoint = CGPoint(x: CGFloat(Double(screen_width) * x_proportion_const), y: CGFloat(Double(screen_height)*y_proportion_const))
+        return new_CGPoint
+        
+
+
+}
+    
+        
+
     
   
     
