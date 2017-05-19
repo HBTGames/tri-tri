@@ -11,7 +11,20 @@ import AVFoundation
 import AVKit
 import UserNotifications
 class GameBoardViewController: UIViewController {
-
+//constraints
+    
+    @IBOutlet weak var green_drag_tri_x_constraint: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var green_drag_tri_y_constraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var orange_drag_tri_x_constraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var orange_drag_tri_y_constraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var light_brown_drag_tri_x_constraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var light_brown_drag_tri_y_constraint: NSLayoutConstraint!
 //create an array to store shape_index for each UIImageView
     @IBAction func test_gameover(_ sender: Any) {
         Jump_to_Game_Over()
@@ -106,7 +119,7 @@ class GameBoardViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
+       // print("Green tri x constraint is\(green_drag_tri_x_constraint.constant), y is \(green_drag_tri_y_constraint.constant)")
         //let screen_Rect = UIScreen.main.bounds
         super.viewDidLoad()
         //add UIPanGestureRecognizer
@@ -605,6 +618,8 @@ class GameBoardViewController: UIViewController {
             green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
             actual_type_index = shape_type_index[0]
             actual_location = green_drag_tri.frame.origin
+            green_drag_tri_x_constraint.constant = -50
+            green_drag_tri_y_constraint.constant = -50
         } else if(orange_drag_tri_orig_rec.contains(initialTouchLocation)){
             if (exist2 == false){
                 return
@@ -615,6 +630,8 @@ class GameBoardViewController: UIViewController {
             orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
             actual_type_index = shape_type_index[1]
             actual_location = orange_drag_tri.frame.origin
+            orange_drag_tri_x_constraint.constant = -50
+            orange_drag_tri_y_constraint.constant = -100
         }else if(light_brown_drag_tri_orig_rec.contains(initialTouchLocation)){
             if (exist3 == false){
                 return
@@ -625,6 +642,8 @@ class GameBoardViewController: UIViewController {
             light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
             actual_type_index = shape_type_index[2]
             actual_location = light_brown_drag_tri.frame.origin
+            light_brown_drag_tri_x_constraint.constant = -50
+            light_brown_drag_tri_y_constraint.constant = -50
         }
         
         //when dragging, keep scanning whether the shape fits any space
@@ -667,12 +686,18 @@ class GameBoardViewController: UIViewController {
                //if the triangles are fit
                 if (position_in_use == 0){
                     green_drag_tri.frame.origin = green_drag_origin
+                    green_drag_tri_x_constraint.constant = CGFloat(50)
+                    green_drag_tri_y_constraint.constant = CGFloat(68)
                     exist1 = false
                 }else if (position_in_use == 1){
                     orange_drag_tri.frame.origin = orange_drag_origin
+                    orange_drag_tri_x_constraint.constant = CGFloat(0)
+                    orange_drag_tri_y_constraint.constant = CGFloat(68)
                     exist2 = false
                 }else if (position_in_use == 2){
                     light_brown_drag_tri.frame.origin = light_brown_drag_origin
+                    light_brown_drag_tri_y_constraint.constant = CGFloat(68)
+                    light_brown_drag_tri_x_constraint.constant = CGFloat(50)
                     exist3 = false
                 }
                 position_in_use = 3
@@ -706,7 +731,16 @@ class GameBoardViewController: UIViewController {
                 self.green_drag_tri.frame.origin = self.green_drag_origin
                 self.orange_drag_tri.frame.origin = self.orange_drag_origin
                 self.light_brown_drag_tri.frame.origin = self.light_brown_drag_origin
+                   
+                    
                 })
+                green_drag_tri_x_constraint.constant = CGFloat(50)
+                green_drag_tri_y_constraint.constant = CGFloat(68)
+                orange_drag_tri_x_constraint.constant = CGFloat(0)
+                orange_drag_tri_y_constraint.constant = CGFloat(68)
+                light_brown_drag_tri_y_constraint.constant = CGFloat(68)
+                light_brown_drag_tri_x_constraint.constant = CGFloat(50)
+
             }
             
 
