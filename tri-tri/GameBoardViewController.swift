@@ -175,6 +175,25 @@ class GameBoardViewController: UIViewController {
         tri_0_6.frame.origin.y = tri_0_3.frame.origin.y
         tri_0_6.frame.origin.x = tri_0_5.frame.origin.x + 26
         //second row
+        tri_1_4.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_4.frame.origin.x = tri_0_3.frame.origin.x
+        tri_1_3.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_3.frame.origin.x = tri_1_4.frame.origin.x - 26
+        tri_1_2.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_2.frame.origin.x = tri_1_3.frame.origin.x - 26
+        tri_1_1.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_1.frame.origin.x = tri_1_2.frame.origin.x - 26
+        tri_1_0.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_0.frame.origin.x = tri_1_1.frame.origin.x - 26
+        tri_1_5.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_5.frame.origin.x = tri_1_4.frame.origin.x + 26
+        tri_1_6.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_6.frame.origin.x = tri_1_5.frame.origin.x + 26
+        tri_1_7.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_7.frame.origin.x = tri_1_6.frame.origin.x + 26
+        tri_1_8.frame.origin.y = tri_0_3.frame.origin.y - 43
+        tri_1_8.frame.origin.x = tri_1_7.frame.origin.x + 26
+        //third row
         
         
         
