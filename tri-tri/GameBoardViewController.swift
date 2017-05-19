@@ -164,8 +164,8 @@ class GameBoardViewController: UIViewController {
         tri_0_3.frame.origin.y = screen_height - 447 - tri_0_3.frame.height
         tri_0_2.frame.origin.y = tri_0_3.frame.origin.y
         tri_0_2.frame.origin.x = tri_0_3.frame.origin.x - 27
-        tri_0_1.frame.origin.x = tri_0_3.frame.origin.y
-        tri_0_1.frame.origin.y = tri_0_2.frame.origin.x - 26
+        tri_0_1.frame.origin.y = tri_0_3.frame.origin.y
+        tri_0_1.frame.origin.x = tri_0_2.frame.origin.x - 26
         tri_0_0.frame.origin.y = tri_0_3.frame.origin.y
         tri_0_0.frame.origin.x = tri_0_1.frame.origin.x - 26
         tri_0_4.frame.origin.y = tri_0_3.frame.origin.y
@@ -194,8 +194,29 @@ class GameBoardViewController: UIViewController {
         tri_1_8.frame.origin.y = tri_0_3.frame.origin.y - 43
         tri_1_8.frame.origin.x = tri_1_7.frame.origin.x + 26
         //third row
-        
-        
+        tri_2_5.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_5.frame.origin.x = tri_1_4.frame.origin.x
+        tri_2_4.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_4.frame.origin.x = tri_2_5.frame.origin.x - 26
+        tri_2_3.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_3.frame.origin.x = tri_2_4.frame.origin.x - 26
+        tri_2_2.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_2.frame.origin.x = tri_2_3.frame.origin.x - 26
+        tri_2_1.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_1.frame.origin.x = tri_2_2.frame.origin.x - 26
+        tri_2_0.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_0.frame.origin.x = tri_2_1.frame.origin.y - 26
+        tri_2_6.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_6.frame.origin.x = tri_2_5.frame.origin.x + 26
+        tri_2_7.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_7.frame.origin.x = tri_2_6.frame.origin.x + 26
+        tri_2_8.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_8.frame.origin.x = tri_2_7.frame.origin.x + 26
+        tri_2_9.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_9.frame.origin.x = tri_2_8.frame.origin.x + 26
+        tri_2_10.frame.origin.y = tri_1_4.frame.origin.y - 43
+        tri_2_10.frame.origin.x = tri_2_9.frame.origin.x + 26
+        //fourth row
         
         
         
