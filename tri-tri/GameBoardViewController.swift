@@ -178,7 +178,7 @@ class GameBoardViewController: UIViewController {
         //update tris origin
         //first row
         tri_0_3.frame.origin.x = (screen_width/2) - (tri_0_3.frame.width/2)
-        tri_0_3.frame.origin.y = screen_height - 422 - tri_0_3.frame.height
+        tri_0_3.frame.origin.y = screen_height - 418 - tri_0_3.frame.height
         tri_0_2.frame.origin.y = tri_0_3.frame.origin.y
         tri_0_2.frame.origin.x = tri_0_3.frame.origin.x - 27
         tri_0_1.frame.origin.y = tri_0_3.frame.origin.y
