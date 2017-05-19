@@ -410,31 +410,43 @@ class GameBoardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func pause_screen_x_transform(_ x: Double) -> CGFloat {
+      let const = x/Double(400)
+      let new_x = Double(screen_width)*const
+      return CGFloat(new_x)
+        
+    }
+    func pause_screen_y_transform(_ y: Double) -> CGFloat {
+        let const = y/Double(700)
+        let new_y = Double(screen_height)*const
+        return CGFloat(new_y)
+    }
+    
     @IBAction func pause_button(_ sender: UIButton) {
-        let pause_screen: UIView = UIView(frame: CGRect(origin: CGPoint(x: 0, y:0),size: CGSize(width: 400, height: 700)))
+        let pause_screen: UIView = UIView(frame: CGRect(origin: CGPoint(x: 0, y:0),size: CGSize(width: screen_width, height: screen_height)))
         pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0.8))
         pause_screen.tag = 100
         super.view.isUserInteractionEnabled = false
         self.view.isUserInteractionEnabled = true
         self.view.addSubview(pause_screen)
         paused = true
-        let continue_button = MyButton(frame: CGRect(x: 87.5, y: 283.5, width: 200, height: 170))
+        let continue_button = MyButton(frame: CGRect(x: pause_screen_x_transform(87.5), y: pause_screen_y_transform(283.5), width: 200, height: 170))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
         continue_button.tag = 50
         
-        let home_button = MyButton(frame: CGRect(x: 137.5, y: 190, width: 100, height: 85))
+        let home_button = MyButton(frame: CGRect(x: pause_screen_x_transform(137.5), y: pause_screen_y_transform(190), width: 100, height: 85))
         home_button.setBackgroundImage(home_pic, for: .normal)
         home_button.tag = 51
         
-        let like_button = MyButton(frame: CGRect(x: 52, y: 333.5, width: 100, height: 85))
+        let like_button = MyButton(frame: CGRect(x: pause_screen_x_transform(52), y: pause_screen_y_transform(333.5), width: 100, height: 85))
         like_button.setBackgroundImage(like_pic, for: .normal)
         like_button.tag = 52
         
-        let restart_button = MyButton(frame: CGRect(x: 222.5, y: 333.5, width: 100, height: 85))
+        let restart_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(333.5), width: 100, height: 85))
         restart_button.setBackgroundImage(restart_pic, for: .normal)
         restart_button.tag = 53
         
-        let change_theme_button = MyButton(frame: CGRect(x: 222.5, y: 570, width: 100, height: 30))
+        let change_theme_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(570), width: 100, height: 30))
         change_theme_button.setTitle("change theme", for: .normal)
         change_theme_button.setTitleColor(.red, for: .normal)
         change_theme_button.tag = 54
