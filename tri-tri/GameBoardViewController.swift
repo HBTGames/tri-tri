@@ -30,7 +30,7 @@ class GameBoardViewController: UIViewController {
     var HighestScore = 0
     
     //record theme type for now
-    var ThemeType = 0
+    var ThemeType = 1
     
     class MyButton: UIButton {
         var action: (()->())?
@@ -84,6 +84,7 @@ class GameBoardViewController: UIViewController {
   
     }
     
+    var defaults = UserDefaults.standard
     
     //--------------------------------------------------------------------------------------------------------------------------
     //initialize an array for random generator
@@ -105,6 +106,7 @@ class GameBoardViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         //let screen_Rect = UIScreen.main.bounds
         super.viewDidLoad()
         //add UIPanGestureRecognizer
@@ -153,13 +155,24 @@ class GameBoardViewController: UIViewController {
         
         //---------------------------------------------------------------------------
         //var to decide night mode\
-        //0: day mode
-        //1: night mode
-        
+        //1: day mode
+        //2: night mode
+        if (defaults.value(forKey: "tritri_Theme") == nil){
+            ThemeType = 1
+            defaults.set(1, forKey: "tritri_Theme")
+        }
+        else {
+            if (defaults.integer(forKey: "tritri_Theme") == 1){
+                ThemeType = 1
+            }
+            else if (defaults.integer(forKey: "tritri_Theme") == 2){
+                ThemeType = 2
+            }
+        }
         //change bg color
-        if ThemeType == 0{
+        if ThemeType == 1{
             self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
-        } else if ThemeType == 1{
+        } else if ThemeType == 2{
             self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
         }
         //update tris origin
@@ -453,7 +466,7 @@ class GameBoardViewController: UIViewController {
         restart_button.tag = 53
         
         let change_theme_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(570), width: 100, height: 30))
-        change_theme_button.setTitle("change theme", for: .normal)
+        change_theme_button.setTitle("day/night", for: .normal)
         change_theme_button.setTitleColor(.red, for: .normal)
         change_theme_button.tag = 54
         
@@ -492,11 +505,13 @@ class GameBoardViewController: UIViewController {
         change_theme_button.whenButtonIsClicked(action:{
         
             
-                if (self.ThemeType == 0){
-                    self.ThemeType = 1
+                if (self.ThemeType == 1){
+                    self.defaults.set(2, forKey: "tritri_Theme")
+                    self.ThemeType = 2
                     self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
                 }else {
-                    self.ThemeType = 0
+                    self.defaults.set(1, forKey: "tritri_Theme")
+                    self.ThemeType = 1
                     self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
                 }
             
@@ -5994,7 +6009,7 @@ class GameBoardViewController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         nextViewController.final_score = MarkBoard.text!
-        
+        nextViewController.ThemeType = self.ThemeType
         if (Int(MarkBoard.text!)! == HighestScore){
             nextViewController.is_high_score = false
         } else {

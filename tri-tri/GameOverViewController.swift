@@ -100,6 +100,11 @@ class GameOverViewController: UIViewController {
             //High_score_marker.startBlink()
         }
         // Do any additional setup after loading the view.
+        if ThemeType == 1{
+            self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
+        } else if ThemeType == 2{
+            self.view.backgroundColor = UIColor(red: 23.0/255, green: 53.0/255, blue: 52.0/255, alpha: 1.0)
+        }
     }
 
     override func didReceiveMemoryWarning() {
