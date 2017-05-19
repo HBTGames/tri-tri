@@ -476,6 +476,7 @@ class GameBoardViewController: UIViewController {
         restart_button.whenButtonIsClicked(action:{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
+            nextViewController.ThemeType = self.ThemeType
             self.present(nextViewController, animated: true, completion: nil)
             self.timer.invalidate()
 

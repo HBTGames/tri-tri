@@ -88,10 +88,13 @@ class GameOverViewController: UIViewController {
     var final_score = String()
     var is_high_score = Bool()
     
+    //theme type
+    var ThemeType = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         score_board.text = final_score
+        
         if !is_high_score{
             High_score_marker.text = "New Record!"
             //High_score_marker.startBlink()
