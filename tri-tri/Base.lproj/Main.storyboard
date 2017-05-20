@@ -590,7 +590,7 @@
                                 <rect key="frame" x="123" y="86" width="43" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
-                                <rect key="frame" x="20" y="523" width="104" height="93"/>
+                                <rect key="frame" x="4" y="523" width="104" height="93"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="NxT-Te-F78"/>
                                 </constraints>
@@ -650,7 +650,7 @@
                             <constraint firstItem="7KV-Rs-3gZ" firstAttribute="centerY" secondItem="szl-aC-RdT" secondAttribute="centerY" id="0PA-VS-EjK"/>
                             <constraint firstItem="8ge-wk-X7a" firstAttribute="centerX" secondItem="Mtl-uT-XTg" secondAttribute="centerX" constant="26" id="0Su-c3-vhu"/>
                             <constraint firstItem="Hto-lh-OHx" firstAttribute="centerY" secondItem="1GT-j3-Flb" secondAttribute="centerY" constant="43" id="0gO-tU-5At"/>
-                            <constraint firstItem="gxz-1Y-RXe" firstAttribute="leading" secondItem="p5C-ee-UVz" secondAttribute="leading" constant="19.5" id="0kS-xX-vFU"/>
+                            <constraint firstItem="gxz-1Y-RXe" firstAttribute="leading" secondItem="p5C-ee-UVz" secondAttribute="leading" constant="4" id="0kS-xX-vFU"/>
                             <constraint firstItem="SVR-5g-X6b" firstAttribute="centerY" secondItem="TJq-yZ-nul" secondAttribute="centerY" id="139-yR-Y5E"/>
                             <constraint firstItem="gNR-HH-lwS" firstAttribute="centerX" secondItem="p5C-ee-UVz" secondAttribute="centerX" id="1GR-8M-Aq2"/>
                             <constraint firstItem="aYb-dV-99H" firstAttribute="centerX" secondItem="srC-J8-d9b" secondAttribute="centerX" constant="26" id="1Ha-eX-dzV"/>

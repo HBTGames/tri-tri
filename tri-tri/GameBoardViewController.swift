@@ -136,7 +136,7 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri.frame.origin = orange_drag_origin
         
         green_drag_origin.y = screen_height - (51 + green_drag_tri.frame.height)
-        green_drag_origin.x = 19.5//50 - (green_drag_tri.frame.width/2)
+        green_drag_origin.x = 4//50 - (green_drag_tri.frame.width/2)
         green_drag_tri.frame.origin = green_drag_origin
 
         
@@ -629,7 +629,7 @@ class GameBoardViewController: UIViewController {
             actual_type_index = shape_type_index[0]
             actual_location = green_drag_tri.frame.origin
             green_drag_tri_x_constraint.constant = -100
-            green_drag_tri_y_constraint.constant = -50
+            green_drag_tri_y_constraint.constant = -100
         } else if(orange_drag_tri_orig_rec.contains(initialTouchLocation)){
             if (exist2 == false){
                 return
@@ -696,7 +696,7 @@ class GameBoardViewController: UIViewController {
                //if the triangles are fit
                 if (position_in_use == 0){
                     green_drag_tri.frame.origin = green_drag_origin
-                    green_drag_tri_x_constraint.constant = CGFloat(19.5)
+                    green_drag_tri_x_constraint.constant = CGFloat(4)
                     green_drag_tri_y_constraint.constant = CGFloat(51)
                     exist1 = false
                 }else if (position_in_use == 1){
@@ -744,7 +744,7 @@ class GameBoardViewController: UIViewController {
                    
                     
                 })
-                green_drag_tri_x_constraint.constant = CGFloat(19.5)
+                green_drag_tri_x_constraint.constant = CGFloat(4)
                 green_drag_tri_y_constraint.constant = CGFloat(51)
                 orange_drag_tri_x_constraint.constant = CGFloat(4.5)
                 orange_drag_tri_y_constraint.constant = CGFloat(51)
