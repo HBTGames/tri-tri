@@ -73,11 +73,23 @@ class GameOverViewController: UIViewController {
             }
         }
         
+        //fourth action
+        let action_four = UIAlertAction(title: "I have changed my mind", style: .cancel){ (action) in
+         //self.dismiss(animated: true, completion: nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
+            nextViewController.final_score = self.final_score
+            nextViewController.ThemeType = self.ThemeType
+            nextViewController.is_high_score = true
+        self.present(nextViewController, animated: false, completion: nil)
+        }
+        
         
         //add action to action sheet
         alert.addAction(action_one)
         alert.addAction(action_two)
         alert.addAction(action_three)
+        alert.addAction(action_four)
         
         //present alert 
         self.present(alert, animated: true, completion: nil)
