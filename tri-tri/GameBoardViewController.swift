@@ -2677,6 +2677,24 @@ class GameBoardViewController: UIViewController {
         
     }
     
+    func generate_a_non_green_or_brown_downwards_tri_random() -> Int {
+      var randomIx = 0
+        while(randomIx == 0 || randomIx == 3){
+            randomIx = Int(arc4random_uniform(UInt32(generator_array.count)))
+
+        }
+        return randomIx
+    }
+    
+    func generate_a_non_green_or_brown_downwards_tri_random_or_dark_tri() -> Int {
+     var randomIx = 0
+        while(randomIx == 5 || randomIx == 0 || randomIx == 3){
+            randomIx = Int(arc4random_uniform(UInt32(generator_array.count)))
+        }
+        
+        return randomIx
+    }
+    
     //auto generate three tris when previous are all fit in
       func auto_random_generator() -> Void {
         var number_of_dark_tri = 0
@@ -2702,6 +2720,10 @@ class GameBoardViewController: UIViewController {
             shape_type_index[0] = random_shape_index
             
             randomIndex = randomShape_for_Difficulty_Level ()
+            if(random_shape_index == 0 || random_shape_index == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random()
+            }
+
             //Int(arc4random_uniform(UInt32(generator_array.count)))
             if(randomIndex == 5){
                 number_of_dark_tri += 1
@@ -2712,10 +2734,16 @@ class GameBoardViewController: UIViewController {
             shape_type_index[1] = randomIndex
             
             //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
-            
+            //randomIndex is previous index at this instance
+            if(randomIndex == 0 || randomIndex == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random()
+            }else{
             randomIndex = randomShape_for_Difficulty_Level ()
-            if(number_of_dark_tri == 2 && randomIndex == 5) {// two dark_green_tri
-            randomIndex = generate_a_non_dark_green_dri_random()
+            }
+            if(randomIndex == 5 && number_of_dark_tri == 2 && random_shape_index == 0 || random_shape_index == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random_or_dark_tri()
+            }else if(randomIndex == 5 && number_of_dark_tri == 2 && random_shape_index != 0 && random_shape_index != 3){
+                randomIndex = generate_a_non_dark_green_dri_random()
             }
             //Int(arc4random_uniform(UInt32(generator_array.count)))
             light_brown_drag_tri.image = generator_array[randomIndex]
@@ -2734,7 +2762,11 @@ class GameBoardViewController: UIViewController {
             orange_drag_tri_orig_rec = orange_drag_tri.frame
             shape_type_index[1] = random_shape_index
             
-            randomIndex = randomShape_for_Difficulty_Level ()
+            if(random_shape_index == 0 || random_shape_index == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random()
+            }else{
+                randomIndex = randomShape_for_Difficulty_Level ()
+            }
             if(randomIndex == 5){
                 number_of_dark_tri += 1
             }
@@ -2743,8 +2775,14 @@ class GameBoardViewController: UIViewController {
             green_drag_tri_orig_rec = green_drag_tri.frame
             shape_type_index[0] = randomIndex
             
+            if(random_shape_index == 0 || random_shape_index == 3){
+               randomIndex = generate_a_non_green_or_brown_downwards_tri_random()
+            }else{
             randomIndex = randomShape_for_Difficulty_Level ()
-            if(randomIndex == 5 && number_of_dark_tri == 2){
+            }
+            if(randomIndex == 5 && number_of_dark_tri == 2 && random_shape_index == 0 || random_shape_index == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random_or_dark_tri()
+            }else if(randomIndex == 5 && number_of_dark_tri == 2 && random_shape_index != 0 && random_shape_index != 3){
                 randomIndex = generate_a_non_dark_green_dri_random()
             }
             //Int(arc4random_uniform(UInt32(generator_array.count)))
@@ -2773,10 +2811,15 @@ class GameBoardViewController: UIViewController {
             green_drag_tri_orig_rec = green_drag_tri.frame
             shape_type_index[0] = randomIndex
             
-            
+            if(random_shape_index == 0 || random_shape_index == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random()
+            }else{
             randomIndex = randomShape_for_Difficulty_Level ()
-            if(randomIndex == 5 && number_of_dark_tri == 2){
-               randomIndex = generate_a_non_dark_green_dri_random()
+            }
+            if(randomIndex == 5 && number_of_dark_tri == 2 && random_shape_index == 0 || random_shape_index == 3){
+                randomIndex = generate_a_non_green_or_brown_downwards_tri_random_or_dark_tri()
+            }else if(randomIndex == 5 && number_of_dark_tri == 2 && random_shape_index != 0 && random_shape_index != 3){
+                randomIndex = generate_a_non_dark_green_dri_random()
             }
             //Int(arc4random_uniform(UInt32(generator_array.count)))
             orange_drag_tri.image = generator_array[randomIndex]
