@@ -628,7 +628,7 @@ class GameBoardViewController: UIViewController {
             green_drag_tri.frame.origin = CGPoint(x: green_drag_origin.x+transition0.x , y: green_drag_origin.y+transition0.y)
             actual_type_index = shape_type_index[0]
             actual_location = green_drag_tri.frame.origin
-            green_drag_tri_x_constraint.constant = -50
+            green_drag_tri_x_constraint.constant = -100
             green_drag_tri_y_constraint.constant = -50
         } else if(orange_drag_tri_orig_rec.contains(initialTouchLocation)){
             if (exist2 == false){
@@ -640,7 +640,7 @@ class GameBoardViewController: UIViewController {
             orange_drag_tri.frame.origin = CGPoint(x:orange_drag_origin.x+transition1.x , y:orange_drag_origin.y+transition1.y)
             actual_type_index = shape_type_index[1]
             actual_location = orange_drag_tri.frame.origin
-            orange_drag_tri_x_constraint.constant = -50
+            orange_drag_tri_x_constraint.constant = -100
             orange_drag_tri_y_constraint.constant = -100
         }else if(light_brown_drag_tri_orig_rec.contains(initialTouchLocation)){
             if (exist3 == false){
@@ -652,8 +652,8 @@ class GameBoardViewController: UIViewController {
             light_brown_drag_tri.frame.origin = CGPoint(x:light_brown_drag_origin.x+transition2.x , y:light_brown_drag_origin.y+transition2.y)
             actual_type_index = shape_type_index[2]
             actual_location = light_brown_drag_tri.frame.origin
-            light_brown_drag_tri_x_constraint.constant = -50
-            light_brown_drag_tri_y_constraint.constant = -50
+            light_brown_drag_tri_x_constraint.constant = -100
+            light_brown_drag_tri_y_constraint.constant = -100
         }
         
         //when dragging, keep scanning whether the shape fits any space
@@ -697,16 +697,16 @@ class GameBoardViewController: UIViewController {
                 if (position_in_use == 0){
                     green_drag_tri.frame.origin = green_drag_origin
                     green_drag_tri_x_constraint.constant = CGFloat(19.5)
-                    green_drag_tri_y_constraint.constant = CGFloat(68)
+                    green_drag_tri_y_constraint.constant = CGFloat(51)
                     exist1 = false
                 }else if (position_in_use == 1){
                     orange_drag_tri.frame.origin = orange_drag_origin
                     orange_drag_tri_x_constraint.constant = CGFloat(4.5)
-                    orange_drag_tri_y_constraint.constant = CGFloat(68)
+                    orange_drag_tri_y_constraint.constant = CGFloat(51)
                     exist2 = false
                 }else if (position_in_use == 2){
                     light_brown_drag_tri.frame.origin = light_brown_drag_origin
-                    light_brown_drag_tri_y_constraint.constant = CGFloat(68)
+                    light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                     light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
                     exist3 = false
                 }
@@ -745,10 +745,10 @@ class GameBoardViewController: UIViewController {
                     
                 })
                 green_drag_tri_x_constraint.constant = CGFloat(19.5)
-                green_drag_tri_y_constraint.constant = CGFloat(68)
+                green_drag_tri_y_constraint.constant = CGFloat(51)
                 orange_drag_tri_x_constraint.constant = CGFloat(4.5)
-                orange_drag_tri_y_constraint.constant = CGFloat(68)
-                light_brown_drag_tri_y_constraint.constant = CGFloat(68)
+                orange_drag_tri_y_constraint.constant = CGFloat(51)
+                light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                 light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
 
             }
