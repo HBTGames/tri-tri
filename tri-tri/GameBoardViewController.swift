@@ -131,7 +131,7 @@ class GameBoardViewController: UIViewController {
         self.view.addGestureRecognizer(panGestureRecognizer)
         //assign original locations of three tris located at the location on storyboard of each of them
         orange_drag_origin.y = screen_height - (68 + orange_drag_tri.frame.height)
-        orange_drag_origin.x = (screen_width/2) -  (orange_drag_tri.frame.width/2)    //34
+        orange_drag_origin.x = (screen_width/2+4.5) -  (orange_drag_tri.frame.width/2)    //34
         orange_drag_tri.frame.origin = orange_drag_origin
         
         green_drag_origin.y = screen_height - (68 + green_drag_tri.frame.height)
@@ -692,7 +692,7 @@ class GameBoardViewController: UIViewController {
                     exist1 = false
                 }else if (position_in_use == 1){
                     orange_drag_tri.frame.origin = orange_drag_origin
-                    orange_drag_tri_x_constraint.constant = CGFloat(0)
+                    orange_drag_tri_x_constraint.constant = CGFloat(4.5)
                     orange_drag_tri_y_constraint.constant = CGFloat(68)
                     exist2 = false
                 }else if (position_in_use == 2){
@@ -737,7 +737,7 @@ class GameBoardViewController: UIViewController {
                 })
                 green_drag_tri_x_constraint.constant = CGFloat(19.5)
                 green_drag_tri_y_constraint.constant = CGFloat(68)
-                orange_drag_tri_x_constraint.constant = CGFloat(0)
+                orange_drag_tri_x_constraint.constant = CGFloat(4.5)
                 orange_drag_tri_y_constraint.constant = CGFloat(68)
                 light_brown_drag_tri_y_constraint.constant = CGFloat(68)
                 light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)

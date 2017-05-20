@@ -1009,21 +1009,21 @@
                                 <rect key="frame" x="123" y="52" width="43" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="eId-J2-6Yd">
-                                <rect key="frame" x="141" y="518" width="93" height="81"/>
+                                <rect key="frame" x="138" y="506" width="108" height="93"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="2uh-1S-89u"/>
+                                    <constraint firstAttribute="height" constant="93" id="2uh-1S-89u"/>
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="gxz-1Y-RXe">
-                                <rect key="frame" x="19.5" y="518" width="93" height="81"/>
+                                <rect key="frame" x="20" y="506" width="108" height="93"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="NxT-Te-F78"/>
+                                    <constraint firstAttribute="height" constant="93" id="NxT-Te-F78"/>
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="278.5" y="518" width="93" height="81"/>
+                                <rect key="frame" x="264" y="506" width="108" height="93"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="Hg6-9j-zwO"/>
+                                    <constraint firstAttribute="height" constant="93" id="Hg6-9j-zwO"/>
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Triangle_Text" translatesAutoresizingMaskIntoConstraints="NO" id="gNR-HH-lwS">
@@ -1206,7 +1206,7 @@
                             <constraint firstItem="srC-J8-d9b" firstAttribute="centerX" secondItem="n6g-b1-qna" secondAttribute="centerX" constant="26" id="aoV-E3-G0v"/>
                             <constraint firstItem="ELe-CA-9m7" firstAttribute="centerX" secondItem="WbX-29-EDz" secondAttribute="centerX" constant="26" id="bWk-X0-uxN"/>
                             <constraint firstItem="I8B-Hx-ehl" firstAttribute="top" secondItem="SMf-zh-9ff" secondAttribute="bottom" constant="418" id="chM-6v-kWr"/>
-                            <constraint firstItem="eId-J2-6Yd" firstAttribute="centerX" secondItem="Hxd-vF-KH0" secondAttribute="centerX" id="cvk-Ax-tCX"/>
+                            <constraint firstItem="eId-J2-6Yd" firstAttribute="centerX" secondItem="Hxd-vF-KH0" secondAttribute="centerX" constant="4.5" id="cvk-Ax-tCX"/>
                             <constraint firstItem="thp-0o-J8d" firstAttribute="centerY" secondItem="Foo-vv-WLq" secondAttribute="centerY" constant="43" id="dEs-pd-Zax"/>
                             <constraint firstItem="no3-3C-ogc" firstAttribute="centerX" secondItem="xLe-ID-Sny" secondAttribute="centerX" constant="26" id="dYS-Bh-hpX"/>
                             <constraint firstItem="iol-Zs-qmi" firstAttribute="centerX" secondItem="TUn-PZ-KeY" secondAttribute="centerX" constant="26" id="dhD-PP-1N9"/>
@@ -1383,7 +1383,7 @@
         <image name="restart_big" width="350" height="304"/>
         <image name="title" width="261" height="70"/>
         <image name="trophy_new" width="43" height="31"/>
-        <image name="棕色tri" width="93" height="81"/>
+        <image name="棕色tri" width="108" height="95"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jOH-pV-lXR"/>
