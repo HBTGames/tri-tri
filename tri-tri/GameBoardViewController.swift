@@ -88,7 +88,7 @@ class GameBoardViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         initialTouchLocation = touches.first!.location(in: view)
-        print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
+        //print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
 
     }
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
@@ -135,13 +135,13 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri.frame.origin = orange_drag_origin
         
         green_drag_origin.y = screen_height - (68 + green_drag_tri.frame.height)
-        green_drag_origin.x = 50 - (green_drag_tri.frame.width/2)
+        green_drag_origin.x = 19.5//50 - (green_drag_tri.frame.width/2)
         green_drag_tri.frame.origin = green_drag_origin
 
         
         
         light_brown_drag_origin.y = screen_height - (68 + light_brown_drag_tri.frame.height)
-        light_brown_drag_origin.x = screen_width - 50 - (light_brown_drag_tri.frame.width/2)
+        light_brown_drag_origin.x = screen_width - 3.5 - (light_brown_drag_tri.frame.width)
         light_brown_drag_tri.frame.origin = light_brown_drag_origin
         //declare original frames of the tris
         green_drag_tri_orig_rec = green_drag_tri.frame
@@ -687,7 +687,7 @@ class GameBoardViewController: UIViewController {
                //if the triangles are fit
                 if (position_in_use == 0){
                     green_drag_tri.frame.origin = green_drag_origin
-                    green_drag_tri_x_constraint.constant = CGFloat(50)
+                    green_drag_tri_x_constraint.constant = CGFloat(19.5)
                     green_drag_tri_y_constraint.constant = CGFloat(68)
                     exist1 = false
                 }else if (position_in_use == 1){
@@ -698,7 +698,7 @@ class GameBoardViewController: UIViewController {
                 }else if (position_in_use == 2){
                     light_brown_drag_tri.frame.origin = light_brown_drag_origin
                     light_brown_drag_tri_y_constraint.constant = CGFloat(68)
-                    light_brown_drag_tri_x_constraint.constant = CGFloat(50)
+                    light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
                     exist3 = false
                 }
                 position_in_use = 3
@@ -735,12 +735,12 @@ class GameBoardViewController: UIViewController {
                    
                     
                 })
-                green_drag_tri_x_constraint.constant = CGFloat(50)
+                green_drag_tri_x_constraint.constant = CGFloat(19.5)
                 green_drag_tri_y_constraint.constant = CGFloat(68)
                 orange_drag_tri_x_constraint.constant = CGFloat(0)
                 orange_drag_tri_y_constraint.constant = CGFloat(68)
                 light_brown_drag_tri_y_constraint.constant = CGFloat(68)
-                light_brown_drag_tri_x_constraint.constant = CGFloat(50)
+                light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
 
             }
             

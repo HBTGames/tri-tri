@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1022,7 +1021,7 @@
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="棕色tri" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Xf-A4k">
-                                <rect key="frame" x="262.5" y="518" width="93" height="81"/>
+                                <rect key="frame" x="278.5" y="518" width="93" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="Hg6-9j-zwO"/>
                                 </constraints>
@@ -1062,6 +1061,7 @@
                         <constraints>
                             <constraint firstItem="srC-J8-d9b" firstAttribute="centerX" secondItem="p5C-ee-UVz" secondAttribute="centerX" id="01t-OC-dPd"/>
                             <constraint firstItem="V8m-TR-Jeg" firstAttribute="top" secondItem="TUn-PZ-KeY" secondAttribute="bottom" constant="-1" id="0cL-Zi-Udw"/>
+                            <constraint firstItem="gxz-1Y-RXe" firstAttribute="leading" secondItem="p5C-ee-UVz" secondAttribute="leading" constant="19.5" id="0kS-xX-vFU"/>
                             <constraint firstItem="Riv-Ce-8Uk" firstAttribute="top" secondItem="iol-Zs-qmi" secondAttribute="bottom" constant="-1" id="10G-Yj-M74"/>
                             <constraint firstItem="dfF-B3-QOs" firstAttribute="centerY" secondItem="NMt-fg-ydx" secondAttribute="centerY" constant="43" id="10Y-zV-x97"/>
                             <constraint firstItem="dIF-Q9-bIA" firstAttribute="centerY" secondItem="kH3-5k-I6y" secondAttribute="centerY" constant="43" id="11M-8a-7hK"/>
@@ -1102,7 +1102,6 @@
                             <constraint firstItem="g43-w7-Sep" firstAttribute="centerX" secondItem="RME-qP-jaD" secondAttribute="centerX" constant="26" id="7ti-XV-Kve"/>
                             <constraint firstItem="SJu-LI-qzx" firstAttribute="top" secondItem="ELe-CA-9m7" secondAttribute="bottom" constant="-1" id="8QN-DY-Ylh"/>
                             <constraint firstItem="0pd-e9-rMu" firstAttribute="leading" secondItem="GbU-lZ-2xu" secondAttribute="trailing" constant="-23" id="8YU-ie-xle"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YRp-Xf-A4k" secondAttribute="centerX" constant="50" id="8Zw-m0-k1e"/>
                             <constraint firstItem="iVW-8Y-4MB" firstAttribute="leading" secondItem="Pqn-Yw-WhQ" secondAttribute="trailing" constant="-24" id="8ve-uw-Jhq"/>
                             <constraint firstItem="P0M-hw-129" firstAttribute="top" secondItem="gNR-HH-lwS" secondAttribute="bottom" constant="6" id="97J-bv-asd"/>
                             <constraint firstItem="xNY-Aq-UaX" firstAttribute="centerX" secondItem="oLJ-AF-fNV" secondAttribute="centerX" constant="26" id="9K5-yK-VO4"/>
@@ -1115,7 +1114,6 @@
                             <constraint firstItem="I8B-Hx-ehl" firstAttribute="top" secondItem="IGw-YF-gxf" secondAttribute="bottom" constant="418" id="BOI-pZ-jMV"/>
                             <constraint firstItem="c8H-HS-weF" firstAttribute="centerY" secondItem="3EO-rE-lEg" secondAttribute="centerY" constant="43" id="BZL-fj-IQX"/>
                             <constraint firstItem="Xq7-vb-AeG" firstAttribute="centerX" secondItem="Ogm-6q-dpZ" secondAttribute="centerX" constant="26" id="Bhe-dC-DM5"/>
-                            <constraint firstItem="gxz-1Y-RXe" firstAttribute="centerX" secondItem="p5C-ee-UVz" secondAttribute="leadingMargin" constant="50" id="BoF-mt-rNt"/>
                             <constraint firstItem="yZK-LB-QaZ" firstAttribute="top" secondItem="R9g-fj-p9q" secondAttribute="bottom" constant="-63" id="C4O-FM-En3"/>
                             <constraint firstItem="TUn-PZ-KeY" firstAttribute="centerY" secondItem="3EO-rE-lEg" secondAttribute="centerY" constant="43" id="CUH-xs-xVX"/>
                             <constraint firstItem="GbU-lZ-2xu" firstAttribute="centerY" secondItem="aYb-dV-99H" secondAttribute="centerY" constant="43" id="CaW-bf-zp2"/>
@@ -1218,6 +1216,7 @@
                             <constraint firstItem="P0M-hw-129" firstAttribute="leading" secondItem="R9g-fj-p9q" secondAttribute="trailing" constant="-66" id="ebK-0O-y9x"/>
                             <constraint firstItem="0JV-Zn-Hbv" firstAttribute="top" secondItem="8ge-wk-X7a" secondAttribute="bottom" constant="-1" id="eqR-gR-Lil"/>
                             <constraint firstItem="I8B-Hx-ehl" firstAttribute="top" secondItem="oLJ-AF-fNV" secondAttribute="bottom" constant="418" id="f3T-TY-OLO"/>
+                            <constraint firstAttribute="trailing" secondItem="YRp-Xf-A4k" secondAttribute="trailing" constant="3.5" id="f8S-uK-DIC"/>
                             <constraint firstItem="I8B-Hx-ehl" firstAttribute="top" secondItem="eId-J2-6Yd" secondAttribute="bottom" constant="68" id="fCQ-YC-taK"/>
                             <constraint firstItem="Rqz-FJ-dcN" firstAttribute="centerY" secondItem="sjD-7S-ALp" secondAttribute="centerY" constant="43" id="gNM-0e-2fe"/>
                             <constraint firstItem="AtJ-BI-nDs" firstAttribute="top" secondItem="v9m-r2-uGt" secondAttribute="bottom" constant="-1" id="gWB-a1-Szm"/>
@@ -1300,10 +1299,10 @@
                         <outlet property="HightestScoreBoard" destination="XIJ-Xa-Clo" id="8Iq-Zy-CDC"/>
                         <outlet property="MarkBoard" destination="R9g-fj-p9q" id="hIa-ST-6zW"/>
                         <outlet property="green_drag_tri" destination="gxz-1Y-RXe" id="UIE-Sq-pg7"/>
-                        <outlet property="green_drag_tri_x_constraint" destination="BoF-mt-rNt" id="lSc-lL-cJB"/>
+                        <outlet property="green_drag_tri_x_constraint" destination="0kS-xX-vFU" id="HhQ-Kf-K2d"/>
                         <outlet property="green_drag_tri_y_constraint" destination="Zzz-iy-Yqq" id="P1p-Jf-bhl"/>
                         <outlet property="light_brown_drag_tri" destination="YRp-Xf-A4k" id="Q8B-sM-uFu"/>
-                        <outlet property="light_brown_drag_tri_x_constraint" destination="8Zw-m0-k1e" id="hgf-cv-X7L"/>
+                        <outlet property="light_brown_drag_tri_x_constraint" destination="f8S-uK-DIC" id="X56-tQ-JFI"/>
                         <outlet property="light_brown_drag_tri_y_constraint" destination="okv-tH-QlV" id="uVv-K2-RAt"/>
                         <outlet property="orange_drag_tri" destination="eId-J2-6Yd" id="Bv1-4G-ukf"/>
                         <outlet property="orange_drag_tri_x_constraint" destination="cvk-Ax-tCX" id="CCC-Za-Sih"/>
