@@ -455,13 +455,13 @@ class GameBoardViewController: UIViewController {
     }
     
     func pause_screen_x_transform(_ x: Double) -> CGFloat {
-      let const = x/Double(400)
+      let const = x/Double(375)
       let new_x = Double(screen_width)*const
       return CGFloat(new_x)
         
     }
     func pause_screen_y_transform(_ y: Double) -> CGFloat {
-        let const = y/Double(700)
+        let const = y/Double(667)
         let new_y = Double(screen_height)*const
         return CGFloat(new_y)
     }
@@ -6103,9 +6103,9 @@ class GameBoardViewController: UIViewController {
         nextViewController.final_score = MarkBoard.text!
         nextViewController.ThemeType = self.ThemeType
         if (Int(MarkBoard.text!)! == HighestScore){
-            nextViewController.is_high_score = false
-        } else {
             nextViewController.is_high_score = true
+        } else {
+            nextViewController.is_high_score = false
         }
         self.present(nextViewController, animated: true, completion: nil)
         self.audioPlayer.stop()
