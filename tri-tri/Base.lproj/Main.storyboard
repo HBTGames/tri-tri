@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ehd-xk-nWf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ehd-xk-nWf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -443,10 +443,10 @@
                                 <rect key="frame" x="267" y="247.5" width="49" height="43"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="TUn-PZ-KeY">
-                                <rect key="frame" x="32.5" y="290.5" width="49" height="43"/>
+                                <rect key="frame" x="32.5" y="291" width="49" height="43"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="grey_tir_downwards" translatesAutoresizingMaskIntoConstraints="NO" id="iol-Zs-qmi">
-                                <rect key="frame" x="59" y="290" width="49" height="43"/>
+                                <rect key="frame" x="59" y="290.5" width="49" height="43"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="grey_tri_upwards" translatesAutoresizingMaskIntoConstraints="NO" id="RME-qP-jaD">
                                 <rect key="frame" x="85" y="290.5" width="49" height="43"/>
@@ -717,6 +717,7 @@
                             <constraint firstItem="no3-3C-ogc" firstAttribute="centerY" secondItem="xLe-ID-Sny" secondAttribute="centerY" id="G78-0Z-tfm"/>
                             <constraint firstItem="nZ3-4F-P4g" firstAttribute="centerY" secondItem="no3-3C-ogc" secondAttribute="centerY" id="GFv-i8-jeT"/>
                             <constraint firstItem="v0M-8F-PAv" firstAttribute="centerY" secondItem="WVu-JF-2JF" secondAttribute="centerY" id="GNB-xf-wct"/>
+                            <constraint firstItem="eId-J2-6Yd" firstAttribute="centerX" secondItem="p5C-ee-UVz" secondAttribute="centerX" constant="4.5" id="GYe-Bd-k4d"/>
                             <constraint firstItem="SDM-W3-nxQ" firstAttribute="centerY" secondItem="BQI-j9-gKy" secondAttribute="centerY" id="GZr-6E-ojE"/>
                             <constraint firstItem="s7b-kk-HJh" firstAttribute="centerX" secondItem="Ve0-fZ-HmX" secondAttribute="centerX" constant="26" id="H2O-Be-bBF"/>
                             <constraint firstItem="ZhV-6R-bfB" firstAttribute="centerX" secondItem="xNY-Aq-UaX" secondAttribute="centerX" constant="26" id="H8t-sa-yDc"/>
@@ -776,7 +777,7 @@
                             <constraint firstItem="no3-3C-ogc" firstAttribute="centerX" secondItem="xLe-ID-Sny" secondAttribute="centerX" constant="26" id="VMC-jS-jiD"/>
                             <constraint firstItem="MG4-lq-nuJ" firstAttribute="centerY" secondItem="qBa-jy-Xnz" secondAttribute="centerY" id="Vl8-Fp-LJP"/>
                             <constraint firstItem="xz8-Zy-UIq" firstAttribute="leading" secondItem="leO-t0-HMr" secondAttribute="trailing" constant="-23" id="VvL-am-Tub"/>
-                            <constraint firstItem="iol-Zs-qmi" firstAttribute="top" secondItem="RME-qP-jaD" secondAttribute="bottom" constant="-43.5" id="W83-Qh-IME"/>
+                            <constraint firstItem="iol-Zs-qmi" firstAttribute="centerY" secondItem="RME-qP-jaD" secondAttribute="centerY" id="W83-Qh-IME"/>
                             <constraint firstItem="GaY-oO-UCy" firstAttribute="centerY" secondItem="cZI-pJ-gFx" secondAttribute="centerY" id="WQC-Lt-Btr"/>
                             <constraint firstItem="fR5-OM-IMa" firstAttribute="centerX" secondItem="oYp-Ma-39B" secondAttribute="centerX" constant="26" id="WdQ-T9-bz3"/>
                             <constraint firstItem="NWO-Jw-TIU" firstAttribute="centerX" secondItem="ELe-CA-9m7" secondAttribute="centerX" constant="26" id="Wjb-13-BUR"/>
@@ -805,7 +806,6 @@
                             <constraint firstItem="Hto-lh-OHx" firstAttribute="centerX" secondItem="p5C-ee-UVz" secondAttribute="centerX" id="cnJ-2O-TyL"/>
                             <constraint firstItem="ygd-va-KF8" firstAttribute="centerX" secondItem="aYb-dV-99H" secondAttribute="centerX" constant="26" id="con-DM-Gd3"/>
                             <constraint firstItem="xNY-Aq-UaX" firstAttribute="centerX" secondItem="oLJ-AF-fNV" secondAttribute="centerX" constant="26" id="crx-iJ-eOQ"/>
-                            <constraint firstItem="eId-J2-6Yd" firstAttribute="centerX" secondItem="Hxd-vF-KH0" secondAttribute="centerX" constant="4.5" id="cvk-Ax-tCX"/>
                             <constraint firstItem="gS4-dh-B8x" firstAttribute="centerY" secondItem="m7Z-dL-fn5" secondAttribute="centerY" id="czP-AR-jV0"/>
                             <constraint firstItem="1hx-0h-XJ9" firstAttribute="centerY" secondItem="dIF-Q9-bIA" secondAttribute="centerY" id="dBM-4k-gck"/>
                             <constraint firstItem="oYp-Ma-39B" firstAttribute="centerY" secondItem="ygd-va-KF8" secondAttribute="centerY" id="dXR-TN-GqE"/>
@@ -898,7 +898,7 @@
                         <outlet property="light_brown_drag_tri_x_constraint" destination="f8S-uK-DIC" id="X56-tQ-JFI"/>
                         <outlet property="light_brown_drag_tri_y_constraint" destination="okv-tH-QlV" id="uVv-K2-RAt"/>
                         <outlet property="orange_drag_tri" destination="eId-J2-6Yd" id="Bv1-4G-ukf"/>
-                        <outlet property="orange_drag_tri_x_constraint" destination="cvk-Ax-tCX" id="CCC-Za-Sih"/>
+                        <outlet property="orange_drag_tri_x_constraint" destination="GYe-Bd-k4d" id="cTp-T4-fd3"/>
                         <outlet property="orange_drag_tri_y_constraint" destination="fCQ-YC-taK" id="j9q-Gn-2TH"/>
                         <outlet property="tri_0_0" destination="oLJ-AF-fNV" id="Cdz-uw-kuB"/>
                         <outlet property="tri_0_1" destination="xNY-Aq-UaX" id="0A4-qp-toR"/>
