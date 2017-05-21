@@ -585,6 +585,7 @@ class GameBoardViewController: UIViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
             nextViewController.ThemeType = self.ThemeType
+            nextViewController.modalTransitionStyle = .partialCurl
             self.present(nextViewController, animated: true, completion: nil)
             self.timer.invalidate()
 
@@ -593,6 +594,7 @@ class GameBoardViewController: UIViewController {
         home_button.whenButtonIsClicked(action:{
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            nextViewController.modalTransitionStyle = .crossDissolve
             self.present(nextViewController, animated: true, completion: nil)
             self.timer.invalidate()
         })
@@ -6572,6 +6574,7 @@ class GameBoardViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
         nextViewController.final_score = MarkBoard.text!
         nextViewController.ThemeType = self.ThemeType
+        nextViewController.modalTransitionStyle = .crossDissolve
         if (Int(MarkBoard.text!)! == HighestScore){
             nextViewController.is_high_score = true
         } else {
