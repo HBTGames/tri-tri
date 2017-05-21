@@ -117,9 +117,44 @@ class GameBoardViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         initialTouchLocation = touches.first!.location(in: view)
+        if(green_drag_tri_orig_rec.contains(initialTouchLocation)){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.green_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+        })
+        }else if(orange_drag_tri_orig_rec.contains(initialTouchLocation)){
+            UIView.animate(withDuration: 0.3, animations: {
+                self.orange_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(light_brown_drag_tri_orig_rec.contains(initialTouchLocation)){
+            UIView.animate(withDuration: 0.3, animations: {
+                self.light_brown_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+    }
         //print("Touche at x: \(initialTouchLocation.x), y:\(initialTouchLocation.y)")
 
-    }
+    override func touchesEnded( _ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesEnded(touches, with: event)
+            let finalTouchLocation = touches.first!.location(in: view)
+            if(green_drag_tri_orig_rec.contains(finalTouchLocation)){
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.green_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+                })
+            }else if(orange_drag_tri_orig_rec.contains(finalTouchLocation)){
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.orange_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+                })
+            }else if(light_brown_drag_tri_orig_rec.contains(finalTouchLocation)){
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.light_brown_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+                })
+        }
+        }
+        
+    
+    
+    
+    
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
         self.audioPlayer.stop()
         self.timer.invalidate()
@@ -164,7 +199,7 @@ class GameBoardViewController: UIViewController {
         orange_drag_tri.frame.origin = orange_drag_origin
         
         green_drag_origin.y = screen_height - (51 + green_drag_tri.frame.height)
-        green_drag_origin.x = 4//50 - (green_drag_tri.frame.width/2)
+        green_drag_origin.x = 4   //4   //50 - (green_drag_tri.frame.width/2)
         green_drag_tri.frame.origin = green_drag_origin
 
         
@@ -177,6 +212,9 @@ class GameBoardViewController: UIViewController {
         print("green origin x: \(green_drag_origin.x), y: \(green_drag_origin.y)")
         orange_drag_tri_orig_rec = orange_drag_tri.frame
         light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
+        green_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+        orange_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+        light_brown_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
         // Do any additional setup after loading the view.
         //generate first group
         if(score == 0){
@@ -662,6 +700,7 @@ class GameBoardViewController: UIViewController {
             if (exist1 == false){
                 return
             }
+  
             position_in_use = 0
             //alternative_drag_tri = green_drag_tri
             let transition0 = gesture.translation(in: green_drag_tri)
@@ -697,7 +736,7 @@ class GameBoardViewController: UIViewController {
         }
         
         //when dragging, keep scanning whether the shape fits any space
-        if( Shape_fitting_When_Dragging(Shape_Type: actual_type_index, position: actual_location) ){
+       /** if( Shape_fitting_When_Dragging(Shape_Type: actual_type_index, position: actual_location) ){
         
         
         } else if (!Shape_fitting_When_Dragging(Shape_Type: actual_type_index, position: actual_location)){
@@ -711,6 +750,7 @@ class GameBoardViewController: UIViewController {
                  light_brown_drag_tri.image = generator_array [actual_type_index]
         }
         }
+ **/
         
     
         //if dragging ended, return to original location (with animiation)
@@ -738,16 +778,19 @@ class GameBoardViewController: UIViewController {
                     green_drag_tri.frame.origin = green_drag_origin
                     green_drag_tri_x_constraint.constant = CGFloat(4)
                     green_drag_tri_y_constraint.constant = CGFloat(51)
+                    green_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
                     exist1 = false
                 }else if (position_in_use == 1){
                     orange_drag_tri.frame.origin = orange_drag_origin
                     orange_drag_tri_x_constraint.constant = CGFloat(4.5)
                     orange_drag_tri_y_constraint.constant = CGFloat(51)
+                    orange_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
                     exist2 = false
                 }else if (position_in_use == 2){
                     light_brown_drag_tri.frame.origin = light_brown_drag_origin
                     light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                     light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
+                    light_brown_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
                     exist3 = false
                 }
                 position_in_use = 3
@@ -776,21 +819,43 @@ class GameBoardViewController: UIViewController {
 
                 
             } else {
-                position_in_use = 3
+         
                 UIView.animate(withDuration: 0.3, animations: {
-                self.green_drag_tri.frame.origin = self.green_drag_origin
-                self.orange_drag_tri.frame.origin = self.orange_drag_origin
-                self.light_brown_drag_tri.frame.origin = self.light_brown_drag_origin
-                   
-                    
-                })
-                green_drag_tri_x_constraint.constant = CGFloat(4)
-                green_drag_tri_y_constraint.constant = CGFloat(51)
-                orange_drag_tri_x_constraint.constant = CGFloat(4.5)
-                orange_drag_tri_y_constraint.constant = CGFloat(51)
-                light_brown_drag_tri_y_constraint.constant = CGFloat(51)
-                light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
+                    if(self.position_in_use == 0){
+                    self.green_drag_tri.frame.origin = self.green_drag_origin
+                    }else if(self.position_in_use == 1){
+                    self.orange_drag_tri.frame.origin = self.orange_drag_origin
+                    }else if(self.position_in_use == 2){
+                    self.light_brown_drag_tri.frame.origin = self.light_brown_drag_origin
+                    }
+                }, completion: {
+                    (finished) -> Void in
+                    UIView.animate(withDuration: 0.3, animations: {
+                        if(self.position_in_use == 0){
+                        self.green_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+                        }else if(self.position_in_use == 1){
+                        self.orange_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+                        }else if(self.position_in_use == 2){
+                        self.light_brown_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
+                        }
 
+                    }, completion: {
+                   (finished) -> Void in
+                        self.position_in_use = 3
+                        self.green_drag_tri_x_constraint.constant = CGFloat(4)
+                        self.green_drag_tri_y_constraint.constant = CGFloat(51)
+                        self.orange_drag_tri_x_constraint.constant = CGFloat(4.5)
+                        self.orange_drag_tri_y_constraint.constant = CGFloat(51)
+                        self.light_brown_drag_tri_y_constraint.constant = CGFloat(51)
+                        self.light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
+                        
+   
+                        
+                    })
+   
+                })
+                
+                
             }
             
 
@@ -1550,9 +1615,9 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){//check available
                                     //green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: super_light_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: super_light_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: super_light_green_up)
                                     
                                     return true
                                 }
@@ -1567,9 +1632,9 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j-1] && !filled[i][j+1]){
                                     //green_drag_tri.image = UIImage(named:"绿色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: super_light_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: super_light_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: super_light_green_up)
             
                                     return true
                                 }
@@ -1596,8 +1661,8 @@ class GameBoardViewController: UIViewController {
                                     //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
-                                    Change_Corresponding_Color_With_Image(x:i+1, y:j+1, image: orange_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: orange_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i+1, y:j+1, image: orange_down)
                            
                                     
                                     return true
@@ -1613,8 +1678,8 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i+1][j]){//check available
                                     //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
-                                    Change_Corresponding_Color_With_Image(x:i+1, y:j, image: orange_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: orange_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i+1, y:j, image: orange_down)
                               
                                     return true
                                 }
@@ -1630,8 +1695,8 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i+1][j-1]){
                                     //orange_drag_tri.image = UIImage(named:"橙色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: orange_up)
-                                    Change_Corresponding_Color_With_Image(x:i+1, y:j-1, image: orange_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: orange_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i+1, y:j-1, image: orange_down)
                                  
                                     return true
                                 }
@@ -1657,9 +1722,9 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j]){//check available
                                     //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j, image: light_brown_up)
                                   
                                     return true
                                 }
@@ -1674,9 +1739,9 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+1]){//check available
                                     //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j+1, image: light_brown_up)
                                    
                                     return true
                                 }
@@ -1692,9 +1757,9 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+2]){
                                     //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j+2, image: light_brown_up)
                                   
                                     
                                     return true
@@ -1723,9 +1788,9 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: light_brown_down)
                                     
                                     
                                     return true
@@ -1740,9 +1805,9 @@ class GameBoardViewController: UIViewController {
                                 position.y + 25 <= triangle_location.y + 12 && position.y + 25 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1]){//check available
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: light_brown_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: light_brown_down)
                                     
                                     
                                     return true
@@ -1771,8 +1836,8 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: super_light_green_up)
                                     
                                     
                                     
@@ -1788,8 +1853,8 @@ class GameBoardViewController: UIViewController {
                                 position.y + 25 <= triangle_location.y + 12 && position.y + 25 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: super_light_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: super_light_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: super_light_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: super_light_green_up)
                                     
                                     return true
                                 }
@@ -1817,11 +1882,11 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j] && !filled[i-1][j-2]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: dark_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j-2, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j-2, image: dark_green_up)
                                     
                                     
                                     
@@ -1838,11 +1903,11 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j-1] && !filled[i-1][j+1]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: dark_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j-1, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j+1, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j-1, image: dark_green_up)
                                     
                                     return true
                                 }
@@ -1858,11 +1923,11 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1] && !filled[i][j-1] && !filled[i-1][j] && !filled[i-1][j+2]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: dark_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: dark_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j-1, image: dark_green_down)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: dark_green_up)
-                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j-1, image: dark_green_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j+2, image: dark_green_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i-1, y:j, image: dark_green_up)
                                     
                                     return true
                                 }
@@ -1890,8 +1955,8 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pink_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: pink_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: pink_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: pink_down)
                                     
                                     
                                     return true
@@ -1906,8 +1971,8 @@ class GameBoardViewController: UIViewController {
                                 position.y + 25 <= triangle_location.y + 12 && position.y + 25 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j] && !filled[i][j+1]){//check available
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pink_up)
-                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: pink_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: pink_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j+1, image: pink_down)
                                     
                                     return true
                                 }
@@ -1935,7 +2000,7 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: pur_up)
                                     
                                     
                                     return true
@@ -1950,7 +2015,7 @@ class GameBoardViewController: UIViewController {
                                 position.y + 25 <= triangle_location.y + 12 && position.y + 25 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j]){//check available
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_up)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: pur_up)
                                     
                                     return true
                                 }
@@ -1978,7 +2043,7 @@ class GameBoardViewController: UIViewController {
                                 if (!filled[i][j]){//check available
                                     
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: pur_down)
                                     
                                     return true
                                 }
@@ -1992,7 +2057,7 @@ class GameBoardViewController: UIViewController {
                                 position.y + 24 <= triangle_location.y + 12 && position.y + 24 >= triangle_location.y - 12){//check location
                                 if (!filled[i][j]){//check available
                                     auto_make_transparent()
-                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: pur_down)
+                                    Change_Corresponding_Color_With_Image_Without_Animation(x:i, y:j, image: pur_down)
                                     return true
                                 }
                                 return false
@@ -2573,6 +2638,348 @@ class GameBoardViewController: UIViewController {
         //row NO 0
         if (x == 0 && y == 0){
             tri_0_0.image = image
+            tri_0_0.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_0.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 0 && y == 1) {
+            tri_0_1.image = image
+            tri_0_1.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_1.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 0 && y == 2){
+            tri_0_2.image = image
+            tri_0_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 0 && y == 3) {
+            tri_0_3.image = image
+            tri_0_3.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_3.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 0 && y == 4){
+            tri_0_4.image = image
+            tri_0_4.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_4.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 0 && y == 5) {
+            tri_0_5.image = image
+            tri_0_5.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_5.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 0 && y == 6){
+            tri_0_6.image = image
+            tri_0_6.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_0_6.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+            //row NO 1
+        else if (x == 1 && y == 0){
+            tri_1_0.image = image
+            tri_1_0.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+               self.tri_1_0.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 1 && y == 1) {
+            tri_1_1.image = image
+            tri_1_1.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_1.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 1 && y == 2){
+            tri_1_2.image = image
+            tri_1_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 1 && y == 3) {
+            tri_1_3.image = image
+            tri_1_3.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_3.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 1 && y == 4){
+            tri_1_4.image = image
+            tri_1_4.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_4.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 1 && y == 5) {
+            tri_1_5.image = image
+            tri_1_5.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_5.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 1 && y == 6){
+            tri_1_6.image = image
+            tri_1_6.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_6.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 1 && y == 7) {
+            tri_1_7.image = image
+            tri_1_7.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_7.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 1 && y == 8){
+            tri_1_8.image = image
+            tri_1_8.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_1_8.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+            //row NO 2
+        else if(x == 2 && y == 0) {
+            tri_2_0.image = image
+            tri_2_0.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_0.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 1) {
+            tri_2_1.image = image
+            tri_2_1.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_1.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 2) {
+            tri_2_2.image = image
+            tri_2_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 3) {
+            tri_2_3.image = image
+            tri_2_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 4) {
+            tri_2_4.image = image
+            tri_2_4.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_4.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 5) {
+            tri_2_5.image = image
+            tri_2_5.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_5.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 6) {
+            tri_2_6.image = image
+            tri_2_6.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_6.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 7) {
+            tri_2_7.image = image
+            tri_2_7.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_7.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 8) {
+            tri_2_8.image = image
+            tri_2_8.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_8.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 9) {
+            tri_2_9.image = image
+            tri_2_9.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_9.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 2 && y == 10) {
+            tri_2_10.image = image
+            tri_2_10.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_2_10.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+            //row NO 3
+        else if(x == 3 && y == 0) {
+            tri_3_0.image = image
+            tri_3_0.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_0.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 1) {
+            tri_3_1.image = image
+            tri_3_1.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_1.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 2) {
+            tri_3_2.image = image
+            tri_3_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 3) {
+            tri_3_3.image = image
+            tri_3_3.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_3.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 4) {
+            tri_3_4.image = image
+            tri_3_4.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_4.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 5) {
+            tri_3_5.image = image
+            tri_3_5.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_5.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 6) {
+            tri_3_6.image = image
+            tri_3_6.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_6.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 7) {
+            tri_3_7.image = image
+            tri_3_7.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+               self.tri_3_7.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 8) {
+            tri_3_8.image = image
+            tri_3_8.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_8.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 9) {
+            tri_3_9.image = image
+            tri_3_9.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_9.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 3 && y == 10) {
+            tri_3_10.image = image
+            tri_3_10.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_3_10.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+            //row NO 4
+        else if (x == 4 && y == 0){
+            tri_4_0.image = image
+            tri_4_0.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_0.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 4 && y == 1) {
+            tri_4_1.image = image
+            tri_4_1.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_1.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 4 && y == 2){
+            tri_4_2.image = image
+            tri_4_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 4 && y == 3) {
+            tri_4_3.image = image
+            tri_4_3.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_3.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 4 && y == 4){
+            tri_4_4.image = image
+            tri_4_4.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_4.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 4 && y == 5) {
+            tri_4_5.image = image
+            tri_4_5.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_5.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 4 && y == 6){
+            tri_4_6.image = image
+            tri_4_6.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_6.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 4 && y == 7) {
+            tri_4_7.image = image
+            tri_4_7.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_7.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 4 && y == 8){
+            tri_4_8.image = image
+            tri_4_8.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_4_8.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+            //row NO 5
+        else if (x == 5 && y == 0){
+            tri_5_0.image = image
+            tri_5_0.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_0.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 5 && y == 1) {
+            tri_5_1.image = image
+            tri_5_1.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_1.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 5 && y == 2){
+            tri_5_2.image = image
+            tri_5_2.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_2.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 5 && y == 3) {
+            tri_5_3.image = image
+            tri_5_3.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_3.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 5 && y == 4){
+            tri_5_4.image = image
+            tri_5_4.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_4.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if(x == 5 && y == 5) {
+            tri_5_5.image = image
+            tri_5_5.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_5.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }else if (x == 5 && y == 6){
+            tri_5_6.image = image
+            tri_5_6.transform = CGAffineTransform(scaleX: CGFloat(0.8), y: CGFloat(0.8))
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tri_5_6.transform =  CGAffineTransform(scaleX: CGFloat(1), y: CGFloat(1))
+            })
+        }
+        
+        
+        return
+    }
+    
+    func Change_Corresponding_Color_With_Image_Without_Animation(x:Int, y:Int, image: UIImage?) -> (){
+        //row NO 0
+        if (x == 0 && y == 0){
+            tri_0_0.image = image
         }else if(x == 0 && y == 1) {
             tri_0_1.image = image
         }else if (x == 0 && y == 2){
@@ -2645,6 +3052,7 @@ class GameBoardViewController: UIViewController {
             tri_3_5.image = image
         }else if(x == 3 && y == 6) {
             tri_3_6.image = image
+            
         }else if(x == 3 && y == 7) {
             tri_3_7.image = image
         }else if(x == 3 && y == 8) {
@@ -2659,41 +3067,57 @@ class GameBoardViewController: UIViewController {
             tri_4_0.image = image
         }else if(x == 4 && y == 1) {
             tri_4_1.image = image
+
         }else if (x == 4 && y == 2){
             tri_4_2.image = image
+
         }else if(x == 4 && y == 3) {
             tri_4_3.image = image
+
         }else if (x == 4 && y == 4){
             tri_4_4.image = image
+
         }else if(x == 4 && y == 5) {
             tri_4_5.image = image
+
         }else if (x == 4 && y == 6){
             tri_4_6.image = image
+
         }else if(x == 4 && y == 7) {
             tri_4_7.image = image
+
         }else if (x == 4 && y == 8){
             tri_4_8.image = image
+
         }
             //row NO 5
         else if (x == 5 && y == 0){
             tri_5_0.image = image
+
         }else if(x == 5 && y == 1) {
             tri_5_1.image = image
+
         }else if (x == 5 && y == 2){
             tri_5_2.image = image
+
         }else if(x == 5 && y == 3) {
             tri_5_3.image = image
+
         }else if (x == 5 && y == 4){
             tri_5_4.image = image
+
         }else if(x == 5 && y == 5) {
             tri_5_5.image = image
+
         }else if (x == 5 && y == 6){
             tri_5_6.image = image
+
         }
         
         
         return
     }
+
     
     func Eligible_to_Generate () -> Bool {
         if(!exist1 && !exist2 && !exist3){
