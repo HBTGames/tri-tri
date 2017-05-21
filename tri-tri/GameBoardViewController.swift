@@ -548,7 +548,7 @@ class GameBoardViewController: UIViewController {
         self.view.addSubview(home_button)
         self.view.addSubview(like_button)
         self.view.addSubview(restart_button)
-        self.view.addSubview(change_theme_button)
+        //self.view.addSubview(change_theme_button)
         
         func continue_but(sender: UIButton!){
             pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
