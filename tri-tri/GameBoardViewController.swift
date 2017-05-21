@@ -158,7 +158,7 @@ class GameBoardViewController: UIViewController {
     
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
         self.audioPlayer.stop()
-        self.timer.invalidate()
+        //self.timer.invalidate()
   
     }
     
@@ -496,9 +496,9 @@ class GameBoardViewController: UIViewController {
         //initialize shape array
         //shape_type_index = [0 , 1 , 2]
         
-        audioPlayer.play()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
-                        self.audioPlayer.play()   } )
+       // audioPlayer.play()
+        //self.timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
+                       // self.audioPlayer.play()   } )
         
             
             NotificationCenter.default.addObserver(self, selector: #selector(GameBoardViewController.background_music_pause) , name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
@@ -509,12 +509,12 @@ class GameBoardViewController: UIViewController {
     
     func background_music_pause () {
         audioPlayer.pause()
-        timer.invalidate()
+        //timer.invalidate()
     }
     
     func background_music_continue() {
-        audioPlayer.play()
-        timer.fire()
+        //audioPlayer.play()
+        //timer.fire()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -587,7 +587,7 @@ class GameBoardViewController: UIViewController {
             nextViewController.ThemeType = self.ThemeType
             nextViewController.modalTransitionStyle = .partialCurl
             self.present(nextViewController, animated: true, completion: nil)
-            self.timer.invalidate()
+            //self.timer.invalidate()
 
         })
         
@@ -596,7 +596,7 @@ class GameBoardViewController: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
             nextViewController.modalTransitionStyle = .crossDissolve
             self.present(nextViewController, animated: true, completion: nil)
-            self.timer.invalidate()
+           // self.timer.invalidate()
         })
         
         change_theme_button.whenButtonIsClicked(action:{
@@ -641,7 +641,7 @@ class GameBoardViewController: UIViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
             self.present(nextViewController, animated: true, completion: nil)
-            self.timer.invalidate()
+            //self.timer.invalidate()
         }
         func like_but(sender: UIButton!){
             print ("Thank U 4 like us!!!")
@@ -650,7 +650,7 @@ class GameBoardViewController: UIViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
             self.present(nextViewController, animated: true, completion: nil)
-            self.timer.invalidate()
+            //self.timer.invalidate()
         }
 
         
@@ -669,7 +669,7 @@ class GameBoardViewController: UIViewController {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
                 self.present(nextViewController, animated: true, completion: nil)
-                self.timer.invalidate()
+                //self.timer.invalidate()
                 break
             case 52:
                 break
@@ -678,7 +678,7 @@ class GameBoardViewController: UIViewController {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
                 self.present(nextViewController, animated: true, completion: nil)
-                self.timer.invalidate()
+                //self.timer.invalidate()
                 break
             default:
                 let haha = 1
