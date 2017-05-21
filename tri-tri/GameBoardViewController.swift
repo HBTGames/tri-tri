@@ -44,6 +44,7 @@ class GameBoardViewController: UIViewController {
     var HighestScore = 0
     
     //record theme type for now
+    //start from 1
     var ThemeType = 1
     
     class MyButton: UIButton {
@@ -6149,6 +6150,7 @@ class GameBoardViewController: UIViewController {
         
         if(current_int > HighestScore){
             HighestScore = current_int
+            HightestScoreBoard.text = String(HighestScore)
             var HighScoreDefault = UserDefaults.standard
             HighScoreDefault.set(HighestScore, forKey: "tritri_HighestScore")
             HighScoreDefault.synchronize()
