@@ -29,6 +29,7 @@ class LaunchViewController: UIViewController {
         print("Video Finished")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        nextViewController.modalTransitionStyle = .crossDissolve
         self.present(nextViewController, animated: true, completion: nil)
     }
     
