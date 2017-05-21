@@ -3177,6 +3177,9 @@ class GameBoardViewController: UIViewController {
             number_of_dark_tri += 1
         }
         var randomIndex = 0
+        green_drag_tri.alpha = 0
+        orange_drag_tri.alpha = 0
+        light_brown_drag_tri.alpha = 0
         if(position_index == 0){
             green_drag_tri.image = generator_array[random_shape_index]
             green_drag_tri.sizeToFit()
@@ -3295,30 +3298,34 @@ class GameBoardViewController: UIViewController {
 
         else{ randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
-        green_drag_tri.image = generator_array[randomIndex]
-        green_drag_tri.sizeToFit()
-        green_drag_tri_orig_rec = green_drag_tri.frame
-        shape_type_index[0] = randomIndex
-        // force_recenter_drag_tris( tri: green_drag_tri,tri_img: generator_array[randomIndex] )
+            green_drag_tri.image = generator_array[randomIndex]
+            green_drag_tri.sizeToFit()
+            green_drag_tri_orig_rec = green_drag_tri.frame
+            shape_type_index[0] = randomIndex
+            // force_recenter_drag_tris( tri: green_drag_tri,tri_img: generator_array[randomIndex] )
         
         
-        randomIndex = randomShape_for_Difficulty_Level ()
+            randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
-        orange_drag_tri.image = generator_array[randomIndex]
-        orange_drag_tri.sizeToFit()
-        orange_drag_tri_orig_rec = orange_drag_tri.frame
-        shape_type_index[1] = randomIndex
+            orange_drag_tri.image = generator_array[randomIndex]
+            orange_drag_tri.sizeToFit()
+            orange_drag_tri_orig_rec = orange_drag_tri.frame
+            shape_type_index[1] = randomIndex
         
-        //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
+            //force_recenter_drag_tris( tri: orange_drag_tri,tri_img: generator_array[randomIndex] )
         
-        randomIndex = randomShape_for_Difficulty_Level ()
+            randomIndex = randomShape_for_Difficulty_Level ()
             //Int(arc4random_uniform(UInt32(generator_array.count)))
-        light_brown_drag_tri.image = generator_array[randomIndex]
-        light_brown_drag_tri.sizeToFit()
-        light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
-        force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
-        shape_type_index[2] = randomIndex
+            light_brown_drag_tri.image = generator_array[randomIndex]
+            light_brown_drag_tri.sizeToFit()
+            light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
+            force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+            shape_type_index[2] = randomIndex
+            
         }
+        green_drag_tri.fadeInWithDisplacement()
+        orange_drag_tri.fadeInWithDisplacement()
+        light_brown_drag_tri.fadeInWithDisplacement()
         exist1 = true
         exist2 = true
         exist3 = true
