@@ -9,24 +9,6 @@
 import UIKit
 import Social
 
-
-extension UILabel {
-    
-    func startBlink() {
-        UIView.animate(withDuration: 0.8,
-                       delay:0.0,
-                       options:[.autoreverse, .repeat],
-                       animations: {
-                        self.alpha = 0
-        }, completion: nil)
-    }
-    
-    func stopBlink() {
-        alpha = 1
-        layer.removeAllAnimations()
-    }
-}
-
 class GameOverViewController: UIViewController {
     @IBOutlet weak var High_score_marker: UILabel!
 
@@ -109,7 +91,6 @@ class GameOverViewController: UIViewController {
         
         if !is_high_score{
             High_score_marker.text = "New Record!"
-            //High_score_marker.startBlink()
         }
         // Do any additional setup after loading the view.
         if ThemeType == 1{
