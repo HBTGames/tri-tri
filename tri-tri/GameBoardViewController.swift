@@ -18,6 +18,14 @@ public extension UIView {
         })
     }
     
+    func fadeInWithDisplacement(withDuration duration: TimeInterval = 0.5){
+        self.frame.origin.y += 40
+        UIView.animate(withDuration: duration, animations: {
+            self.frame.origin.y -= 40
+            self.alpha = 1.0
+        })
+    }
+    
     func fadeOut(withDuration duration: TimeInterval = 1.0) {
         UIView.animate(withDuration: duration, animations: {
             self.alpha = 0.0
@@ -575,10 +583,10 @@ class GameBoardViewController: UIViewController {
         //self.view.addSubview(change_theme_button)
         
         //fade in
-        continue_button.fadeIn()
-        home_button.fadeIn()
-        like_button.fadeIn()
-        restart_button.fadeIn()
+        continue_button.fadeInWithDisplacement()
+        home_button.fadeInWithDisplacement()
+        like_button.fadeInWithDisplacement()
+        restart_button.fadeInWithDisplacement()
         
         func continue_but(sender: UIButton!){
             pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
