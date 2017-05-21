@@ -10,6 +10,22 @@ import UIKit
 import AVFoundation
 import AVKit
 import UserNotifications
+
+public extension UIView {
+    func fadeIn(withDuration duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1.0
+        })
+    }
+    
+    func fadeOut(withDuration duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0.0
+        })
+    }
+}
+
+
 class GameBoardViewController: UIViewController {
 //constraints
     
@@ -59,6 +75,9 @@ class GameBoardViewController: UIViewController {
             action?()
         }
     }
+    
+    
+    
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
     
@@ -471,10 +490,12 @@ class GameBoardViewController: UIViewController {
     @IBAction func pause_button(_ sender: UIButton) {
         let pause_screen: UIView = UIView(frame: CGRect(origin: CGPoint(x: 0, y:0),size: CGSize(width: screen_width, height: screen_height)))
         pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0.8))
+        pause_screen.alpha = 0
         pause_screen.tag = 100
         super.view.isUserInteractionEnabled = false
         self.view.isUserInteractionEnabled = true
         self.view.addSubview(pause_screen)
+        pause_screen.fadeIn()
         paused = true
         let continue_button = MyButton(frame: CGRect(x: pause_screen_x_transform(87.5), y: pause_screen_y_transform(283.5), width: pause_screen_x_transform(200), height: pause_screen_y_transform(170)))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
@@ -543,13 +564,21 @@ class GameBoardViewController: UIViewController {
                 }
             
         })
-        
-        
+        continue_button.alpha = 0
+        home_button.alpha = 0
+        like_button.alpha = 0
+        restart_button.alpha = 0
         self.view.addSubview(continue_button)
         self.view.addSubview(home_button)
         self.view.addSubview(like_button)
         self.view.addSubview(restart_button)
         //self.view.addSubview(change_theme_button)
+        
+        //fade in
+        continue_button.fadeIn()
+        home_button.fadeIn()
+        like_button.fadeIn()
+        restart_button.fadeIn()
         
         func continue_but(sender: UIButton!){
             pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0))
