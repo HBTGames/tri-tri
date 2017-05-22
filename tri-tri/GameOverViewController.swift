@@ -8,13 +8,26 @@
 
 import UIKit
 import Social
+import AVKit
+import AVFoundation
 
 class GameOverViewController: UIViewController {
     @IBOutlet weak var High_score_marker: UILabel!
 
     @IBOutlet weak var score_board: UILabel!
     
+    var restart_player = AVAudioPlayer()
+    var button_player = AVAudioPlayer()
+    
+    
     @IBAction func Share_Button_Action(_ sender: UIButton) {
+        do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+            self.button_player.prepareToPlay()
+        }
+        catch{
+            
+        }
+        self.button_player.play()
      let alert = UIAlertController(title: "Share", message: "Share Your Record!", preferredStyle: .actionSheet)
         //first action
         let action_one = UIAlertAction(title: "Share on Facebook", style: .default) { (action) in
@@ -28,7 +41,7 @@ class GameOverViewController: UIViewController {
             self.showAlert(service: "Facebook")
             }
         }
-        
+    
         //second action
         let action_two = UIAlertAction(title: "Share on Twitter", style: .default) { (action) in
             //check whether user has facebook
@@ -88,7 +101,12 @@ class GameOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         score_board.text = final_score
-        
+        do{restart_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "restart_soundeffect", ofType: "wav")!))
+            restart_player.prepareToPlay()
+        }
+        catch{
+            
+        }
         if !is_high_score{
             High_score_marker.text = "New Record!"
         }
@@ -121,5 +139,30 @@ class GameOverViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func Restart_Sound_Action(_ sender: UIButton) {
+        
+       restart_player.play()
+        
+    }
+    
+    @IBAction func like_action(_ sender: UIButton) {
+        do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+            self.button_player.prepareToPlay()
+        }
+        catch{
+            
+        }
+        self.button_player.play()
+    }
+    @IBAction func home_button_action(_ sender: UIButton) {
+        do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+            self.button_player.prepareToPlay()
+        }
+        catch{
+            
+        }
+        self.button_player.play()
+    }
+    
 
 }

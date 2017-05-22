@@ -25,6 +25,10 @@
 		56A61C841EC5D30500A29B6F /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */; };
 		56A61C8B1EC5DA2400A29B6F /* background music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56A61C8A1EC5DA2400A29B6F /* background music.mp3 */; };
 		56BEBEA81EC32C25008BBD04 /* UIImageTintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEBEA71EC32C25008BBD04 /* UIImageTintExtension.swift */; };
+		56C3F4271ED276F200DE21BD /* restart_soundeffect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56C3F4261ED276F200DE21BD /* restart_soundeffect.wav */; };
+		56C3F4291ED279D200DE21BD /* erase.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56C3F4281ED279D200DE21BD /* erase.wav */; };
+		56C3F42B1ED27B1A00DE21BD /* general_button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56C3F42A1ED27B1A00DE21BD /* general_button.wav */; };
+		56C3F42D1ED27CC400DE21BD /* opening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56C3F42C1ED27CC400DE21BD /* opening.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		56A61C8A1EC5DA2400A29B6F /* background music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "background music.mp3"; sourceTree = "<group>"; };
 		56BEBEA51EC3254E008BBD04 /* GameBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
 		56BEBEA71EC32C25008BBD04 /* UIImageTintExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageTintExtension.swift; sourceTree = "<group>"; };
+		56C3F4261ED276F200DE21BD /* restart_soundeffect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = restart_soundeffect.wav; sourceTree = "<group>"; };
+		56C3F4281ED279D200DE21BD /* erase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = erase.wav; sourceTree = "<group>"; };
+		56C3F42A1ED27B1A00DE21BD /* general_button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = general_button.wav; sourceTree = "<group>"; };
+		56C3F42C1ED27CC400DE21BD /* opening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = opening.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,10 @@
 		56A61C851EC5D68100A29B6F /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				56C3F42C1ED27CC400DE21BD /* opening.wav */,
+				56C3F42A1ED27B1A00DE21BD /* general_button.wav */,
+				56C3F4281ED279D200DE21BD /* erase.wav */,
+				56C3F4261ED276F200DE21BD /* restart_soundeffect.wav */,
 				564542D21EC9A0E900BFBD0C /* Fit_In.aif */,
 				5620A3891ECAB8930035E099 /* background_music_tony.m4a */,
 				56A61C8A1EC5DA2400A29B6F /* background music.mp3 */,
@@ -288,7 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5620A38A1ECAB89F0035E099 /* background_music_tony.m4a in Resources */,
+				56C3F4271ED276F200DE21BD /* restart_soundeffect.wav in Resources */,
 				564542D31EC9A17100BFBD0C /* Fit_In.aif in Resources */,
+				56C3F42B1ED27B1A00DE21BD /* general_button.wav in Resources */,
+				56C3F4291ED279D200DE21BD /* erase.wav in Resources */,
+				56C3F42D1ED27CC400DE21BD /* opening.wav in Resources */,
 				564542CF1EC9591A00BFBD0C /* anim.mp4 in Resources */,
 				04E48D291EC0704000823F45 /* LaunchScreen.storyboard in Resources */,
 				5644A5F61EC42905000066D6 /* Main.storyboard in Resources */,

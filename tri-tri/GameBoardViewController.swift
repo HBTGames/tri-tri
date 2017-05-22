@@ -182,11 +182,25 @@ class GameBoardViewController: UIViewController {
     var screen_width : CGFloat = 0
     var screen_height : CGFloat = 0
     
+    //audio players
+    var restart_player = AVAudioPlayer()
+    var erase_player = AVAudioPlayer()
+    var button_player = AVAudioPlayer()
     
     override func viewDidLoad() {
        // print("Green tri x constraint is\(green_drag_tri_x_constraint.constant), y is \(green_drag_tri_y_constraint.constant)")
         //let screen_Rect = UIScreen.main.bounds
         super.viewDidLoad()
+        
+        do{restart_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "restart_soundeffect", ofType: "wav")!))
+        restart_player.prepareToPlay()
+        }
+        catch{
+        
+        }
+        
+
+        ///
         //add UIPanGestureRecognizer
         ////
         screen_width = view.frame.width
@@ -535,6 +549,13 @@ class GameBoardViewController: UIViewController {
     
 
     @IBAction func pause_button(_ sender: UIButton) {
+        do{button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+            button_player.prepareToPlay()
+        }
+        catch{
+            
+        }
+        button_player.play()
         let pause_screen: UIView = UIView(frame: CGRect(origin: CGPoint(x: 0, y:0),size: CGSize(width: screen_width, height: screen_height)))
         pause_screen.backgroundColor = UIColor(red:CGFloat(255.0/255.0), green:CGFloat(255.0/255.0), blue:CGFloat(255.0/255.0), alpha:CGFloat(0.8))
         pause_screen.alpha = 0
@@ -575,13 +596,31 @@ class GameBoardViewController: UIViewController {
             pause_screen.removeFromSuperview()
             self.paused = false
             self.audioPlayer.play()
+            do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+                self.button_player.prepareToPlay()
+            }
+            catch{
+                
+            }
+            self.button_player.play()
+
         })
         
         like_button.whenButtonIsClicked(action:{
             print ("Thank U 4 like us!!!")
+            do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+                self.button_player.prepareToPlay()
+            }
+            catch{
+                
+            }
+            self.button_player.play()
+
         })
         
         restart_button.whenButtonIsClicked(action:{
+
+            self.restart_player.play()
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
             nextViewController.ThemeType = self.ThemeType
@@ -596,6 +635,14 @@ class GameBoardViewController: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
             nextViewController.modalTransitionStyle = .crossDissolve
             self.present(nextViewController, animated: true, completion: nil)
+            do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+                self.button_player.prepareToPlay()
+            }
+            catch{
+                
+            }
+            self.button_player.play()
+
            // self.timer.invalidate()
         })
         
@@ -611,7 +658,14 @@ class GameBoardViewController: UIViewController {
                     self.ThemeType = 1
                     self.view.backgroundColor = UIColor(red: 254.0/255, green: 253.0/255, blue: 252.0/255, alpha: 1.0)
                 }
-            
+            do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
+                self.button_player.prepareToPlay()
+            }
+            catch{
+                
+            }
+            self.button_player.play()
+
         })
         continue_button.alpha = 0
         home_button.alpha = 0
@@ -5548,8 +5602,15 @@ class GameBoardViewController: UIViewController {
     
     
     func Check_And_Erase_Fix_Filled() -> Void {
-        if(situation0){
+        
+        do{erase_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "erase", ofType: "wav")!))
+            erase_player.prepareToPlay()
+        }
+        catch{
             
+        }
+        if(situation0){
+            erase_player.play()
             filled[0][0] = false
             filled[0][1] = false
             filled[0][2] = false
@@ -5561,6 +5622,7 @@ class GameBoardViewController: UIViewController {
         
         //eliminate second row
         if(situation1){
+            erase_player.play()
             filled[1][0] = false
             filled[1][1] = false
             filled[1][2] = false
@@ -5575,6 +5637,7 @@ class GameBoardViewController: UIViewController {
         }
         //eliminate third row
         if( situation2){
+            erase_player.play()
             filled[2][0] = false
             filled[2][1] = false
             filled[2][2] = false
@@ -5591,6 +5654,7 @@ class GameBoardViewController: UIViewController {
         
         //eliminate fourth row
         if( situation3){
+            erase_player.play()
             filled[3][0] = false
             filled[3][1] = false
             filled[3][2] = false
@@ -5608,6 +5672,7 @@ class GameBoardViewController: UIViewController {
         }
         //eliminate fifth row
         if( situation4){
+            erase_player.play()
             filled[4][0] = false
             filled[4][1] = false
             filled[4][2] = false
@@ -5622,6 +5687,7 @@ class GameBoardViewController: UIViewController {
         }
         ////eliminate sixth row
         if( situation5){
+            erase_player.play()
             filled[5][0] = false
             filled[5][1] = false
             filled[5][2] = false
@@ -5637,6 +5703,7 @@ class GameBoardViewController: UIViewController {
         
         //situation two - 右下斜
         if(situation6){
+            erase_player.play()
             filled[2][0] = false
             filled[3][0] = false
             filled[3][1] = false
@@ -5651,6 +5718,7 @@ class GameBoardViewController: UIViewController {
         
         
         if(situation7){
+            erase_player.play()
             filled[1][0] = false
             filled[2][1] = false
             filled[2][2] = false
@@ -5667,6 +5735,7 @@ class GameBoardViewController: UIViewController {
             
         }
         if(situation8){
+            erase_player.play()
             filled[0][0] = false
             filled[1][1] = false
             filled[1][2] = false
@@ -5689,7 +5758,7 @@ class GameBoardViewController: UIViewController {
         
         
         if(situation9){
-            
+            erase_player.play()
             filled[0][1] = false
             filled[0][2] = false
             filled[1][3] = false
@@ -5709,6 +5778,7 @@ class GameBoardViewController: UIViewController {
         
         
         if(situation10){
+            erase_player.play()
             
             filled[0][3] = false
             filled[0][4] = false
@@ -5724,6 +5794,7 @@ class GameBoardViewController: UIViewController {
             
         }
         if(situation11){
+            erase_player.play()
             filled[0][5] = false
             filled[0][6] = false
             filled[1][7] = false
@@ -5739,6 +5810,7 @@ class GameBoardViewController: UIViewController {
         
         //situation three - 左下斜
         if(situation12){
+            erase_player.play()
             filled[0][0] = false
             filled[0][1] = false
             filled[1][0] = false
@@ -5753,6 +5825,7 @@ class GameBoardViewController: UIViewController {
         
         
         if(situation13){
+            erase_player.play()
             filled[0][2] = false
             filled[0][3] = false
             filled[1][2] = false
@@ -5768,6 +5841,7 @@ class GameBoardViewController: UIViewController {
         }
         
         if(situation14){
+            erase_player.play()
             filled[0][4] = false
             filled[0][5] = false
             filled[1][4] = false
@@ -5784,6 +5858,7 @@ class GameBoardViewController: UIViewController {
             
         }
         if(situation15){
+            erase_player.play()
             filled[0][6] = false
             filled[1][6] = false
             filled[1][7] = false
@@ -5802,6 +5877,7 @@ class GameBoardViewController: UIViewController {
         
         
         if(situation16){
+            erase_player.play()
             filled[1][8] = false
             filled[2][8] = false
             filled[2][9] = false
@@ -5816,6 +5892,7 @@ class GameBoardViewController: UIViewController {
         
         
         if(situation17){
+            erase_player.play()
             filled[2][10] = false
             filled[3][9] = false
             filled[3][10] = false

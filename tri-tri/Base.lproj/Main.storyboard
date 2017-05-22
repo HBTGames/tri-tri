@@ -54,6 +54,7 @@
                                 </constraints>
                                 <state key="normal" image="menu_button"/>
                                 <connections>
+                                    <action selector="start_action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EHy-NO-1vG"/>
                                     <segue destination="qxD-t8-ioY" kind="presentation" modalTransitionStyle="crossDissolve" id="S5F-ry-3uu"/>
                                 </connections>
                             </button>
@@ -112,6 +113,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="home"/>
                                 <connections>
+                                    <action selector="home_button_action:" destination="g9C-ac-axW" eventType="touchUpInside" id="QHM-s6-Zz7"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="RSU-HG-reN"/>
                                 </connections>
                             </button>
@@ -122,6 +124,9 @@
                                     <constraint firstAttribute="width" constant="100" id="hwB-Vy-Pam"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="like"/>
+                                <connections>
+                                    <action selector="like_action:" destination="g9C-ac-axW" eventType="touchUpInside" id="ATA-Ac-KtL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efL-Nx-AeG">
                                 <rect key="frame" x="87" y="353" width="200" height="170"/>
@@ -131,6 +136,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="restart_big"/>
                                 <connections>
+                                    <action selector="Restart_Sound_Action:" destination="g9C-ac-axW" eventType="touchUpInside" id="FDA-FM-6v0"/>
                                     <segue destination="qxD-t8-ioY" kind="presentation" modalTransitionStyle="crossDissolve" id="jOH-pV-lXR"/>
                                 </connections>
                             </button>
