@@ -4540,13 +4540,7 @@ class GameBoardViewController: UIViewController {
         }
     }
     
-    func reorder(row: Int, col: Int, index: Int) -> Void{
-        if index == 0{
-            for pair in default_erase_situation_0{
-                
-            }
-        }
-    }
+    
     
     func get_center_tri(index: Int) -> (row: Int, col: Int){
         if index == 0{
@@ -4733,6 +4727,30 @@ class GameBoardViewController: UIViewController {
         return (0,0)
     }
     
+    
+    func reorder(loc: (row: Int, col: Int), index: Int) -> Void{
+        if index == 0{
+            var i = 0
+            for pair in default_erase_situation_0{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_0.append(default_erase_situation_0[i])
+                    while (i + j <= default_erase_situation_0.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_0.count - 1){
+                            erase_situation_0.append(default_erase_situation_0[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_0.append(default_erase_situation_0[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }
+    }
+    
     func Check_and_Erase() -> Void {
       //duplicates_array = Check_and_Erase_Create_Array()
         //situation one - row
@@ -4778,51 +4796,44 @@ class GameBoardViewController: UIViewController {
         if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
           situation0 = true
             let center_loc = get_center_tri(index: 0)
-            
+            reorder(loc: center_loc, index: 0)
             UIView.animate(withDuration: 0.1, animations: {
-               self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+               self.erase_animation_by_row_col(row: self.erase_situation_0[0][0], col: self.erase_situation_0[0][1])
             }, completion: {
                 (finished) -> Void in
-                self.Restore_A_Grey_Tri(i: 0, j: 0)
-                self.tri_0_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[0][0], col: self.erase_situation_0[0][1])
                 UIView.animate(withDuration: 0.1, animations: {
-                    self.tri_0_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                    self.erase_animation_by_row_col(row: self.erase_situation_0[1][0], col: self.erase_situation_0[1][1])
                 }, completion: {
                     (finished) -> Void in
-                    self.Restore_A_Grey_Tri(i: 0, j: 1)
-                    self.tri_0_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[1][0], col: self.erase_situation_0[1][1])
                     UIView.animate(withDuration: 0.1, animations: {
-                    self.tri_0_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                    self.erase_animation_by_row_col(row: self.erase_situation_0[2][0], col: self.erase_situation_0[2][1])
                     }, completion: {
                         (finished) -> Void in
-                        self.Restore_A_Grey_Tri(i: 0, j: 2)
-                        self.tri_0_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[2][0], col: self.erase_situation_0[2][1])
                         UIView.animate(withDuration: 0.1, animations: {
-                            self.tri_0_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                            self.erase_animation_by_row_col(row: self.erase_situation_0[3][0], col: self.erase_situation_0[3][1])
                         }, completion: {
                             (finished) -> Void in
-                            self.Restore_A_Grey_Tri(i: 0, j: 3)
-                            self.tri_0_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+                            self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[3][0], col: self.erase_situation_0[3][1])
                             UIView.animate(withDuration: 0.1, animations: {
-                              self.tri_0_4.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                              self.erase_animation_by_row_col(row: self.erase_situation_0[4][0], col: self.erase_situation_0[4][1])
                             }, completion: {
                                 (finished) -> Void in
-                                self.Restore_A_Grey_Tri(i: 0, j: 4)
-                                self.tri_0_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[4][0], col: self.erase_situation_0[4][1])
 
                                 UIView.animate(withDuration: 0.1, animations: {
-                                    self.tri_0_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                    self.erase_animation_by_row_col(row: self.erase_situation_0[5][0], col: self.erase_situation_0[5][1])
                                 }, completion: {
                                     (finished) -> Void in
-                                    self.Restore_A_Grey_Tri(i: 0, j: 5)
-                                    self.tri_0_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[5][0], col: self.erase_situation_0[5][1])
                                     UIView.animate(withDuration: 0.1, animations: {
-                                         self.tri_0_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
+                                         self.erase_animation_by_row_col(row: self.erase_situation_0[6][0], col: self.erase_situation_0[6][1])
                                     }, completion: {
                                         (finished) -> Void in
                                         
-                                        self.Restore_A_Grey_Tri(i: 0, j: 6)
-                                        self.tri_0_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                        self.erase_animation_with_grey_tri_restore_by_row_col(row: self.erase_situation_0[6][0], col: self.erase_situation_0[6][1])
                                     
                                     })
                                 })
