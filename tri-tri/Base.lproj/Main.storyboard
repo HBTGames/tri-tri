@@ -40,11 +40,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_background" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-b2-SRf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="full_blank_menu" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-b2-SRf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="menu_element" translatesAutoresizingMaskIntoConstraints="NO" id="cx9-8Y-sX3">
+                                <rect key="frame" x="43" y="222" width="289" height="223"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0l-5k-R9J">
-                                <rect key="frame" x="100" y="216" width="175" height="147"/>
+                                <rect key="frame" x="100" y="185" width="175" height="147"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="147" id="jFs-py-jVw"/>
                                     <constraint firstAttribute="width" constant="175" id="jkD-ba-VsH"/>
@@ -58,10 +61,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FIx-b2-SRf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4mq-6m-Ao4"/>
+                            <constraint firstItem="cx9-8Y-sX3" firstAttribute="centerY" secondItem="FIx-b2-SRf" secondAttribute="centerY" id="DQ5-ni-yyJ"/>
                             <constraint firstItem="FIx-b2-SRf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HSH-oQ-70x"/>
-                            <constraint firstItem="H0l-5k-R9J" firstAttribute="centerX" secondItem="FIx-b2-SRf" secondAttribute="centerX" id="Ljt-mu-KHi"/>
+                            <constraint firstItem="cx9-8Y-sX3" firstAttribute="top" secondItem="H0l-5k-R9J" secondAttribute="bottom" constant="-110" id="OXi-A7-4gV"/>
+                            <constraint firstItem="H0l-5k-R9J" firstAttribute="centerX" secondItem="FIx-b2-SRf" secondAttribute="centerX" id="SUe-g5-w1P"/>
                             <constraint firstAttribute="trailing" secondItem="FIx-b2-SRf" secondAttribute="trailing" id="UMM-cV-CzF"/>
-                            <constraint firstItem="H0l-5k-R9J" firstAttribute="top" secondItem="FIx-b2-SRf" secondAttribute="bottom" constant="-451" id="uQY-gp-8k4"/>
+                            <constraint firstItem="cx9-8Y-sX3" firstAttribute="centerX" secondItem="FIx-b2-SRf" secondAttribute="centerX" id="bA2-G0-Vl2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FIx-b2-SRf" secondAttribute="bottom" id="wIZ-jU-8k1"/>
                         </constraints>
                     </view>
@@ -945,13 +950,14 @@
     <resources>
         <image name="GameOver" width="243" height="52"/>
         <image name="Triangle_Text" width="98" height="26"/>
+        <image name="full_blank_menu" width="375" height="667"/>
         <image name="grey_tir_downwards" width="49" height="43"/>
         <image name="grey_tri_upwards" width="49" height="43"/>
         <image name="home" width="198" height="172"/>
         <image name="like" width="198" height="172"/>
         <image name="link" width="198" height="172"/>
-        <image name="menu_background" width="375" height="667"/>
         <image name="menu_button" width="230" height="199"/>
+        <image name="menu_element" width="289" height="223"/>
         <image name="pause_button" width="47" height="47"/>
         <image name="restart_big" width="350" height="304"/>
         <image name="trophy_new" width="43" height="31"/>
