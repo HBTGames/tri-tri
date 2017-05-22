@@ -229,7 +229,8 @@ class GameBoardViewController: UIViewController {
     var restart_player = AVAudioPlayer()
     var erase_player = AVAudioPlayer()
     var button_player = AVAudioPlayer()
-    
+    var not_fit_player = AVAudioPlayer()
+    var game_over_player = AVAudioPlayer()
     override func viewDidLoad() {
        // print("Green tri x constraint is\(green_drag_tri_x_constraint.constant), y is \(green_drag_tri_y_constraint.constant)")
         //let screen_Rect = UIScreen.main.bounds
@@ -907,6 +908,7 @@ class GameBoardViewController: UIViewController {
                     
                 if(Check_for_Gameover()){
             // here code perfomed with delay
+  
                 self.Jump_to_Game_Over ()
     
                     //print("haaaaaaaaaaaaaaaaa")
@@ -919,6 +921,13 @@ class GameBoardViewController: UIViewController {
 
                 
             } else {
+                do{not_fit_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "not_fit", ofType: "wav")!))
+                    not_fit_player.prepareToPlay()
+                }
+                catch{
+                    
+                }
+                not_fit_player.play()
          
                 UIView.animate(withDuration: 0.3, animations: {
                     if(self.position_in_use == 0){
@@ -7414,7 +7423,13 @@ class GameBoardViewController: UIViewController {
         self.present(nextViewController, animated: true, completion: nil)
         //self.audioPlayer.stop()
         self.timer.invalidate()
-        
+        do{game_over_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "game over", ofType: "wav")!))
+            game_over_player.prepareToPlay()
+        }
+        catch{
+            
+        }
+        game_over_player.play()
         
         
     }

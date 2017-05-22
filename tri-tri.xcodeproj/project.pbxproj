@@ -16,6 +16,8 @@
 		5620A38A1ECAB89F0035E099 /* background_music_tony.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5620A3891ECAB8930035E099 /* background_music_tony.m4a */; };
 		5620A38C1ECAFFD70035E099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5620A38B1ECAFFD70035E099 /* Assets.xcassets */; };
 		563230E81EC8A9F600EA49D9 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563230E71EC8A9F600EA49D9 /* GameOverViewController.swift */; };
+		563E7F5E1ED2EE50008F33C1 /* game over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 563E7F5D1ED2EE50008F33C1 /* game over.wav */; };
+		563E7F601ED2EE5A008F33C1 /* not_fit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 563E7F5F1ED2EE5A008F33C1 /* not_fit.wav */; };
 		5644A5F31EC428FC000066D6 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F21EC428FC000066D6 /* Base.lproj */; };
 		5644A5F61EC42905000066D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5644A5F41EC42905000066D6 /* Main.storyboard */; };
 		564542CF1EC9591A00BFBD0C /* anim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 564542CE1EC958AA00BFBD0C /* anim.mp4 */; };
@@ -64,6 +66,8 @@
 		5620A3891ECAB8930035E099 /* background_music_tony.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = background_music_tony.m4a; sourceTree = "<group>"; };
 		5620A38B1ECAFFD70035E099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		563230E71EC8A9F600EA49D9 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		563E7F5D1ED2EE50008F33C1 /* game over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game over.wav"; sourceTree = "<group>"; };
+		563E7F5F1ED2EE5A008F33C1 /* not_fit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = not_fit.wav; sourceTree = "<group>"; };
 		5644A5F21EC428FC000066D6 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		5644A5F51EC42905000066D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		564542CE1EC958AA00BFBD0C /* anim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = anim.mp4; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		56A61C851EC5D68100A29B6F /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				563E7F5F1ED2EE5A008F33C1 /* not_fit.wav */,
+				563E7F5D1ED2EE50008F33C1 /* game over.wav */,
 				56C3F42C1ED27CC400DE21BD /* opening.wav */,
 				56C3F42A1ED27B1A00DE21BD /* general_button.wav */,
 				56C3F4281ED279D200DE21BD /* erase.wav */,
@@ -300,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5620A38A1ECAB89F0035E099 /* background_music_tony.m4a in Resources */,
+				563E7F601ED2EE5A008F33C1 /* not_fit.wav in Resources */,
 				56C3F4271ED276F200DE21BD /* restart_soundeffect.wav in Resources */,
 				564542D31EC9A17100BFBD0C /* Fit_In.aif in Resources */,
 				56C3F42B1ED27B1A00DE21BD /* general_button.wav in Resources */,
@@ -308,6 +315,7 @@
 				564542CF1EC9591A00BFBD0C /* anim.mp4 in Resources */,
 				04E48D291EC0704000823F45 /* LaunchScreen.storyboard in Resources */,
 				5644A5F61EC42905000066D6 /* Main.storyboard in Resources */,
+				563E7F5E1ED2EE50008F33C1 /* game over.wav in Resources */,
 				04E48D4F1EC075FA00823F45 /* 540654.jpg in Resources */,
 				56A61C8B1EC5DA2400A29B6F /* background music.mp3 in Resources */,
 				5620A38C1ECAFFD70035E099 /* Assets.xcassets in Resources */,
