@@ -4364,6 +4364,182 @@ class GameBoardViewController: UIViewController {
         }
     }
     
+    func erase_animation_with_grey_tri_restore_by_row_col(row: Int, col: Int) -> Void{
+        if (row == 0 && col == 0){
+            self.Restore_A_Grey_Tri(i: 0, j: 0)
+            self.tri_0_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 0 && col == 1){
+            self.Restore_A_Grey_Tri(i: 0, j: 1)
+            self.tri_0_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 0 && col == 2){
+            self.Restore_A_Grey_Tri(i: 0, j: 2)
+            self.tri_0_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 0 && col == 3){
+            self.Restore_A_Grey_Tri(i: 0, j: 3)
+            self.tri_0_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 0 && col == 4){
+            self.Restore_A_Grey_Tri(i: 0, j: 4)
+            self.tri_0_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 0 && col == 5){
+            self.Restore_A_Grey_Tri(i: 0, j: 5)
+            self.tri_0_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 0 && col == 6){
+            self.Restore_A_Grey_Tri(i: 0, j: 6)
+            self.tri_0_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        
+        else if (row == 1 && col == 0){
+            self.Restore_A_Grey_Tri(i: 1, j: 0)
+            self.tri_1_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 1){
+            self.Restore_A_Grey_Tri(i: 1, j: 1)
+            self.tri_1_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 2){
+            self.Restore_A_Grey_Tri(i: 1, j: 2)
+            self.tri_1_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 3){
+            self.Restore_A_Grey_Tri(i: 1, j: 3)
+            self.tri_1_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 4){
+            self.Restore_A_Grey_Tri(i: 1, j: 4)
+            self.tri_1_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 5){
+            self.Restore_A_Grey_Tri(i: 1, j: 5)
+            self.tri_1_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 6){
+            self.Restore_A_Grey_Tri(i: 1, j: 6)
+            self.tri_1_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 7){
+            self.Restore_A_Grey_Tri(i: 1, j: 7)
+            self.tri_1_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 1 && col == 8){
+            self.Restore_A_Grey_Tri(i: 1, j: 8)
+            self.tri_1_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        
+        else if (row == 2 && col == 0){
+            self.Restore_A_Grey_Tri(i: 2, j: 0)
+            self.tri_2_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 2 && col == 1){
+            self.Restore_A_Grey_Tri(i: 2, j: 1)
+            self.tri_2_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 2){
+            self.Restore_A_Grey_Tri(i: 2, j: 2)
+            self.tri_2_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 3){
+            self.Restore_A_Grey_Tri(i: 2, j: 3)
+            self.tri_2_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 4){
+            self.Restore_A_Grey_Tri(i: 2, j: 4)
+            self.tri_2_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 5){
+            self.Restore_A_Grey_Tri(i: 2, j: 5)
+            self.tri_2_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 6){
+            self.Restore_A_Grey_Tri(i: 2, j: 6)
+            self.tri_2_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 7){
+            self.Restore_A_Grey_Tri(i: 2, j: 7)
+            self.tri_2_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 8){
+            self.Restore_A_Grey_Tri(i: 2, j: 8)
+            self.tri_2_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 9){
+            self.Restore_A_Grey_Tri(i: 2, j: 9)
+            self.tri_2_9.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 2 && col == 10){
+            self.Restore_A_Grey_Tri(i: 2, j: 10)
+            self.tri_2_10.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        
+        else if (row == 3 && col == 0){
+            self.Restore_A_Grey_Tri(i: 3, j: 0)
+            self.tri_3_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 3 && col == 1){
+            self.Restore_A_Grey_Tri(i: 3, j: 1)
+            self.tri_3_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 2){
+            self.Restore_A_Grey_Tri(i: 3, j: 2)
+            self.tri_3_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 3){
+            self.Restore_A_Grey_Tri(i: 3, j: 3)
+            self.tri_3_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 4){
+            self.Restore_A_Grey_Tri(i: 3, j: 4)
+            self.tri_3_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 5){
+            self.Restore_A_Grey_Tri(i: 3, j: 5)
+            self.tri_3_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 6){
+            self.Restore_A_Grey_Tri(i: 3, j: 6)
+            self.tri_3_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 7){
+            self.Restore_A_Grey_Tri(i: 3, j: 7)
+            self.tri_3_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 8){
+            self.Restore_A_Grey_Tri(i: 3, j: 8)
+            self.tri_3_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 9){
+            self.Restore_A_Grey_Tri(i: 3, j: 9)
+            self.tri_3_9.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }else if (row == 3 && col == 10){
+            self.Restore_A_Grey_Tri(i: 3, j: 10)
+            self.tri_3_10.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        
+        else if (row == 4 && col == 0){
+            self.Restore_A_Grey_Tri(i: 4, j: 0)
+            self.tri_4_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 1){
+            self.Restore_A_Grey_Tri(i: 4, j: 1)
+            self.tri_4_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 2){
+            self.Restore_A_Grey_Tri(i: 4, j: 2)
+            self.tri_4_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 3){
+            self.Restore_A_Grey_Tri(i: 4, j: 3)
+            self.tri_4_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 4){
+            self.Restore_A_Grey_Tri(i: 4, j: 4)
+            self.tri_4_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 5){
+            self.Restore_A_Grey_Tri(i: 4, j: 5)
+            self.tri_4_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 6){
+            self.Restore_A_Grey_Tri(i: 4, j: 6)
+            self.tri_4_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 7){
+            self.Restore_A_Grey_Tri(i: 4, j: 7)
+            self.tri_4_7.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 4 && col == 8){
+            self.Restore_A_Grey_Tri(i: 4, j: 8)
+            self.tri_4_8.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        
+        else if (row == 5 && col == 0){
+            self.Restore_A_Grey_Tri(i: 5, j: 0)
+            self.tri_5_0.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 5 && col == 1){
+            self.Restore_A_Grey_Tri(i: 5, j: 1)
+            self.tri_5_1.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 5 && col == 2){
+            self.Restore_A_Grey_Tri(i: 5, j: 2)
+            self.tri_5_2.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 5 && col == 3){
+            self.Restore_A_Grey_Tri(i: 5, j: 3)
+            self.tri_5_3.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 5 && col == 4){
+            self.Restore_A_Grey_Tri(i: 5, j: 4)
+            self.tri_5_4.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 5 && col == 5){
+            self.Restore_A_Grey_Tri(i: 5, j: 5)
+            self.tri_5_5.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if (row == 5 && col == 6){
+            self.Restore_A_Grey_Tri(i: 5, j: 6)
+            self.tri_5_6.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+    }
+    
     func Check_and_Erase() -> Void {
       //duplicates_array = Check_and_Erase_Create_Array()
         //situation one - row
