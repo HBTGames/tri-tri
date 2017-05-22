@@ -667,7 +667,7 @@ class GameBoardViewController: UIViewController {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameBoardViewController") as! GameBoardViewController
             nextViewController.ThemeType = self.ThemeType
-            nextViewController.modalTransitionStyle = .partialCurl
+            nextViewController.modalTransitionStyle = .crossDissolve
             self.present(nextViewController, animated: true, completion: nil)
             //self.timer.invalidate()
 
