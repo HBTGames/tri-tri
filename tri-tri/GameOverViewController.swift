@@ -107,7 +107,7 @@ class GameOverViewController: UIViewController {
         catch{
             
         }
-        if !is_high_score{
+        if is_high_score{
             High_score_marker.text = "New Record!"
         }
         // Do any additional setup after loading the view.

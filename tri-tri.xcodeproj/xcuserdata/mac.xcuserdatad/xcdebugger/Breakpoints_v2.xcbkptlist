@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "517132673.197176"
+            timestampString = "517136065.995216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "6373"
-            endingLineNumber = "6373"
+            startingLineNumber = "6321"
+            endingLineNumber = "6321"
             landmarkName = "Check_and_Erase()"
             landmarkType = "7">
          </BreakpointContent>

@@ -7406,7 +7406,7 @@ class GameBoardViewController: UIViewController {
         nextViewController.final_score = MarkBoard.text!
         nextViewController.ThemeType = self.ThemeType
         nextViewController.modalTransitionStyle = .crossDissolve
-        if (Int(MarkBoard.text!)! == HighestScore){
+        if (Int(MarkBoard.text!) == HighestScore){
             nextViewController.is_high_score = true
         } else {
             nextViewController.is_high_score = false
@@ -7506,16 +7506,12 @@ func randomNumber(probabilities: [Double]) -> Int {
     let new_CGPoint = CGPoint(x: CGFloat(Double(screen_width) * x_proportion_const), y: CGFloat(Double(screen_height)*y_proportion_const))
         return new_CGPoint
         
-
-
-}
+    }
     
         
 
     
-  
-    
-   }
+}
 
 
 
