@@ -86,7 +86,50 @@ class GameBoardViewController: UIViewController {
     }
     
     
+    let default_erase_situation_0 = [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6]]
+    let default_erase_situation_1 = [[1,0],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8]]
+    let default_erase_situation_2 = [[2,0],[2,1],[2,2],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[2,10]]
+    let default_erase_situation_3 = [[3,0],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6],[3,7],[3,8],[3,9],[3,10]]
+    let default_erase_situation_4 = [[4,0],[4,1],[4,2],[4,3],[4,4],[4,5],[4,6],[4,7],[4,8]]
+    let default_erase_situation_5 = [[5,0],[5,1],[5,2],[5,3],[5,4],[5,5],[5,6]]
     
+    let default_erase_situation_6 = [[2,0],[3,0],[3,1],[4,0],[4,1],[5,0],[5,1]]
+    let default_erase_situation_7 = [[1,0],[2,1],[2,2],[3,2],[3,3],[4,2],[4,3],[5,2],[5,3]]
+    let default_erase_situation_8 = [[0,0],[1,1],[1,2],[2,3],[2,4],[3,4],[3,5],[4,4],[4,5],[5,4],[5,5]]
+    let default_erase_situation_9 = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6],[3,6],[3,7],[4,6],[4,7],[5,6]]
+    let default_erase_situation_10 = [[0,3],[0,4],[1,5],[1,6],[2,7],[2,8],[3,8],[3,9],[4,8]]
+    let default_erase_situation_11 = [[0,5],[0,6],[1,7],[1,8],[2,9],[2,10],[3,10]]
+    
+    let default_erase_situation_12 = [[0,1],[0,0],[1,1],[1,0],[2,1],[2,0],[3,0]]
+    let default_erase_situation_13 = [[0,3],[0,2],[1,3],[1,2],[2,3],[2,2],[3,2],[3,1],[4,0]]
+    let default_erase_situation_14 = [[0,5],[0,4],[1,5],[1,4],[2,5],[2,4],[3,4],[3,3],[4,2],[4,1],[5,0]]
+    let default_erase_situation_15 = [[0,6],[1,7],[1,6],[2,7],[2,6],[3,6],[3,5],[4,4],[4,3],[5,2],[5,1]]
+    let default_erase_situation_16 = [[1,8],[2,9],[2,8],[3,8],[3,7],[4,6],[4,5],[5,4],[5,3]]
+    let default_erase_situation_17 = [[2,10],[3,10],[3,9],[4,8],[4,7],[5,6],[5,5]]
+    
+    
+    var erase_situation_0 : Array<Array<Int>> = []
+    var erase_situation_1 : Array<Array<Int>> = []
+    var erase_situation_2 : Array<Array<Int>> = []
+    var erase_situation_3 : Array<Array<Int>> = []
+    var erase_situation_4 : Array<Array<Int>> = []
+    var erase_situation_5 : Array<Array<Int>> = []
+    
+    var erase_situation_6 : Array<Array<Int>> = []
+    var erase_situation_7 : Array<Array<Int>> = []
+    var erase_situation_8 : Array<Array<Int>> = []
+    var erase_situation_9 : Array<Array<Int>> = []
+    var erase_situation_10 : Array<Array<Int>> = []
+    var erase_situation_11 : Array<Array<Int>> = []
+    
+    var erase_situation_12 : Array<Array<Int>> = []
+    var erase_situation_13 : Array<Array<Int>> = []
+    var erase_situation_14 : Array<Array<Int>> = []
+    var erase_situation_15 : Array<Array<Int>> = []
+    var erase_situation_16 : Array<Array<Int>> = []
+    var erase_situation_17 : Array<Array<Int>> = []
+    
+    var cur_shape_tri : Array<Array<Int>> = []
 //--------------------------------------------------------------------------------------------------------------------------
 //draggable element three drag triangles implementation
     
