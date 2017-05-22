@@ -108,6 +108,7 @@ class GameOverViewController: UIViewController {
             
         }
         if is_high_score{
+            High_score_marker.textColor = UIColor(red:CGFloat(100.0/255.0), green:CGFloat(20.0/255.0), blue:CGFloat(150.0/255.0), alpha:CGFloat(1))
             High_score_marker.text = "New Record!"
         }
         // Do any additional setup after loading the view.

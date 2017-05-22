@@ -7412,7 +7412,7 @@ class GameBoardViewController: UIViewController {
             nextViewController.is_high_score = false
         }
         self.present(nextViewController, animated: true, completion: nil)
-        self.audioPlayer.stop()
+        //self.audioPlayer.stop()
         self.timer.invalidate()
         
         
