@@ -6790,17 +6790,20 @@ class GameBoardViewController: UIViewController {
             var j = 0
             for _ in tri_row{
                 bool_any_green_tri = Find_Any_Available_Green_Tri(row: i, column: j)
-                print("whether green tri available: \(bool_any_green_tri)")
+               // print("whether green tri available: \(bool_any_green_tri)")
                 bool_any_orange_tri = Find_Any_Available_Orange_Tri(row: i, column: j)
-                print("whether orange tri available: \(bool_any_orange_tri)")
+               // print("whether orange tri available: \(bool_any_orange_tri)")
                 bool_any_light_brown_tri = Find_Any_Available_Light_Brown_Tri(row: i, column: j)
-                print("whether light_brown tri available: \(bool_any_light_brown_tri)")
+               // print("whether light_brown tri available: \(bool_any_light_brown_tri)")
                 bool_any_brown_left_tri = Find_Any_Available_Brown_Left_Tri(row: i, column: j)
-                print("whether brown left tri available: \(bool_any_brown_left_tri)")
+                //print("whether brown left tri available: \(bool_any_brown_left_tri)")
                 bool_any_brown_downwards_tri = Find_Any_Available_Brown_Downwards_Tri(row: i, column: j)
+                if(bool_any_brown_downwards_tri){
+                    print("brown downwards tri available at \(i), \(j)")
+                }
                 print("whether brown downwards tri available: \(bool_any_brown_downwards_tri)")
                 bool_any_dark_green_tri = Find_Any_Dark_Green_Tri(row: i, column: j)
-                 print("whether dark green tri available: \(bool_any_dark_green_tri)")
+                // print("whether dark green tri available: \(bool_any_dark_green_tri)")
                 bool_any_pink_right_tri = Find_Any_Pink_Right_Tri(row: i, column: j)
                 bool_any_purple_upwards_tri = Find_Any_Purple_Upwards_Tri(row: i, column: j)
                 bool_any_purple_downwards_tri = Find_Any_Purple_Downwards_Tri(row: i, column: j)
@@ -7342,7 +7345,7 @@ class GameBoardViewController: UIViewController {
     }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Find_Any_Pink_Right_Tri (row: Int, column:Int) -> Bool{
-        if(row == 0 || row == 1 || row == 3){
+        if(row == 0 || row == 1 || row == 2){
             //upwards tri
             if(column%2 == 0){
                 if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] ){
@@ -7354,7 +7357,7 @@ class GameBoardViewController: UIViewController {
                     return true
                 }
             }
-        }else if( row == 4 || row == 5 || row == 6 ){
+        }else if( row == 3 || row == 4 || row == 5 ){
          //downwards tri
             if(column%2 == 0){
                 if(column != 0 && !filled[row][column] && !filled[row][column-1]){
