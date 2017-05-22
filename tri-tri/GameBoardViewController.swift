@@ -200,7 +200,7 @@ class GameBoardViewController: UIViewController {
     
     
     @IBAction func stop_music_when_pause(_ sender: UIButton) {
-        self.audioPlayer.stop()
+        //self.audioPlayer.stop()
         //self.timer.invalidate()
   
     }
@@ -538,13 +538,13 @@ class GameBoardViewController: UIViewController {
         //ugly and long init finished XD
         
         //audio intialize
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background music", ofType: "mp3")!))
-            audioPlayer.prepareToPlay()
-        }
-        catch{
+        //do{
+         //   audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "background music", ofType: "mp3")!))
+         //   audioPlayer.prepareToPlay()
+        //}
+       // catch{
             //print("error")
-        }
+        //}
         //
         
         //
@@ -638,7 +638,7 @@ class GameBoardViewController: UIViewController {
             change_theme_button.removeFromSuperview()
             pause_screen.removeFromSuperview()
             self.paused = false
-            self.audioPlayer.play()
+            //self.audioPlayer.play()
             do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
                 self.button_player.prepareToPlay()
             }
