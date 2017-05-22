@@ -75,7 +75,7 @@ class GameOverViewController: UIViewController {
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
             nextViewController.final_score = self.final_score
             nextViewController.ThemeType = self.ThemeType
-            nextViewController.is_high_score = true
+            nextViewController.is_high_score = self.is_high_score
         self.present(nextViewController, animated: false, completion: nil)
         }
         
