@@ -4748,6 +4748,329 @@ class GameBoardViewController: UIViewController {
                 }
                 i += 1
             }
+        }else if index == 1{
+            var i = 0
+            for pair in default_erase_situation_1{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_1.append(default_erase_situation_1[i])
+                    while (i + j <= default_erase_situation_1.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_1.count - 1){
+                            erase_situation_1.append(default_erase_situation_1[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_1.append(default_erase_situation_1[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        } else if index == 2{
+            var i = 0
+            for pair in default_erase_situation_2{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_2.append(default_erase_situation_2[i])
+                    while (i + j <= default_erase_situation_2.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_2.count - 1){
+                            erase_situation_2.append(default_erase_situation_2[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_2.append(default_erase_situation_2[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 3{
+            var i = 0
+            for pair in default_erase_situation_3{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_3.append(default_erase_situation_3[i])
+                    while (i + j <= default_erase_situation_3.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_3.count - 1){
+                            erase_situation_3.append(default_erase_situation_3[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_3.append(default_erase_situation_3[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 4{
+            var i = 0
+            for pair in default_erase_situation_4{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_4.append(default_erase_situation_4[i])
+                    while (i + j <= default_erase_situation_4.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_4.count - 1){
+                            erase_situation_4.append(default_erase_situation_4[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_4.append(default_erase_situation_4[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 5{
+            var i = 0
+            for pair in default_erase_situation_5{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_5.append(default_erase_situation_5[i])
+                    while (i + j <= default_erase_situation_5.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_5.count - 1){
+                            erase_situation_5.append(default_erase_situation_5[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_5.append(default_erase_situation_5[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 6{
+            var i = 0
+            for pair in default_erase_situation_6{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_6.append(default_erase_situation_6[i])
+                    while (i + j <= default_erase_situation_6.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_6.count - 1){
+                            erase_situation_6.append(default_erase_situation_6[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_6.append(default_erase_situation_6[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 7{
+            var i = 0
+            for pair in default_erase_situation_7{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_7.append(default_erase_situation_7[i])
+                    while (i + j <= default_erase_situation_7.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_7.count - 1){
+                            erase_situation_7.append(default_erase_situation_7[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_7.append(default_erase_situation_7[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 8{
+            var i = 0
+            for pair in default_erase_situation_8{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_8.append(default_erase_situation_8[i])
+                    while (i + j <= default_erase_situation_8.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_8.count - 1){
+                            erase_situation_8.append(default_erase_situation_8[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_8.append(default_erase_situation_8[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 9{
+            var i = 0
+            for pair in default_erase_situation_9{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_9.append(default_erase_situation_9[i])
+                    while (i + j <= default_erase_situation_9.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_9.count - 1){
+                            erase_situation_9.append(default_erase_situation_9[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_9.append(default_erase_situation_9[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 10{
+            var i = 0
+            for pair in default_erase_situation_10{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_10.append(default_erase_situation_10[i])
+                    while (i + j <= default_erase_situation_10.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_10.count - 1){
+                            erase_situation_10.append(default_erase_situation_10[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_10.append(default_erase_situation_10[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 11{
+            var i = 0
+            for pair in default_erase_situation_11{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_11.append(default_erase_situation_11[i])
+                    while (i + j <= default_erase_situation_11.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_11.count - 1){
+                            erase_situation_11.append(default_erase_situation_11[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_11.append(default_erase_situation_11[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 12{
+            var i = 0
+            for pair in default_erase_situation_12{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_12.append(default_erase_situation_12[i])
+                    while (i + j <= default_erase_situation_12.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_12.count - 1){
+                            erase_situation_12.append(default_erase_situation_12[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_12.append(default_erase_situation_12[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 13{
+            var i = 0
+            for pair in default_erase_situation_13{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_13.append(default_erase_situation_13[i])
+                    while (i + j <= default_erase_situation_13.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_13.count - 1){
+                            erase_situation_13.append(default_erase_situation_13[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_13.append(default_erase_situation_13[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 14{
+            var i = 0
+            for pair in default_erase_situation_14{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_14.append(default_erase_situation_14[i])
+                    while (i + j <= default_erase_situation_14.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_14.count - 1){
+                            erase_situation_14.append(default_erase_situation_14[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_14.append(default_erase_situation_14[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 15{
+            var i = 0
+            for pair in default_erase_situation_15{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_15.append(default_erase_situation_15[i])
+                    while (i + j <= default_erase_situation_15.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_15.count - 1){
+                            erase_situation_15.append(default_erase_situation_15[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_15.append(default_erase_situation_15[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 16{
+            var i = 0
+            for pair in default_erase_situation_16{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_16.append(default_erase_situation_16[i])
+                    while (i + j <= default_erase_situation_16.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_16.count - 1){
+                            erase_situation_16.append(default_erase_situation_16[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_16.append(default_erase_situation_16[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
+        }else if index == 17{
+            var i = 0
+            for pair in default_erase_situation_17{
+                if (loc.row == pair[0] && loc.col == pair[1]){
+                    var j = 1
+                    erase_situation_17.append(default_erase_situation_17[i])
+                    while (i + j <= default_erase_situation_17.count - 1 || i - j >= 0){
+                        if (i + j <= default_erase_situation_17.count - 1){
+                            erase_situation_17.append(default_erase_situation_17[i + j])
+                        }
+                        if (i - j >= 0){
+                            erase_situation_17.append(default_erase_situation_17[i - j])
+                        }
+                        j += 1
+                    }
+                    return
+                }
+                i += 1
+            }
         }
     }
     
