@@ -4540,6 +4540,199 @@ class GameBoardViewController: UIViewController {
         }
     }
     
+    func reorder(row: Int, col: Int, index: Int) -> Void{
+        if index == 0{
+            for pair in default_erase_situation_0{
+                
+            }
+        }
+    }
+    
+    func get_center_tri(index: Int) -> (row: Int, col: Int){
+        if index == 0{
+            for pair in default_erase_situation_0{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        } else if index == 1{
+            for pair in default_erase_situation_1{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        } else if index == 2{
+            for pair in default_erase_situation_2{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 3{
+            for pair in default_erase_situation_3{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 4{
+            for pair in default_erase_situation_4{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 5{
+            for pair in default_erase_situation_5{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 6{
+            for pair in default_erase_situation_6{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 7{
+            for pair in default_erase_situation_7{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 8{
+            for pair in default_erase_situation_8{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 9{
+            for pair in default_erase_situation_9{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 10{
+            for pair in default_erase_situation_10{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 11{
+            for pair in default_erase_situation_11{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 12{
+            for pair in default_erase_situation_12{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 13{
+            for pair in default_erase_situation_13{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 14{
+            for pair in default_erase_situation_14{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 15{
+            for pair in default_erase_situation_15{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 16{
+            for pair in default_erase_situation_16{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }else if index == 17{
+            for pair in default_erase_situation_17{
+                for tri in cur_shape_tri{
+                    if (tri[0] == pair[0] && tri[1] == pair[1]){
+                        let cur_x = tri[0]
+                        let cur_y = tri[1]
+                        return (cur_x, cur_y)
+                    }
+                }
+            }
+        }
+        return (0,0)
+    }
+    
     func Check_and_Erase() -> Void {
       //duplicates_array = Check_and_Erase_Create_Array()
         //situation one - row
@@ -4562,9 +4755,30 @@ class GameBoardViewController: UIViewController {
          situation15 = false
          situation16 = false
           situation17 = false
+        
+        erase_situation_0 = []
+        erase_situation_1 = []
+        erase_situation_2 = []
+        erase_situation_3 = []
+        erase_situation_4 = []
+        erase_situation_5 = []
+        erase_situation_6 = []
+        erase_situation_7 = []
+        erase_situation_8 = []
+        erase_situation_9 = []
+        erase_situation_10 = []
+        erase_situation_11 = []
+        erase_situation_12 = []
+        erase_situation_13 = []
+        erase_situation_14 = []
+        erase_situation_15 = []
+        erase_situation_16 = []
+        erase_situation_17 = []
+        
         if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
           situation0 = true
-
+            let center_loc = get_center_tri(index: 0)
+            
             UIView.animate(withDuration: 0.1, animations: {
                self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
             }, completion: {
