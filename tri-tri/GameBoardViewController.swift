@@ -5174,7 +5174,8 @@ class GameBoardViewController: UIViewController {
         if(filled[1][0]&&filled[1][1]&&filled[1][2]&&filled[1][3]&&filled[1][4]&&filled[1][5]&&filled[1][6]&&filled[1][7]&&filled[1][8]){
  
          situation1 = true
-            
+            let center_loc = get_center_tri(index: 1)
+            reorder(loc: center_loc, index: 1)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_1_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5252,7 +5253,8 @@ class GameBoardViewController: UIViewController {
             
             
             situation2 = true
-            
+            let center_loc = get_center_tri(index: 2)
+            reorder(loc: center_loc, index: 2)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_2_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5342,7 +5344,8 @@ class GameBoardViewController: UIViewController {
         if(filled[3][0]&&filled[3][1]&&filled[3][2]&&filled[3][3]&&filled[3][4]&&filled[3][5]&&filled[3][6]&&filled[3][7]&&filled[3][8]&&filled[3][9]&&filled[3][10]){
 
             situation3 = true
-            
+            let center_loc = get_center_tri(index: 3)
+            reorder(loc: center_loc, index: 3)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_3_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5433,6 +5436,8 @@ class GameBoardViewController: UIViewController {
             
 
            situation4 = true
+            let center_loc = get_center_tri(index: 4)
+            reorder(loc: center_loc, index: 4)
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_4_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
             }, completion: {
@@ -5507,7 +5512,8 @@ class GameBoardViewController: UIViewController {
 
  
             situation5 = true
-            
+            let center_loc = get_center_tri(index: 5)
+            reorder(loc: center_loc, index: 5)
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_5_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
             }, completion: {
@@ -5571,6 +5577,8 @@ class GameBoardViewController: UIViewController {
 
 
             situation6 = true
+            let center_loc = get_center_tri(index: 6)
+            reorder(loc: center_loc, index: 6)
             UIView.animate(withDuration: 0.1, animations: {
                  self.tri_2_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
             }, completion: {
@@ -5629,6 +5637,8 @@ class GameBoardViewController: UIViewController {
 
 
  situation7 = true
+            let center_loc = get_center_tri(index: 7)
+            reorder(loc: center_loc, index: 7)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_1_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5708,6 +5718,8 @@ class GameBoardViewController: UIViewController {
         }
         if(filled[0][0]&&filled[1][1]&&filled[1][2]&&filled[2][3]&&filled[2][4]&&filled[3][4]&&filled[3][5]&&filled[4][4]&&filled[4][5]&&filled[5][4]&&filled[5][5]){
  situation8 = true
+            let center_loc = get_center_tri(index: 8)
+            reorder(loc: center_loc, index: 8)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5803,7 +5815,8 @@ class GameBoardViewController: UIViewController {
         if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
 
              situation9 = true
-
+            let center_loc = get_center_tri(index: 9)
+            reorder(loc: center_loc, index: 9)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_1.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5897,6 +5910,8 @@ class GameBoardViewController: UIViewController {
 
 
              situation10 = true
+            let center_loc = get_center_tri(index: 10)
+            reorder(loc: center_loc, index: 10)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_3.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -5972,6 +5987,8 @@ class GameBoardViewController: UIViewController {
 
 
  situation11 = true
+            let center_loc = get_center_tri(index: 11)
+            reorder(loc: center_loc, index: 11)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_5.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -6035,7 +6052,8 @@ class GameBoardViewController: UIViewController {
         if(filled[0][0]&&filled[0][1]&&filled[1][0]&&filled[1][1]&&filled[2][0]&&filled[2][1]&&filled[3][0]){
 
  situation12 = true
-
+            let center_loc = get_center_tri(index: 12)
+            reorder(loc: center_loc, index: 12)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_0.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -6099,6 +6117,8 @@ class GameBoardViewController: UIViewController {
  situation13 = true
 
             //animation
+            let center_loc = get_center_tri(index: 13)
+            reorder(loc: center_loc, index: 13)
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_2.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
             }, completion: {
@@ -6174,6 +6194,8 @@ class GameBoardViewController: UIViewController {
         if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
 
  situation14 = true
+            let center_loc = get_center_tri(index: 14)
+            reorder(loc: center_loc, index: 14)
         
             //animation
             UIView.animate(withDuration: 0.1, animations: {
@@ -6262,6 +6284,8 @@ class GameBoardViewController: UIViewController {
         if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
 
  situation15 = true
+            let center_loc = get_center_tri(index: 15)
+            reorder(loc: center_loc, index: 15)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_0_6.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -6353,7 +6377,8 @@ class GameBoardViewController: UIViewController {
         if(filled[1][8]&&filled[2][8]&&filled[2][9]&&filled[3][7]&&filled[3][8]&&filled[4][5]&&filled[4][6]&&filled[5][3]&&filled[5][4]){
 
  situation16 = true
-
+            let center_loc = get_center_tri(index: 16)
+            reorder(loc: center_loc, index: 16)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_1_8.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
@@ -6429,7 +6454,8 @@ class GameBoardViewController: UIViewController {
         if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
  situation17 = true
 
-
+            let center_loc = get_center_tri(index: 17)
+            reorder(loc: center_loc, index: 17)
             //animation
             UIView.animate(withDuration: 0.1, animations: {
                 self.tri_2_10.transform = CGAffineTransform(scaleX: 0.2, y: 0.2).rotated(by: 360)
