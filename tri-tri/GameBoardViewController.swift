@@ -7784,7 +7784,7 @@ class GameBoardViewController: UIViewController {
                     return true
                 }
                 //down to up
-                if(!filled[row][column] && !filled[row-1][column-1] && !filled[row-1][column]){
+                if(column != filled[row].count-2 && !filled[row][column] && !filled[row-1][column-1] && !filled[row-1][column]){
                     return true
                 }
                 
@@ -7801,7 +7801,7 @@ class GameBoardViewController: UIViewController {
                 if(!filled[row][column] && !filled[row][column-1] && !filled[row+1][column-1]){
                     return true
                 }
-                if(!filled[row][column] && !filled[row-1][column-1] && !filled[row-1][column]){
+                if(column != filled[row].count-2 && !filled[row][column] && !filled[row-1][column-1] && !filled[row-1][column]){
                     return true
                 }
                 
@@ -7859,6 +7859,22 @@ class GameBoardViewController: UIViewController {
     
     
     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+     func Find_Any_Available_Brown_Right_Downwards_Tri (row: Int, column:Int) -> Bool{
+        if(row == 0){
+            if(column%2 == 0){
+                
+            }
+            
+        
+        }
+        
+        
+        
+        
+        
+     return false
+    }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     func Jump_to_Game_Over () -> Void {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

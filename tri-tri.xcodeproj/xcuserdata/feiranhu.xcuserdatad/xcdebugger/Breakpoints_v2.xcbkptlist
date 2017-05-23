@@ -424,7 +424,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4082"
             endingLineNumber = "4082"
-            landmarkName = "Check_and_Erase_Create_Array()"
+            landmarkName = "Duplicate_Tri_Animate(i:j:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -646,7 +646,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7475"
             endingLineNumber = "7475"
-            landmarkName = "Find_Any_Available_Brown_Left_Downwards_Tri(row:column:)"
+            landmarkName = "Find_Any_Dark_Green_Tri(row:column:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -662,7 +662,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7476"
             endingLineNumber = "7476"
-            landmarkName = "Find_Any_Available_Brown_Left_Downwards_Tri(row:column:)"
+            landmarkName = "Find_Any_Dark_Green_Tri(row:column:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
