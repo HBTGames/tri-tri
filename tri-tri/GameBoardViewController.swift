@@ -8127,13 +8127,13 @@ func randomNumber(probabilities: [Double]) -> Int {
           return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.01, 0.09, 0.13, 0.13, 0.09 , 0.09])
         }
         else if(score > 500 && score <= 2000){
-          return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.125, 0.1, 0.125, 0.125, 0.125, 0.125, 0.125])
+          return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.02, 0.09, 0.125, 0.125, 0.09, 0.09])
         }else if(score > 2000 && score <= 3000){
-           return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.15, 0.1, 0.125, 0.125, 0.124, 0.125])
+           return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.04, 0.09, 0.105, 0.105, 0.1, 0.1])
         }else if(score > 3000 && score <= 4000){
-            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.2, 0.1, 0.1, 0.1, 0.1, 0.1])
+            return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.06, 0.09, 0.095, 0.095, 0.1, 0.1])
         }else{
-            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.075, 0.3, 0.075, 0.075, 0.075, 0.075, 0.075])
+            return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09])
         }
         
     }
