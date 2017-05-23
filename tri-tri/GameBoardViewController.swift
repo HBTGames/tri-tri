@@ -889,8 +889,8 @@ class GameBoardViewController: UIViewController {
                     exist2 = false
                 }else if (position_in_use == 2){
                     light_brown_drag_tri.frame.origin = light_brown_drag_origin
-                    light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                     light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
+                    light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                     light_brown_drag_tri.transform = CGAffineTransform(scaleX: CGFloat(0.6), y: CGFloat(0.6))
                     exist3 = false
                 }
@@ -955,8 +955,8 @@ class GameBoardViewController: UIViewController {
                         self.green_drag_tri_y_constraint.constant = CGFloat(51)
                         self.orange_drag_tri_x_constraint.constant = CGFloat(4.5)
                         self.orange_drag_tri_y_constraint.constant = CGFloat(51)
-                        self.light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                         self.light_brown_drag_tri_x_constraint.constant = CGFloat(3.5)
+                        self.light_brown_drag_tri_y_constraint.constant = CGFloat(51)
                         
    
                         
@@ -3325,7 +3325,7 @@ class GameBoardViewController: UIViewController {
             light_brown_drag_tri.image = generator_array[randomIndex]
             light_brown_drag_tri.sizeToFit()
             light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
-            force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+            //force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
             shape_type_index[2] = randomIndex
             
             
@@ -3428,7 +3428,7 @@ class GameBoardViewController: UIViewController {
             light_brown_drag_tri.image = generator_array[randomIndex]
             light_brown_drag_tri.sizeToFit()
             light_brown_drag_tri_orig_rec = light_brown_drag_tri.frame
-            force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
+           //force_recenter_drag_tris( tri: light_brown_drag_tri,tri_img: generator_array[randomIndex] )
             shape_type_index[2] = randomIndex
             
         }
