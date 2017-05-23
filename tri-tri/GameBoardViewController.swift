@@ -7222,9 +7222,9 @@ number_of_lines_erased += 1
                     bool_pos1_shape_available = bool_any_purple_upwards_tri
                 }else if(shape_type_index[1] == 8){
                     bool_pos1_shape_available = bool_any_purple_downwards_tri
-                }else if(shape_type_index[0] == 9){
+                }else if(shape_type_index[1] == 9){
                     bool_pos1_shape_available = bool_any_brown_left_downwards_tri
-                }else if(shape_type_index[0] == 10){
+                }else if(shape_type_index[1] == 10){
                     bool_pos1_shape_available = bool_any_brown_right_downwards_tri
                     }
 
@@ -7251,9 +7251,9 @@ number_of_lines_erased += 1
                     bool_pos2_shape_available = bool_any_purple_upwards_tri
                 }else if(shape_type_index[2] == 8){
                     bool_pos2_shape_available = bool_any_purple_downwards_tri
-                }else if(shape_type_index[0] == 9){
+                }else if(shape_type_index[2] == 9){
                     bool_pos2_shape_available = bool_any_brown_left_downwards_tri
-                }else if(shape_type_index[0] == 10){
+                }else if(shape_type_index[2] == 10){
                     bool_pos2_shape_available = bool_any_brown_right_downwards_tri
                     }
 
