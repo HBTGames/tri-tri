@@ -33,6 +33,41 @@ public extension UIView {
     }
 }
 
+private var pTouchAreaEdgeInsets: UIEdgeInsets = .zero
+
+extension UIButton {
+    
+    var touchAreaEdgeInsets: UIEdgeInsets {
+        get {
+            if let value = objc_getAssociatedObject(self, &pTouchAreaEdgeInsets) as? NSValue {
+                var edgeInsets: UIEdgeInsets = .zero
+                value.getValue(&edgeInsets)
+                return edgeInsets
+            }
+            else {
+                return .zero
+            }
+        }
+        set(newValue) {
+            var newValueCopy = newValue
+            let objCType = NSValue(uiEdgeInsets: .zero).objCType
+            let value = NSValue(&newValueCopy, withObjCType: objCType)
+            objc_setAssociatedObject(self, &pTouchAreaEdgeInsets, value, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if UIEdgeInsetsEqualToEdgeInsets(self.touchAreaEdgeInsets, .zero) || !self.isEnabled || self.isHidden {
+            return super.point(inside: point, with: event)
+        }
+        
+        let relativeFrame = self.bounds
+        let hitFrame = UIEdgeInsetsInsetRect(relativeFrame, self.touchAreaEdgeInsets)
+        
+        return hitFrame.contains(point)
+    }
+}
+
 
 class GameBoardViewController: UIViewController {
 //constraints
@@ -612,18 +647,22 @@ class GameBoardViewController: UIViewController {
         let continue_button = MyButton(frame: CGRect(x: pause_screen_x_transform(87.5), y: pause_screen_y_transform(283.5), width: pause_screen_x_transform(200), height: pause_screen_y_transform(170)))
         continue_button.setBackgroundImage(continue_pic, for: .normal)
         continue_button.tag = 50
+        continue_button.touchAreaEdgeInsets = UIEdgeInsets(top: 0, left: pause_screen_x_transform(40), bottom: pause_screen_y_transform(40), right: pause_screen_x_transform(40))
         
         let home_button = MyButton(frame: CGRect(x: pause_screen_x_transform(137.5), y: pause_screen_y_transform(190), width: pause_screen_x_transform(100), height: pause_screen_y_transform(85)))
         home_button.setBackgroundImage(home_pic, for: .normal)
         home_button.tag = 51
+        home_button.touchAreaEdgeInsets = UIEdgeInsets(top: pause_screen_y_transform(10), left: pause_screen_x_transform(15), bottom: pause_screen_y_transform(0), right: pause_screen_x_transform(15))
         
         let like_button = MyButton(frame: CGRect(x: pause_screen_x_transform(52), y: pause_screen_y_transform(333.5), width: pause_screen_x_transform(100), height: pause_screen_y_transform(85)))
         like_button.setBackgroundImage(like_pic, for: .normal)
         like_button.tag = 52
+        like_button.touchAreaEdgeInsets = UIEdgeInsets(top: 0, left: pause_screen_x_transform(25), bottom: 0, right: pause_screen_x_transform(25))
         
         let restart_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(333.5), width: pause_screen_x_transform(100), height: pause_screen_y_transform(85)))
         restart_button.setBackgroundImage(restart_pic, for: .normal)
         restart_button.tag = 53
+        restart_button.touchAreaEdgeInsets = UIEdgeInsets(top: 0, left: pause_screen_x_transform(25), bottom: 0, right: pause_screen_x_transform(25))
         
         let change_theme_button = MyButton(frame: CGRect(x: pause_screen_x_transform(222.5), y: pause_screen_y_transform(570), width: pause_screen_x_transform(100), height: pause_screen_y_transform(30)))
         change_theme_button.setTitle("day/night", for: .normal)
