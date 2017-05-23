@@ -93,7 +93,7 @@ class GameBoardViewController: UIViewController {
 // each int inside array reprensents shape index
 //every shape is the same name as they are in Assets.xcassets file
 //shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction 7 purple upwards  8 purple downwards 9 brown_left_downwards 10 brown_right_downwards
-    
+
     var shape_type_index : Array<Int> = [0 , 0, 0]
     //indicate pause
     var paused = false
@@ -109,6 +109,10 @@ class GameBoardViewController: UIViewController {
     
     //store lines erased
     var number_of_lines_erased = 0
+    
+    
+    var multiple_marker = UILabel(frame: CGRect(x: 90, y: 90, width: 200, height: 21))
+    
     
     class MyButton: UIButton {
         var action: (()->())?
@@ -8082,6 +8086,67 @@ number_of_lines_erased += 1
         current_str = String(current_int)
         MarkBoard.text = current_str
         //add animation
+        multiple_marker.frame = CGRect(x: 90, y: 90, width: 30, height: 21)
+        multiple_marker.text = "x\(number_of_lines_erased)"
+        multiple_marker.alpha = 1
+        self.view.addSubview(multiple_marker)
+        if (number_of_lines_erased == 1){
+            multiple_marker.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            UIView.animate(withDuration: 0.2, animations: {
+                self.multiple_marker.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            }, completion: {
+                (finished) -> Void in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.multiple_marker.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: {
+                    (finished) -> Void in
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.multiple_marker.alpha = 0
+                    })
+                })
+            })
+        } else if (number_of_lines_erased == 2){
+            multiple_marker.textColor = .orange
+            UIView.animate(withDuration: 0.2, animations: {
+                self.multiple_marker.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+            }, completion: {
+                (finished) -> Void in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.multiple_marker.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                }, completion: {
+                    (finished) -> Void in
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.multiple_marker.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                    },completion: {
+                        (finished) -> Void in
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.multiple_marker.alpha = 0
+                    })
+                })
+            })
+        })
+        }else {
+            multiple_marker.textColor = .red
+            UIView.animate(withDuration: 0.4, animations: {
+                self.multiple_marker.transform = CGAffineTransform(scaleX: 4.0, y: 4.0)
+            }, completion: {
+                (finished) -> Void in
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.multiple_marker.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                }, completion: {
+                    (finished) -> Void in
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.multiple_marker.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                    },completion: {
+                        (finished) -> Void in
+                        UIView.animate(withDuration: 0.2, animations: {
+                            self.multiple_marker.alpha = 0
+                        })
+                    })
+                })
+            })
+
+        }
         
         UIView.animate(withDuration: 0.2, animations: {
             self.MarkBoard.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
