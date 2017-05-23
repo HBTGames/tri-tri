@@ -18,9 +18,14 @@ class GameOverViewController: UIViewController {
     
     var restart_player = AVAudioPlayer()
     var button_player = AVAudioPlayer()
+    @IBOutlet weak var restart_button: UIButton!
+    @IBOutlet weak var home_button: UIButton!
     
+    @IBOutlet weak var like_button: UIButton!
     
+    @IBOutlet weak var share_button: UIButton!
     @IBAction func Share_Button_Action(_ sender: UIButton) {
+        
         do{self.button_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "general_button", ofType: "wav")!))
             self.button_player.prepareToPlay()
         }
@@ -90,7 +95,8 @@ class GameOverViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    
+    var screen_width : CGFloat = 0
+    var screen_height : CGFloat = 0
     //two vars value passed from game board
     var final_score = String()
     var is_high_score = Bool()
@@ -98,8 +104,27 @@ class GameOverViewController: UIViewController {
     //theme type
     var ThemeType = Int()
     
+    func pause_screen_x_transform(_ x: Double) -> CGFloat {
+        let const = x/Double(375)
+        let new_x = Double(screen_width)*const
+        return CGFloat(new_x)
+        
+    }
+    func pause_screen_y_transform(_ y: Double) -> CGFloat {
+        let const = y/Double(667)
+        let new_y = Double(screen_height)*const
+        return CGFloat(new_y)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        screen_width = view.frame.width
+        screen_height = view.frame.height
+        restart_button.touchAreaEdgeInsets = UIEdgeInsets(top: 0, left: pause_screen_x_transform(40), bottom: pause_screen_y_transform(40), right: pause_screen_x_transform(40))
+        home_button.touchAreaEdgeInsets = UIEdgeInsets(top: 0, left: pause_screen_x_transform(25), bottom: 0, right: pause_screen_x_transform(25))
+        like_button.touchAreaEdgeInsets = UIEdgeInsets(top: 0, left: pause_screen_x_transform(25), bottom: 0, right: pause_screen_x_transform(25))
+        share_button.touchAreaEdgeInsets = UIEdgeInsets(top: pause_screen_y_transform(10), left: pause_screen_x_transform(15), bottom: pause_screen_y_transform(0), right: pause_screen_x_transform(15))
         score_board.text = final_score
         do{restart_player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "restart_soundeffect", ofType: "wav")!))
             restart_player.prepareToPlay()
