@@ -1744,6 +1744,158 @@ class GameBoardViewController: UIViewController {
             }
             
         }
+        else if (Shape_Type == 9) {    //Shape_Type == 9 brown left downwards
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0 || i == 1){//upper half row 0 1
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only upward
+                            if (position.x + 3 <= triangle_location.x + 20 && position.x + 3 >= triangle_location.x - 20 &&
+                                position.y + 3.5 <= triangle_location.y + 20 && position.y + 3.5 >= triangle_location.y - 20){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i+1][j+1]){//check available
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i+1, y:j+1, image: light_brown_down)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i+1][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 2){//lower half row 2
+                        if (j%2 == 0){//only upward
+                            if (position.x + 3 <= triangle_location.x + 20 && position.x + 3 >= triangle_location.x - 20 &&
+                                position.y + 3.5 <= triangle_location.y + 20 && position.y + 3.5 >= triangle_location.y - 20){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i+1][j]){//check available
+                                    // light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i+1, y:j, image: light_brown_down)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i+1][j] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 3 || i == 4){
+                        if (j%2 == 1){//lower half row 3 4
+                            if (position.x + 3 <= triangle_location.x + 20 && position.x + 3 >= triangle_location.x - 20 &&
+                                position.y + 3.5 <= triangle_location.y + 20 && position.y + 3.5 >= triangle_location.y - 20){
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i+1][j-1]){
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i+1, y:j-1, image: light_brown_down)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i+1][j-1] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+        else if (Shape_Type == 11) {    //Shape_Type == 2
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 1 || i == 2){//upper half row 1 2
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only upward
+                            if (position.x + 27 <= triangle_location.x + 20 && position.x + 27 >= triangle_location.x - 20 &&
+                                position.y + 48 <= triangle_location.y + 20 && position.y + 48 >= triangle_location.y - 20){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j]){//check available
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j, image: light_brown_up)
+                                    
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i-1][j] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 3){//lower half row 3
+                        if (j%2 == 1){//only upward
+                            if (position.x + 27 <= triangle_location.x + 20 && position.x + 27 >= triangle_location.x - 20 &&
+                                position.y + 48 <= triangle_location.y + 20 && position.y + 48 >= triangle_location.y - 20){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+1]){//check available
+                                    // light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+1, image: light_brown_up)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i-1][j+1] = true
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 4 || i == 5){
+                        if (j%2 == 1){//lower half
+                            if (position.x + 27 <= triangle_location.x + 20 && position.x + 27 >= triangle_location.x - 20 &&
+                                position.y + 48 <= triangle_location.y + 20 && position.y + 48 >= triangle_location.y - 20){
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i-1][j+2]){
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i-1, y:j+2, image: light_brown_up)
+                                    filled[i][j] = true
+                                    filled[i][j+1] = true
+                                    filled[i-1][j+2] = true
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
 
         return false
     }
@@ -2219,6 +2371,74 @@ class GameBoardViewController: UIViewController {
             }
             
         }
+        else if (Shape_Type == 9) {    //Shape_Type == 9 brown left downwards
+            var i = 0
+            for triangles_location in tri_location{
+                var j = 0
+                
+                for triangle_location in triangles_location{
+                    if (i == 0 || i == 1){//upper half row 0 1
+                        if (j%2 == 0 && j != tri_location[i].count - 1){//only upward
+                            if (position.x + 3 <= triangle_location.x + 20 && position.x + 3 >= triangle_location.x - 20 &&
+                                position.y + 3.5 <= triangle_location.y + 20 && position.y + 3.5 >= triangle_location.y - 20){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i+1][j+1]){//check available
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i+1, y:j+1, image: light_brown_down)
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }else if (i == 2){//lower half row 2
+                        if (j%2 == 0){//only upward
+                            if (position.x + 3 <= triangle_location.x + 20 && position.x + 3 >= triangle_location.x - 20 &&
+                                position.y + 3.5 <= triangle_location.y + 20 && position.y + 3.5 >= triangle_location.y - 20){//check location
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i+1][j]){//check available
+                                    // light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i+1, y:j, image: light_brown_down)
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    else if (i == 3 || i == 4){
+                        if (j%2 == 1){//lower half row 3 4
+                            if (position.x + 3 <= triangle_location.x + 20 && position.x + 3 >= triangle_location.x - 20 &&
+                                position.y + 3.5 <= triangle_location.y + 20 && position.y + 3.5 >= triangle_location.y - 20){
+                                if (!filled[i][j] && !filled[i][j+1] && !filled[i+1][j-1]){
+                                    //light_brown_drag_tri.image = UIImage(named:"棕色tri")?.tint(color: tri_color_5, blendMode: .destinationIn)
+                                    auto_make_transparent()
+                                    Change_Corresponding_Color_With_Image(x:i, y:j, image: light_brown_up)
+                                    Change_Corresponding_Color_With_Image(x:i, y:j+1, image: light_brown_down)
+                                    Change_Corresponding_Color_With_Image(x:i+1, y:j-1, image: light_brown_down)
+                                    
+                                    
+                                    return true
+                                }
+                                return false
+                            }
+                        }
+                        
+                    }
+                    j += 1
+                }
+                i += 1
+            }
+            
+        }
+
         return false
     }
 
