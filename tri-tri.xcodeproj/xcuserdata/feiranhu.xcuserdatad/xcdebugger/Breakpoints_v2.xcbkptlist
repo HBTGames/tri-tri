@@ -641,12 +641,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "517222485.990663"
+            timestampString = "517225188.580114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7475"
-            endingLineNumber = "7475"
-            landmarkName = "Find_Any_Dark_Green_Tri(row:column:)"
+            startingLineNumber = "7487"
+            endingLineNumber = "7487"
+            landmarkName = "Find_Any_Available_Brown_Left_Tri(row:column:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -657,12 +657,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tri-tri/GameBoardViewController.swift"
-            timestampString = "517222497.79347"
+            timestampString = "517225188.580114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7476"
-            endingLineNumber = "7476"
-            landmarkName = "Find_Any_Dark_Green_Tri(row:column:)"
+            startingLineNumber = "7488"
+            endingLineNumber = "7488"
+            landmarkName = "Find_Any_Available_Brown_Left_Tri(row:column:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

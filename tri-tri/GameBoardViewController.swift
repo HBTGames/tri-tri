@@ -7131,6 +7131,11 @@ number_of_lines_erased += 1
                 
                 }
                 
+                bool_any_brown_right_downwards_tri = Find_Any_Available_Brown_Right_Downwards_Tri(row: i, column: j)
+                if(bool_any_brown_right_downwards_tri){
+                    shape_placable_array[10] = true
+                }
+                
                 j += 1
                 
     }
@@ -7165,6 +7170,7 @@ number_of_lines_erased += 1
                 bool_any_purple_upwards_tri = Find_Any_Purple_Upwards_Tri(row: i, column: j)
                 bool_any_purple_downwards_tri = Find_Any_Purple_Downwards_Tri(row: i, column: j)
                 bool_any_brown_left_downwards_tri = Find_Any_Available_Brown_Left_Downwards_Tri(row: i, column: j)
+                bool_any_brown_right_downwards_tri = Find_Any_Available_Brown_Right_Downwards_Tri(row: i, column: j)
                 if(bool_any_dark_green_tri){
                  print("dark green available at \(i) , \(j)")
                 }
@@ -7189,6 +7195,8 @@ number_of_lines_erased += 1
                     bool_pos0_shape_available = bool_any_purple_downwards_tri
                 }else if(shape_type_index[0] == 9){
                      bool_pos0_shape_available = bool_any_brown_left_downwards_tri
+                }else if(shape_type_index[0] == 10){
+                    bool_pos0_shape_available = bool_any_brown_right_downwards_tri
                 }
                 
                 }else{
@@ -7216,6 +7224,8 @@ number_of_lines_erased += 1
                     bool_pos1_shape_available = bool_any_purple_downwards_tri
                 }else if(shape_type_index[0] == 9){
                     bool_pos1_shape_available = bool_any_brown_left_downwards_tri
+                }else if(shape_type_index[0] == 10){
+                    bool_pos1_shape_available = bool_any_brown_right_downwards_tri
                     }
 
                 }else{
@@ -7243,6 +7253,8 @@ number_of_lines_erased += 1
                     bool_pos2_shape_available = bool_any_purple_downwards_tri
                 }else if(shape_type_index[0] == 9){
                     bool_pos2_shape_available = bool_any_brown_left_downwards_tri
+                }else if(shape_type_index[0] == 10){
+                    bool_pos2_shape_available = bool_any_brown_right_downwards_tri
                     }
 
                 }else{
@@ -7883,10 +7895,92 @@ number_of_lines_erased += 1
      func Find_Any_Available_Brown_Right_Downwards_Tri (row: Int, column:Int) -> Bool{
         if(row == 0){
             if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row+1][column+1]){
+                    return true
+                }
+            }else{
+                if(!filled[row][column] && !filled[row][column+1] && !filled[row+1][column+2]){
+                    return true
+                }
+            }
+        }
+        else if (row == 1){
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row+1][column+1]){
+                    return true
+                }
+            }else{
+                //up to down
+                if(!filled[row][column] && !filled[row][column+1] && !filled[row+1][column+2]){
+                    return true
+                }
+                if(column != 1 && !filled[row][column] && !filled[row-1][column-2] && !filled[row-1][column-1]){
+                    return true
+                }
                 
+        }
+        }
+        else if(row == 2){
+            if(column%2 == 0){
+                if(column != 0 && !filled[row][column] && !filled[row][column-1] && !filled[row+1][column]){
+                    return true
+                }
+            }else{
+                if(!filled[row][column] && !filled[row][column+1] && !filled[row+1][column+1]){
+                    return true
+                }
+                if(column != 1 && !filled[row][column] && !filled[row-1][column-2] && !filled[row-1][column-1]){
+                    return true
+                }
+            }
+        }
+        else if(row == 3){
+            //downwards tri
+            if(column%2 == 0){
+             //up to down
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row+1][column]){
+                    return true
+                }
+             //down to up
+                if(column != 0 && !filled[row][column] && !filled[row-1][column-1] && !filled[row-1][column]){
+                    return true
+                }
+            }else{
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row+1][column-1]){
+                    return true
+                }
             }
             
-        
+        }
+        else if(row == 4){
+            //upwards 
+            if(column%2 == 0){
+                //up to down
+                if(column != filled[row].count-1 && !filled[row][column] && !filled[row][column+1] && !filled[row+1][column]){
+                    return true
+                }
+                //down to up
+                if(!filled[row][column] && !filled[row-1][column] && !filled[row-1][column+1]){
+                    return true
+                }
+                
+            }else{
+                if(!filled[row][column] && !filled[row][column-1] && !filled[row+1][column-1]){
+                    return true
+                }
+                
+            }
+        }
+        else if(row == 5){
+            //upwards
+            if(column%2 == 0){
+                //down to up
+                if(!filled[row][column] && !filled[row-1][column] && !filled[row-1][column+1]){
+                    return true
+                }
+            }
+            
+            
         }
         
         
