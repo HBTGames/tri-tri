@@ -8044,7 +8044,7 @@ number_of_lines_erased += 1
         //add animation
 
             UIView.animate(withDuration: 0.2, animations: {
-            self.MarkBoard.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            self.MarkBoard.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }, completion: {
                 (finished) -> Void in
                 UIView.animate(withDuration: 0.1, animations: {
