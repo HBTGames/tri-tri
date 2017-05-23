@@ -8122,15 +8122,15 @@ func randomNumber(probabilities: [Double]) -> Int {
 }
     
     func randomShape_for_Difficulty_Level () -> Int{
-        if(score <= 200){
+        if(score <= 500){
         // 0: 1/10 1: 1/10 2:1/10 3:1/10 4:1/8 5:1/20 6:1/8 7:3/20 8:3/20
-          return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.05, 0.09, 0.11, 0.11, 0.09 , 0.09])
+          return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.01, 0.09, 0.13, 0.13, 0.09 , 0.09])
         }
-        else if(score > 200 && score <= 600){
+        else if(score > 500 && score <= 2000){
           return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.125, 0.1, 0.125, 0.125, 0.125, 0.125, 0.125])
-        }else if(score > 600 && score <= 1500){
+        }else if(score > 2000 && score <= 3000){
            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.15, 0.1, 0.125, 0.125, 0.124, 0.125])
-        }else if(score > 1500 && score <= 2500){
+        }else if(score > 3000 && score <= 4000){
             return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.2, 0.1, 0.1, 0.1, 0.1, 0.1])
         }else{
             return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.075, 0.3, 0.075, 0.075, 0.075, 0.075, 0.075])

@@ -232,8 +232,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1013"
             endingLineNumber = "1013"
-            landmarkName = "GameBoardViewController"
-            landmarkType = "3">
+            landmarkName = "panGestureRecognizerAction(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -630,7 +630,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "612"
             endingLineNumber = "612"
-            landmarkName = "didReceiveMemoryWarning()"
+            landmarkName = "background_music_continue()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -646,8 +646,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7487"
             endingLineNumber = "7487"
-            landmarkName = "Find_Any_Available_Brown_Left_Tri(row:column:)"
-            landmarkType = "7">
+            landmarkName = "GameBoardViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
