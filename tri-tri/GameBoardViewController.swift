@@ -107,6 +107,9 @@ class GameBoardViewController: UIViewController {
     //start from 1
     var ThemeType = 1
     
+    //store lines erased
+    var number_of_lines_erased = 0
+    
     class MyButton: UIButton {
         var action: (()->())?
         
@@ -912,7 +915,7 @@ class GameBoardViewController: UIViewController {
                 modify_counter(before: cond_before_insert, after: cond_before_erase)
                 Check_and_Erase()
                 let cond_after_erase = filled
-                modify_counter(before: cond_before_erase, after: cond_after_erase)
+                modify_counter_after_erase(before: cond_before_erase, after: cond_after_erase)
                //if the triangles are fit
                 if (position_in_use == 0){
                     green_drag_tri.frame.origin = green_drag_origin
@@ -5453,8 +5456,10 @@ class GameBoardViewController: UIViewController {
         erase_situation_16 = []
         erase_situation_17 = []
         
+        number_of_lines_erased = 0
         if(filled[0][0]&&filled[0][1]&&filled[0][2]&&filled[0][3]&&filled[0][4]&&filled[0][5]&&filled[0][6]){
           situation0 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 0)
             reorder(loc: center_loc, index: 0)
             UIView.animate(withDuration: 0.1, animations: {
@@ -5511,6 +5516,7 @@ class GameBoardViewController: UIViewController {
         if(filled[1][0]&&filled[1][1]&&filled[1][2]&&filled[1][3]&&filled[1][4]&&filled[1][5]&&filled[1][6]&&filled[1][7]&&filled[1][8]){
  
          situation1 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 1)
             reorder(loc: center_loc, index: 1)
             //animation
@@ -5581,6 +5587,7 @@ class GameBoardViewController: UIViewController {
             
             
             situation2 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 2)
             reorder(loc: center_loc, index: 2)
             //animation
@@ -5661,6 +5668,7 @@ class GameBoardViewController: UIViewController {
         if(filled[3][0]&&filled[3][1]&&filled[3][2]&&filled[3][3]&&filled[3][4]&&filled[3][5]&&filled[3][6]&&filled[3][7]&&filled[3][8]&&filled[3][9]&&filled[3][10]){
 
             situation3 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 3)
             reorder(loc: center_loc, index: 3)
             //animation
@@ -5741,6 +5749,7 @@ class GameBoardViewController: UIViewController {
             
 
            situation4 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 4)
             reorder(loc: center_loc, index: 4)
             UIView.animate(withDuration: 0.1, animations: {
@@ -5808,6 +5817,7 @@ class GameBoardViewController: UIViewController {
 
  
             situation5 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 5)
             reorder(loc: center_loc, index: 5)
             UIView.animate(withDuration: 0.1, animations: {
@@ -5865,6 +5875,7 @@ class GameBoardViewController: UIViewController {
 
 
             situation6 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 6)
             reorder(loc: center_loc, index: 6)
             UIView.animate(withDuration: 0.1, animations: {
@@ -5918,6 +5929,7 @@ class GameBoardViewController: UIViewController {
 
 
  situation7 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 7)
             reorder(loc: center_loc, index: 7)
             //animation
@@ -5989,6 +6001,7 @@ class GameBoardViewController: UIViewController {
         }
         if(filled[0][0]&&filled[1][1]&&filled[1][2]&&filled[2][3]&&filled[2][4]&&filled[3][4]&&filled[3][5]&&filled[4][4]&&filled[4][5]&&filled[5][4]&&filled[5][5]){
  situation8 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 8)
             reorder(loc: center_loc, index: 8)
             //animation
@@ -6075,6 +6088,7 @@ class GameBoardViewController: UIViewController {
         if(filled[0][1]&&filled[0][2]&&filled[1][3]&&filled[1][4]&&filled[2][5]&&filled[2][6]&&filled[3][6]&&filled[3][7]&&filled[4][6]&&filled[4][7]&&filled[5][6]){
 
              situation9 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 9)
             reorder(loc: center_loc, index: 9)
             //animation
@@ -6159,6 +6173,7 @@ class GameBoardViewController: UIViewController {
 
 
              situation10 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 10)
             reorder(loc: center_loc, index: 10)
             //animation
@@ -6227,6 +6242,7 @@ class GameBoardViewController: UIViewController {
 
 
  situation11 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 11)
             reorder(loc: center_loc, index: 11)
             //animation
@@ -6284,6 +6300,7 @@ class GameBoardViewController: UIViewController {
         if(filled[0][0]&&filled[0][1]&&filled[1][0]&&filled[1][1]&&filled[2][0]&&filled[2][1]&&filled[3][0]){
 
  situation12 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 12)
             reorder(loc: center_loc, index: 12)
             //animation
@@ -6340,7 +6357,7 @@ class GameBoardViewController: UIViewController {
         
         if(filled[0][2]&&filled[0][3]&&filled[1][2]&&filled[1][3]&&filled[2][2]&&filled[2][3]&&filled[3][1]&&filled[3][2]&&filled[4][0]){
  situation13 = true
-
+number_of_lines_erased += 1
             //animation
             let center_loc = get_center_tri(index: 13)
             reorder(loc: center_loc, index: 13)
@@ -6409,6 +6426,7 @@ class GameBoardViewController: UIViewController {
         if(filled[0][4]&&filled[0][5]&&filled[1][4]&&filled[1][5]&&filled[2][4]&&filled[2][5]&&filled[3][3]&&filled[3][4]&&filled[4][1]&&filled[4][2]&&filled[5][0]){
 
  situation14 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 14)
             reorder(loc: center_loc, index: 14)
         
@@ -6488,6 +6506,7 @@ class GameBoardViewController: UIViewController {
         if(filled[0][6]&&filled[1][6]&&filled[1][7]&&filled[2][6]&&filled[2][7]&&filled[3][5]&&filled[3][6]&&filled[4][3]&&filled[4][4]&&filled[5][1]&&filled[5][2]){
 
  situation15 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 15)
             reorder(loc: center_loc, index: 15)
             //animation
@@ -6570,6 +6589,7 @@ class GameBoardViewController: UIViewController {
         if(filled[1][8]&&filled[2][8]&&filled[2][9]&&filled[3][7]&&filled[3][8]&&filled[4][5]&&filled[4][6]&&filled[5][3]&&filled[5][4]){
 
  situation16 = true
+            number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 16)
             reorder(loc: center_loc, index: 16)
             //animation
@@ -6636,7 +6656,7 @@ class GameBoardViewController: UIViewController {
         
         if(filled[2][10]&&filled[3][9]&&filled[3][10]&&filled[4][7]&&filled[4][8]&&filled[5][5]&&filled[5][6]){
  situation17 = true
-
+number_of_lines_erased += 1
             let center_loc = get_center_tri(index: 17)
             reorder(loc: center_loc, index: 17)
             //animation
@@ -7944,7 +7964,50 @@ class GameBoardViewController: UIViewController {
         }
         
     }
-    
+    func modify_counter_after_erase(before: Array<Array<Bool>>, after: Array<Array<Bool>>) -> Void{
+        if  number_of_lines_erased  == 0{
+            return
+        }
+        var current_str = MarkBoard.text!
+        var current_int = Int(current_str)!
+        var increment = 0
+        var i = 0
+        for eachRow in before{
+            var j = 0
+            for _ in eachRow{
+                if before[i][j] != after[i][j]{
+                    increment += 1
+                }
+                j+=1
+            }
+            i+=1
+        }
+        increment *= number_of_lines_erased
+        current_int += increment
+        score = current_int
+        current_str = String(current_int)
+        MarkBoard.text = current_str
+        //add animation
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.MarkBoard.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+        }, completion: {
+            (finished) -> Void in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.MarkBoard.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }, completion: nil)
+        })
+        
+        if(current_int > HighestScore){
+            HighestScore = current_int
+            HightestScoreBoard.text = String(HighestScore)
+            var HighScoreDefault = UserDefaults.standard
+            HighScoreDefault.set(HighestScore, forKey: "tritri_HighestScore")
+            HighScoreDefault.synchronize()
+            
+        }
+        
+    }
 
 func randomNumber(probabilities: [Double]) -> Int {
             
