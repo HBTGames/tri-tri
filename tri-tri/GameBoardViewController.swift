@@ -92,7 +92,7 @@ class GameBoardViewController: UIViewController {
     }
 // each int inside array reprensents shape index
 //every shape is the same name as they are in Assets.xcassets file
-//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction 7 purple upwards  8 purple downwards
+//shape index 0: 绿色tri  index 1: 橙色tri index 2: 棕色tri index 3:brown_downwards 4:brown_left_direction 5:dark_green_tri 6:pink_right_direction 7 purple upwards  8 purple downwards 9 brown_left_downwards 10 brown_right_downwards
     
     var shape_type_index : Array<Int> = [0 , 0, 0]
     //indicate pause
@@ -244,7 +244,7 @@ class GameBoardViewController: UIViewController {
     
     //--------------------------------------------------------------------------------------------------------------------------
     //initialize an array for random generator
-    var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!,UIImage(named:"purple_upwards_as_shape.png")!,UIImage(named:"purple_downwards_as_shape")!]
+    var generator_array : Array<UIImage> = [UIImage(named:"绿色tri.png")!,UIImage(named:"橙色tri.png")!,UIImage(named:"棕色tri.png")!,UIImage(named:"brown_downwards.png")!,UIImage(named:"brown_left_direction.png")!,UIImage(named:"dark_green_tri.png")!,UIImage(named:"pink_right_direction.png")!,UIImage(named:"purple_upwards_as_shape.png")!,UIImage(named:"purple_downwards_as_shape")!, UIImage(named:"brown_left_downwards.png")!, UIImage(named: "brown_right_downwards.png")!]
     
     //--------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var HightestScoreBoard: UILabel!
@@ -3317,6 +3317,7 @@ class GameBoardViewController: UIViewController {
         while(!end_loop){
             position_index = Int(arc4random_uniform(UInt32(3)))
             random_shape_index = randomShape_for_Difficulty_Level ()
+            //need rewrite later
             if(shape_placable_array[random_shape_index]){
                 end_loop = true
             }
@@ -6730,7 +6731,7 @@ class GameBoardViewController: UIViewController {
     var pink_right_result = false
     var purple_upwards_result = false
     var purple_downwards_result = false
-    var shape_placable_array : Array<Bool> = [false, false, false, false, false,false,false,false,false]
+    var shape_placable_array : Array<Bool> = [false, false, false, false, false,false,false,false,false, false, false]
     
     //the funciton to find available space and autogenerate
     func Check_for_Placable_Shape_And_Generate () -> Void {
@@ -7540,18 +7541,18 @@ func randomNumber(probabilities: [Double]) -> Int {
 }
     
     func randomShape_for_Difficulty_Level () -> Int{
-        if(score <= 50){
+        if(score <= 200){
         // 0: 1/10 1: 1/10 2:1/10 3:1/10 4:1/8 5:1/20 6:1/8 7:3/20 8:3/20
-          return randomNumber(probabilities: [0.1, 0.1 , 0.11 , 0.11, 0.135, 0.01, 0.135, 0.16, 0.16])
+          return randomNumber(probabilities: [0.09, 0.09 , 0.09 , 0.09, 0.09, 0.05, 0.09, 0.11, 0.11, 0.09 , 0.09])
         }
-        else if(score > 50 && score <= 200){
-          return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.125, 0.1, 0.125, 0.125, 0.125])
-        }else if(score > 200 && score <= 300){
-           return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.15, 0.1, 0.125, 0.125])
-        }else if(score > 300 && score <= 400){
-            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.2, 0.1, 0.1, 0.1])
+        else if(score > 200 && score <= 600){
+          return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.125, 0.1, 0.125, 0.125, 0.125, 0.125, 0.125])
+        }else if(score > 600 && score <= 1500){
+           return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.15, 0.1, 0.125, 0.125, 0.124, 0.125])
+        }else if(score > 1500 && score <= 2500){
+            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.1, 0.2, 0.1, 0.1, 0.1, 0.1, 0.1])
         }else{
-            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.075, 0.3, 0.075, 0.075, 0.075])
+            return randomNumber(probabilities: [0.1, 0.1 , 0.1 , 0.1, 0.075, 0.3, 0.075, 0.075, 0.075, 0.075, 0.075])
         }
         
     }
